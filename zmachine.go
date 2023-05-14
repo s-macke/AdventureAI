@@ -1,27 +1,13 @@
 package main
 
 import (
-	"bufio"
 	"bytes"
-	"flag"
 	"fmt"
+	"io"
 	"math/rand"
-	"os"
-	"strconv"
 	"strings"
 	"time"
 )
-
-type ZHeader struct {
-	version           uint8
-	hiMemBase         uint16
-	ip                uint16
-	dictAddress       uint32
-	objTableAddress   uint32
-	globalVarAddress  uint32
-	staticMemAddress  uint32
-	abbreviationTable uint32
-}
 
 const (
 	OPERAND_LARGE    = 0x0
@@ -45,21 +31,6 @@ const (
 	DICT_NOT_FOUND = 0
 )
 
-type ZStack struct {
-	stack      []uint16
-	top        int
-	localFrame int
-}
-
-func NewStack() *ZStack {
-	s := new(ZStack)
-	s.stack = make([]uint16, MAX_STACK)
-	s.top = MAX_STACK
-	s.localFrame = s.top
-
-	return s
-}
-
 type ZMachine struct {
 	ip         uint32
 	header     ZHeader
@@ -67,123 +38,17 @@ type ZMachine struct {
 	stack      *ZStack
 	localFrame uint16
 	done       bool
+	output     strings.Builder
+	input      func() string
 }
 
 type ZFunction func(*ZMachine, []uint16, uint16)
 type ZFunction1Op func(*ZMachine, uint16)
 type ZFunction0Op func(*ZMachine)
 
-func DebugPrintf(format string, v ...interface{}) {
-	//fmt.Printf(format, v...)
-}
-
 var alphabets = []string{"abcdefghijklmnopqrstuvwxyz",
 	"ABCDEFGHIJKLMNOPQRSTUVWXYZ",
 	" \n0123456789.,!?_#'\"/\\-:()"}
-
-func (s *ZStack) Push(value uint16) {
-	if s.top == 0 {
-		panic("Stack overflow")
-	}
-	s.top--
-	s.stack[s.top] = value
-}
-
-func (s *ZStack) Pop() uint16 {
-	if s.top == MAX_STACK {
-		panic("Trying to pop from empty stack")
-	}
-	retValue := s.stack[s.top]
-
-	s.top++
-	return retValue
-}
-
-func (s *ZStack) Reset(newTop int) {
-	if newTop > MAX_STACK || newTop < 0 {
-		panic("Invalid stack top value")
-	}
-	s.top = newTop
-}
-
-func (s *ZStack) GetTopItem() uint16 {
-	return s.stack[s.top]
-}
-
-func (s *ZStack) SaveFrame() {
-	s.Push(uint16(s.localFrame))
-	s.localFrame = s.top
-}
-
-// Returns caller address (where to return to)
-func (s *ZStack) RestoreFrame() uint32 {
-
-	// Discard local frame
-	s.top = s.localFrame
-	// Restore previous frame
-	s.localFrame = int(s.Pop())
-
-	retLo := s.Pop()
-	retHi := s.Pop()
-
-	return (uint32(retHi) << 16) | uint32(retLo)
-}
-
-func (s *ZStack) ValidateLocalVarIndex(localVarIndex int) {
-	if localVarIndex > 0xF {
-		panic("Local var index out of bounds")
-	}
-	if s.localFrame < localVarIndex {
-		panic("Stack underflow")
-	}
-}
-func (s *ZStack) GetLocalVar(localVarIndex int) uint16 {
-	s.ValidateLocalVarIndex(localVarIndex)
-	stackIndex := (s.localFrame - localVarIndex) - 1
-	r := s.stack[stackIndex]
-	return r
-}
-
-func (s *ZStack) SetLocalVar(localVarIndex int, value uint16) {
-	s.ValidateLocalVarIndex(localVarIndex)
-	stackIndex := (s.localFrame - localVarIndex) - 1
-	s.stack[stackIndex] = value
-}
-
-func (s *ZStack) Dump() {
-	DebugPrintf("Top = %d, local frame = %d\n", s.top, s.localFrame)
-
-	for i := MAX_STACK - 1; i >= s.top; i-- {
-		if i == s.localFrame {
-			DebugPrintf("0x%X: 0x%X <------ local frame\n", i, s.stack[i])
-		} else {
-			DebugPrintf("0x%X: 0x%X\n", i, s.stack[i])
-		}
-	}
-}
-
-func GetUint16(buf []byte, offset uint32) uint16 {
-	return (uint16(buf[offset]) << 8) | (uint16)(buf[offset+1])
-}
-
-func GetUint32(buf []byte, offset uint32) uint32 {
-	return (uint32(buf[offset]) << 24) | (uint32(buf[offset+1]) << 16) | (uint32(buf[offset+2]) << 8) | uint32(buf[offset+3])
-}
-
-func (h *ZHeader) read(buf []byte) {
-
-	h.version = buf[0]
-	h.hiMemBase = GetUint16(buf, 4)
-	h.ip = GetUint16(buf, 6)
-	h.dictAddress = uint32(GetUint16(buf, 0x8))
-	h.objTableAddress = uint32(GetUint16(buf, 0xA))
-	h.globalVarAddress = uint32(GetUint16(buf, 0xC))
-	h.staticMemAddress = uint32(GetUint16(buf, 0xE))
-	h.abbreviationTable = uint32(GetUint16(buf, 0x18))
-
-	DebugPrintf("End of dyn mem: 0x%X\n", h.staticMemAddress)
-	DebugPrintf("Global vars: 0x%X\n", h.globalVarAddress)
-}
 
 // Doesn't modify IP
 func (zm *ZMachine) PeekByte() uint8 {
@@ -582,7 +447,6 @@ func ZPutProp(zm *ZMachine, args []uint16, numArgs uint16) {
 }
 
 func ZRead(zm *ZMachine, args []uint16, numArgs uint16) {
-
 	textAddress := args[0]
 	maxChars := uint16(zm.buf[textAddress])
 	if maxChars == 0 {
@@ -590,8 +454,9 @@ func ZRead(zm *ZMachine, args []uint16, numArgs uint16) {
 	}
 	maxChars--
 
-	reader := bufio.NewReader(os.Stdin)
-	input, _ := reader.ReadString('\n')
+	//reader := bufio.NewReader(os.Stdin)
+	//input, _ := reader.ReadString('\n')
+	input := zm.input()
 
 	input = strings.ToLower(input)
 	input = strings.Trim(input, "\r\n")
@@ -660,11 +525,11 @@ func ZRead(zm *ZMachine, args []uint16, numArgs uint16) {
 
 func ZPrintChar(zm *ZMachine, args []uint16, numArgs uint16) {
 	ch := args[0]
-	PrintZChar(ch)
+	PrintZChar(&zm.output, ch)
 }
 
 func ZPrintNum(zm *ZMachine, args []uint16, numArgs uint16) {
-	fmt.Printf("%d", int16(args[0]))
+	_, _ = fmt.Fprintf(&zm.output, "%d", int16(args[0]))
 }
 
 // If range is positive, returns a uniformly random number between 1 and range.
@@ -1019,7 +884,8 @@ func ZPrint(zm *ZMachine) {
 
 func ZPrintRet(zm *ZMachine) {
 	zm.ip = zm.DecodeZString(zm.ip)
-	fmt.Printf("\n")
+
+	_, _ = fmt.Fprintf(&zm.output, "\n")
 	ZRet(zm, 1)
 }
 
@@ -1037,7 +903,7 @@ func ZQuit(zm *ZMachine) {
 }
 
 func ZNewLine(zm *ZMachine) {
-	fmt.Printf("\n")
+	_, _ = fmt.Fprintf(&zm.output, "\n")
 }
 
 func ZNOP0(zm *ZMachine) {
@@ -1340,13 +1206,14 @@ func (zm *ZMachine) EncodeText(txt string) uint32 {
 	return (uint32(encodedWords[0]) << 16) | uint32(encodedWords[1])
 }
 
-func (zm *ZMachine) Initialize(buffer []uint8, header ZHeader) {
+func NewZMachine(buffer []uint8, header ZHeader) *ZMachine {
+	zm := new(ZMachine)
 	zm.buf = buffer
 	zm.header = header
 	zm.ip = uint32(header.ip)
 	zm.stack = NewStack()
-
 	//zm.TestDictionary()
+	return zm
 }
 
 // Return DICT_NOT_FOUND (= 0) if not found
@@ -1394,11 +1261,11 @@ func (zm *ZMachine) GetPropertyDefault(propertyIndex uint16) uint16 {
 	return GetUint16(zm.buf, zm.header.objTableAddress+uint32(propertyIndex*2))
 }
 
-func PrintZChar(ch uint16) {
+func PrintZChar(output io.Writer, ch uint16) {
 	if ch == 13 {
-		fmt.Printf("\n")
+		_, _ = fmt.Fprintf(output, "\n")
 	} else if ch >= 32 && ch <= 126 { // ASCII
-		fmt.Printf("%c", ch)
+		_, _ = fmt.Fprintf(output, "%c", ch)
 	} // else ... do not bother
 }
 
@@ -1407,7 +1274,7 @@ func PrintZChar(ch uint16) {
 func (zm *ZMachine) DecodeZString(startOffset uint32) uint32 {
 
 	done := false
-	zchars := []uint8{}
+	var zchars []uint8
 
 	i := startOffset
 	for !done {
@@ -1455,7 +1322,7 @@ func (zm *ZMachine) DecodeZString(startOffset uint32) uint32 {
 		if alphabetType == 2 && zc == 6 {
 
 			zc10 := (uint16(zchars[i+1]) << 5) | uint16(zchars[i+2])
-			PrintZChar(zc10)
+			PrintZChar(&zm.output, zc10)
 
 			i += 2
 
@@ -1464,38 +1331,15 @@ func (zm *ZMachine) DecodeZString(startOffset uint32) uint32 {
 		}
 
 		if zc == 0 {
-			fmt.Printf(" ")
+			_, _ = fmt.Fprintf(&zm.output, " ")
 		} else {
 			// If we're here zc >= 6. Alphabet tables are indexed starting at 6
 			aindex := zc - 6
-			fmt.Printf("%c", alphabets[alphabetType][aindex])
+			_, _ = fmt.Fprintf(&zm.output, "%c", alphabets[alphabetType][aindex])
 		}
 
 		alphabetType = 0
 	}
 
 	return i
-}
-
-func main() {
-	filename := flag.String("file", "zork1.dat", "Z-Machine file to run")
-	flag.Parse()
-	buffer, err := os.ReadFile(*filename)
-	if err != nil {
-		panic(err)
-	}
-
-	var header ZHeader
-	header.read(buffer)
-
-	if header.version != 3 {
-		panic("Only Version 3 files supported. But found version " + strconv.Itoa(int(header.version)))
-	}
-
-	var zm ZMachine
-	zm.Initialize(buffer, header)
-
-	for !zm.done {
-		zm.InterpretInstruction()
-	}
 }
