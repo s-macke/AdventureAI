@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"flag"
+	"fmt"
 	"os"
 	"strconv"
 )
@@ -12,12 +13,13 @@ func Init(filename string) *ZMachine {
 	if err != nil {
 		panic(err)
 	}
+	fmt.Printf("Read %d bytes\n", len(buffer))
 
 	var header ZHeader
 	header.read(buffer)
 
-	if header.version != 3 {
-		panic("Only Version 3 files supported. But found version " + strconv.Itoa(int(header.version)))
+	if header.version != 3 && header.version != 5 {
+		panic("Only Version 3 and 5 files supported. But found version " + strconv.Itoa(int(header.version)))
 	}
 
 	zm := NewZMachine(buffer, header)
@@ -35,17 +37,17 @@ func main() {
 	flag.Parse()
 
 	zm := Init(*filename)
-	chat(zm)
-	return
-	/*
-		zm.input = Input
+	//chat(zm)
+	//return
 
-		for !zm.done {
-			zm.InterpretInstruction()
-			if zm.output.Len() > 0 {
-				_, _ = os.Stdout.WriteString(zm.output.String())
-				zm.output.Reset()
-			}
+	zm.input = Input
+
+	for !zm.done {
+		zm.InterpretInstruction()
+		if zm.output.Len() > 0 {
+			_, _ = os.Stdout.WriteString(zm.output.String())
+			zm.output.Reset()
 		}
-	*/
+	}
+
 }

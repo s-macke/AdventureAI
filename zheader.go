@@ -1,7 +1,10 @@
 package main
 
+// https://www.inform-fiction.org/zmachine/standards/z1point1/sect11.html
 type ZHeader struct {
 	version           uint8
+	flags             uint8
+	flags2            uint8
 	hiMemBase         uint16
 	ip                uint16
 	dictAddress       uint32
@@ -13,8 +16,10 @@ type ZHeader struct {
 
 func (h *ZHeader) read(buf []byte) {
 	h.version = buf[0]
+	h.flags = buf[1]
+	h.flags2 = buf[16]
 	h.hiMemBase = GetUint16(buf, 4)
-	h.ip = GetUint16(buf, 6)
+	h.ip = GetUint16(buf, 6) // Initial value of program counter
 	h.dictAddress = uint32(GetUint16(buf, 0x8))
 	h.objTableAddress = uint32(GetUint16(buf, 0xA))
 	h.globalVarAddress = uint32(GetUint16(buf, 0xC))
@@ -22,6 +27,8 @@ func (h *ZHeader) read(buf []byte) {
 	h.abbreviationTable = uint32(GetUint16(buf, 0x18))
 
 	DebugPrintf("Version: %d\n", h.version)
+	DebugPrintf("Flags: %08b\n", h.flags)
+	DebugPrintf("Flags2: %08b\n", h.flags2)
 	DebugPrintf("Hi mem base: 0x%X\n", h.hiMemBase)
 	DebugPrintf("IP: 0x%X\n", h.ip)
 	DebugPrintf("Dict: 0x%X\n", h.dictAddress)

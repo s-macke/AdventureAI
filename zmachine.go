@@ -1,5 +1,8 @@
 package main
 
+// https://gitlab.com/DavidGriffith/frotz/
+// https://www.inform-fiction.org/zmachine/standards/
+
 import (
 	"bytes"
 	"fmt"
@@ -46,7 +49,8 @@ type ZFunction func(*ZMachine, []uint16, uint16)
 type ZFunction1Op func(*ZMachine, uint16)
 type ZFunction0Op func(*ZMachine)
 
-var alphabets = []string{"abcdefghijklmnopqrstuvwxyz",
+var alphabets = []string{
+	"abcdefghijklmnopqrstuvwxyz",
 	"ABCDEFGHIJKLMNOPQRSTUVWXYZ",
 	" \n0123456789.,!?_#'\"/\\-:()"}
 
@@ -85,8 +89,11 @@ func (zm *ZMachine) SetUint16(offset uint32, v uint16) {
 // " Given a packed address P, the formula to obtain the corresponding byte address B is:
 //
 //	2P           Versions 1, 2 and 3"
-func PackedAddress(a uint32) uint32 {
-	return a * 2
+func (zm *ZMachine) PackedAddress(a uint32) uint32 {
+	if zm.header.version == 3 {
+		return a * 2
+	}
+	return a * 4
 }
 
 func (zm *ZMachine) ReadGlobal(x uint8) uint16 {
@@ -94,7 +101,7 @@ func (zm *ZMachine) ReadGlobal(x uint8) uint16 {
 		panic("Invalid global variable")
 	}
 
-	addr := PackedAddress(uint32(x) - 0x10)
+	addr := zm.PackedAddress(uint32(x) - 0x10)
 	ret := zm.GetUint16(zm.header.globalVarAddress + addr)
 
 	return ret
@@ -105,7 +112,7 @@ func (zm *ZMachine) SetGlobal(x uint16, v uint16) {
 		panic("Invalid global variable")
 	}
 
-	addr := PackedAddress(uint32(x) - 0x10)
+	addr := zm.PackedAddress(uint32(x) - 0x10)
 	zm.SetUint16(zm.header.globalVarAddress+addr, v)
 }
 
@@ -121,7 +128,7 @@ func (zm *ZMachine) GetObjectEntryAddress(objectIndex uint16) uint32 {
 	// Skip default props
 	objectEntryAddress := zm.header.objTableAddress + (31 * 2) + uint32(objectIndex*OBJECT_ENTRY_SIZE)
 
-	return uint32(objectEntryAddress)
+	return objectEntryAddress
 }
 
 func (zm *ZMachine) SetObjectProperty(objectIndex uint16, propertyId uint16, value uint16) {
@@ -382,6 +389,7 @@ func (zm *ZMachine) PrintObjectName(objectIndex uint16) {
 }
 
 func ZCall(zm *ZMachine, args []uint16, numArgs uint16) {
+	DebugPrintf("ZCall with numArgs %d and args %v\n", numArgs, args)
 	if numArgs == 0 {
 		panic("Data corruption, call instruction requires at least 1 argument")
 	}
@@ -390,7 +398,7 @@ func ZCall(zm *ZMachine, args []uint16, numArgs uint16) {
 	zm.stack.Push(uint16(zm.ip>>16) & 0xFFFF)
 	zm.stack.Push(uint16(zm.ip & 0xFFFF))
 
-	functionAddress := PackedAddress(uint32(args[0]))
+	functionAddress := zm.PackedAddress(uint32(args[0]))
 	DebugPrintf("Jumping to 0x%X [0x%X]\n", functionAddress, args[0])
 
 	zm.ip = functionAddress
@@ -400,7 +408,6 @@ func ZCall(zm *ZMachine, args []uint16, numArgs uint16) {
 
 	if zm.ip == 0 {
 		ZReturnFalse(zm)
-
 		return
 	}
 
@@ -921,6 +928,23 @@ var ZFunctions_VAR = []ZFunction{
 	ZRandom,
 	ZPush,
 	ZPull,
+	nil,
+	nil,
+	ZCall,
+	nil,
+	nil,
+	nil,
+	nil, // get cursor array
+	nil,
+	nil,
+	nil,
+	nil,
+	nil,
+	nil,
+	nil,
+	nil,   // not value -> (result)
+	ZCall, // call_vn routine
+	nil,
 }
 
 var ZFunctions_2OP = []ZFunction{
@@ -1128,14 +1152,17 @@ func (zm *ZMachine) InterpretLongInstruction() {
 func (zm *ZMachine) InterpretInstruction() {
 	opcode := zm.PeekByte()
 
-	DebugPrintf("IP: 0x%X - opcode: 0x%X\n", zm.ip, opcode)
 	// Form is stored in top 2 bits
 	// "If the top two bits of the opcode are $$11 the form is variable; if $$10, the form is short.
 	// If the opcode is 190 ($BE in hexadecimal) and the version is 5 or later, the form is "extended".
 	// Otherwise, the form is "long"."
 	form := (opcode >> 6) & 0x3
 
-	if form == 0x2 {
+	DebugPrintf("IP: 0x%X - opcode: 0x%X form: %02b\n", zm.ip, opcode, form)
+
+	if opcode == 0xBE && zm.header.version >= 5 {
+		panic("Extended not supported")
+	} else if form == 0x2 {
 		zm.InterpretShortInstruction()
 	} else if form == 0x3 {
 		zm.InterpretVARInstruction()
@@ -1212,8 +1239,31 @@ func NewZMachine(buffer []uint8, header ZHeader) *ZMachine {
 	zm.header = header
 	zm.ip = uint32(header.ip)
 	zm.stack = NewStack()
-	//zm.TestDictionary()
+	//zm.ListDictionary()
 	return zm
+}
+
+// https://www.inform-fiction.org/zmachine/standards/z1point1/sect13.html
+func (zm *ZMachine) ListDictionary() {
+
+	numSeparators := uint32(zm.buf[zm.header.dictAddress])
+	// followed by a list of keyboard input codes
+
+	// The "entry length" is the length of each word's entry in the dictionary table.
+	entryLength := uint16(zm.buf[zm.header.dictAddress+1+numSeparators])
+
+	numEntries := GetUint16(zm.buf, zm.header.dictAddress+1+numSeparators+1)
+	fmt.Println(numSeparators, entryLength, numEntries)
+
+	entriesAddress := zm.header.dictAddress + 1 + numSeparators + 1 + 2
+	for i := uint16(0); i < numEntries; i++ {
+		foundAddress := entriesAddress + uint32(i*entryLength)
+		zm.DecodeZString(foundAddress)
+
+		fmt.Println(zm.output.String())
+		zm.output.Reset()
+		//fmt.Println(foundAddress)
+	}
 }
 
 // Return DICT_NOT_FOUND (= 0) if not found
@@ -1303,7 +1353,7 @@ func (zm *ZMachine) DecodeZString(startOffset uint32) uint32 {
 			// "If z is the first Z-character (1, 2 or 3) and x the subsequent one,
 			// then the interpreter must look up entry 32(z-1)+x in the abbreviations table"
 			abbrevAddress := GetUint16(zm.buf, zm.header.abbreviationTable+uint32(32*(zc-1)+abbrevIndex)*2)
-			zm.DecodeZString(PackedAddress(uint32(abbrevAddress)))
+			zm.DecodeZString(zm.PackedAddress(uint32(abbrevAddress)))
 
 			alphabetType = 0
 			i++

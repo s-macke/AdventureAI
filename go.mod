@@ -1,5 +1,5 @@
 module zmachine
 
-go 1.20
+go 1.19
 
-require github.com/sashabaranov/go-openai v1.9.4 // indirect
+require github.com/sashabaranov/go-openai v1.9.4
