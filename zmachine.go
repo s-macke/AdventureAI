@@ -25,13 +25,15 @@ const (
 	MAX_STACK  = 1024
 	MAX_OBJECT = 256
 
-	OBJECT_ENTRY_SIZE    = 9
-	OBJECT_PARENT_INDEX  = 4
-	OBJECT_SIBLING_INDEX = 5
-	OBJECT_CHILD_INDEX   = 6
-	NULL_OBJECT_INDEX    = 0
-
 	DICT_NOT_FOUND = 0
+)
+
+type ZCallType int
+
+const (
+	ZCallTypeStore ZCallType = 0 // call a subroutine and store its result
+	ZCallTypeN               = 1 // call a subroutine and discard its result.
+	//ZCallTypeDirect           = 2
 )
 
 type ZMachine struct {
@@ -72,11 +74,6 @@ func (zm *ZMachine) ReadUint16() uint16 {
 	return retVal
 }
 
-// We can only write to dynamic memory
-func (zm *ZMachine) IsSafeToWrite(address uint32) bool {
-	return address < zm.header.staticMemAddress
-}
-
 func (zm *ZMachine) GetUint16(offset uint32) uint16 {
 	return (uint16(zm.buf[offset]) << 8) | (uint16)(zm.buf[offset+1])
 }
@@ -90,7 +87,7 @@ func (zm *ZMachine) SetUint16(offset uint32, v uint16) {
 //
 //	2P           Versions 1, 2 and 3"
 func (zm *ZMachine) PackedAddress(a uint32) uint32 {
-	if zm.header.version == 3 {
+	if zm.header.version <= 3 {
 		return a * 2
 	}
 	return a * 4
@@ -114,339 +111,6 @@ func (zm *ZMachine) SetGlobal(x uint16, v uint16) {
 
 	addr := zm.PackedAddress(uint32(x) - 0x10)
 	zm.SetUint16(zm.header.globalVarAddress+addr, v)
-}
-
-func (zm *ZMachine) GetObjectEntryAddress(objectIndex uint16) uint32 {
-	if objectIndex > MAX_OBJECT || objectIndex == 0 {
-		fmt.Printf("Index: %d\n", objectIndex)
-		panic("Invalid object index")
-	}
-
-	// Convert from 1-based (0 = NULL = no object) to 0-based
-
-	objectIndex--
-	// Skip default props
-	objectEntryAddress := zm.header.objTableAddress + (31 * 2) + uint32(objectIndex*OBJECT_ENTRY_SIZE)
-
-	return objectEntryAddress
-}
-
-func (zm *ZMachine) SetObjectProperty(objectIndex uint16, propertyId uint16, value uint16) {
-
-	objectEntryAddress := uint32(zm.GetObjectEntryAddress(objectIndex))
-
-	propertiesAddress := GetUint16(zm.buf, objectEntryAddress+7)
-	nameLength := uint16(zm.buf[propertiesAddress]) * 2 // in 2-byte words
-
-	// Find property
-	found := false
-	propData := uint32(propertiesAddress + nameLength + 1)
-
-	for !found {
-		propSize := zm.buf[propData]
-		if propSize == 0 {
-			break
-		}
-		propData++
-		propNo := uint16(propSize & 0x1F)
-
-		// Props are sorted
-		if propNo < propertyId {
-			break
-		}
-
-		numBytes := (propSize >> 5) + 1
-		if propNo == propertyId {
-			found = true
-
-			if numBytes == 1 {
-				zm.buf[propData] = uint8(value & 0xFF)
-			} else if numBytes == 2 {
-				zm.SetUint16(propData, value)
-			} else {
-				panic("SetObjectProperty only supports 1/2 byte properties")
-			}
-		}
-		propData += uint32(numBytes)
-	}
-	if !found {
-		panic("Property not found!")
-	}
-}
-
-func (zm *ZMachine) GetFirstPropertyAddress(objectIndex uint16) uint16 {
-	objectEntryAddress := uint32(zm.GetObjectEntryAddress(objectIndex))
-	propertiesAddress := GetUint16(zm.buf, objectEntryAddress+7)
-	nameLength := uint16(zm.buf[propertiesAddress]) * 2 // in 2-byte words
-	propData := propertiesAddress + nameLength + 1
-
-	return propData
-}
-
-// Returns prop data address, number of property bytes
-// (0 if not found)
-func (zm *ZMachine) GetObjectPropertyInfo(objectIndex uint16, propertyId uint16) (uint16, uint16) {
-
-	propData := zm.GetFirstPropertyAddress(objectIndex)
-
-	// Find property
-	found := false
-
-	for !found {
-		propSize := zm.buf[propData]
-		if propSize == 0 {
-			break
-		}
-		propData++
-		propNo := uint16(propSize & 0x1F)
-
-		// Props are sorted
-		if propNo < propertyId {
-			break
-		}
-
-		numBytes := uint16(propSize>>5) + 1
-		if propNo == propertyId {
-			return propData, numBytes
-		}
-		propData += uint16(numBytes)
-	}
-	return uint16(0), uint16(0)
-}
-
-func (zm *ZMachine) GetObjectPropertyAddress(objectIndex uint16, propertyId uint16) uint16 {
-	address, _ := zm.GetObjectPropertyInfo(objectIndex, propertyId)
-	return address
-}
-
-func (zm *ZMachine) GetNextObjectProperty(objectIndex uint16, propertyId uint16) uint16 {
-
-	nextPropSize := uint8(0)
-
-	// " if called with zero, it gives the first property number present."
-	if propertyId == 0 {
-		propData := zm.GetFirstPropertyAddress(objectIndex)
-		nextPropSize = zm.buf[propData]
-	} else {
-		propData, numBytes := zm.GetObjectPropertyInfo(objectIndex, propertyId)
-		if propData == 0 {
-			panic("GetNextObjectProperty - non existent property")
-		}
-		nextPropSize = zm.buf[propData+numBytes]
-	}
-	// "zero, indicating the end of the property list"
-	if nextPropSize == 0 {
-		return 0
-	} else {
-		return uint16(nextPropSize & 0x1F)
-	}
-}
-
-func (zm *ZMachine) GetObjectProperty(objectIndex uint16, propertyId uint16) uint16 {
-
-	propData, numBytes := zm.GetObjectPropertyInfo(objectIndex, propertyId)
-	result := uint16(0)
-
-	if propData == 0 {
-		// Get a default one
-		result = zm.GetPropertyDefault(propertyId)
-		DebugPrintf("Default prop %d = 0x%X\n", propertyId, result)
-	} else {
-		if numBytes == 1 {
-			result = uint16(zm.buf[propData])
-		} else if numBytes == 2 {
-			result = GetUint16(zm.buf, uint32(propData))
-		} else {
-			panic("GetObjectProperty only supports 1/2 byte properties")
-		}
-	}
-
-	return result
-}
-
-// True if set
-func (zm *ZMachine) TestObjectAttr(objectIndex uint16, attribute uint16) bool {
-
-	if attribute > 31 {
-		panic("Attribute out of bounds")
-	}
-
-	objectEntryAddress := zm.GetObjectEntryAddress(objectIndex)
-
-	attribs := GetUint32(zm.buf, objectEntryAddress)
-	// 0: top bit
-	// 31: bottom bit
-	mask := uint32(1 << (31 - attribute))
-
-	return (attribs & mask) != 0
-}
-
-func (zm *ZMachine) SetObjectAttr(objectIndex uint16, attribute uint16) {
-
-	if attribute > 31 {
-		panic("Attribute out of bounds")
-	}
-
-	objectEntryAddress := zm.GetObjectEntryAddress(objectIndex)
-	byteIndex := uint32(attribute >> 3)
-	shift := 7 - (attribute & 0x7)
-
-	zm.buf[objectEntryAddress+byteIndex] |= (1 << shift)
-}
-
-func (zm *ZMachine) ClearObjectAttr(objectIndex uint16, attribute uint16) {
-
-	if attribute > 31 {
-		panic("Attribute out of bounds")
-	}
-
-	objectEntryAddress := zm.GetObjectEntryAddress(objectIndex)
-	byteIndex := uint32(attribute >> 3)
-	shift := 7 - (attribute & 0x7)
-
-	zm.buf[objectEntryAddress+byteIndex] &= ^(1 << shift)
-}
-
-func (zm *ZMachine) IsDirectParent(childIndex uint16, parentIndex uint16) bool {
-
-	return zm.GetParentObject(childIndex) == parentIndex
-}
-
-func (zm *ZMachine) GetParentObject(objectIndex uint16) uint16 {
-	objectEntryAddress := zm.GetObjectEntryAddress(objectIndex)
-
-	return uint16(zm.buf[objectEntryAddress+OBJECT_PARENT_INDEX])
-}
-
-// Unlink object from its parent
-func (zm *ZMachine) UnlinkObject(objectIndex uint16) {
-	objectEntryAddress := zm.GetObjectEntryAddress(objectIndex)
-	currentParentIndex := uint16(zm.buf[objectEntryAddress+OBJECT_PARENT_INDEX])
-
-	// Unlink from current parent first
-	if currentParentIndex != NULL_OBJECT_INDEX {
-		curParentAddress := zm.GetObjectEntryAddress(currentParentIndex)
-		// If we're the first child -> move to sibling
-		if uint16(zm.buf[curParentAddress+OBJECT_CHILD_INDEX]) == objectIndex {
-			zm.buf[curParentAddress+OBJECT_CHILD_INDEX] = zm.buf[objectEntryAddress+OBJECT_SIBLING_INDEX]
-		} else {
-			childIter := uint16(zm.buf[curParentAddress+OBJECT_CHILD_INDEX])
-			prevChild := uint16(NULL_OBJECT_INDEX)
-			for childIter != objectIndex && childIter != NULL_OBJECT_INDEX {
-				prevChild = childIter
-				childIter = zm.GetSibling(childIter)
-			}
-			// Sanity checks
-			if childIter == NULL_OBJECT_INDEX {
-				panic("Object not found on parent children list")
-			}
-			if prevChild == NULL_OBJECT_INDEX {
-				panic("Corrupted data")
-			}
-
-			prevSiblingAddress := zm.GetObjectEntryAddress(prevChild)
-			sibling := zm.buf[objectEntryAddress+OBJECT_SIBLING_INDEX]
-			zm.buf[prevSiblingAddress+OBJECT_SIBLING_INDEX] = sibling
-		}
-		zm.buf[objectEntryAddress+OBJECT_PARENT_INDEX] = NULL_OBJECT_INDEX
-	}
-}
-
-func (zm *ZMachine) ReparentObject(objectIndex uint16, newParentIndex uint16) {
-
-	objectEntryAddress := zm.GetObjectEntryAddress(objectIndex)
-	currentParentIndex := uint16(zm.buf[objectEntryAddress+OBJECT_PARENT_INDEX])
-
-	if currentParentIndex == newParentIndex {
-		return
-	}
-
-	zm.UnlinkObject(objectIndex)
-
-	// Make the first child of our new parent
-	newParentAddress := zm.GetObjectEntryAddress(newParentIndex)
-	zm.buf[objectEntryAddress+OBJECT_SIBLING_INDEX] = zm.buf[newParentAddress+OBJECT_CHILD_INDEX]
-	zm.buf[newParentAddress+OBJECT_CHILD_INDEX] = uint8(objectIndex)
-	zm.buf[objectEntryAddress+OBJECT_PARENT_INDEX] = uint8(newParentIndex)
-}
-
-func (zm *ZMachine) GetFirstChild(objectIndex uint16) uint16 {
-	objectEntryAddress := zm.GetObjectEntryAddress(objectIndex)
-
-	return uint16(zm.buf[objectEntryAddress+OBJECT_CHILD_INDEX])
-}
-
-func (zm *ZMachine) GetSibling(objectIndex uint16) uint16 {
-	objectEntryAddress := zm.GetObjectEntryAddress(objectIndex)
-
-	return uint16(zm.buf[objectEntryAddress+OBJECT_SIBLING_INDEX])
-}
-
-func (zm *ZMachine) PrintObjectName(objectIndex uint16) {
-	objectEntryAddress := zm.GetObjectEntryAddress(objectIndex)
-	propertiesAddress := uint32(GetUint16(zm.buf, objectEntryAddress+7))
-	zm.DecodeZString(propertiesAddress + 1)
-}
-
-func ZCall(zm *ZMachine, args []uint16, numArgs uint16) {
-	DebugPrintf("ZCall with numArgs %d and args %v\n", numArgs, args)
-	if numArgs == 0 {
-		panic("Data corruption, call instruction requires at least 1 argument")
-	}
-
-	// Save return address
-	zm.stack.Push(uint16(zm.ip>>16) & 0xFFFF)
-	zm.stack.Push(uint16(zm.ip & 0xFFFF))
-
-	functionAddress := zm.PackedAddress(uint32(args[0]))
-	DebugPrintf("Jumping to 0x%X [0x%X]\n", functionAddress, args[0])
-
-	zm.ip = functionAddress
-
-	// Save local frame (think EBP)
-	zm.stack.SaveFrame()
-
-	if zm.ip == 0 {
-		ZReturnFalse(zm)
-		return
-	}
-
-	// Local function variables on the stack
-	numLocals := zm.ReadByte()
-
-	// "When a routine is called, its local variables are created with initial values taken from the routine header.
-	// Next, the arguments are written into the local variables (argument 1 into local 1 and so on)."
-	numArgs-- // first argument is function address
-	for i := 0; i < int(numLocals); i++ {
-		localVar := zm.ReadUint16()
-
-		if numArgs > 0 {
-			localVar = args[i+1]
-			numArgs--
-		}
-		zm.stack.Push(localVar)
-	}
-}
-
-// storew array word-index value
-func ZStoreW(zm *ZMachine, args []uint16, numArgs uint16) {
-
-	address := uint32(args[0] + args[1]*2)
-	if !zm.IsSafeToWrite(address) {
-		panic("Access violation")
-	}
-
-	zm.SetUint16(address, args[2])
-}
-
-func ZStoreB(zm *ZMachine, args []uint16, numArgs uint16) {
-
-	address := uint32(args[0] + args[1])
-	if !zm.IsSafeToWrite(address) {
-		panic("Access violation")
-	}
-
-	zm.buf[address] = uint8(args[2])
 }
 
 func ZPutProp(zm *ZMachine, args []uint16, numArgs uint16) {
@@ -708,14 +372,6 @@ func ZClearAttr(zm *ZMachine, args []uint16, numArgs uint16) {
 	zm.ClearObjectAttr(args[0], args[1])
 }
 
-func ZLoadB(zm *ZMachine, args []uint16, numArgs uint16) {
-
-	address := args[0] + args[1]
-	value := zm.buf[address]
-
-	zm.StoreResult(uint16(value))
-}
-
 func ZGetProp(zm *ZMachine, args []uint16, numArgs uint16) {
 	prop := zm.GetObjectProperty(args[0], args[1])
 	zm.StoreResult(prop)
@@ -729,14 +385,6 @@ func ZGetPropAddr(zm *ZMachine, args []uint16, numArgs uint16) {
 func ZGetNextProp(zm *ZMachine, args []uint16, numArgs uint16) {
 	addr := zm.GetNextObjectProperty(args[0], args[1])
 	zm.StoreResult(addr)
-}
-
-// array word-index -> (result)
-func ZLoadW(zm *ZMachine, args []uint16, numArgs uint16) {
-	address := uint32(args[0] + (args[1] * 2))
-	value := GetUint16(zm.buf, address)
-
-	zm.StoreResult(value)
 }
 
 // Returns new value.
@@ -829,7 +477,7 @@ func ZGetPropLen(zm *ZMachine, arg uint16) {
 
 // print_paddr packed-address-of-string
 func ZPrintPAddr(zm *ZMachine, arg uint16) {
-	zm.DecodeZString(uint32(arg) * 2)
+	zm.DecodeZString(zm.PackedAddress(uint32(arg)))
 }
 
 func ZLoad(zm *ZMachine, arg uint16) {
@@ -854,14 +502,6 @@ func ZRemoveObj(zm *ZMachine, arg uint16) {
 
 func ZPrintObj(zm *ZMachine, arg uint16) {
 	zm.PrintObjectName(arg)
-}
-
-func ZRet(zm *ZMachine, arg uint16) {
-	returnAddress := zm.stack.RestoreFrame()
-	zm.ip = returnAddress
-	DebugPrintf("Returning to 0x%X\n", zm.ip)
-
-	zm.StoreResult(arg)
 }
 
 // Unconditional jump
@@ -918,7 +558,9 @@ func ZNOP0(zm *ZMachine) {
 }
 
 var ZFunctions_VAR = []ZFunction{
-	ZCall,
+	func(zm *ZMachine, args []uint16, numargs uint16) {
+		ZCall(zm, args, numargs, ZCallTypeStore)
+	},
 	ZStoreW,
 	ZStoreB,
 	ZPutProp,
@@ -930,7 +572,9 @@ var ZFunctions_VAR = []ZFunction{
 	ZPull,
 	nil,
 	nil,
-	ZCall,
+	func(zm *ZMachine, args []uint16, numargs uint16) {
+		ZCall(zm, args, numargs, ZCallTypeStore)
+	},
 	nil,
 	nil,
 	nil,
@@ -942,8 +586,10 @@ var ZFunctions_VAR = []ZFunction{
 	nil,
 	nil,
 	nil,
-	nil,   // not value -> (result)
-	ZCall, // call_vn routine
+	nil, // not value -> (result)
+	func(zm *ZMachine, args []uint16, numargs uint16) {
+		ZCall(zm, args, numargs, ZCallTypeN)
+	},
 	nil,
 }
 
@@ -1031,7 +677,7 @@ func (zm *ZMachine) GetOperand(operandType byte) uint16 {
 		}
 		zm.ip++
 	case OPERAND_LARGE:
-		retValue = GetUint16(zm.buf, zm.ip)
+		retValue = zm.GetUint16(zm.ip)
 		zm.ip += 2
 	case OPERAND_OMITTED:
 		return 0
@@ -1239,31 +885,12 @@ func NewZMachine(buffer []uint8, header ZHeader) *ZMachine {
 	zm.header = header
 	zm.ip = uint32(header.ip)
 	zm.stack = NewStack()
+	zm.InitObjectsConstants()
+	//zm.ListAbbreviations()
 	//zm.ListDictionary()
+	//zm.ListObjects()
+	//os.Exit(1)
 	return zm
-}
-
-// https://www.inform-fiction.org/zmachine/standards/z1point1/sect13.html
-func (zm *ZMachine) ListDictionary() {
-
-	numSeparators := uint32(zm.buf[zm.header.dictAddress])
-	// followed by a list of keyboard input codes
-
-	// The "entry length" is the length of each word's entry in the dictionary table.
-	entryLength := uint16(zm.buf[zm.header.dictAddress+1+numSeparators])
-
-	numEntries := GetUint16(zm.buf, zm.header.dictAddress+1+numSeparators+1)
-	fmt.Println(numSeparators, entryLength, numEntries)
-
-	entriesAddress := zm.header.dictAddress + 1 + numSeparators + 1 + 2
-	for i := uint16(0); i < numEntries; i++ {
-		foundAddress := entriesAddress + uint32(i*entryLength)
-		zm.DecodeZString(foundAddress)
-
-		fmt.Println(zm.output.String())
-		zm.output.Reset()
-		//fmt.Println(foundAddress)
-	}
 }
 
 // Return DICT_NOT_FOUND (= 0) if not found
@@ -1272,7 +899,7 @@ func (zm *ZMachine) FindInDictionary(str string) uint16 {
 
 	numSeparators := uint32(zm.buf[zm.header.dictAddress])
 	entryLength := uint16(zm.buf[zm.header.dictAddress+1+numSeparators])
-	numEntries := GetUint16(zm.buf, zm.header.dictAddress+1+numSeparators+1)
+	numEntries := zm.GetUint16(zm.header.dictAddress + 1 + numSeparators + 1)
 
 	entriesAddress := zm.header.dictAddress + 1 + numSeparators + 1 + 2
 
@@ -1308,7 +935,7 @@ func (zm *ZMachine) GetPropertyDefault(propertyIndex uint16) uint16 {
 
 	// 1-based -> 0-based
 	propertyIndex--
-	return GetUint16(zm.buf, zm.header.objTableAddress+uint32(propertyIndex*2))
+	return zm.GetUint16(zm.header.objTableAddress + uint32(propertyIndex*2))
 }
 
 func PrintZChar(output io.Writer, ch uint16) {
@@ -1333,7 +960,11 @@ func (zm *ZMachine) DecodeZString(startOffset uint32) uint32 {
 		//7    6 5 4 3 2  1 0   7 6 5  4 3 2 1 0
 		//bit  --first--  --second---  --third--
 
-		w16 := GetUint16(zm.buf, i)
+		// Text in memory consists of a sequence of 2-byte words. Each word is divided into three 5-bit 'Z-characters', plus 1 bit left over, arranged as
+		// --first byte-------   --second byte---
+		// 7    6 5 4 3 2  1 0   7 6 5  4 3 2 1 0
+		// bit  --first--  --second---  --third--
+		w16 := zm.GetUint16(i)
 
 		done = (w16 & 0x8000) != 0
 		zchars = append(zchars, uint8((w16>>10)&0x1F), uint8((w16>>5)&0x1F), uint8(w16&0x1F))
@@ -1345,14 +976,21 @@ func (zm *ZMachine) DecodeZString(startOffset uint32) uint32 {
 
 	for i := 0; i < len(zchars); i++ {
 		zc := zchars[i]
-
-		// Abbreviation
+		// z Characters 1,2,3 represent abbreviations, sometimes also called synonyms
 		if zc > 0 && zc < 4 {
-			abbrevIndex := zchars[i+1]
+			//fmt.Println("Abbreviation", zc)
+			// TODO, not sure if the if is correct
+			var abbrevIndex uint8
+			if i+1 >= len(zchars) {
+				i++
+				continue
+			} else {
+				abbrevIndex = zchars[i+1]
+			}
 
 			// "If z is the first Z-character (1, 2 or 3) and x the subsequent one,
 			// then the interpreter must look up entry 32(z-1)+x in the abbreviations table"
-			abbrevAddress := GetUint16(zm.buf, zm.header.abbreviationTable+uint32(32*(zc-1)+abbrevIndex)*2)
+			abbrevAddress := zm.GetUint16(zm.header.abbreviationTable + uint32(64*(zc-1)+abbrevIndex*2))
 			zm.DecodeZString(zm.PackedAddress(uint32(abbrevAddress)))
 
 			alphabetType = 0
@@ -1380,6 +1018,7 @@ func (zm *ZMachine) DecodeZString(startOffset uint32) uint32 {
 			continue
 		}
 
+		// z-character 0 is printed as a space
 		if zc == 0 {
 			_, _ = fmt.Fprintf(&zm.output, " ")
 		} else {

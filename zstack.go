@@ -50,17 +50,11 @@ func (s *ZStack) SaveFrame() {
 }
 
 // RestoreFrame returns caller address (where to return to)
-func (s *ZStack) RestoreFrame() uint32 {
-
+func (s *ZStack) RestoreFrame() {
 	// Discard local frame
 	s.top = s.localFrame
 	// Restore previous frame
 	s.localFrame = int(s.Pop())
-
-	retLo := s.Pop()
-	retHi := s.Pop()
-
-	return (uint32(retHi) << 16) | uint32(retLo)
 }
 
 func (s *ZStack) ValidateLocalVarIndex(localVarIndex int) {
