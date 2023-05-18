@@ -65,6 +65,7 @@ func (s *ZStack) ValidateLocalVarIndex(localVarIndex int) {
 		panic("Stack underflow")
 	}
 }
+
 func (s *ZStack) GetLocalVar(localVarIndex int) uint16 {
 	s.ValidateLocalVarIndex(localVarIndex)
 	stackIndex := (s.localFrame - localVarIndex) - 1

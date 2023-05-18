@@ -56,43 +56,6 @@ var alphabets = []string{
 	"ABCDEFGHIJKLMNOPQRSTUVWXYZ",
 	" \n0123456789.,!?_#'\"/\\-:()"}
 
-// Doesn't modify IP
-func (zm *ZMachine) PeekByte() uint8 {
-	return zm.buf[zm.ip]
-}
-
-// Reads & moves to the next one (advances IP)
-func (zm *ZMachine) ReadByte() uint8 {
-	zm.ip++
-	return zm.buf[zm.ip-1]
-}
-
-// Reads 2 bytes and advances IP
-func (zm *ZMachine) ReadUint16() uint16 {
-	retVal := zm.GetUint16(zm.ip)
-	zm.ip += 2
-	return retVal
-}
-
-func (zm *ZMachine) GetUint16(offset uint32) uint16 {
-	return (uint16(zm.buf[offset]) << 8) | (uint16)(zm.buf[offset+1])
-}
-
-func (zm *ZMachine) SetUint16(offset uint32, v uint16) {
-	zm.buf[offset] = uint8(v >> 8)
-	zm.buf[offset+1] = uint8(v & 0xFF)
-}
-
-// " Given a packed address P, the formula to obtain the corresponding byte address B is:
-//
-//	2P           Versions 1, 2 and 3"
-func (zm *ZMachine) PackedAddress(a uint32) uint32 {
-	if zm.header.version <= 3 {
-		return a * 2
-	}
-	return a * 4
-}
-
 func (zm *ZMachine) ReadGlobal(x uint8) uint16 {
 	if x < 0x10 {
 		panic("Invalid global variable")
@@ -356,6 +319,12 @@ func ZTestAttr(zm *ZMachine, args []uint16, numArgs uint16) {
 	GenericBranch(zm, zm.TestObjectAttr(args[0], args[1]))
 }
 
+func ZCheckArgCountArgumentNumber(zm *ZMachine, args []uint16, numargs uint16) { // check arg count
+	DebugPrintf("Arg count: %d %v\n", numargs, args)
+	argumentNumber := args[0]
+	GenericBranch(zm, argumentNumber <= zm.stack.stack[zm.stack.localFrame+1]) // localFrame points to the number of arguments. See ZCall
+}
+
 func ZOr(zm *ZMachine, args []uint16, numArgs uint16) {
 	zm.StoreResult(args[0] | args[1])
 }
@@ -557,104 +526,6 @@ func ZNOP0(zm *ZMachine) {
 	panic("NOP0")
 }
 
-var ZFunctions_VAR = []ZFunction{
-	func(zm *ZMachine, args []uint16, numargs uint16) {
-		ZCall(zm, args, numargs, ZCallTypeStore)
-	},
-	ZStoreW,
-	ZStoreB,
-	ZPutProp,
-	ZRead,
-	ZPrintChar,
-	ZPrintNum,
-	ZRandom,
-	ZPush,
-	ZPull,
-	nil,
-	nil,
-	func(zm *ZMachine, args []uint16, numargs uint16) {
-		ZCall(zm, args, numargs, ZCallTypeStore)
-	},
-	nil,
-	nil,
-	nil,
-	nil, // get cursor array
-	nil,
-	nil,
-	nil,
-	nil,
-	nil,
-	nil,
-	nil,
-	nil, // not value -> (result)
-	func(zm *ZMachine, args []uint16, numargs uint16) {
-		ZCall(zm, args, numargs, ZCallTypeN)
-	},
-	nil,
-}
-
-var ZFunctions_2OP = []ZFunction{
-	ZNOP_VAR,
-	ZJumpEqual,
-	ZJumpLess,
-	ZJumpGreater,
-	ZDecChk,
-	ZIncChk,
-	ZJin,
-	ZTest,
-	ZOr,
-	ZAnd,
-	ZTestAttr,
-	ZSetAttr,
-	ZClearAttr,
-	ZStore,
-	ZInsertObj,
-	ZLoadW,
-	ZLoadB,
-	ZGetProp,
-	ZGetPropAddr,
-	ZGetNextProp,
-	ZAdd,
-	ZSub,
-	ZMul,
-	ZDiv,
-	ZMod,
-}
-
-var ZFunctions_1OP = []ZFunction1Op{
-	ZJumpZero,
-	ZGetSibling,
-	ZGetChild,
-	ZGetParent,
-	ZGetPropLen,
-	ZInc,
-	ZDec,
-	ZPrintAddr,
-	ZNOP1,
-	ZRemoveObj,
-	ZPrintObj,
-	ZRet,
-	ZJump,
-	ZPrintPAddr,
-	ZLoad,
-	ZNOP1,
-}
-
-var ZFunctions_0P = []ZFunction0Op{
-	ZReturnTrue,
-	ZReturnFalse,
-	ZPrint,
-	ZPrintRet,
-	ZNOP0,
-	ZNOP0,
-	ZNOP0,
-	ZNOP0,
-	ZRetPopped,
-	ZPop,
-	ZQuit,
-	ZNewLine,
-}
-
 func (zm *ZMachine) GetOperand(operandType byte) uint16 {
 
 	var retValue uint16
@@ -727,158 +598,6 @@ func (zm *ZMachine) StoreResult(v uint16) {
 	zm.StoreAtLocation(uint16(storeLocation), v)
 }
 
-func (zm *ZMachine) InterpretVARInstruction() {
-
-	opcode := zm.ReadByte()
-	// "In variable form, if bit 5 is 0 then the count is 2OP; if it is 1, then the count is VAR.
-	// The opcode number is given in the bottom 5 bits.
-	instruction := (opcode & 0x1F)
-	twoOp := ((opcode >> 5) & 0x1) == 0
-
-	// "In variable or extended forms, a byte of 4 operand types is given next.
-	// This contains 4 2-bit fields: bits 6 and 7 are the first field, bits 0 and 1 the fourth."
-	// "A value of 0 means a small constant and 1 means a variable."
-	opTypesByte := zm.ReadByte()
-
-	opValues := make([]uint16, 4)
-	numOperands := zm.GetOperands(opTypesByte, opValues)
-
-	if twoOp {
-		fn := ZFunctions_2OP[instruction]
-		fn(zm, opValues, numOperands)
-	} else {
-		fn := ZFunctions_VAR[instruction]
-		fn(zm, opValues, numOperands)
-	}
-}
-
-func (zm *ZMachine) InterpretShortInstruction() {
-	// "In short form, bits 4 and 5 of the opcode byte give an operand type.
-	// If this is $11 then the operand count is 0OP; otherwise, 1OP. In either case the opcode number is given in the bottom 4 bits."
-
-	opcode := zm.ReadByte()
-	opType := (opcode >> 4) & 0x3
-	instruction := (opcode & 0x0F)
-
-	if opType != OPERAND_OMITTED {
-		opValue := zm.GetOperand(opType)
-
-		fn := ZFunctions_1OP[instruction]
-		fn(zm, opValue)
-	} else {
-		fn := ZFunctions_0P[instruction]
-		fn(zm)
-	}
-}
-
-func (zm *ZMachine) InterpretLongInstruction() {
-
-	opcode := zm.ReadByte()
-
-	// In long form the operand count is always 2OP. The opcode number is given in the bottom 5 bits.
-	instruction := (opcode & 0x1F)
-
-	// Operand types:
-	// In long form, bit 6 of the opcode gives the type of the first operand, bit 5 of the second.
-	// A value of 0 means a small constant and 1 means a variable.
-	operandType0 := ((opcode & 0x40) >> 6) + 1
-	operandType1 := ((opcode & 0x20) >> 5) + 1
-
-	opValues := make([]uint16, 2)
-	opValue0 := zm.GetOperand(operandType0)
-	opValue1 := zm.GetOperand(operandType1)
-
-	opValues[0] = opValue0
-	opValues[1] = opValue1
-
-	fn := ZFunctions_2OP[instruction]
-	fn(zm, opValues, 2)
-}
-
-func (zm *ZMachine) InterpretInstruction() {
-	opcode := zm.PeekByte()
-
-	// Form is stored in top 2 bits
-	// "If the top two bits of the opcode are $$11 the form is variable; if $$10, the form is short.
-	// If the opcode is 190 ($BE in hexadecimal) and the version is 5 or later, the form is "extended".
-	// Otherwise, the form is "long"."
-	form := (opcode >> 6) & 0x3
-
-	DebugPrintf("IP: 0x%X - opcode: 0x%X form: %02b\n", zm.ip, opcode, form)
-
-	if opcode == 0xBE && zm.header.version >= 5 {
-		panic("Extended not supported")
-	} else if form == 0x2 {
-		zm.InterpretShortInstruction()
-	} else if form == 0x3 {
-		zm.InterpretVARInstruction()
-	} else {
-		zm.InterpretLongInstruction()
-	}
-}
-
-// NOTE: Doesn't support abbreviations.
-func (zm *ZMachine) EncodeText(txt string) uint32 {
-
-	encodedChars := make([]uint8, 12)
-	encodedWords := make([]uint16, 2)
-	padding := uint8(0x5)
-
-	// Store 6 Z-chars. Clamp if longer, add padding if shorter
-	i := 0
-	j := 0
-	for i < 6 {
-		if j < len(txt) {
-			c := txt[j]
-			j++
-
-			// See if we can find any alphabet
-			ai := -1
-			alphabetType := 0
-			for a := 0; a < len(alphabets); a++ {
-				index := strings.IndexByte(alphabets[a], c)
-				if index >= 0 {
-					ai = index
-					alphabetType = a
-					break
-				}
-			}
-			if ai >= 0 {
-				if alphabetType != 0 {
-					// Alphabet change
-					encodedChars[i] = uint8(alphabetType + 3)
-					encodedChars[i+1] = uint8(ai + 6)
-					i += 2
-				} else {
-					encodedChars[i] = uint8(ai + 6)
-					i++
-				}
-			} else {
-				// 10-bit ZC
-				encodedChars[i] = 5
-				encodedChars[i+1] = 6
-				encodedChars[i+2] = (c >> 5)
-				encodedChars[i+3] = (c & 0x1F)
-				i += 4
-			}
-		} else {
-			// Padding
-			encodedChars[i] = padding
-			i++
-		}
-	}
-
-	for i := 0; i < 2; i++ {
-		encodedWords[i] = (uint16(encodedChars[i*3+0]) << 10) | (uint16(encodedChars[i*3+1]) << 5) |
-			uint16(encodedChars[i*3+2])
-		if i == 1 {
-			encodedWords[i] |= 0x8000
-		}
-	}
-
-	return (uint32(encodedWords[0]) << 16) | uint32(encodedWords[1])
-}
-
 func NewZMachine(buffer []uint8, header ZHeader) *ZMachine {
 	zm := new(ZMachine)
 	zm.buf = buffer
@@ -913,7 +632,8 @@ func (zm *ZMachine) FindInDictionary(str string) uint16 {
 	for lowerBound <= upperBound {
 
 		currentIndex := lowerBound + (upperBound-lowerBound)/2
-		dictValue := GetUint32(zm.buf, entriesAddress+uint32(currentIndex*entryLength))
+		// TODO Probably wrong for V5
+		dictValue := zm.GetUint32(entriesAddress + uint32(currentIndex*entryLength))
 
 		if encodedText < dictValue {
 			upperBound = currentIndex - 1
@@ -929,7 +649,12 @@ func (zm *ZMachine) FindInDictionary(str string) uint16 {
 }
 
 func (zm *ZMachine) GetPropertyDefault(propertyIndex uint16) uint16 {
-	if propertyIndex < 1 || propertyIndex > 31 {
+	var maxProperty uint16 = 31
+	if zm.header.version >= 4 {
+		maxProperty = 63
+	}
+
+	if propertyIndex < 1 || propertyIndex > maxProperty {
 		panic("Invalid propertyIndex")
 	}
 
@@ -944,91 +669,4 @@ func PrintZChar(output io.Writer, ch uint16) {
 	} else if ch >= 32 && ch <= 126 { // ASCII
 		_, _ = fmt.Fprintf(output, "%c", ch)
 	} // else ... do not bother
-}
-
-// V3 only
-// Returns offset pointing just after the string data
-func (zm *ZMachine) DecodeZString(startOffset uint32) uint32 {
-
-	done := false
-	var zchars []uint8
-
-	i := startOffset
-	for !done {
-
-		//--first byte-------   --second byte---
-		//7    6 5 4 3 2  1 0   7 6 5  4 3 2 1 0
-		//bit  --first--  --second---  --third--
-
-		// Text in memory consists of a sequence of 2-byte words. Each word is divided into three 5-bit 'Z-characters', plus 1 bit left over, arranged as
-		// --first byte-------   --second byte---
-		// 7    6 5 4 3 2  1 0   7 6 5  4 3 2 1 0
-		// bit  --first--  --second---  --third--
-		w16 := zm.GetUint16(i)
-
-		done = (w16 & 0x8000) != 0
-		zchars = append(zchars, uint8((w16>>10)&0x1F), uint8((w16>>5)&0x1F), uint8(w16&0x1F))
-
-		i += 2
-	}
-
-	alphabetType := 0
-
-	for i := 0; i < len(zchars); i++ {
-		zc := zchars[i]
-		// z Characters 1,2,3 represent abbreviations, sometimes also called synonyms
-		if zc > 0 && zc < 4 {
-			//fmt.Println("Abbreviation", zc)
-			// TODO, not sure if the if is correct
-			var abbrevIndex uint8
-			if i+1 >= len(zchars) {
-				i++
-				continue
-			} else {
-				abbrevIndex = zchars[i+1]
-			}
-
-			// "If z is the first Z-character (1, 2 or 3) and x the subsequent one,
-			// then the interpreter must look up entry 32(z-1)+x in the abbreviations table"
-			abbrevAddress := zm.GetUint16(zm.header.abbreviationTable + uint32(64*(zc-1)+abbrevIndex*2))
-			zm.DecodeZString(zm.PackedAddress(uint32(abbrevAddress)))
-
-			alphabetType = 0
-			i++
-			continue
-		}
-		if zc == 4 {
-			alphabetType = 1
-			continue
-		} else if zc == 5 {
-			alphabetType = 2
-			continue
-		}
-
-		// Z-character 6 from A2 means that the two subsequent Z-characters specify a ten-bit ZSCII character code:
-		// the next Z-character gives the top 5 bits and the one after the bottom 5.
-		if alphabetType == 2 && zc == 6 {
-
-			zc10 := (uint16(zchars[i+1]) << 5) | uint16(zchars[i+2])
-			PrintZChar(&zm.output, zc10)
-
-			i += 2
-
-			alphabetType = 0
-			continue
-		}
-
-		// z-character 0 is printed as a space
-		if zc == 0 {
-			_, _ = fmt.Fprintf(&zm.output, " ")
-		} else {
-			// If we're here zc >= 6. Alphabet tables are indexed starting at 6
-			aindex := zc - 6
-			_, _ = fmt.Fprintf(&zm.output, "%c", alphabets[alphabetType][aindex])
-		}
-
-		alphabetType = 0
-	}
-
-	return i
 }

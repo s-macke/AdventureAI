@@ -41,7 +41,6 @@ func main() {
 	//return
 
 	zm.input = Input
-
 	for !zm.done {
 		zm.InterpretInstruction()
 		if zm.output.Len() > 0 {

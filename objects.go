@@ -94,54 +94,52 @@ func (zm *ZMachine) SetObjectProperty(objectIndex uint16, propertyId uint16, val
 
 func (zm *ZMachine) GetFirstPropertyAddress(objectIndex uint16) uint16 {
 	objectEntryAddress := zm.GetObjectEntryAddress(objectIndex)
-	var propertiesAddress uint16
-	propertiesAddress = zm.GetUint16(objectEntryAddress + OBJECT_PROPERTY_ADDRESS_OFFSET)
+	propertiesAddress := zm.GetUint16(objectEntryAddress + OBJECT_PROPERTY_ADDRESS_OFFSET)
 
 	//size := uint16(zm.buf[propertiesAddress] & 0xff)
 	//return propertiesAddress + 1 + 2*size
 
 	nameLength := uint16(zm.buf[propertiesAddress]) * 2 // in 2-byte words
-	propData := propertiesAddress + nameLength + 1
+	propData := propertiesAddress + 1 + nameLength
 	return propData
 }
 
 // Returns prop data address, number of property bytes
 // (0 if not found)
 func (zm *ZMachine) GetObjectPropertyInfo(objectIndex uint16, propertyId uint16) (uint16, uint16) {
-
 	propData := zm.GetFirstPropertyAddress(objectIndex)
 
-	// Find property
-	found := false
+	var propNo uint16
+	var propSize uint16
 
-	for !found {
-
-		var propSize uint16
-		if zm.header.version <= 3 {
-			propSize = uint16(zm.buf[propData])
-		} else {
-			propSize = zm.GetUint16(uint32(propData))
-		}
-		if zm.header.version > 3 {
-			panic("V5 Not implemented")
-		}
-		if propSize == 0 {
+	for {
+		value := uint16(zm.buf[propData])
+		// a property list is terminated by a size byte of 0
+		if value == 0 {
 			break
 		}
-
 		propData++
-		propNo := uint16(propSize & 0x1F)
 
-		// Props are sorted
-		if propNo < propertyId {
-			break
+		if zm.header.version <= 3 {
+			propNo = value & 0x1F
+			propSize = value >> 5
+		} else {
+			propNo = value & 0x3F
+			if (value & 0x80) == 0 {
+				propSize = value >> 6
+			} else {
+				propSize = uint16(zm.buf[propData])
+				propSize &= 0x3f
+				if propSize == 0 {
+					value = 64 /* demanded by Spec 1.0 */
+				}
+			}
 		}
 
-		numBytes := uint16(propSize>>5) + 1
 		if propNo == propertyId {
-			return propData, numBytes
+			return propData, propSize + 1
 		}
-		propData += uint16(numBytes)
+		propData += propSize + 1
 	}
 
 	return uint16(0), uint16(0)
@@ -154,7 +152,6 @@ func (zm *ZMachine) GetObjectPropertyAddress(objectIndex uint16, propertyId uint
 
 func (zm *ZMachine) GetNextObjectProperty(objectIndex uint16, propertyId uint16) uint16 {
 	//DebugPrintf("GetNextObjectProperty(%d, %d)\n", objectIndex, propertyId)
-	panic("V5 Not implemented")
 	nextPropSize := uint8(0)
 
 	// " if called with zero, it gives the first property number present."
@@ -177,9 +174,6 @@ func (zm *ZMachine) GetNextObjectProperty(objectIndex uint16, propertyId uint16)
 }
 
 func (zm *ZMachine) GetObjectProperty(objectIndex uint16, propertyId uint16) uint16 {
-	if zm.header.version > 3 {
-		panic("V5 Not implemented")
-	}
 	propData, numBytes := zm.GetObjectPropertyInfo(objectIndex, propertyId)
 	result := uint16(0)
 
@@ -211,7 +205,7 @@ func (zm *ZMachine) TestObjectAttr(objectIndex uint16, attribute uint16) bool {
 
 	objectEntryAddress := zm.GetObjectEntryAddress(objectIndex)
 
-	attribs := GetUint32(zm.buf, objectEntryAddress)
+	attribs := zm.GetUint32(objectEntryAddress)
 	// 0: top bit
 	// 31: bottom bit
 	mask := uint32(1 << (31 - attribute))

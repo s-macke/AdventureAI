@@ -14,6 +14,10 @@ type ZHeader struct {
 	abbreviationTable uint32
 }
 
+func GetUint16(buf []byte, offset uint32) uint16 {
+	return (uint16(buf[offset]) << 8) | (uint16)(buf[offset+1])
+}
+
 func (h *ZHeader) read(buf []byte) {
 	h.version = buf[0]
 	h.flags = buf[1]
