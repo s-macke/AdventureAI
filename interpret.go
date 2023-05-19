@@ -15,6 +15,7 @@ func (zm *ZMachine) InterpretVARInstruction() {
 
 	opValues := make([]uint16, 4)
 	numOperands := zm.GetOperands(opTypesByte, opValues)
+	DebugPrintf("opValues %v\n", opValues)
 
 	if twoOp {
 		fn := ZFunctions_2OP[instruction]
@@ -35,7 +36,7 @@ func (zm *ZMachine) InterpretShortInstruction() {
 
 	if opType != OPERAND_OMITTED {
 		opValue := zm.GetOperand(opType)
-
+		DebugPrintf("opValues [%d]\n", opValue)
 		fn := ZFunctions_1OP[instruction]
 		fn(zm, opValue)
 	} else {
@@ -58,12 +59,9 @@ func (zm *ZMachine) InterpretLongInstruction() {
 	operandType1 := ((opcode & 0x20) >> 5) + 1
 
 	opValues := make([]uint16, 2)
-	opValue0 := zm.GetOperand(operandType0)
-	opValue1 := zm.GetOperand(operandType1)
-
-	opValues[0] = opValue0
-	opValues[1] = opValue1
-	DebugPrintf("opValues", opValues)
+	opValues[0] = zm.GetOperand(operandType0)
+	opValues[1] = zm.GetOperand(operandType1)
+	DebugPrintf("opValues %v\n", opValues)
 	fn := ZFunctions_2OP[instruction]
 	fn(zm, opValues, 2)
 }
@@ -79,7 +77,7 @@ func (zm *ZMachine) InterpretInstruction() {
 	// Otherwise, the form is "long"."
 	form := (opcode >> 6) & 0x3
 
-	DebugPrintf("%4d: ip=0x%05x opcode=%d\n", counter, zm.ip, opcode)
+	DebugPrintf("%4d: ip=0x%05x opcode=%d %d %d\n", counter, zm.ip, opcode, zm.buf[50], zm.buf[51])
 	counter++
 
 	if opcode == 0xCE || opcode == 0xfa {

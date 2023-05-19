@@ -67,6 +67,12 @@ var ZFunctions_2OP = []ZFunction{
 	ZMul,
 	ZDiv,
 	ZMod,
+	func(zm *ZMachine, args []uint16, numargs uint16) {
+		ZCall(zm, args, numargs, ZCallTypeStore)
+	},
+	func(zm *ZMachine, args []uint16, numargs uint16) {
+		ZCall(zm, args, numargs, ZCallTypeN)
+	},
 }
 
 var ZFunctions_1OP = []ZFunction1Op{
@@ -78,14 +84,18 @@ var ZFunctions_1OP = []ZFunction1Op{
 	ZInc,
 	ZDec,
 	ZPrintAddr,
-	ZNOP1,
+	func(zm *ZMachine, arg uint16) {
+		ZCall(zm, []uint16{arg}, 1, ZCallTypeStore)
+	},
 	ZRemoveObj,
 	ZPrintObj,
 	ZRet,
 	ZJump,
 	ZPrintPAddr,
 	ZLoad,
-	ZNOP1,
+	func(zm *ZMachine, arg uint16) {
+		ZCall(zm, []uint16{arg}, 1, ZCallTypeN)
+	},
 }
 
 var ZFunctions_0P = []ZFunction0Op{

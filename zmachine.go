@@ -61,7 +61,7 @@ func (zm *ZMachine) ReadGlobal(x uint8) uint16 {
 		panic("Invalid global variable")
 	}
 
-	addr := zm.PackedAddress(uint32(x) - 0x10)
+	addr := (uint32(x) - 0x10) * 2
 	ret := zm.GetUint16(zm.header.globalVarAddress + addr)
 
 	return ret
@@ -72,7 +72,7 @@ func (zm *ZMachine) SetGlobal(x uint16, v uint16) {
 		panic("Invalid global variable")
 	}
 
-	addr := zm.PackedAddress(uint32(x) - 0x10)
+	addr := (uint32(x) - 0x10) * 2
 	zm.SetUint16(zm.header.globalVarAddress+addr, v)
 }
 
@@ -311,7 +311,6 @@ func ZMod(zm *ZMachine, args []uint16, numArgs uint16) {
 }
 
 func ZStore(zm *ZMachine, args []uint16, numArgs uint16) {
-	DebugPrintf("%d - 0x%X\n", args[0], args[1])
 	zm.StoreAtLocation(args[0], args[1])
 }
 
@@ -438,8 +437,20 @@ func ZGetPropLen(zm *ZMachine, arg uint16) {
 	} else {
 		// Arg = direct address of the property block
 		// To get size, we need to go 1 byte back
-		propSize := zm.buf[arg-1]
-		numBytes := (propSize >> 5) + 1
+		propSize := uint16(zm.buf[arg-1])
+		numBytes := uint16(0)
+		if zm.header.version <= 3 {
+			numBytes = (propSize >> 5) + 1
+		} else {
+			if (propSize & 0x80) == 0 {
+				numBytes = (propSize >> 6) + 1
+			} else {
+				numBytes = propSize & 0x3f
+				if propSize == 0 {
+					propSize = 64
+				}
+			}
+		}
 		zm.StoreResult(uint16(numBytes))
 	}
 }
@@ -582,7 +593,7 @@ func (zm *ZMachine) GetOperands(opTypesByte uint8, operandValues []uint16) uint1
 func (zm *ZMachine) StoreAtLocation(storeLocation uint16, v uint16) {
 	// Same deal as read variable
 	// 0 = top of the stack, 0x1-0xF = local var, 0x10 - 0xFF = global var
-
+	DebugPrintf("Store %d - %d\n", storeLocation, v)
 	if storeLocation == 0 {
 		zm.stack.Push(v)
 	} else if storeLocation < 0x10 {
@@ -605,6 +616,16 @@ func NewZMachine(buffer []uint8, header ZHeader) *ZMachine {
 	zm.ip = uint32(header.ip)
 	zm.stack = NewStack()
 	zm.InitObjectsConstants()
+
+	zm.buf[1] = 158 // TODO: why?
+
+	// Z-Machine standard 1.1
+	zm.buf[50] = 1
+	zm.buf[51] = 1
+
+	zm.buf[16] = 0  // flags
+	zm.buf[17] = 16 // flags
+
 	//zm.ListAbbreviations()
 	//zm.ListDictionary()
 	//zm.ListObjects()

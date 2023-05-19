@@ -52,7 +52,6 @@ func (zm *ZMachine) SetObjectProperty(objectIndex uint16, propertyId uint16, val
 		panic("V5 Not implemented")
 	}
 	objectEntryAddress := zm.GetObjectEntryAddress(objectIndex)
-
 	propertiesAddress := zm.GetUint16(objectEntryAddress + OBJECT_PROPERTY_ADDRESS_OFFSET)
 	nameLength := uint16(zm.buf[propertiesAddress]) * 2 // in 2-byte words
 

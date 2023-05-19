@@ -31,9 +31,8 @@ func ZCall(zm *ZMachine, args []uint16, numArgs uint16, callType ZCallType) {
 	// "When a routine is called, its local variables are created with initial values taken from the routine header.
 	// Next, the arguments are written into the local variables (argument 1 into local 1 and so on)."
 	numArgs-- // first argument is function address
-	localVar := uint16(0)
 	for i := 0; i < int(numLocals); i++ {
-
+		localVar := uint16(0)
 		if zm.header.version <= 3 { // older versions provide default. From version 4 onwards, local variables are initialized to 0
 			localVar = zm.ReadUint16()
 		}
@@ -48,6 +47,7 @@ func ZCall(zm *ZMachine, args []uint16, numArgs uint16, callType ZCallType) {
 // ZRet returns from the current subroutine and restore the previous stack
 // frame
 func ZRet(zm *ZMachine, arg uint16) {
+
 	zm.stack.RestoreFrame()
 
 	_ = zm.stack.Pop() // numArgs
@@ -55,6 +55,8 @@ func ZRet(zm *ZMachine, arg uint16) {
 	retLo := zm.stack.Pop()
 	retHi := zm.stack.Pop()
 	returnAddress := (uint32(retHi) << 16) | uint32(retLo)
+
+	//DebugPrintf("ZRet callType=%d\n", callType)
 
 	zm.ip = returnAddress
 	DebugPrintf("Returning to 0x%X\n", zm.ip)
