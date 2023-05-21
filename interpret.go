@@ -1,5 +1,30 @@
 package main
 
+func (zm *ZMachine) InterpretLongVARInstruction() {
+	opcode := zm.ReadByte()
+	//instruction := opcode & 0x1F
+	specifier1 := zm.ReadByte()
+	specifier2 := zm.ReadByte()
+
+	opValues1 := make([]uint16, 8)
+	opValues2 := make([]uint16, 4)
+	numOperands1 := zm.GetOperands(specifier1, opValues1)
+	numOperands2 := zm.GetOperands(specifier2, opValues2)
+	// merge both operand lists
+	for i := uint16(0); i < numOperands2; i++ {
+		opValues1[numOperands1] = opValues2[i]
+		numOperands1++
+	}
+	DebugPrintf("opValues %v\n", opValues1)
+	if opcode == 0xec {
+		ZCall(zm, opValues1, numOperands1, ZCallTypeStore)
+	} else { // 0xfa 250
+		ZCall(zm, opValues1, numOperands1, ZCallTypeN)
+	}
+	//fn := ZFunctions_VAR[opcode-0xc0]
+	//fn(zm, opValues1, numOperands1)
+}
+
 func (zm *ZMachine) InterpretVARInstruction() {
 
 	opcode := zm.ReadByte()
@@ -66,6 +91,20 @@ func (zm *ZMachine) InterpretLongInstruction() {
 	fn(zm, opValues, 2)
 }
 
+func (zm *ZMachine) InterpretExtended() {
+	_ = zm.ReadByte() // 0xBE
+	opcode := zm.ReadByte()
+	// "In variable form, if bit 5 is 0 then the count is 2OP; if it is 1, then the count is VAR.
+	// The opcode number is given in the bottom 5 bits.
+	opTypesByte := zm.ReadByte()
+
+	opValues := make([]uint16, 4)
+	numOperands := zm.GetOperands(opTypesByte, opValues)
+	DebugPrintf("%d opValues %v %d\n", opcode, opValues, numOperands)
+
+	//panic("Extended not supported")
+}
+
 var counter = 0
 
 func (zm *ZMachine) InterpretInstruction() {
@@ -77,21 +116,30 @@ func (zm *ZMachine) InterpretInstruction() {
 	// Otherwise, the form is "long"."
 	form := (opcode >> 6) & 0x3
 
-	DebugPrintf("%4d: ip=0x%05x opcode=%d %d %d\n", counter, zm.ip, opcode, zm.buf[50], zm.buf[51])
+	DebugPrintf("%4d: ip=0x%05x opcode=%d\n", counter, zm.ip, opcode)
 	counter++
 
-	if opcode == 0xCE || opcode == 0xfa {
-		panic("Special VAR Not supported")
-	}
-
-	if opcode == 0xBE && zm.header.version >= 5 {
-		panic("Extended not supported")
-	}
-	if form == 0x2 {
+	if opcode == 0xec || opcode == 0xfa {
+		zm.InterpretLongVARInstruction()
+	} else if opcode == 0xBE && zm.header.version >= 5 {
+		zm.InterpretExtended()
+	} else if form == 0x2 {
 		zm.InterpretShortInstruction()
 	} else if form == 0x3 {
 		zm.InterpretVARInstruction()
 	} else {
 		zm.InterpretLongInstruction()
 	}
+
+	if zm.outputstream == 3 && zm.output.Len() != 0 { // output to memory
+		size := uint32(zm.GetUint16(zm.outputstreamtable))
+		str := zm.output.String()
+		for i := 0; i < len(str); i++ {
+			zm.buf[zm.outputstreamtable+2+size] = str[i]
+			size++
+			zm.SetUint16(zm.outputstreamtable, uint16(size))
+		}
+		zm.output.Reset()
+	}
+
 }

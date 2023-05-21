@@ -10,6 +10,7 @@ var (
 	OBJECT_ENTRY_SIZE              uint16 = 9
 	OBJECT_PROPERTY_ADDRESS_OFFSET uint32 = 7
 	OBJECT_PROPERTY_DEFAULTS_WORDS uint32 = 31
+	MAX_ATTRIBUTES                 uint16 = 32
 )
 
 func (zm *ZMachine) InitObjectsConstants() {
@@ -21,6 +22,7 @@ func (zm *ZMachine) InitObjectsConstants() {
 		OBJECT_ENTRY_SIZE = 9
 		OBJECT_PROPERTY_ADDRESS_OFFSET = 7
 		OBJECT_PROPERTY_DEFAULTS_WORDS = 31
+		MAX_ATTRIBUTES = 32
 	} else {
 		OBJECT_PARENT_INDEX = 6
 		OBJECT_SIBLING_INDEX = 8
@@ -29,6 +31,7 @@ func (zm *ZMachine) InitObjectsConstants() {
 		OBJECT_ENTRY_SIZE = 14
 		OBJECT_PROPERTY_ADDRESS_OFFSET = 12
 		OBJECT_PROPERTY_DEFAULTS_WORDS = 63
+		MAX_ATTRIBUTES = 48
 	}
 }
 
@@ -48,46 +51,17 @@ func (zm *ZMachine) GetObjectEntryAddress(objectIndex uint16) uint32 {
 }
 
 func (zm *ZMachine) SetObjectProperty(objectIndex uint16, propertyId uint16, value uint16) {
-	if zm.header.version > 3 {
-		panic("V5 Not implemented")
+	propData, numBytes := zm.GetObjectPropertyInfo(objectIndex, propertyId)
+	if propData == 0 {
+		panic("Property not found")
 	}
-	objectEntryAddress := zm.GetObjectEntryAddress(objectIndex)
-	propertiesAddress := zm.GetUint16(objectEntryAddress + OBJECT_PROPERTY_ADDRESS_OFFSET)
-	nameLength := uint16(zm.buf[propertiesAddress]) * 2 // in 2-byte words
 
-	// Find property
-	found := false
-	propData := uint32(propertiesAddress + nameLength + 1)
-
-	for !found {
-		propSize := zm.buf[propData]
-		if propSize == 0 {
-			break
-		}
-		propData++
-		propNo := uint16(propSize & 0x1F)
-
-		// Props are sorted
-		if propNo < propertyId {
-			break
-		}
-
-		numBytes := (propSize >> 5) + 1
-		if propNo == propertyId {
-			found = true
-
-			if numBytes == 1 {
-				zm.buf[propData] = uint8(value & 0xFF)
-			} else if numBytes == 2 {
-				zm.SetUint16(propData, value)
-			} else {
-				panic("SetObjectProperty only supports 1/2 byte properties")
-			}
-		}
-		propData += uint32(numBytes)
-	}
-	if !found {
-		panic("Property not found!")
+	if numBytes == 1 {
+		zm.buf[propData] = uint8(value & 0xFF)
+	} else if numBytes == 2 {
+		zm.SetUint16(uint32(propData), value)
+	} else {
+		panic("SetObjectProperty only supports 1/2 byte properties")
 	}
 }
 
@@ -118,6 +92,7 @@ func (zm *ZMachine) GetObjectPropertyInfo(objectIndex uint16, propertyId uint16)
 			break
 		}
 		propData++
+		addOne := uint16(0)
 
 		if zm.header.version <= 3 {
 			propNo = value & 0x1F
@@ -130,13 +105,14 @@ func (zm *ZMachine) GetObjectPropertyInfo(objectIndex uint16, propertyId uint16)
 				propSize = uint16(zm.buf[propData])
 				propSize &= 0x3f
 				if propSize == 0 {
-					value = 64 /* demanded by Spec 1.0 */
+					propSize = 64 /* demanded by Spec 1.0 */
 				}
+				addOne = 1
 			}
 		}
 
 		if propNo == propertyId {
-			return propData, propSize + 1
+			return propData + addOne, propSize + 1
 		}
 		propData += propSize + 1
 	}
@@ -195,32 +171,23 @@ func (zm *ZMachine) GetObjectProperty(objectIndex uint16, propertyId uint16) uin
 
 // True if set
 func (zm *ZMachine) TestObjectAttr(objectIndex uint16, attribute uint16) bool {
-	if zm.header.version > 3 {
-		panic("V5 Not implemented")
-	}
-	if attribute > 31 {
+	if attribute > MAX_ATTRIBUTES {
 		panic("Attribute out of bounds")
 	}
-
 	objectEntryAddress := zm.GetObjectEntryAddress(objectIndex)
 
-	attribs := zm.GetUint32(objectEntryAddress)
-	// 0: top bit
-	// 31: bottom bit
-	mask := uint32(1 << (31 - attribute))
+	byteIndex := uint32(attribute >> 3)
+	shift := 7 - (attribute & 0x7)
 
-	return (attribs & mask) != 0
+	return (zm.buf[objectEntryAddress+byteIndex] & (1 << shift)) != 0
 }
 
 func (zm *ZMachine) SetObjectAttr(objectIndex uint16, attribute uint16) {
-	if zm.header.version > 3 {
-		panic("V5 Not implemented")
-	}
-	if attribute > 31 {
+	if attribute > MAX_ATTRIBUTES {
 		panic("Attribute out of bounds")
 	}
-
 	objectEntryAddress := zm.GetObjectEntryAddress(objectIndex)
+
 	byteIndex := uint32(attribute >> 3)
 	shift := 7 - (attribute & 0x7)
 
@@ -228,10 +195,7 @@ func (zm *ZMachine) SetObjectAttr(objectIndex uint16, attribute uint16) {
 }
 
 func (zm *ZMachine) ClearObjectAttr(objectIndex uint16, attribute uint16) {
-	if zm.header.version > 3 {
-		panic("V5 Not implemented")
-	}
-	if attribute > 31 {
+	if attribute > MAX_ATTRIBUTES {
 		panic("Attribute out of bounds")
 	}
 

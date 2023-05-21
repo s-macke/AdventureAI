@@ -3,7 +3,6 @@ package main
 import (
 	"bufio"
 	"flag"
-	"fmt"
 	"os"
 	"strconv"
 )
@@ -13,7 +12,7 @@ func Init(filename string) *ZMachine {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Printf("Read %d bytes\n", len(buffer))
+	// fmt.Printf("Read %d bytes\n", len(buffer))
 
 	var header ZHeader
 	header.read(buffer)
@@ -44,7 +43,9 @@ func main() {
 	for !zm.done {
 		zm.InterpretInstruction()
 		if zm.output.Len() > 0 {
-			_, _ = os.Stdout.WriteString(zm.output.String())
+			if zm.windowId == 0 {
+				_, _ = os.Stdout.WriteString(zm.output.String())
+			}
 			zm.output.Reset()
 		}
 	}

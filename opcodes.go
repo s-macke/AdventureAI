@@ -13,18 +13,28 @@ var ZFunctions_VAR = []ZFunction{
 	ZRandom,
 	ZPush,
 	ZPull,
-	nil,
-	nil,
+	func(zm *ZMachine, args []uint16, numargs uint16) {
+		// split window lines
+	},
+	func(zm *ZMachine, args []uint16, numargs uint16) {
+		//fmt.Println("Set Window", args)
+		zm.windowId = int(args[0])
+		// set window
+	},
 	func(zm *ZMachine, args []uint16, numargs uint16) {
 		ZCall(zm, args, numargs, ZCallTypeStore)
 	},
 	nil,
 	nil,
+	func(zm *ZMachine, args []uint16, numargs uint16) {
+		// set cursor
+	},
+	nil, // 0x10 get cursor array
+	func(zm *ZMachine, args []uint16, numargs uint16) {
+		// set Text Style
+	},
 	nil,
-	nil, // get cursor array
-	nil,
-	nil,
-	nil,
+	ZOutputStream,
 	nil,
 	nil,
 	nil,
@@ -34,7 +44,7 @@ var ZFunctions_VAR = []ZFunction{
 		ZCall(zm, args, numargs, ZCallTypeN)
 	},
 	nil,
-	nil,
+	ZTokenize,
 	nil,
 	nil,
 	nil,
@@ -58,7 +68,7 @@ var ZFunctions_2OP = []ZFunction{
 	ZStore,
 	ZInsertObj,
 	ZLoadW,
-	ZLoadB,
+	ZLoadB, // 0x10
 	ZGetProp,
 	ZGetPropAddr,
 	ZGetNextProp,

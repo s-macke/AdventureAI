@@ -22,6 +22,10 @@ func (zm *ZMachine) GetUint16(offset uint32) uint16 {
 	return (uint16(zm.buf[offset]) << 8) | (uint16)(zm.buf[offset+1])
 }
 
+func (zm *ZMachine) GetUint8(offset uint32) uint8 {
+	return zm.buf[offset]
+}
+
 func (zm *ZMachine) GetUint32(offset uint32) uint32 {
 	return (uint32(zm.buf[offset]) << 24) | (uint32(zm.buf[offset+1]) << 16) | (uint32(zm.buf[offset+2]) << 8) | uint32(zm.buf[offset+3])
 }
@@ -29,6 +33,10 @@ func (zm *ZMachine) GetUint32(offset uint32) uint32 {
 func (zm *ZMachine) SetUint16(offset uint32, v uint16) {
 	zm.buf[offset] = uint8(v >> 8)
 	zm.buf[offset+1] = uint8(v & 0xFF)
+}
+
+func (zm *ZMachine) SetUint8(offset uint32, v uint8) {
+	zm.buf[offset] = v
 }
 
 // " Given a packed address P, the formula to obtain the corresponding byte address B is:

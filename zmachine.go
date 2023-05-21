@@ -4,7 +4,6 @@ package main
 // https://www.inform-fiction.org/zmachine/standards/
 
 import (
-	"bytes"
 	"fmt"
 	"io"
 	"math/rand"
@@ -45,6 +44,10 @@ type ZMachine struct {
 	done       bool
 	output     strings.Builder
 	input      func() string
+
+	outputstream      int // the id to where we are writing output
+	outputstreamtable uint32
+	windowId          int // The selected window ID to print
 }
 
 type ZFunction func(*ZMachine, []uint16, uint16)
@@ -78,83 +81,6 @@ func (zm *ZMachine) SetGlobal(x uint16, v uint16) {
 
 func ZPutProp(zm *ZMachine, args []uint16, numArgs uint16) {
 	zm.SetObjectProperty(args[0], args[1], args[2])
-}
-
-func ZRead(zm *ZMachine, args []uint16, numArgs uint16) {
-	textAddress := args[0]
-	maxChars := uint16(zm.buf[textAddress])
-	if maxChars == 0 {
-		panic("Invalid max chars")
-	}
-	maxChars--
-
-	//reader := bufio.NewReader(os.Stdin)
-	//input, _ := reader.ReadString('\n')
-	input := zm.input()
-
-	input = strings.ToLower(input)
-	input = strings.Trim(input, "\r\n")
-
-	copy(zm.buf[textAddress+1:textAddress+maxChars], input)
-	zm.buf[textAddress+uint16(len(input))+1] = 0
-
-	var words []string
-	var wordStarts []uint16
-	var stringBuffer bytes.Buffer
-	prevWordStart := uint16(1)
-	for i := uint16(1); zm.buf[textAddress+i] != 0; i++ {
-		ch := zm.buf[textAddress+i]
-		if ch == ' ' {
-			if prevWordStart < 0xFFFF {
-				words = append(words, stringBuffer.String())
-				wordStarts = append(wordStarts, prevWordStart)
-				stringBuffer.Truncate(0)
-			}
-			prevWordStart = 0xFFFF
-		} else {
-			stringBuffer.WriteByte(ch)
-			if prevWordStart == 0xFFFF {
-				prevWordStart = i
-			}
-		}
-	}
-	// Last word
-	if prevWordStart < 0xFFFF {
-		words = append(words, stringBuffer.String())
-		wordStarts = append(wordStarts, prevWordStart)
-	}
-
-	// TODO: include other separators, not only spaces
-
-	parseAddress := uint32(args[1])
-	maxTokens := zm.buf[parseAddress]
-	//DebugPrintf("Max tokens: %d\n", maxTokens)
-	parseAddress++
-	numTokens := uint8(len(words))
-	if numTokens > maxTokens {
-		numTokens = maxTokens
-	}
-	zm.buf[parseAddress] = numTokens
-	parseAddress++
-
-	// "Each block consists of the byte address of the word in the dictionary, if it is in the dictionary, or 0 if it isn't;
-	// followed by a byte giving the number of letters in the word; and finally a byte giving the position in the text-buffer
-	// of the first letter of the word.
-	for i, w := range words {
-
-		if uint8(i) >= maxTokens {
-			break
-		}
-
-		DebugPrintf("w = %s, %d\n", w, wordStarts[i])
-		dictionaryAddress := zm.FindInDictionary(w)
-		DebugPrintf("Dictionary address: 0x%X\n", dictionaryAddress)
-
-		zm.SetUint16(parseAddress, dictionaryAddress)
-		zm.buf[parseAddress+2] = uint8(len(w))
-		zm.buf[parseAddress+3] = uint8(wordStarts[i])
-		parseAddress += 4
-	}
 }
 
 func ZPrintChar(zm *ZMachine, args []uint16, numArgs uint16) {
@@ -537,6 +463,19 @@ func ZNOP0(zm *ZMachine) {
 	panic("NOP0")
 }
 
+func TokenizeLine(zm *ZMachine, text uint16, token uint16, dct uint16, flag bool) {
+	DebugPrintf("tokenise_line: text=%d token=%d dct=%d flag=%v\n", text, token, dct, flag)
+	size := zm.GetUint8(uint32(text + 1))
+	fmt.Println(size)
+
+	panic("Not implemented")
+}
+
+func ZTokenize(zm *ZMachine, args []uint16, numArgs uint16) {
+	//DebugPrintf("tokenise_line: text=%d token=%d dct=%d flag=%d\n", text, token, dct, flag);
+	TokenizeLine(zm, args[0], args[1], args[2], args[3] != 0)
+}
+
 func (zm *ZMachine) GetOperand(operandType byte) uint16 {
 
 	var retValue uint16
@@ -605,7 +544,6 @@ func (zm *ZMachine) StoreAtLocation(storeLocation uint16, v uint16) {
 
 func (zm *ZMachine) StoreResult(v uint16) {
 	storeLocation := zm.ReadByte()
-
 	zm.StoreAtLocation(uint16(storeLocation), v)
 }
 
@@ -619,6 +557,9 @@ func NewZMachine(buffer []uint8, header ZHeader) *ZMachine {
 
 	zm.buf[1] = 158 // TODO: why?
 
+	zm.buf[22] = 25  // screen rows
+	zm.buf[33] = 232 // screen cols
+
 	// Z-Machine standard 1.1
 	zm.buf[50] = 1
 	zm.buf[51] = 1
@@ -626,47 +567,20 @@ func NewZMachine(buffer []uint8, header ZHeader) *ZMachine {
 	zm.buf[16] = 0  // flags
 	zm.buf[17] = 16 // flags
 
+	/* Adjust opcode tables */
+	if zm.header.version < 4 {
+		ZFunctions_0P[0x09] = ZPop
+		ZFunctions_1OP[0x0f] = nil // TODO: ZNot
+	} else {
+		ZFunctions_0P[0x09] = nil // TODO: ZCatch
+		//ZFunctions_1OP[0x0f] = z_call_n; // already done
+	}
+
 	//zm.ListAbbreviations()
 	//zm.ListDictionary()
 	//zm.ListObjects()
 	//os.Exit(1)
 	return zm
-}
-
-// Return DICT_NOT_FOUND (= 0) if not found
-// Address in dictionary otherwise
-func (zm *ZMachine) FindInDictionary(str string) uint16 {
-
-	numSeparators := uint32(zm.buf[zm.header.dictAddress])
-	entryLength := uint16(zm.buf[zm.header.dictAddress+1+numSeparators])
-	numEntries := zm.GetUint16(zm.header.dictAddress + 1 + numSeparators + 1)
-
-	entriesAddress := zm.header.dictAddress + 1 + numSeparators + 1 + 2
-
-	// Dictionary entries are sorted, so we can use binary search
-	lowerBound := uint16(0)
-	upperBound := numEntries - 1
-
-	encodedText := zm.EncodeText(str)
-
-	foundAddress := uint16(DICT_NOT_FOUND)
-	for lowerBound <= upperBound {
-
-		currentIndex := lowerBound + (upperBound-lowerBound)/2
-		// TODO Probably wrong for V5
-		dictValue := zm.GetUint32(entriesAddress + uint32(currentIndex*entryLength))
-
-		if encodedText < dictValue {
-			upperBound = currentIndex - 1
-		} else if encodedText > dictValue {
-			lowerBound = currentIndex + 1
-		} else {
-			foundAddress = uint16(entriesAddress + uint32(currentIndex*entryLength))
-			break
-		}
-	}
-
-	return foundAddress
 }
 
 func (zm *ZMachine) GetPropertyDefault(propertyIndex uint16) uint16 {
