@@ -1,7 +1,7 @@
 package main
 
 func ZCall(zm *ZMachine, args []uint16, numArgs uint16, callType ZCallType) {
-	DebugPrintf("ZCall with numArgs %d callType %d and args %v\n", numArgs, callType, args)
+	//DebugPrintf("ZCall with numArgs %d callType %d and args %v\n", numArgs, callType, args)
 	if numArgs == 0 {
 		panic("Data corruption, call instruction requires at least 1 argument")
 	}
@@ -13,7 +13,7 @@ func ZCall(zm *ZMachine, args []uint16, numArgs uint16, callType ZCallType) {
 	zm.stack.Push(numArgs - 1)
 
 	functionAddress := zm.PackedAddress(uint32(args[0]))
-	DebugPrintf("Jumping to 0x%X\n", functionAddress)
+	//DebugPrintf("Jumping to 0x%X\n", functionAddress)
 
 	zm.ip = functionAddress
 
@@ -27,7 +27,7 @@ func ZCall(zm *ZMachine, args []uint16, numArgs uint16, callType ZCallType) {
 
 	// Local function variables on the stack
 	numLocals := zm.ReadByte()
-	DebugPrintf("Number of local variables: %d\n", numLocals)
+	//DebugPrintf("Number of local variables: %d\n", numLocals)
 	// "When a routine is called, its local variables are created with initial values taken from the routine header.
 	// Next, the arguments are written into the local variables (argument 1 into local 1 and so on)."
 	numArgs-- // first argument is function address
@@ -59,7 +59,7 @@ func ZRet(zm *ZMachine, arg uint16) {
 	//DebugPrintf("ZRet callType=%d\n", callType)
 
 	zm.ip = returnAddress
-	DebugPrintf("Returning to 0x%X\n", zm.ip)
+	//DebugPrintf("Returning to 0x%X\n", zm.ip)
 	if callType == ZCallTypeStore {
 		zm.StoreResult(arg)
 	}

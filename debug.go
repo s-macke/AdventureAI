@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func DebugPrintf(format string, v ...any) {
-	fmt.Printf(format, v...)
+	//fmt.Printf(format, v...)
 }
 
 func (zm *ZMachine) ListObjects() {

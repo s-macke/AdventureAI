@@ -155,7 +155,7 @@ func (zm *ZMachine) GetObjectProperty(objectIndex uint16, propertyId uint16) uin
 	if propData == 0 {
 		// Get a default one
 		result = zm.GetPropertyDefault(propertyId)
-		DebugPrintf("Default prop %d = 0x%X\n", propertyId, result)
+		//DebugPrintf("Default prop %d = 0x%X\n", propertyId, result)
 	} else {
 		if numBytes == 1 {
 			result = uint16(zm.buf[propData])

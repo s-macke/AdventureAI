@@ -100,9 +100,16 @@ func (zm *ZMachine) InterpretExtended() {
 
 	opValues := make([]uint16, 4)
 	numOperands := zm.GetOperands(opTypesByte, opValues)
-	DebugPrintf("%d opValues %v %d\n", opcode, opValues, numOperands)
+	DebugPrintf("Extended %d %v %d\n", opcode, opValues, numOperands)
 
-	//panic("Extended not supported")
+	switch opcode {
+	case 9:
+		// Save Undo
+		zm.StoreResult(1)
+		break
+	default:
+		panic("Extended not supported")
+	}
 }
 
 var counter = 0

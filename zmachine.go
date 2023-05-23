@@ -118,7 +118,7 @@ func ZPush(zm *ZMachine, args []uint16, numArgs uint16) {
 
 func ZPull(zm *ZMachine, args []uint16, numArgs uint16) {
 	r := zm.stack.Pop()
-	DebugPrintf("Popped %d 0x%X %d %d\n", r, zm.ip, numArgs, args[0])
+	//DebugPrintf("Popped %d 0x%X %d %d\n", r, zm.ip, numArgs, args[0])
 	zm.StoreAtLocation(args[0], r)
 }
 
@@ -163,7 +163,7 @@ func GenericBranch(zm *ZMachine, conditionSatisfied bool) {
 		branchOffset16 := int16(firstPart<<8) | int16(secondPart)
 		branchOffset = int32(branchOffset16)
 
-		DebugPrintf("Offset: 0x%X [%d]\n", branchOffset, branchOffset)
+		//DebugPrintf("Offset: 0x%X [%d]\n", branchOffset, branchOffset)
 	}
 	ip := int32(zm.ip)
 
@@ -171,11 +171,11 @@ func GenericBranch(zm *ZMachine, conditionSatisfied bool) {
 	// Address after branch data + Offset - 2."
 	jumpAddress = ip + int32(branchOffset) - 2
 
-	DebugPrintf("Jump address = 0x%X\n", jumpAddress)
+	//DebugPrintf("Jump address = 0x%X\n", jumpAddress)
 
 	doJump := (conditionSatisfied != branchOnFalse)
 
-	DebugPrintf("Do jump: %t\n", doJump)
+	//DebugPrintf("Do jump: %t\n", doJump)
 
 	if doJump {
 		if returnFromCurrent != 2 {
@@ -245,7 +245,7 @@ func ZTestAttr(zm *ZMachine, args []uint16, numArgs uint16) {
 }
 
 func ZCheckArgCountArgumentNumber(zm *ZMachine, args []uint16, numargs uint16) { // check arg count
-	DebugPrintf("Arg count: %d %v\n", numargs, args)
+	//DebugPrintf("Arg count: %d %v\n", numargs, args)
 	argumentNumber := args[0]
 	GenericBranch(zm, argumentNumber <= zm.stack.stack[zm.stack.localFrame+1]) // localFrame points to the number of arguments. See ZCall
 }
@@ -414,7 +414,7 @@ func ZPrintObj(zm *ZMachine, arg uint16) {
 func ZJump(zm *ZMachine, arg uint16) {
 	jumpOffset := int16(arg)
 	jumpAddress := int32(zm.ip) + int32(jumpOffset) - 2
-	DebugPrintf("Jump address: 0x%X\n", jumpAddress)
+	//DebugPrintf("Jump address: 0x%X\n", jumpAddress)
 	zm.ip = uint32(jumpAddress)
 }
 
@@ -463,16 +463,103 @@ func ZNOP0(zm *ZMachine) {
 	panic("NOP0")
 }
 
-func TokenizeLine(zm *ZMachine, text uint16, token uint16, dct uint16, flag bool) {
-	DebugPrintf("tokenise_line: text=%d token=%d dct=%d flag=%v\n", text, token, dct, flag)
-	size := zm.GetUint8(uint32(text + 1))
-	fmt.Println(size)
+func Btoi(b bool) int {
+	if b {
+		return 1
+	}
+	return 0
+}
 
-	panic("Not implemented")
+func TokenizeLine(zm *ZMachine, textaddress uint16, tokenaddress uint16, dct uint16, flag bool) {
+	DebugPrintf("tokenise_line: text=%d token=%d dct=%d flag=%d\n", textaddress, tokenaddress, dct, Btoi(flag))
+	text := ""
+
+	if zm.header.version <= 4 {
+		maxsize := int(zm.GetUint8(uint32(textaddress)))
+		//fmt.Println(size)
+		for i := 0; i < maxsize; i++ {
+			char := zm.buf[textaddress+1+uint16(i)]
+			if char == 0 {
+				break
+			}
+			text += string(char)
+		}
+	} else {
+		size := int(zm.GetUint8(uint32(textaddress + 1)))
+		for i := 0; i < size; i++ {
+			char := zm.buf[textaddress+2+uint16(i)]
+			text += string(char)
+		}
+	}
+	DebugPrintf("%s\n", text)
+	words := strings.Split(text, " ")
+	wordStarts := make([]uint16, len(words))
+	wordStarts[0] = 1
+	for i := 0; i < len(words)-1; i++ {
+		wordStarts[i+1] = wordStarts[i] + uint16(len(words[i])) + 1
+	}
+
+	/*
+		var words []string
+		var wordStarts []uint16
+		var stringBuffer bytes.Buffer
+		prevWordStart := uint16(1)
+		for i := uint16(1); zm.buf[textAddress+i] != 0; i++ {
+			ch := zm.buf[textAddress+i]
+			if ch == ' ' {
+				if prevWordStart < 0xFFFF {
+					words = append(words, stringBuffer.String())
+					wordStarts = append(wordStarts, prevWordStart)
+					stringBuffer.Truncate(0)
+				}
+				prevWordStart = 0xFFFF
+			} else {
+				stringBuffer.WriteByte(ch)
+				if prevWordStart == 0xFFFF {
+					prevWordStart = i
+				}
+			}
+		}
+		// Last word
+		if prevWordStart < 0xFFFF {
+			words = append(words, stringBuffer.String())
+			wordStarts = append(wordStarts, prevWordStart)
+		}
+	*/
+	// TODO: include other separators, not only spaces
+
+	parseAddress := uint32(tokenaddress)
+	maxTokens := zm.buf[parseAddress]
+	//DebugPrintf("Max tokens: %d\n", maxTokens)
+	parseAddress++
+	numTokens := uint8(len(words))
+	if numTokens > maxTokens {
+		numTokens = maxTokens
+	}
+	zm.buf[parseAddress] = numTokens
+	parseAddress++
+
+	// "Each block consists of the byte address of the word in the dictionary, if it is in the dictionary, or 0 if it isn't;
+	// followed by a byte giving the number of letters in the word; and finally a byte giving the position in the text-buffer
+	// of the first letter of the word.
+	for i, w := range words {
+
+		if uint8(i) >= maxTokens {
+			break
+		}
+
+		DebugPrintf("w = %s, %d\n", w, wordStarts[i])
+		dictionaryAddress := zm.FindInDictionary(w)
+
+		zm.SetUint16(parseAddress, dictionaryAddress)
+		zm.buf[parseAddress+2] = uint8(len(w))
+		zm.buf[parseAddress+3] = uint8(wordStarts[i])
+		parseAddress += 4
+	}
+	//panic("Not implemented")
 }
 
 func ZTokenize(zm *ZMachine, args []uint16, numArgs uint16) {
-	//DebugPrintf("tokenise_line: text=%d token=%d dct=%d flag=%d\n", text, token, dct, flag);
 	TokenizeLine(zm, args[0], args[1], args[2], args[3] != 0)
 }
 

@@ -74,7 +74,7 @@ func (s *ZStack) GetLocalVar(localVarIndex int) uint16 {
 }
 
 func (s *ZStack) SetLocalVar(localVarIndex int, value uint16) {
-	DebugPrintf("Set Local Var %d %d\n", localVarIndex, value)
+	//DebugPrintf("Set Local Var %d %d\n", localVarIndex, value)
 	s.ValidateLocalVarIndex(localVarIndex)
 	stackIndex := (s.localFrame - localVarIndex) - 1
 	s.stack[stackIndex] = value
