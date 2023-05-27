@@ -6,4 +6,6 @@ frotz
 zmachine
 
 .idea
-frotz
+frotz/
+
+storydump/*.json

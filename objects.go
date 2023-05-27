@@ -191,7 +191,7 @@ func (zm *ZMachine) SetObjectAttr(objectIndex uint16, attribute uint16) {
 	byteIndex := uint32(attribute >> 3)
 	shift := 7 - (attribute & 0x7)
 
-	zm.buf[objectEntryAddress+byteIndex] |= (1 << shift)
+	zm.buf[objectEntryAddress+byteIndex] |= 1 << shift
 }
 
 func (zm *ZMachine) ClearObjectAttr(objectIndex uint16, attribute uint16) {
@@ -207,52 +207,43 @@ func (zm *ZMachine) ClearObjectAttr(objectIndex uint16, attribute uint16) {
 }
 
 func (zm *ZMachine) IsDirectParent(childIndex uint16, parentIndex uint16) bool {
-	return zm.GetParentObject(childIndex) == parentIndex
+	return zm.GetParentObjectIndex(childIndex) == parentIndex
 }
 
 // Unlink object from its parent
 func (zm *ZMachine) UnlinkObject(objectIndex uint16) {
-	objectEntryAddress := zm.GetObjectEntryAddress(objectIndex)
-	if zm.header.version > 3 {
-		panic("V5 Not implemented")
-	}
-	currentParentIndex := uint16(zm.buf[objectEntryAddress+OBJECT_PARENT_INDEX])
+	currentParentIndex := zm.GetParentObjectIndex(objectIndex)
 
 	// Unlink from current parent first
-	if currentParentIndex != NULL_OBJECT_INDEX {
-		curParentAddress := zm.GetObjectEntryAddress(currentParentIndex)
-		// If we're the first child -> move to sibling
-		if uint16(zm.buf[curParentAddress+OBJECT_CHILD_INDEX]) == objectIndex {
-			zm.buf[curParentAddress+OBJECT_CHILD_INDEX] = zm.buf[objectEntryAddress+OBJECT_SIBLING_INDEX]
-		} else {
-			childIter := uint16(zm.buf[curParentAddress+OBJECT_CHILD_INDEX])
-			prevChild := uint16(NULL_OBJECT_INDEX)
-			for childIter != objectIndex && childIter != NULL_OBJECT_INDEX {
-				prevChild = childIter
-				childIter = zm.GetSibling(childIter)
-			}
-			// Sanity checks
-			if childIter == NULL_OBJECT_INDEX {
-				panic("Object not found on parent children list")
-			}
-			if prevChild == NULL_OBJECT_INDEX {
-				panic("Corrupted data")
-			}
-
-			prevSiblingAddress := zm.GetObjectEntryAddress(prevChild)
-			sibling := zm.buf[objectEntryAddress+OBJECT_SIBLING_INDEX]
-			zm.buf[prevSiblingAddress+OBJECT_SIBLING_INDEX] = sibling
-		}
-		zm.buf[objectEntryAddress+OBJECT_PARENT_INDEX] = uint8(NULL_OBJECT_INDEX)
+	if currentParentIndex == NULL_OBJECT_INDEX {
+		return
 	}
+
+	// If we're the first child -> move to sibling
+	if zm.GetChildIndex(currentParentIndex) == objectIndex {
+		zm.SetChildObjectIndex(currentParentIndex, zm.GetSiblingIndex(objectIndex))
+	} else {
+		childIter := zm.GetChildIndex(currentParentIndex)
+		prevChild := NULL_OBJECT_INDEX
+		for childIter != objectIndex && childIter != NULL_OBJECT_INDEX {
+			prevChild = childIter
+			childIter = zm.GetSiblingIndex(childIter)
+		}
+		// Sanity checks
+		if childIter == NULL_OBJECT_INDEX {
+			panic("Object not found on parent children list")
+		}
+		if prevChild == NULL_OBJECT_INDEX {
+			panic("Corrupted data")
+		}
+		sibling := zm.GetSiblingIndex(objectIndex)
+		zm.SetSiblingObjectIndex(prevChild, sibling)
+	}
+	zm.SetParentObjectIndex(objectIndex, NULL_OBJECT_INDEX)
 }
 
 func (zm *ZMachine) ReparentObject(objectIndex uint16, newParentIndex uint16) {
-	if zm.header.version > 3 {
-		panic("V5 Not implemented")
-	}
-	objectEntryAddress := zm.GetObjectEntryAddress(objectIndex)
-	currentParentIndex := uint16(zm.buf[objectEntryAddress+OBJECT_PARENT_INDEX])
+	currentParentIndex := zm.GetParentObjectIndex(objectIndex)
 
 	if currentParentIndex == newParentIndex {
 		return
@@ -261,13 +252,12 @@ func (zm *ZMachine) ReparentObject(objectIndex uint16, newParentIndex uint16) {
 	zm.UnlinkObject(objectIndex)
 
 	// Make the first child of our new parent
-	newParentAddress := zm.GetObjectEntryAddress(newParentIndex)
-	zm.buf[objectEntryAddress+OBJECT_SIBLING_INDEX] = zm.buf[newParentAddress+OBJECT_CHILD_INDEX]
-	zm.buf[newParentAddress+OBJECT_CHILD_INDEX] = uint8(objectIndex)
-	zm.buf[objectEntryAddress+OBJECT_PARENT_INDEX] = uint8(newParentIndex)
+	zm.SetSiblingObjectIndex(objectIndex, zm.GetChildIndex(newParentIndex))
+	zm.SetChildObjectIndex(newParentIndex, objectIndex)
+	zm.SetParentObjectIndex(objectIndex, newParentIndex)
 }
 
-func (zm *ZMachine) GetParentObject(objectIndex uint16) uint16 {
+func (zm *ZMachine) GetParentObjectIndex(objectIndex uint16) uint16 {
 	objectEntryAddress := zm.GetObjectEntryAddress(objectIndex)
 	if zm.header.version <= 3 {
 		return uint16(zm.buf[objectEntryAddress+OBJECT_PARENT_INDEX])
@@ -276,7 +266,16 @@ func (zm *ZMachine) GetParentObject(objectIndex uint16) uint16 {
 	}
 }
 
-func (zm *ZMachine) GetFirstChild(objectIndex uint16) uint16 {
+func (zm *ZMachine) SetParentObjectIndex(objectIndex uint16, parentIndex uint16) {
+	objectEntryAddress := zm.GetObjectEntryAddress(objectIndex)
+	if zm.header.version <= 3 {
+		zm.buf[objectEntryAddress+OBJECT_PARENT_INDEX] = uint8(parentIndex)
+	} else {
+		zm.SetUint16(objectEntryAddress+OBJECT_PARENT_INDEX, parentIndex)
+	}
+}
+
+func (zm *ZMachine) GetChildIndex(objectIndex uint16) uint16 {
 	objectEntryAddress := zm.GetObjectEntryAddress(objectIndex)
 	if zm.header.version <= 3 {
 		return uint16(zm.buf[objectEntryAddress+OBJECT_CHILD_INDEX])
@@ -285,14 +284,31 @@ func (zm *ZMachine) GetFirstChild(objectIndex uint16) uint16 {
 	}
 }
 
-func (zm *ZMachine) GetSibling(objectIndex uint16) uint16 {
+func (zm *ZMachine) SetChildObjectIndex(objectIndex uint16, childIndex uint16) {
+	objectEntryAddress := zm.GetObjectEntryAddress(objectIndex)
+	if zm.header.version <= 3 {
+		zm.buf[objectEntryAddress+OBJECT_CHILD_INDEX] = uint8(childIndex)
+	} else {
+		zm.SetUint16(objectEntryAddress+OBJECT_CHILD_INDEX, childIndex)
+	}
+}
+
+func (zm *ZMachine) GetSiblingIndex(objectIndex uint16) uint16 {
 	objectEntryAddress := zm.GetObjectEntryAddress(objectIndex)
 	if zm.header.version <= 3 {
 		return uint16(zm.buf[objectEntryAddress+OBJECT_SIBLING_INDEX])
 	} else {
 		return zm.GetUint16(objectEntryAddress + OBJECT_SIBLING_INDEX)
 	}
+}
 
+func (zm *ZMachine) SetSiblingObjectIndex(objectIndex uint16, siblingIndex uint16) {
+	objectEntryAddress := zm.GetObjectEntryAddress(objectIndex)
+	if zm.header.version <= 3 {
+		zm.buf[objectEntryAddress+OBJECT_SIBLING_INDEX] = uint8(siblingIndex)
+	} else {
+		zm.SetUint16(objectEntryAddress+OBJECT_SIBLING_INDEX, siblingIndex)
+	}
 }
 
 func (zm *ZMachine) PrintObjectName(objectIndex uint16) {

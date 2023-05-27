@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"flag"
+	"fmt"
 	"os"
 	"strconv"
 )
@@ -25,7 +26,46 @@ func Init(filename string) *ZMachine {
 	return zm
 }
 
+var commands = []string{
+	"answer phone",
+	"stand",
+	"s",
+	"remove watch",
+	"remove clothes",
+	"drop all",
+	"enter shower",
+	"take watch",
+	"wear watch",
+	"n",
+	"get all from table",
+	"open dresser",
+	"get clothes",
+	"wear clothes",
+	"e",
+	"open front door",
+	"s",
+	"open car with keys",
+	"enter car",
+	"no",
+	"yes",
+	"open wallet",
+	"take ID",
+	"insert card in slot",
+	"enter cubicle",
+	"read note",
+	"take form and pen",
+	"sign form",
+	"out",
+	"west",
+}
+var commandIndex = 0
+
 func Input() string {
+	if commandIndex < len(commands) {
+		fmt.Println(commands[commandIndex])
+		commandIndex++
+		return commands[commandIndex-1]
+	}
 	reader := bufio.NewReader(os.Stdin)
 	input, _ := reader.ReadString('\n')
 	return input
@@ -33,11 +73,15 @@ func Input() string {
 
 func main() {
 	filename := flag.String("file", "zork1.dat", "Z-Machine file to run")
+	doChat := flag.Bool("ai", false, "Chat with AI")
 	flag.Parse()
 
 	zm := Init(*filename)
-	//chat(zm)
-	//return
+
+	if *doChat {
+		chat(zm)
+		return
+	}
 
 	zm.input = Input
 	for !zm.done {

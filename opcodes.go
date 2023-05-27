@@ -24,7 +24,9 @@ var ZFunctions_VAR = []ZFunction{
 	func(zm *ZMachine, args []uint16, numargs uint16) {
 		ZCall(zm, args, numargs, ZCallTypeStore)
 	},
-	nil,
+	func(zm *ZMachine, args []uint16, numargs uint16) {
+		// erase window
+	},
 	nil,
 	func(zm *ZMachine, args []uint16, numargs uint16) {
 		// set cursor
@@ -37,7 +39,9 @@ var ZFunctions_VAR = []ZFunction{
 	ZOutputStream,
 	nil,
 	nil,
-	nil,
+	func(zm *ZMachine, args []uint16, numargs uint16) {
+		zm.StoreResult(13)
+	},
 	nil,
 	nil, // not value -> (result)
 	func(zm *ZMachine, args []uint16, numargs uint16) {
@@ -116,7 +120,7 @@ var ZFunctions_0P = []ZFunction0Op{
 	ZNOP0,
 	ZNOP0,
 	ZNOP0,
-	ZNOP0,
+	ZRestart,
 	ZRetPopped,
 	ZPop,
 	ZQuit,

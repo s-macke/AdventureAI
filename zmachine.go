@@ -17,10 +17,6 @@ const (
 	OPERAND_VARIABLE = 0x2
 	OPERAND_OMITTED  = 0x3
 
-	FORM_SHORT    = 0x0
-	FORM_LONG     = 0x1
-	FORM_VARIABLE = 0x2
-
 	MAX_STACK  = 1024
 	MAX_OBJECT = 256
 
@@ -38,6 +34,7 @@ const (
 type ZMachine struct {
 	ip         uint32
 	header     ZHeader
+	backupBuf  []uint8 // the initial buffer
 	buf        []uint8
 	stack      *ZStack
 	localFrame uint16
@@ -339,7 +336,7 @@ func ZJumpZero(zm *ZMachine, arg uint16) {
 // get_sibling object -> (result) ?(label)
 // Get next object in tree, branching if this exists, i.e. is not 0.
 func ZGetSibling(zm *ZMachine, arg uint16) {
-	sibling := zm.GetSibling(arg)
+	sibling := zm.GetSiblingIndex(arg)
 	zm.StoreResult(sibling)
 	GenericBranch(zm, sibling != NULL_OBJECT_INDEX)
 }
@@ -347,13 +344,13 @@ func ZGetSibling(zm *ZMachine, arg uint16) {
 // get_child object -> (result) ?(label)
 // Get first object contained in given object, branching if this exists, i.e. is not nothing (i.e., is not 0).
 func ZGetChild(zm *ZMachine, arg uint16) {
-	childIndex := zm.GetFirstChild(arg)
+	childIndex := zm.GetChildIndex(arg)
 	zm.StoreResult(childIndex)
 	GenericBranch(zm, childIndex != NULL_OBJECT_INDEX)
 }
 
 func ZGetParent(zm *ZMachine, arg uint16) {
-	parent := zm.GetParentObject(arg)
+	parent := zm.GetParentObjectIndex(arg)
 	zm.StoreResult(parent)
 }
 
@@ -636,23 +633,9 @@ func (zm *ZMachine) StoreResult(v uint16) {
 
 func NewZMachine(buffer []uint8, header ZHeader) *ZMachine {
 	zm := new(ZMachine)
-	zm.buf = buffer
+	zm.backupBuf = buffer
 	zm.header = header
-	zm.ip = uint32(header.ip)
-	zm.stack = NewStack()
-	zm.InitObjectsConstants()
-
-	zm.buf[1] = 158 // TODO: why?
-
-	zm.buf[22] = 25  // screen rows
-	zm.buf[33] = 232 // screen cols
-
-	// Z-Machine standard 1.1
-	zm.buf[50] = 1
-	zm.buf[51] = 1
-
-	zm.buf[16] = 0  // flags
-	zm.buf[17] = 16 // flags
+	ZRestart(zm)
 
 	/* Adjust opcode tables */
 	if zm.header.version < 4 {
@@ -667,7 +650,29 @@ func NewZMachine(buffer []uint8, header ZHeader) *ZMachine {
 	//zm.ListDictionary()
 	//zm.ListObjects()
 	//os.Exit(1)
+
 	return zm
+}
+
+func ZRestart(zm *ZMachine) {
+	zm.buf = make([]uint8, len(zm.backupBuf))
+	copy(zm.buf, zm.backupBuf)
+
+	zm.ip = uint32(zm.header.ip)
+	zm.stack = NewStack()
+	zm.InitObjectsConstants()
+
+	zm.buf[1] = 158 // TODO: why?
+
+	zm.buf[22] = 25  // screen rows
+	zm.buf[33] = 232 // screen cols
+
+	// Z-Machine standard 1.1
+	zm.buf[50] = 1
+	zm.buf[51] = 1
+
+	zm.buf[16] = 0  // flags
+	zm.buf[17] = 16 // flags
 }
 
 func (zm *ZMachine) GetPropertyDefault(propertyIndex uint16) uint16 {

@@ -65,6 +65,7 @@ func (zm *ZMachine) InterpretShortInstruction() {
 		fn := ZFunctions_1OP[instruction]
 		fn(zm, opValue)
 	} else {
+		//fmt.Println("instruction: ", instruction, opcode)
 		fn := ZFunctions_0P[instruction]
 		fn(zm)
 	}
@@ -103,6 +104,9 @@ func (zm *ZMachine) InterpretExtended() {
 	DebugPrintf("Extended %d %v %d\n", opcode, opValues, numOperands)
 
 	switch opcode {
+	case 1:
+		ZRestart(zm)
+		break
 	case 9:
 		// Save Undo
 		zm.StoreResult(1)
