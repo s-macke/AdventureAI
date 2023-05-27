@@ -1,4 +1,4 @@
-package main
+package zmachine
 
 // Doesn't modify IP
 func (zm *ZMachine) PeekByte() uint8 {

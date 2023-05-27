@@ -1,4 +1,4 @@
-package main
+package zmachine
 
 func ZCall(zm *ZMachine, args []uint16, numArgs uint16, callType ZCallType) {
 	//DebugPrintf("ZCall with numArgs %d callType %d and args %v\n", numArgs, callType, args)

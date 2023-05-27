@@ -1,4 +1,4 @@
-package main
+package zmachine
 
 var ZFunctions_VAR = []ZFunction{
 	func(zm *ZMachine, args []uint16, numargs uint16) {

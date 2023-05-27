@@ -1,4 +1,4 @@
-package main
+package zmachine
 
 type ZStack struct {
 	stack      []uint16

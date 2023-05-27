@@ -1,4 +1,4 @@
-package main
+package zmachine
 
 // https://www.inform-fiction.org/zmachine/standards/z1point1/sect11.html
 type ZHeader struct {

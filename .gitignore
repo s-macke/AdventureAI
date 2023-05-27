@@ -3,9 +3,8 @@ frotz
 *.z8
 *.z5
 
-zmachine
-
 .idea
-frotz/
+data
+data/
 
 storydump/*.json

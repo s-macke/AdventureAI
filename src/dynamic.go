@@ -1,4 +1,4 @@
-package main
+package zmachine
 
 // We can only write to dynamic memory
 func (zm *ZMachine) IsSafeToWrite(address uint32) bool {

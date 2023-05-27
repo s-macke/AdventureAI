@@ -1,4 +1,4 @@
-package main
+package zmachine
 
 func (zm *ZMachine) InterpretLongVARInstruction() {
 	opcode := zm.ReadByte()

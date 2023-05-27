@@ -1,4 +1,4 @@
-package main
+package zmachine
 
 // https://gitlab.com/DavidGriffith/frotz/
 // https://www.inform-fiction.org/zmachine/standards/
