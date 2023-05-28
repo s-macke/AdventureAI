@@ -32,6 +32,7 @@ const (
 )
 
 type ZMachine struct {
+	name       string
 	ip         uint32
 	header     ZHeader
 	backupBuf  []uint8 // the initial buffer
@@ -631,8 +632,9 @@ func (zm *ZMachine) StoreResult(v uint16) {
 	zm.StoreAtLocation(uint16(storeLocation), v)
 }
 
-func NewZMachine(buffer []uint8, header ZHeader) *ZMachine {
+func NewZMachine(name string, buffer []uint8, header ZHeader) *ZMachine {
 	zm := new(ZMachine)
+	zm.name = name
 	zm.backupBuf = buffer
 	zm.header = header
 	ZRestart(zm)

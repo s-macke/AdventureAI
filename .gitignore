@@ -7,4 +7,6 @@ frotz
 data
 data/
 
+zmachine
+
 storydump/*.json

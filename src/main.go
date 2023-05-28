@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"path/filepath"
 )
 
 func Init(filename string) *ZMachine {
@@ -22,7 +23,7 @@ func Init(filename string) *ZMachine {
 		panic("Only Version 3 and 5 files supported. But found version " + strconv.Itoa(int(header.version)))
 	}
 
-	zm := NewZMachine(buffer, header)
+	zm := NewZMachine(filepath.Base(filename), buffer, header)
 	return zm
 }
 
@@ -57,6 +58,31 @@ var commands = []string{
 	"sign form",
 	"out",
 	"west",
+	"RESTART",
+	"look under bed",
+	"look at corpse",
+	"stand",
+	"s",
+	"remove watch",
+	"remove clothes",
+	"drop all",
+	"enter shower",
+	"take watch",
+	"wear watch",
+	"n",
+	"get all from table",
+	"open dresser",
+	"get clothes",
+	"wear clothes",
+	"e",
+	"open front door",
+	"s",
+	"open car with keys",
+	"enter car",
+	"yes",
+	"no",
+	"yes",
+
 }
 var commandIndex = 0
 
@@ -79,7 +105,8 @@ func Main() {
 	zm := Init(*filename)
 
 	if *doChat {
-		chat(zm)
+		chat := NewChatState(zm)
+		chat.chatLoop()
 		return
 	}
 
@@ -93,5 +120,4 @@ func Main() {
 			zm.output.Reset()
 		}
 	}
-
 }
