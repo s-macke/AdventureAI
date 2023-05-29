@@ -3,7 +3,6 @@ package zmachine
 import (
 	"bufio"
 	"flag"
-	"fmt"
 	"os"
 	"strconv"
 	"path/filepath"
@@ -82,16 +81,18 @@ var commands = []string{
 	"yes",
 	"no",
 	"yes",
-
 }
+
 var commandIndex = 0
 
 func Input() string {
+/*
 	if commandIndex < len(commands) {
 		fmt.Println(commands[commandIndex])
 		commandIndex++
 		return commands[commandIndex-1]
 	}
+ */
 	reader := bufio.NewReader(os.Stdin)
 	input, _ := reader.ReadString('\n')
 	return input
