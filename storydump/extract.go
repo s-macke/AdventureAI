@@ -93,7 +93,11 @@ func PrintStory(state *StoryState) {
 
 func main() {
 	var state StoryState
-	LoadStoryFromFile(&state, "storydump/905.z5.json.backup6")
+	if len(os.Args) < 2 {
+		fmt.Println("Usage: extract <filename>")
+		os.Exit(0)
+	}
+	LoadStoryFromFile(&state, os.Args[1])
 	//PrintPrices(&state)
 	PrintStory(&state)
 

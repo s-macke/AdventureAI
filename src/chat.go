@@ -206,7 +206,9 @@ func (cs *ChatState) chatInput() string {
 	StoreStoryToFile(&cs.story, cs.zm.name)
 	cs.currentStoryStep++
 
+	fmt.Println("Press ENTER to continue...")
 	_, _ = fmt.Scanln()
+
 	return cmd.Command
 }
 
