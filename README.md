@@ -1,6 +1,28 @@
+<div align="center">
+  
 # AdventureAI
 
-How does the new Large Language Models perform?
+Interactive Fiction in the Age of AI
+
+</div>
+  
+## Introdution
+
+With the emergence of ChatBots that genuinely live up to their name, a significant question arises.
+
+* How well do they perform in interactive fiction? 
+* Are they already capable of conquering text adventures? 
+* What strategies do they employ? Can they comprehend the semantics and narratives of various situations and respond appropriately? 
+ 
+This repository aims to provide an answer to these questions.
+
+Due to the present expenses associated with the APIs, I have solely conducted an analysis on a single game - "9:05" by Adam Cadre. This game is considered to be one of the finest compact text adventures for novices.
+
+## Spoiler
+
+The following text heavily spoilers the game *9:05*. You can play the game for free [here](https://adamcadre.ac/if/905.html). It takes only half an hour to complete.
+  
+## 9:05  
 
 [9:05 full run](assets/905_full.md)
 
@@ -8,10 +30,9 @@ How does the new Large Language Models perform?
 
 [9:05 as murderer](assets/905_quit.md)
 
+### Costs of one complete run
 
-### Costs for one run
-
-![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](assets/prices.png)
+![Costs of one complete run until the token limit is reached](assets/prices.png)
 
 ## About
 
@@ -19,13 +40,12 @@ This repository contains an interpreter for Z-Machine files, specifically suppor
 
 ## Features
 
-- Read and interpret Z-Machine files (versions 3 and 5)
-- Execute a predefined list of commands
-- Chat with AI
+- Read and interpret Z-Machine files (versions 3 and 5 partially supported)
+- Run against the GPT-4 chatbot via the OpenAI API.
 
 # Compile
 
-Install at least Go V 1.19 and run the following command
+Install at least Go version 1.19 and run the following command
 
 ```bash
 go build
@@ -40,6 +60,13 @@ To use the Z-Machine interpreter, you need to provide the Z-Machine file to run 
 ```
 
 Replace `[filename]` with the path to your desired Z-Machine file.
+
+To use the AI feature you have to set the OpenAI API Key as environment variable.
+
+```
+export OPENAI_API_KEY="<<<put_your_openapi_key_here>>>"
+```
+
 
 ### Example:
 
