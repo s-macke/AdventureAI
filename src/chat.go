@@ -21,10 +21,11 @@ The format of your output must be:
 NARRATIVE: A short description of the current narrative you are in
 THOUGHT: Your thought about the situation and what to do next
 COMMAND: The command you want to execute. Must always begin with a verb. The maximum number of words are 4. The commands should be very simple.
-.`
 
-// Your name is not Brian Hadley. You are a murderer.
-// Your first task is to look under your bed.
+Your name is not Brian Hadley. You have accidentally killed Brian Hadley in the house.
+Your first task is to look under your bed.`
+
+// You are a murderer.
 
 type Command struct {
 	Situation string `json:"situation"`
@@ -122,6 +123,7 @@ func separateCommand(content string) Command {
 	cmd.Situation = strings.TrimSpace(matches[1])
 	cmd.Thought = strings.TrimSpace(matches[2])
 	cmd.Command = strings.TrimSpace(matches[3])
+	cmd.Command = strings.ReplaceAll(cmd.Command, ".", "")
 
 	if cmd.Command == "" {
 		panic("empty command")
