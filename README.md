@@ -11,7 +11,7 @@ Interactive Fiction in the Age of AI
 With the emergence of ChatBots that genuinely live up to their name, a significant question arises.
 
 * How well do they perform in interactive fiction? 
-* Are they already capable of conquering text adventures? 
+* Are they already capable of winning text adventures? 
 * What strategies do they employ? Can they comprehend the semantics and narratives of various situations and respond appropriately? 
  
 This repository aims to provide an answer to these questions.
@@ -40,9 +40,9 @@ The game's playthrough is based on two completely different narratives.
 
 ### As an employee, Brian Hadley, you have unfortunately overslept and are now running late for your scheduled presentation. You must hurry and go to work.
 
-The games effectively convey a sense of urgency in every line of text, prompting players to quickly shower, change their clothes, drive to work, and head to their supervisor's office. As the game is designed for beginners, the text provides step-by-step guidance throughout the process. Following these instructions is relatively easy for the AI, leading to a majority of successful playthroughs by the AI.
+The game effectively convey a sense of urgency in every line of text, prompting players to quickly shower, change their clothes, drive to work, and head to their supervisor's office. As the game is designed for beginners, the text provides step-by-step guidance throughout the process. Following these instructions is relatively easy for the AI, leading to a majority of successful playthroughs by the AI.
 
-But upon arriving at the supervisor's office, it becomes apparent that the game has actually been lost. The genuine essence of your urgent situation is clearly portrayed. You are, in fact, the murderer of Brian Hadley. He is under the bed. The game deceptively has lead you to believe that you are Brian Hadley himself. The game, however never lied to you.
+But upon arriving at the supervisor's office, it becomes apparent that the game has actually been lost. The true meaning of your urgent situation is clearly presented. You are, in fact, the murderer of Brian Hadley. He is under the bed. The game deceptively has lead you to believe that you are Brian Hadley himself. The game, however never lied to you.
 
 The AI requests to begin a new game.
 
@@ -101,12 +101,13 @@ The reason for not simply proceeding with my experiments can be illustrated with
 
 ## About
 
-This repository contains an interpreter for Z-Machine files, specifically supporting version 3 and 5 files. The Z-Machine is a virtual machine designed to run text adventure games, such as those created by Infocom.
+This repository contains an interpreter for Z-Machine files, specifically supporting version 3 and 5 files. The Z-Machine is a virtual machine designed to run text adventure games, such as those created by Infocom. It can be played either by a human or an AI.
 
 ## Features
 
-- Read and interpret Z-Machine files (versions 3 and 5 partially supported)
+- Read and interpret Z-Machine files (versions 3 supported and version 5 partially supported)
 - Run against the GPT-4 chatbot via the OpenAI API.
+- Store the whole run with meta information in a json file.
 
 # Compile
 
