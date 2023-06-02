@@ -25,6 +25,7 @@ archives:
         format: zip
     files:
       - README.md
+      - 905.z5
     wrap_in_directory: true
 checksum:
   name_template: 'checksums.txt'
