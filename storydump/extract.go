@@ -100,5 +100,4 @@ func main() {
 	LoadStoryFromFile(&state, os.Args[1])
 	//PrintPrices(&state)
 	PrintStory(&state)
-
 }

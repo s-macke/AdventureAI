@@ -1,4 +1,4 @@
-module github.com/s-macke/zmachine
+module github.com/s-macke/AdventureAI
 
 go 1.19
 
