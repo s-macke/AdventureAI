@@ -2,7 +2,7 @@ package zmachine
 
 // https://www.inform-fiction.org/zmachine/standards/z1point1/sect11.html
 type ZHeader struct {
-	version           uint8
+	Version           uint8
 	flags             uint8
 	flags2            uint8
 	hiMemBase         uint16
@@ -18,8 +18,8 @@ func GetUint16(buf []byte, offset uint32) uint16 {
 	return (uint16(buf[offset]) << 8) | (uint16)(buf[offset+1])
 }
 
-func (h *ZHeader) read(buf []byte) {
-	h.version = buf[0]
+func (h *ZHeader) Read(buf []byte) {
+	h.Version = buf[0]
 	h.flags = buf[1]
 	h.hiMemBase = GetUint16(buf, 4)
 	h.ip = GetUint16(buf, 6) // Initial value of program counter
@@ -30,7 +30,7 @@ func (h *ZHeader) read(buf []byte) {
 	h.flags2 = buf[0x10]
 	h.abbreviationTable = uint32(GetUint16(buf, 0x18))
 
-	DebugPrintf("Version: %d\n", h.version)
+	DebugPrintf("Version: %d\n", h.Version)
 	DebugPrintf("Flags: %08b\n", h.flags)
 	DebugPrintf("Hi mem base: 0x%X\n", h.hiMemBase)
 	DebugPrintf("IP: 0x%X\n", h.ip)

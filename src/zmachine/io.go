@@ -11,7 +11,7 @@ func ZRead(zm *ZMachine, args []uint16, numArgs uint16) {
 	if maxChars == 0 {
 		panic("Invalid max chars")
 	}
-	if zm.header.version <= 4 {
+	if zm.header.Version <= 4 {
 		maxChars--
 	} else {
 		if maxChars >= INPUT_BUFFER_SIZE {
@@ -22,7 +22,7 @@ func ZRead(zm *ZMachine, args []uint16, numArgs uint16) {
 
 	// Get initial input size
 	size := uint16(0)
-	if zm.header.version >= 5 {
+	if zm.header.Version >= 5 {
 		size = uint16(zm.buf[textAddress+1])
 	}
 	DebugPrintf("Size: %d\n", size)
@@ -30,7 +30,7 @@ func ZRead(zm *ZMachine, args []uint16, numArgs uint16) {
 	key := 13 // CR .Terminating key or special key such as mouse click or timeout
 	//reader := bufio.NewReader(os.Stdin)
 	//input, _ := reader.ReadString('\n')
-	input := zm.input()
+	input := zm.Input()
 
 	if key == 0x7f {
 		return
@@ -50,7 +50,7 @@ func ZRead(zm *ZMachine, args []uint16, numArgs uint16) {
 	if len(input) >= int(maxChars) {
 		input = input[:maxChars-1]
 	}
-	if zm.header.version >= 5 {
+	if zm.header.Version >= 5 {
 		for i := 0; i < len(input); i++ {
 			zm.buf[textAddress+2+uint16(i)] = unicode_to_zscii(input[i])
 		}
@@ -65,7 +65,7 @@ func ZRead(zm *ZMachine, args []uint16, numArgs uint16) {
 	TokenizeLine(zm, args[0], args[1], args[2], args[3] != 0)
 
 	/* Store key */
-	if zm.header.version >= 5 {
+	if zm.header.Version >= 5 {
 		c := unicode_to_zscii(13)
 		if c == 0 {
 			c = '?'
@@ -90,15 +90,15 @@ func (zm *ZMachine) FindInDictionary(str string) uint16 {
 
 	//ncodedText := zm.EncodeText(str)
 
-	zm.output.Reset()
+	zm.Output.Reset()
 	for i := uint16(0); i < numEntries; i++ {
 		foundAddress := entriesAddress + uint32(i)*uint32(entryLength)
 		zm.DecodeZString(foundAddress)
-		if zm.output.String() == str {
-			zm.output.Reset()
+		if zm.Output.String() == str {
+			zm.Output.Reset()
 			return uint16(foundAddress)
 		}
-		zm.output.Reset()
+		zm.Output.Reset()
 	}
 	return uint16(DICT_NOT_FOUND)
 	/*

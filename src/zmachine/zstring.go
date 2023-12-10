@@ -69,7 +69,7 @@ func (zm *ZMachine) DecodeZString(startOffset uint32) uint32 {
 		if alphabetType == 2 && zc == 6 {
 
 			zc10 := (uint16(zchars[i+1]) << 5) | uint16(zchars[i+2])
-			PrintZChar(&zm.output, zc10)
+			PrintZChar(&zm.Output, zc10)
 
 			i += 2
 
@@ -79,13 +79,12 @@ func (zm *ZMachine) DecodeZString(startOffset uint32) uint32 {
 
 		// z-character 0 is printed as a space
 		if zc == 0 {
-			_, _ = fmt.Fprintf(&zm.output, " ")
+			_, _ = fmt.Fprintf(&zm.Output, " ")
 		} else {
 			// If we're here zc >= 6. Alphabet tables are indexed starting at 6
 			aindex := zc - 6
-			_, _ = fmt.Fprintf(&zm.output, "%c", alphabets[alphabetType][aindex])
+			_, _ = fmt.Fprintf(&zm.Output, "%c", alphabets[alphabetType][aindex])
 		}
-
 		alphabetType = 0
 	}
 

@@ -32,20 +32,20 @@ const (
 )
 
 type ZMachine struct {
-	name       string
+	Name       string
 	ip         uint32
 	header     ZHeader
 	backupBuf  []uint8 // the initial buffer
 	buf        []uint8
 	stack      *ZStack
 	localFrame uint16
-	done       bool
-	output     strings.Builder
-	input      func() string
+	Done       bool
+	Output     strings.Builder
+	Input      func() string
 
 	outputstream      int // the id to where we are writing output
 	outputstreamtable uint32
-	windowId          int // The selected window ID to print
+	WindowId          int // The selected window ID to print
 }
 
 type ZFunction func(*ZMachine, []uint16, uint16)
@@ -83,11 +83,11 @@ func ZPutProp(zm *ZMachine, args []uint16, numArgs uint16) {
 
 func ZPrintChar(zm *ZMachine, args []uint16, numArgs uint16) {
 	ch := args[0]
-	PrintZChar(&zm.output, ch)
+	PrintZChar(&zm.Output, ch)
 }
 
 func ZPrintNum(zm *ZMachine, args []uint16, numArgs uint16) {
-	_, _ = fmt.Fprintf(&zm.output, "%d", int16(args[0]))
+	_, _ = fmt.Fprintf(&zm.Output, "%d", int16(args[0]))
 }
 
 // If range is positive, returns a uniformly random number between 1 and range.
@@ -363,7 +363,7 @@ func ZGetPropLen(zm *ZMachine, arg uint16) {
 		// To get size, we need to go 1 byte back
 		propSize := uint16(zm.buf[arg-1])
 		numBytes := uint16(0)
-		if zm.header.version <= 3 {
+		if zm.header.Version <= 3 {
 			numBytes = (propSize >> 5) + 1
 		} else {
 			if (propSize & 0x80) == 0 {
@@ -436,7 +436,7 @@ func ZPrint(zm *ZMachine) {
 func ZPrintRet(zm *ZMachine) {
 	zm.ip = zm.DecodeZString(zm.ip)
 
-	_, _ = fmt.Fprintf(&zm.output, "\n")
+	_, _ = fmt.Fprintf(&zm.Output, "\n")
 	ZRet(zm, 1)
 }
 
@@ -450,11 +450,11 @@ func ZPop(zm *ZMachine) {
 }
 
 func ZQuit(zm *ZMachine) {
-	zm.done = true
+	zm.Done = true
 }
 
 func ZNewLine(zm *ZMachine) {
-	_, _ = fmt.Fprintf(&zm.output, "\n")
+	_, _ = fmt.Fprintf(&zm.Output, "\n")
 }
 
 func ZNOP0(zm *ZMachine) {
@@ -472,7 +472,7 @@ func TokenizeLine(zm *ZMachine, textaddress uint16, tokenaddress uint16, dct uin
 	DebugPrintf("tokenise_line: text=%d token=%d dct=%d flag=%d\n", textaddress, tokenaddress, dct, Btoi(flag))
 	text := ""
 
-	if zm.header.version <= 4 {
+	if zm.header.Version <= 4 {
 		maxsize := int(zm.GetUint8(uint32(textaddress)))
 		//fmt.Println(size)
 		for i := 0; i < maxsize; i++ {
@@ -634,13 +634,13 @@ func (zm *ZMachine) StoreResult(v uint16) {
 
 func NewZMachine(name string, buffer []uint8, header ZHeader) *ZMachine {
 	zm := new(ZMachine)
-	zm.name = name
+	zm.Name = name
 	zm.backupBuf = buffer
 	zm.header = header
 	ZRestart(zm)
 
 	/* Adjust opcode tables */
-	if zm.header.version < 4 {
+	if zm.header.Version < 4 {
 		ZFunctions_0P[0x09] = ZPop
 		ZFunctions_1OP[0x0f] = nil // TODO: ZNot
 	} else {
@@ -679,7 +679,7 @@ func ZRestart(zm *ZMachine) {
 
 func (zm *ZMachine) GetPropertyDefault(propertyIndex uint16) uint16 {
 	var maxProperty uint16 = 31
-	if zm.header.version >= 4 {
+	if zm.header.Version >= 4 {
 		maxProperty = 63
 	}
 

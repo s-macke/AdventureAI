@@ -43,7 +43,7 @@ func (zm *ZMachine) SetUint8(offset uint32, v uint8) {
 //
 //	2P           Versions 1, 2 and 3"
 func (zm *ZMachine) PackedAddress(a uint32) uint32 {
-	if zm.header.version <= 3 {
+	if zm.header.Version <= 3 {
 		return a * 2
 	}
 	return a * 4

@@ -1,31 +1,34 @@
-package zmachine
+package mainsrc
 
 import (
 	"bufio"
 	"flag"
+	"github.com/s-macke/AdventureAI/src/chat"
+	"github.com/s-macke/AdventureAI/src/zmachine"
 	"os"
-	"strconv"
 	"path/filepath"
+	"strconv"
 )
 
-func Init(filename string) *ZMachine {
+func Init(filename string) *zmachine.ZMachine {
 	buffer, err := os.ReadFile(filename)
 	if err != nil {
 		panic(err)
 	}
 	// fmt.Printf("Read %d bytes\n", len(buffer))
 
-	var header ZHeader
-	header.read(buffer)
+	var header zmachine.ZHeader
+	header.Read(buffer)
 
-	if header.version != 3 && header.version != 5 {
-		panic("Only Version 3 and 5 files supported. But found version " + strconv.Itoa(int(header.version)))
+	if header.Version != 3 && header.Version != 5 {
+		panic("Only Version 3 and 5 files supported. But found version " + strconv.Itoa(int(header.Version)))
 	}
 
-	zm := NewZMachine(filepath.Base(filename), buffer, header)
+	zm := zmachine.NewZMachine(filepath.Base(filename), buffer, header)
 	return zm
 }
 
+/*
 var commands = []string{
 	"answer phone",
 	"stand",
@@ -84,15 +87,16 @@ var commands = []string{
 }
 
 var commandIndex = 0
+*/
 
 func Input() string {
-/*
-	if commandIndex < len(commands) {
-		fmt.Println(commands[commandIndex])
-		commandIndex++
-		return commands[commandIndex-1]
-	}
- */
+	/*
+		if commandIndex < len(commands) {
+			fmt.Println(commands[commandIndex])
+			commandIndex++
+			return commands[commandIndex-1]
+		}
+	*/
 	reader := bufio.NewReader(os.Stdin)
 	input, _ := reader.ReadString('\n')
 	return input
@@ -101,24 +105,25 @@ func Input() string {
 func Main() {
 	filename := flag.String("file", "905.z5", "Z-Machine file to run")
 	doChat := flag.Bool("ai", false, "Chat with AI")
+	backend := flag.String("backend", "openai", "Select backend. Either 'openai' or 'llama'")
 	flag.Parse()
 
 	zm := Init(*filename)
 
 	if *doChat {
-		chat := NewChatState(zm)
-		chat.chatLoop()
+		chatState := chat.NewChatState(zm, *backend)
+		chatState.ChatLoop()
 		return
 	}
 
-	zm.input = Input
-	for !zm.done {
+	zm.Input = Input
+	for !zm.Done {
 		zm.InterpretInstruction()
-		if zm.output.Len() > 0 {
-			if zm.windowId == 0 {
-				_, _ = os.Stdout.WriteString(zm.output.String())
+		if zm.Output.Len() > 0 {
+			if zm.WindowId == 0 {
+				_, _ = os.Stdout.WriteString(zm.Output.String())
 			}
-			zm.output.Reset()
+			zm.Output.Reset()
 		}
 	}
 }

@@ -18,7 +18,7 @@ var ZFunctions_VAR = []ZFunction{
 	},
 	func(zm *ZMachine, args []uint16, numargs uint16) {
 		//fmt.Println("Set Window", args)
-		zm.windowId = int(args[0])
+		zm.WindowId = int(args[0])
 		// set window
 	},
 	func(zm *ZMachine, args []uint16, numargs uint16) {

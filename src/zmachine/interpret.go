@@ -132,7 +132,7 @@ func (zm *ZMachine) InterpretInstruction() {
 
 	if opcode == 0xec || opcode == 0xfa {
 		zm.InterpretLongVARInstruction()
-	} else if opcode == 0xBE && zm.header.version >= 5 {
+	} else if opcode == 0xBE && zm.header.Version >= 5 {
 		zm.InterpretExtended()
 	} else if form == 0x2 {
 		zm.InterpretShortInstruction()
@@ -142,15 +142,15 @@ func (zm *ZMachine) InterpretInstruction() {
 		zm.InterpretLongInstruction()
 	}
 
-	if zm.outputstream == 3 && zm.output.Len() != 0 { // output to memory
+	if zm.outputstream == 3 && zm.Output.Len() != 0 { // output to memory
 		size := uint32(zm.GetUint16(zm.outputstreamtable))
-		str := zm.output.String()
+		str := zm.Output.String()
 		for i := 0; i < len(str); i++ {
 			zm.buf[zm.outputstreamtable+2+size] = str[i]
 			size++
 			zm.SetUint16(zm.outputstreamtable, uint16(size))
 		}
-		zm.output.Reset()
+		zm.Output.Reset()
 	}
 
 }

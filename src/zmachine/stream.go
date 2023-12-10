@@ -10,7 +10,7 @@ func ZOutputStream(zm *ZMachine, args []uint16, numArgs uint16) {
 	case 3: // memory_open // Begin output redirection to the memory of the Z-machine.
 		zm.outputstream = 3
 		// output should be empty
-		zm.output.Reset()
+		zm.Output.Reset()
 		table := uint32(args[1])
 		zm.SetUint16(table, 0)
 		zm.outputstreamtable = table

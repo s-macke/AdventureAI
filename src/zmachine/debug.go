@@ -7,11 +7,11 @@ func DebugPrintf(format string, v ...any) {
 }
 
 func (zm *ZMachine) ListObjects() {
-	zm.output.Reset()
+	zm.Output.Reset()
 	for i := uint16(1); i < 85; i++ {
 		zm.PrintObjectName(i)
 		propData := zm.GetFirstPropertyAddress(i)
-		fmt.Printf("%3d %s %04x\n", i, zm.output.String(), propData)
+		fmt.Printf("%3d %s %04x\n", i, zm.Output.String(), propData)
 		for j := uint16(1); j < 64; j++ {
 			addr, size := zm.GetObjectPropertyInfo(i, j)
 			if addr != 0 {
@@ -22,7 +22,7 @@ func (zm *ZMachine) ListObjects() {
 
 		}
 
-		zm.output.Reset()
+		zm.Output.Reset()
 	}
 }
 
@@ -40,14 +40,14 @@ func (zm *ZMachine) ListDictionary() {
 	//fmt.Println(numSeparators, entryLength, numEntries)
 
 	entriesAddress := zm.header.dictAddress + 1 + numSeparators + 1 + 2
-	zm.output.Reset()
+	zm.Output.Reset()
 	for i := uint32(0); i < numEntries; i++ {
 		foundAddress := entriesAddress + i*uint32(entryLength)
 		//fmt.Println(foundAddress)
 		zm.DecodeZString(foundAddress)
 
-		fmt.Printf("%3d %s\n", i+1, zm.output.String())
-		zm.output.Reset()
+		fmt.Printf("%3d %s\n", i+1, zm.Output.String())
+		zm.Output.Reset()
 		//fmt.Println(foundAddress)
 	}
 }
@@ -55,7 +55,7 @@ func (zm *ZMachine) ListDictionary() {
 func (zm *ZMachine) ListAbbreviations() {
 
 	//fmt.Println(numSeparators, entryLength, numEntries)
-	zm.output.Reset()
+	zm.Output.Reset()
 
 	entriesAddress := zm.header.abbreviationTable
 	for i := uint32(0); i < 96; i++ {
@@ -64,8 +64,8 @@ func (zm *ZMachine) ListAbbreviations() {
 		//zm.DecodeZString(zm.PackedAddress(uint32(zm.GetUint16(foundAddress))))
 		zm.DecodeZString(uint32(zm.GetUint16(foundAddress)) * 2)
 
-		fmt.Printf("%3d '%s'\n", i, zm.output.String())
-		zm.output.Reset()
+		fmt.Printf("%3d '%s'\n", i, zm.Output.String())
+		zm.Output.Reset()
 		//fmt.Println(foundAddress)
 	}
 }

@@ -14,7 +14,7 @@ var (
 )
 
 func (zm *ZMachine) InitObjectsConstants() {
-	if zm.header.version <= 3 {
+	if zm.header.Version <= 3 {
 		OBJECT_PARENT_INDEX = 4
 		OBJECT_SIBLING_INDEX = 5
 		OBJECT_CHILD_INDEX = 6
@@ -94,7 +94,7 @@ func (zm *ZMachine) GetObjectPropertyInfo(objectIndex uint16, propertyId uint16)
 		propData++
 		addOne := uint16(0)
 
-		if zm.header.version <= 3 {
+		if zm.header.Version <= 3 {
 			propNo = value & 0x1F
 			propSize = value >> 5
 		} else {
@@ -259,7 +259,7 @@ func (zm *ZMachine) ReparentObject(objectIndex uint16, newParentIndex uint16) {
 
 func (zm *ZMachine) GetParentObjectIndex(objectIndex uint16) uint16 {
 	objectEntryAddress := zm.GetObjectEntryAddress(objectIndex)
-	if zm.header.version <= 3 {
+	if zm.header.Version <= 3 {
 		return uint16(zm.buf[objectEntryAddress+OBJECT_PARENT_INDEX])
 	} else {
 		return zm.GetUint16(objectEntryAddress + OBJECT_PARENT_INDEX)
@@ -268,7 +268,7 @@ func (zm *ZMachine) GetParentObjectIndex(objectIndex uint16) uint16 {
 
 func (zm *ZMachine) SetParentObjectIndex(objectIndex uint16, parentIndex uint16) {
 	objectEntryAddress := zm.GetObjectEntryAddress(objectIndex)
-	if zm.header.version <= 3 {
+	if zm.header.Version <= 3 {
 		zm.buf[objectEntryAddress+OBJECT_PARENT_INDEX] = uint8(parentIndex)
 	} else {
 		zm.SetUint16(objectEntryAddress+OBJECT_PARENT_INDEX, parentIndex)
@@ -277,7 +277,7 @@ func (zm *ZMachine) SetParentObjectIndex(objectIndex uint16, parentIndex uint16)
 
 func (zm *ZMachine) GetChildIndex(objectIndex uint16) uint16 {
 	objectEntryAddress := zm.GetObjectEntryAddress(objectIndex)
-	if zm.header.version <= 3 {
+	if zm.header.Version <= 3 {
 		return uint16(zm.buf[objectEntryAddress+OBJECT_CHILD_INDEX])
 	} else {
 		return zm.GetUint16(objectEntryAddress + OBJECT_CHILD_INDEX)
@@ -286,7 +286,7 @@ func (zm *ZMachine) GetChildIndex(objectIndex uint16) uint16 {
 
 func (zm *ZMachine) SetChildObjectIndex(objectIndex uint16, childIndex uint16) {
 	objectEntryAddress := zm.GetObjectEntryAddress(objectIndex)
-	if zm.header.version <= 3 {
+	if zm.header.Version <= 3 {
 		zm.buf[objectEntryAddress+OBJECT_CHILD_INDEX] = uint8(childIndex)
 	} else {
 		zm.SetUint16(objectEntryAddress+OBJECT_CHILD_INDEX, childIndex)
@@ -295,7 +295,7 @@ func (zm *ZMachine) SetChildObjectIndex(objectIndex uint16, childIndex uint16) {
 
 func (zm *ZMachine) GetSiblingIndex(objectIndex uint16) uint16 {
 	objectEntryAddress := zm.GetObjectEntryAddress(objectIndex)
-	if zm.header.version <= 3 {
+	if zm.header.Version <= 3 {
 		return uint16(zm.buf[objectEntryAddress+OBJECT_SIBLING_INDEX])
 	} else {
 		return zm.GetUint16(objectEntryAddress + OBJECT_SIBLING_INDEX)
@@ -304,7 +304,7 @@ func (zm *ZMachine) GetSiblingIndex(objectIndex uint16) uint16 {
 
 func (zm *ZMachine) SetSiblingObjectIndex(objectIndex uint16, siblingIndex uint16) {
 	objectEntryAddress := zm.GetObjectEntryAddress(objectIndex)
-	if zm.header.version <= 3 {
+	if zm.header.Version <= 3 {
 		zm.buf[objectEntryAddress+OBJECT_SIBLING_INDEX] = uint8(siblingIndex)
 	} else {
 		zm.SetUint16(objectEntryAddress+OBJECT_SIBLING_INDEX, siblingIndex)

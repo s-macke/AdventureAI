@@ -33,7 +33,7 @@ func ZCall(zm *ZMachine, args []uint16, numArgs uint16, callType ZCallType) {
 	numArgs-- // first argument is function address
 	for i := 0; i < int(numLocals); i++ {
 		localVar := uint16(0)
-		if zm.header.version <= 3 { // older versions provide default. From version 4 onwards, local variables are initialized to 0
+		if zm.header.Version <= 3 { // older versions provide default. From version 4 onwards, local variables are initialized to 0
 			localVar = zm.ReadUint16()
 		}
 		if numArgs > 0 {
