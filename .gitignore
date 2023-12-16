@@ -7,6 +7,6 @@ frotz
 data
 data/
 
-
+login.sh
 
 storydump/*.json

@@ -99,6 +99,37 @@ More text adventures are waiting to be played.
 The reason for not simply proceeding with my experiments can be illustrated with a single image.
 ![Costs of one complete run until the token limit is reached](assets/prices.png)
 
+### Evaluation of other models
+
+The code is able to call different backends. Because the game 
+is linear, I have defined the following criteria to distinguish
+the state of all runs
+
+| Points   | Expectation                                              |
+|----------|----------------------------------------------------------|
+| 1        | Model understands the system prompt at least partially   |
+| 2        | First command can be correctly parsed                    |
+| 3        | Second command can be correctly parsed                   |
+| 4        | Answers phone                                            |
+| 5        | Leaves bed                                               |
+| 6        | Takes a shower                                           |
+| 7        | Goes to work                                             |
+| 8        | Ends first pass                                          |
+| 9        | Understands the narrative of the story                   |
+| 10       | Looks under the bed                                      |
+| 11       | Finishes the second pass and win the game                |
+
+
+| Model          | Points | Comment                                                                     |
+|----------------|--------|-----------------------------------------------------------------------------|
+| GPT-4-turbo    | 9      | At least understands, that he has to take a different route the second time |
+| GPT-3.5-turbo  | 4      | Ignores the result from the game completely and too long commands           |
+| Orca 2         | 4      | Ignores the result from the game completely and too long commands           |
+| Mistral Tiny   | 4      | Stuck in infinite loop                                                      |
+| Mistral Small  | 5      | At some point it tries to play the game itself and mangles the command      |
+| Mistral Medium | 5      | Doesn't follow the given prompt                                             |
+| Gemini Pro     | 5      | Too long commands                                                           |
+
 ## About
 
 This repository contains an interpreter for Z-Machine files, specifically supporting version 3 and 5 files. The Z-Machine is a virtual machine designed to run text adventure games, such as those created by Infocom. It can be played either by a human or an AI.

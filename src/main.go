@@ -105,7 +105,7 @@ func Input() string {
 func Main() {
 	filename := flag.String("file", "905.z5", "Z-Machine file to run")
 	doChat := flag.Bool("ai", false, "Chat with AI")
-	backend := flag.String("backend", "openai", "Select backend. Either 'openai' or 'llama'")
+	backend := flag.String("backend", "gpt4", "Select backend. Either 'gpt3', 'gpt4', 'orca2', 'mistral', 'gemini'")
 	flag.Parse()
 
 	zm := Init(*filename)

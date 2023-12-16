@@ -39,7 +39,7 @@ func StoreStoryToFile(state *StoryState, name string) {
 }
 
 func LoadStoryFromFile(state *StoryState, name string) {
-	filename := "storydump/" + name + ".json.backup11"
+	filename := "storydump/" + name + ".json.backup12"
 	data, err := os.ReadFile(filename)
 	if err != nil {
 		panic(err)

@@ -14,16 +14,27 @@ type OpenAIChat struct {
 	totalPromptTokens     int
 	CompletionTokens      int
 	PromptTokens          int
+	model                 string
 }
 
-func NewOpenAIChat(systemMsg string) *OpenAIChat {
+func NewOpenAIChat(systemMsg string, backend string) *OpenAIChat {
 	key := os.Getenv("OPENAI_API_KEY")
 	if key == "" {
 		panic(" OPENAI_API_KEY env var not set")
 	}
+
 	cs := &OpenAIChat{
 		client: openai.NewClient(key),
 	}
+	switch backend {
+	case "gpt3":
+		cs.model = openai.GPT3Dot5Turbo
+	case "gpt4":
+		cs.model = openai.GPT4TurboPreview
+	default:
+		panic("Unknown backend")
+	}
+
 	cs.messages = append(cs.messages, openai.ChatCompletionMessage{
 		Role:    openai.ChatMessageRoleSystem,
 		Content: systemMsg,
@@ -43,10 +54,9 @@ func (cs *OpenAIChat) GetResponse(input string) (string, int, int) {
 	resp, err := cs.client.CreateChatCompletion(
 		context.Background(),
 		openai.ChatCompletionRequest{
-			Model: openai.GPT4TurboPreview,
-			//Model: openai.GPT4,
+			Model:            cs.model,
 			Messages:         cs.messages,
-			MaxTokens:        256,
+			MaxTokens:        512,
 			PresencePenalty:  0,
 			FrequencyPenalty: 0,
 		},

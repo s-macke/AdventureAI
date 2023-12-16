@@ -15,9 +15,10 @@ type LlamaChat struct {
 }
 
 type LlamaRequest struct {
-	CachePrompt bool   `json:"cache_prompt"`
-	NPredict    int    `json:"n_predict"`
-	Prompt      string `json:"prompt"`
+	CachePrompt bool     `json:"cache_prompt"`
+	NPredict    int      `json:"n_predict"`
+	Prompt      string   `json:"prompt"`
+	Stop        []string `json:"stop"`
 }
 
 /*
@@ -100,7 +101,7 @@ type LlamaResponse struct {
 	Truncated       bool `json:"truncated"`
 }
 
-func NewLlamaChat(systemMsg string) *LlamaChat {
+func NewLlamaChat(systemMsg string, backend string) *LlamaChat {
 	cs := &LlamaChat{
 		totalCompletionTokens: 0,
 		totalPromptTokens:     0,
@@ -113,6 +114,44 @@ func NewLlamaChat(systemMsg string) *LlamaChat {
 }
 
 func (cs *LlamaChat) PreparePrompt() string {
+	var sb strings.Builder
+	for _, msg := range cs.messages {
+		switch msg.Role {
+		case openai.ChatMessageRoleUser:
+			sb.WriteString("### User:\n")
+		case openai.ChatMessageRoleAssistant:
+			sb.WriteString("### Assistant:\n")
+		case openai.ChatMessageRoleSystem:
+			sb.WriteString("### System:\n")
+		default:
+			panic("Unknown role")
+		}
+		sb.WriteString(msg.Content)
+		sb.WriteString("\n")
+	}
+	sb.WriteString("### Assistant:\n")
+	return sb.String()
+}
+
+func (cs *LlamaChat) PrepareLLamaPrompt() string {
+	var sb strings.Builder
+	for _, msg := range cs.messages {
+		switch msg.Role {
+		case openai.ChatMessageRoleUser:
+			sb.WriteString("[INST] <<SYS>> <</SYS>>\n\n" + msg.Content + " [/INST]")
+		case openai.ChatMessageRoleAssistant:
+			sb.WriteString("[INST] <<SYS>> <</SYS>>\n\n" + msg.Content + " [INST]")
+		case openai.ChatMessageRoleSystem:
+			sb.WriteString("[INST]<<SYS>>\n" + msg.Content + "\n<</SYS>>")
+		default:
+			panic("Unknown role")
+		}
+	}
+	sb.WriteString("[INST] <<SYS>> <</SYS>>\n\n")
+	return sb.String()
+}
+
+func (cs *LlamaChat) PreparePromptChatMLV1() string {
 	var sb strings.Builder
 	for _, msg := range cs.messages {
 		sb.WriteString("<|im_start|>")
@@ -134,9 +173,16 @@ func (cs *LlamaChat) GetResponse(input string) (string, int, int) {
 	})
 
 	req := LlamaRequest{
-		Prompt:      cs.PreparePrompt(),
+		//Prompt: cs.PreparePrompt(),
+		Prompt: cs.PreparePromptChatMLV1(),
+		//Prompt:      cs.PrepareLLamaPrompt(),
 		NPredict:    1024,
 		CachePrompt: true,
+		Stop: []string{
+			"<|im_end|>",     // ChatMl
+			"### Assistant:", // Orca Hashes
+			"### User:",      // Orca Hashes
+			"[INST]"},
 	}
 
 	reqAsJson, err := json.Marshal(req)
