@@ -2,23 +2,17 @@ package chat
 
 import (
 	"encoding/json"
+	"github.com/s-macke/AdventureAI/src/chat/prompt"
 	"os"
 )
 
-type Command struct {
-	Situation string `json:"situation"`
-	Narrator  string `json:"narrator"`
-	Thought   string `json:"thought"`
-	Command   string `json:"command"`
-}
-
 type StoryMessage struct {
-	Role             string  `json:"role"`
-	Content          string  `json:"content"`
-	CompletionTokens int     `json:"CompletionTokens"`
-	PromptTokens     int     `json:"PromptTokens"`
-	IsResponse       bool    `json:"isResponse"`
-	Command          Command `json:"command"`
+	Role             string         `json:"role"`
+	Content          string         `json:"content"`
+	CompletionTokens int            `json:"CompletionTokens"`
+	PromptTokens     int            `json:"PromptTokens"`
+	IsResponse       bool           `json:"isResponse"`
+	Command          prompt.Command `json:"command"`
 }
 
 type StoryState struct {

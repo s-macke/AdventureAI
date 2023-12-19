@@ -3,55 +3,54 @@ package chat
 import (
 	"fmt"
 	"github.com/s-macke/AdventureAI/src/chat/backend"
+	"github.com/s-macke/AdventureAI/src/chat/prompt"
 	"github.com/s-macke/AdventureAI/src/zmachine"
-	"regexp"
-	"strings"
 )
 
 const (
 	InfoColor = "\033[1;34m%s\033[0m"
 )
 
-const systemMsg string = `You act as a player of an interactive text adventure. The goal is to win the game. 
-The user provides the text of the text adventure. He is not a human and just prints the output of the game.
-
-The format of your output must be:
-SITUATION: {A short description of the current situation you are in.}
-THOUGHT: {A curious, adventurous thought.}
-COMMAND: {The single two word command you want to execute.}
-`
-
 //Your name is not Brian Hadley. You have accidentally killed Brian Hadley in the house.
 //Your first task is to look under your bed.`
 // You are a murderer.
 
 type ChatState struct {
+	prompt           prompt.State
 	chatClient       backend.ChatBackend
 	zm               *zmachine.ZMachine
-	story            StoryState
+	story            *StoryState
 	output           string
 	currentStoryStep int
 }
 
-func NewChatState(zm *zmachine.ZMachine, backendAsString string) *ChatState {
+func NewChatState(zm *zmachine.ZMachine, chatPrompt string, backendAsString string) *ChatState {
 	cs := &ChatState{
-		story: StoryState{
-			Prompt: systemMsg,
-		},
-		output:           "",
 		zm:               zm,
+		story:            &StoryState{},
+		output:           "",
 		currentStoryStep: 0,
 	}
+	fmt.Println("Use prompt: ", chatPrompt)
+	switch chatPrompt {
+	case "simple":
+		cs.prompt = prompt.NewPromptSimple()
+	case "cot":
+		cs.prompt = prompt.NewPromptCoT()
+	default:
+		panic("Unknown prompt")
+	}
+	cs.story.Prompt = cs.prompt.GetSystemPrompt()
 	fmt.Println("Use backend: ", backendAsString)
 	switch backendAsString {
 	case "gpt3", "gpt4":
-		cs.chatClient = backend.NewOpenAIChat(systemMsg, backendAsString)
+		cs.chatClient = backend.NewOpenAIChat(cs.story.Prompt, backendAsString)
 	case "orca2":
-		cs.chatClient = backend.NewLlamaChat(systemMsg, backendAsString)
+		cs.chatClient = backend.NewLlamaChat(cs.story.Prompt, backendAsString)
 	case "mistral":
-		cs.chatClient = backend.NewMistralChat(systemMsg)
+		cs.chatClient = backend.NewMistralChat(cs.story.Prompt)
 	case "gemini":
-		cs.chatClient = backend.NewVertexAIChat(systemMsg)
+		cs.chatClient = backend.NewVertexAIChat(cs.story.Prompt)
 	default:
 		panic("Unknown backend")
 	}
@@ -61,33 +60,6 @@ func NewChatState(zm *zmachine.ZMachine, backendAsString string) *ChatState {
 	return cs
 }
 
-func separateCommand(content string) Command {
-	cmd := Command{}
-
-	if content == "" {
-		panic("empty content")
-	}
-
-	re := regexp.MustCompile(`\r?\n`)
-	content = re.ReplaceAllString(content, " ")
-	re = regexp.MustCompile(`SITUATION:(.*)THOUGHT:(.*)COMMAND:(.*)`)
-	matches := re.FindStringSubmatch(content)
-
-	cmd.Situation = strings.TrimSpace(matches[1])
-	//cmd.Narrator = strings.TrimSpace(matches[2])
-	cmd.Thought = strings.TrimSpace(matches[2])
-	cmd.Command = strings.TrimSpace(matches[3])
-	if cmd.Command[0] == '"' && cmd.Command[len(cmd.Command)-1] == '"' {
-		cmd.Command = cmd.Command[1 : len(cmd.Command)-1]
-	}
-	cmd.Command = strings.ReplaceAll(cmd.Command, ".", "")
-	if cmd.Command == "" {
-		panic("empty command")
-	}
-
-	return cmd
-}
-
 func (cs *ChatState) chatInput() string {
 	cs.story.Messages = append(cs.story.Messages, StoryMessage{
 		Role:             "user",
@@ -95,7 +67,7 @@ func (cs *ChatState) chatInput() string {
 		CompletionTokens: 0,
 		PromptTokens:     0,
 		IsResponse:       false,
-		Command:          Command{},
+		Command:          prompt.Command{},
 	})
 
 	fmt.Print(cs.output)
@@ -120,7 +92,13 @@ func (cs *ChatState) chatInput() string {
 	fmt.Printf(InfoColor, content)
 	fmt.Println()
 
-	cmd := separateCommand(content)
+	if content == "" {
+		panic("empty content")
+	}
+	cmd := cs.prompt.ParseResponse(content)
+	if cmd.Command == "" {
+		panic("empty command")
+	}
 
 	cs.story.Messages = append(cs.story.Messages, StoryMessage{
 		Role:             "assistant",
@@ -131,7 +109,7 @@ func (cs *ChatState) chatInput() string {
 		Command:          cmd,
 	})
 
-	StoreStoryToFile(&cs.story, cs.zm.Name)
+	StoreStoryToFile(cs.story, cs.zm.Name)
 	cs.currentStoryStep++
 
 	if cs.currentStoryStep%5 == 0 {

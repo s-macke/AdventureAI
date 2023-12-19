@@ -105,13 +105,14 @@ func Input() string {
 func Main() {
 	filename := flag.String("file", "905.z5", "Z-Machine file to run")
 	doChat := flag.Bool("ai", false, "Chat with AI")
-	backend := flag.String("backend", "gpt4", "Select backend. Either 'gpt3', 'gpt4', 'orca2', 'mistral', 'gemini'")
+	prompt := flag.String("prompt", "cot", "Chat with AI via prompt 'simple' or 'cot' (chain of thought)")
+	backend := flag.String("backend", "gpt4", "Select AI backend. Either 'gpt3', 'gpt4', 'orca2', 'mistral', 'gemini'")
 	flag.Parse()
 
 	zm := Init(*filename)
 
 	if *doChat {
-		chatState := chat.NewChatState(zm, *backend)
+		chatState := chat.NewChatState(zm, *prompt, *backend)
 		chatState.ChatLoop()
 		return
 	}
