@@ -105,24 +105,25 @@ The code is able to call different backends. Because the game
 is linear, I have defined the following criteria to distinguish
 the state of all runs
 
-| Points   | Expectation                                              |
-|----------|----------------------------------------------------------|
-| 1        | Model understands the system prompt at least partially   |
-| 2        | First command can be correctly parsed                    |
-| 3        | Second command can be correctly parsed                   |
-| 4        | Answers phone                                            |
-| 5        | Leaves bed                                               |
-| 6        | Takes a shower                                           |
-| 7        | Goes to work                                             |
-| 8        | Ends first pass                                          |
-| 9        | Understands the narrative of the story                   |
-| 10       | Looks under the bed                                      |
-| 11       | Finishes the second pass and win the game                |
+| Points   | Expectation                                                                 |
+|----------|-----------------------------------------------------------------------------|
+| 1        | Model understands the system prompt at least partially                      |
+| 2        | First command can be correctly parsed                                       |
+| 3        | Second command can be correctly parsed                                      |
+| 4        | Answers phone                                                               |
+| 5        | Leaves bed                                                                  |
+| 6        | Takes a shower                                                              |
+| 7        | Goes to work                                                                |
+| 8        | Ends first pass                                                             |
+| 9        | Understands that a different route in the second pass is necessary          |
+| 10       | Understands the narrative of the story                                      |
+| 11       | Looks under the bed                                                         |
+| 12       | Finishes the second pass and win the game                                   |
 
 
 | Model          | Points | Comment                                                                     |
 |----------------|--------|-----------------------------------------------------------------------------|
-| GPT-4-turbo    | 9      | At least understands, that he has to take a different route the second time |
+| GPT-4-turbo    | 9      | After a few steps forgets everything and just follows the story again       |
 | GPT-3.5-turbo  | 4      | Ignores the result from the game completely and too long commands           |
 | Orca 2         | 4      | Ignores the result from the game completely and too long commands           |
 | Mistral Tiny   | 4      | Stuck in infinite loop                                                      |
