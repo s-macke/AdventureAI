@@ -31,6 +31,8 @@ To enhance the playthrough experience, I have determined in the prompt that the 
 * THOUGHT: Your thought about the situation and what to do next
 * COMMAND: The command you want to execute.
 ```
+This is known as the agentic ReAct (Reason and Act) prompting technique.
+
 
 Here is my complete run until the language model's token limit is reached.
 
@@ -169,7 +171,7 @@ export OPENAI_API_KEY="<<<put_your_openapi_key_here>>>"
 ### Example:
 
 ```bash
-go run main.go -file 905.z5 -ai
+go run main.go -file 905.z5 -ai -prompt react -backend gpt4
 ```
 
 This will run the Z-Machine interpreter on the given file (905.z5), with the AI chat feature enabled.

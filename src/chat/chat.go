@@ -11,10 +11,6 @@ const (
 	InfoColor = "\033[1;34m%s\033[0m"
 )
 
-//Your name is not Brian Hadley. You have accidentally killed Brian Hadley in the house.
-//Your first task is to look under your bed.`
-// You are a murderer.
-
 type ChatState struct {
 	prompt           prompt.State
 	chatClient       backend.ChatBackend
@@ -35,8 +31,8 @@ func NewChatState(zm *zmachine.ZMachine, chatPrompt string, backendAsString stri
 	switch chatPrompt {
 	case "simple":
 		cs.prompt = prompt.NewPromptSimple()
-	case "cot":
-		cs.prompt = prompt.NewPromptCoT()
+	case "react":
+		cs.prompt = prompt.NewPromptReAct()
 	default:
 		panic("Unknown prompt")
 	}
