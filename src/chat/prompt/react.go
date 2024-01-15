@@ -6,10 +6,15 @@ import (
 )
 
 type ReAct struct {
+	re  *regexp.Regexp
+	re2 *regexp.Regexp
 }
 
 func NewPromptReAct() *ReAct {
-	return &ReAct{}
+	return &ReAct{
+		re:  regexp.MustCompile(`\r?\n`),
+		re2: regexp.MustCompile(`SITUATION:(.*)THOUGHT:(.*)COMMAND:(.*)`),
+	}
 }
 
 func (c *ReAct) GetSystemPrompt() string {
@@ -29,10 +34,9 @@ COMMAND: {The single two word command you want to execute.}
 
 func (c *ReAct) ParseResponse(content string) Command {
 	cmd := Command{}
-	re := regexp.MustCompile(`\r?\n`)
-	content = re.ReplaceAllString(content, " ")
-	re = regexp.MustCompile(`SITUATION:(.*)THOUGHT:(.*)COMMAND:(.*)`)
-	matches := re.FindStringSubmatch(content)
+
+	content = c.re.ReplaceAllString(content, " ")
+	matches := c.re2.FindStringSubmatch(content)
 
 	cmd.Situation = strings.TrimSpace(matches[1])
 	//cmd.Narrator = strings.TrimSpace(matches[2])

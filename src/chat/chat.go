@@ -38,19 +38,7 @@ func NewChatState(zm *zmachine.ZMachine, chatPrompt string, backendAsString stri
 	}
 	cs.story.Prompt = cs.prompt.GetSystemPrompt()
 	fmt.Println("Use backend: ", backendAsString)
-	switch backendAsString {
-	case "gpt3", "gpt4":
-		cs.chatClient = backend.NewOpenAIChat(cs.story.Prompt, backendAsString)
-	case "orca2":
-		cs.chatClient = backend.NewLlamaChat(cs.story.Prompt, backendAsString)
-	case "mistral":
-		cs.chatClient = backend.NewMistralChat(cs.story.Prompt)
-	case "gemini":
-		cs.chatClient = backend.NewVertexAIChat(cs.story.Prompt)
-	default:
-		panic("Unknown backend")
-	}
-
+	cs.chatClient = backend.NewChatBackend(cs.story.Prompt, backendAsString)
 	cs.zm.Input = cs.chatInput
 	//LoadStoryFromFile(&cs.story, cs.zm.Name)
 	return cs

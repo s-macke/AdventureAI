@@ -1,15 +1,19 @@
 package prompt
 
+import "C"
 import (
 	"regexp"
 	"strings"
 )
 
 type Simple struct {
+	re *regexp.Regexp
 }
 
 func NewPromptSimple() *Simple {
-	return &Simple{}
+	return &Simple{
+		re: regexp.MustCompile(`\r?\n`),
+	}
 }
 
 func (c *Simple) GetSystemPrompt() string {
@@ -23,8 +27,8 @@ The format of your output must be a single two word command you want to execute.
 
 func (c *Simple) ParseResponse(content string) Command {
 	cmd := Command{}
-	re := regexp.MustCompile(`\r?\n`)
-	content = re.ReplaceAllString(content, " ")
+
+	content = c.re.ReplaceAllString(content, " ")
 	cmd.Command = strings.TrimSpace(content)
 	if cmd.Command[0] == '"' && cmd.Command[len(cmd.Command)-1] == '"' {
 		cmd.Command = cmd.Command[1 : len(cmd.Command)-1]
