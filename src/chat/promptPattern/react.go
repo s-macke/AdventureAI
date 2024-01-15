@@ -1,23 +1,27 @@
-package prompt
+package promptPattern
 
 import (
+	"fmt"
+	"github.com/s-macke/AdventureAI/src/chat/backend"
+	"github.com/s-macke/AdventureAI/src/chat/storyHistory"
 	"regexp"
 	"strings"
 )
 
 type ReAct struct {
-	re  *regexp.Regexp
-	re2 *regexp.Regexp
+	re         *regexp.Regexp
+	re2        *regexp.Regexp
+	chatClient backend.ChatBackend
 }
 
-func NewPromptReAct() *ReAct {
-	return &ReAct{
-		re:  regexp.MustCompile(`\r?\n`),
-		re2: regexp.MustCompile(`SITUATION:(.*)THOUGHT:(.*)COMMAND:(.*)`),
-	}
+type Command struct {
+	Situation string `json:"situation"`
+	Narrator  string `json:"narrator"`
+	Thought   string `json:"thought"`
+	Command   string `json:"command"`
 }
 
-func (c *ReAct) GetSystemPrompt() string {
+func NewPromptReAct(backendAsString string) *ReAct {
 	// Your name is not Brian Hadley. You have accidentally killed Brian Hadley in the house.
 	// Your first task is to look under your bed.`
 	// You are a murderer.
@@ -29,11 +33,20 @@ SITUATION: {A short description of the current situation you are in.}
 THOUGHT: {A curious, adventurous thought.}
 COMMAND: {The single two word command you want to execute.}
 `
-	return systemMsg
+	return &ReAct{
+		chatClient: backend.NewChatBackend(systemMsg, backendAsString),
+		re:         regexp.MustCompile(`\r?\n`),
+		re2:        regexp.MustCompile(`SITUATION:(.*)THOUGHT:(.*)COMMAND:(.*)`),
+	}
 }
 
-func (c *ReAct) ParseResponse(content string) Command {
+func (c *ReAct) GetNextCommand(story *storyHistory.StoryHistory) (string, string) {
 	cmd := Command{}
+	content, _, _ := c.chatClient.GetResponse(story.GetLastMessage().Content)
+	if content == "" {
+		panic("empty content")
+	}
+	fmt.Printf(InfoColor, content)
 
 	content = c.re.ReplaceAllString(content, " ")
 	matches := c.re2.FindStringSubmatch(content)
@@ -46,5 +59,5 @@ func (c *ReAct) ParseResponse(content string) Command {
 		cmd.Command = cmd.Command[1 : len(cmd.Command)-1]
 	}
 	cmd.Command = strings.ReplaceAll(cmd.Command, ".", "")
-	return cmd
+	return cmd.Command, content
 }

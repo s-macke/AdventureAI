@@ -2,98 +2,71 @@ package chat
 
 import (
 	"fmt"
-	"github.com/s-macke/AdventureAI/src/chat/backend"
-	"github.com/s-macke/AdventureAI/src/chat/prompt"
+	"github.com/s-macke/AdventureAI/src/chat/promptPattern"
+	"github.com/s-macke/AdventureAI/src/chat/storyHistory"
 	"github.com/s-macke/AdventureAI/src/zmachine"
 )
 
-const (
-	InfoColor = "\033[1;34m%s\033[0m"
-)
-
 type ChatState struct {
-	prompt           prompt.State
-	chatClient       backend.ChatBackend
+	prompt           promptPattern.State
 	zm               *zmachine.ZMachine
-	story            *StoryState
+	story            *storyHistory.StoryHistory
 	output           string
 	currentStoryStep int
 }
 
-func NewChatState(zm *zmachine.ZMachine, chatPrompt string, backendAsString string) *ChatState {
+func NewChatState(zm *zmachine.ZMachine, chatPromptPattern string, backendAsString string) *ChatState {
 	cs := &ChatState{
-		zm:               zm,
-		story:            &StoryState{},
+		zm: zm,
+		story: &storyHistory.StoryHistory{
+			PromptPattern: chatPromptPattern,
+		},
 		output:           "",
 		currentStoryStep: 0,
 	}
-	fmt.Println("Use prompt: ", chatPrompt)
-	switch chatPrompt {
-	case "simple":
-		cs.prompt = prompt.NewPromptSimple()
-	case "react":
-		cs.prompt = prompt.NewPromptReAct()
-	default:
-		panic("Unknown prompt")
-	}
-	cs.story.Prompt = cs.prompt.GetSystemPrompt()
+
+	fmt.Println("Use prompt: ", chatPromptPattern)
+	cs.prompt = promptPattern.NewPrompt(chatPromptPattern, backendAsString)
+
 	fmt.Println("Use backend: ", backendAsString)
-	cs.chatClient = backend.NewChatBackend(cs.story.Prompt, backendAsString)
 	cs.zm.Input = cs.chatInput
-	//LoadStoryFromFile(&cs.story, cs.zm.Name)
+	//cs.story.LoadFromFile(cs.zm.Name)
 	return cs
 }
 
 func (cs *ChatState) chatInput() string {
-	cs.story.Messages = append(cs.story.Messages, StoryMessage{
+	//cs.output does contain the output of the game of the current step
+	fmt.Print(cs.output)
+
+	cs.story.AppendMessage(storyHistory.StoryMessage{
 		Role:             "user",
 		Content:          cs.output,
 		CompletionTokens: 0,
 		PromptTokens:     0,
-		IsResponse:       false,
-		Command:          prompt.Command{},
 	})
 
-	fmt.Print(cs.output)
-
-	// just return to the previous state if we have commands left
-	if (cs.currentStoryStep*2 + 1) < len(cs.story.Messages) {
-		step := cs.story.Messages[cs.currentStoryStep*2+1]
-		if step.IsResponse {
-			//fmt.Printf(InfoColor, "REASONING: "+step.Messages[len(cs.messages)-1].Content)
-			fmt.Printf(InfoColor, "COMMAND: "+step.Command.Command+"\n")
-			cs.currentStoryStep++
-			return step.Command.Command
-		} else {
-			//panic("not a response")
-		}
+	// if we have a loaded history, return the next command
+	if cmd, ok := cs.IsCommandStored(); ok {
+		return cmd
 	}
 
-	content, promptTokens, completionTokens := cs.chatClient.GetResponse(cs.output)
-	cs.zm.Output.Reset()
-	cs.output = ""
-
-	fmt.Printf(InfoColor, content)
-	fmt.Println()
-
-	if content == "" {
-		panic("empty content")
-	}
-	cmd := cs.prompt.ParseResponse(content)
-	if cmd.Command == "" {
+	cmd, meta := cs.prompt.GetNextCommand(cs.story)
+	if cmd == "" {
 		panic("empty command")
 	}
 
-	cs.story.Messages = append(cs.story.Messages, StoryMessage{
+	cs.zm.Output.Reset()
+	cs.output = ""
+
+	cs.story.AppendMessage(storyHistory.StoryMessage{
 		Role:             "assistant",
-		Content:          cs.output,
-		CompletionTokens: completionTokens,
-		PromptTokens:     promptTokens,
-		IsResponse:       true,
-		Command:          cmd,
+		Content:          cmd,
+		CompletionTokens: 0,
+		PromptTokens:     0,
+		Meta:             meta,
 	})
 
-	StoreStoryToFile(cs.story, cs.zm.Name)
+	cs.story.StoreToFile(cs.zm.Name)
 	cs.currentStoryStep++
 
 	if cs.currentStoryStep%5 == 0 {
@@ -101,7 +74,22 @@ func (cs *ChatState) chatInput() string {
 		_, _ = fmt.Scanln()
 	}
 
-	return cmd.Command
+	return cmd
+}
+
+func (cs *ChatState) IsCommandStored() (string, bool) {
+	// just return to the previous state if we have commands left
+	if (cs.currentStoryStep*2 + 1) < len(cs.story.Messages) {
+		step := cs.story.Messages[cs.currentStoryStep*2+1]
+		if step.Role == "assistant" {
+			fmt.Printf("%s\n", "COMMAND: "+step.Content)
+			cs.currentStoryStep++
+			return step.Content, true
+		} else {
+			//panic("not a response")
+		}
+	}
+	return "", false
 }
 
 func (cs *ChatState) ChatLoop() {
