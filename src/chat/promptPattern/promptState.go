@@ -18,6 +18,8 @@ func NewPrompt(stateAsString string, backendAsString string) State {
 		return NewPromptSimple(backendAsString)
 	case "react":
 		return NewPromptReAct(backendAsString)
+	case "discuss":
+		return NewPromptDiscussion(backendAsString)
 	default:
 		panic("Unknown prompt")
 	}

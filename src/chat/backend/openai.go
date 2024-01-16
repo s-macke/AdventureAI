@@ -56,7 +56,7 @@ func (cs *OpenAIChat) GetResponse(input string) (string, int, int) {
 		openai.ChatCompletionRequest{
 			Model:            cs.model,
 			Messages:         cs.messages,
-			MaxTokens:        512,
+			MaxTokens:        2048,
 			PresencePenalty:  0,
 			FrequencyPenalty: 0,
 		},

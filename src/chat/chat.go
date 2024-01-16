@@ -15,6 +15,40 @@ type ChatState struct {
 	currentStoryStep int
 }
 
+var commands = []string{
+	"answer phone",
+	"stand",
+	"s",
+	"remove watch",
+	"remove clothes",
+	"drop all",
+	"enter shower",
+	"take watch",
+	"wear watch",
+	"n",
+	"get all from table",
+	"open dresser",
+	"get clothes",
+	"wear clothes",
+	"e",
+	"open front door",
+	"s",
+	"open car with keys",
+	"enter car",
+	"no",
+	"yes",
+	"open wallet",
+	"take ID",
+	"insert card in slot",
+	"enter cubicle",
+	"read note",
+	"take form and pen",
+	"sign form",
+	"out",
+	"west",
+	"restart",
+}
+
 func NewChatState(zm *zmachine.ZMachine, chatPromptPattern string, backendAsString string) *ChatState {
 	cs := &ChatState{
 		zm: zm,
@@ -44,7 +78,12 @@ func (cs *ChatState) chatInput() string {
 		CompletionTokens: 0,
 		PromptTokens:     0,
 	})
-
+	/*
+		if cs.currentStoryStep < len(commands) {
+			cs.currentStoryStep++
+			return commands[cs.currentStoryStep-1]
+		}
+	*/
 	// if we have a loaded history, return the next command
 	if cmd, ok := cs.IsCommandStored(); ok {
 		return cmd
