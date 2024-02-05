@@ -24,12 +24,13 @@ func (c *Discussion) GetNextCommand(story *storyHistory.StoryHistory) (string, s
 	const systemMsg string = `The user provides you with a text adventure story up to a given point.
 
 You describe the discussion about how to continue the adventure. 
-The discussion is between 2 characters.
+The discussion is between 3 characters.
 
-1. Dave: An absolute expert on playing and winning text adventures.
-2. Silvia: A complete newbie to text adventures. But very curious.
+1. Dave: An expert on playing and winning text adventures.
+2. Silvia: A newbie to text adventures. But very curious.
+3. Gretel: A smart AI. She is a bit shy and does not talk much.
 
-At the end of the discussion, Dave and Silvia agree on the next two word command to continue the game.
+At the end of the discussion, all agree on the next two word command to continue the game.
 The format of command must be 
 [[{Two word command}]]
 `

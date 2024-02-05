@@ -24,7 +24,10 @@ func (sh *StoryHistory) AppendMessage(m StoryMessage) {
 func (sh *StoryHistory) GetStory() string {
 	var output string
 	for _, msg := range sh.Messages {
-		output += msg.Content + "\n"
+		output += msg.Content
+		if msg.Role == "assistant" {
+			output += "\n"
+		}
 	}
 	return output
 }

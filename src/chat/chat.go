@@ -47,6 +47,7 @@ var commands = []string{
 	"out",
 	"west",
 	"restart",
+	//"look under bed",
 }
 
 func NewChatState(zm *zmachine.ZMachine, chatPromptPattern string, backendAsString string) *ChatState {
@@ -81,6 +82,17 @@ func (cs *ChatState) chatInput() string {
 	/*
 		if cs.currentStoryStep < len(commands) {
 			cs.currentStoryStep++
+			cs.zm.Output.Reset()
+			cs.output = ""
+
+			cs.story.AppendMessage(storyHistory.StoryMessage{
+				Role:             "assistant",
+				Content:          commands[cs.currentStoryStep-1],
+				CompletionTokens: 0,
+				PromptTokens:     0,
+				Meta:             "",
+			})
+			fmt.Printf("\033[1;34m%s\033[0m\n", commands[cs.currentStoryStep-1])
 			return commands[cs.currentStoryStep-1]
 		}
 	*/
