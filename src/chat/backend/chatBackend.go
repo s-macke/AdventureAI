@@ -14,6 +14,8 @@ func NewChatBackend(prompt string, backendAsString string) ChatBackend {
 		return NewMistralChat(prompt)
 	case "gemini":
 		return NewVertexAIChat(prompt)
+	case "claude":
+		return NewAnthropicChat(prompt)
 	default:
 		panic("Unknown backend")
 	}

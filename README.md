@@ -123,15 +123,16 @@ the state of all runs
 | 12       | Finishes the second pass and win the game                                   |
 
 
-| Model          | Points | Comment                                                                     |
-|----------------|--------|-----------------------------------------------------------------------------|
-| GPT-4-turbo    | 9      | After a few steps forgets everything and just follows the story again       |
-| GPT-3.5-turbo  | 4      | Ignores the result from the game completely and too long commands           |
-| Orca 2         | 4      | Ignores the result from the game completely and too long commands           |
-| Mistral Tiny   | 4      | Stuck in infinite loop                                                      |
-| Mistral Small  | 5      | At some point it tries to play the game itself and mangles the command      |
-| Mistral Medium | 5      | Doesn't follow the given prompt                                             |
-| Gemini Pro     | 5      | Too long commands                                                           |
+| Model          | Points | Comment                                                                |
+|----------------|--------|------------------------------------------------------------------------|
+| GPT-4-turbo    | 9      | After a few steps forgets everything and just follows the story again  |
+| Claude 3 Opus  | 8      |                                                                        |
+| GPT-3.5-turbo  | 4      | Ignores the result from the game completely and too long commands      |
+| Orca 2         | 4      | Ignores the result from the game completely and too long commands      |
+| Mistral Tiny   | 4      | Stuck in infinite loop                                                 |
+| Mistral Small  | 5      | At some point it tries to play the game itself and mangles the command |
+| Mistral Medium | 5      | Doesn't follow the given prompt                                        |
+| Gemini Pro     | 5      | Too long commands                                                      |
 
 ## About
 

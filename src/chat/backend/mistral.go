@@ -37,9 +37,10 @@ func (cs *MistralChat) GetResponse(input string) (string, int, int) {
 		Content: input,
 	})
 	/*
-		"mistral-medium"
-		"mistral-small"
-		"mistral-tiny"
+			"mistral-medium"
+			"mistral-small"
+			"mistral-tiny"
+		    "mistral-large"
 	*/
 	response, err := cs.client.Chat("mistral-medium", cs.messages, &mistral.DefaultChatRequestParams)
 	if err != nil {
