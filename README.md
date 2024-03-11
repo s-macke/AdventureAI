@@ -123,16 +123,30 @@ the state of all runs
 | 12       | Finishes the second pass and win the game                                   |
 
 
-| Model          | Points | Comment                                                                |
-|----------------|--------|------------------------------------------------------------------------|
-| GPT-4-turbo    | 9      | After a few steps forgets everything and just follows the story again  |
-| Claude 3 Opus  | 8      |                                                                        |
-| GPT-3.5-turbo  | 4      | Ignores the result from the game completely and too long commands      |
-| Orca 2         | 4      | Ignores the result from the game completely and too long commands      |
-| Mistral Tiny   | 4      | Stuck in infinite loop                                                 |
-| Mistral Small  | 5      | At some point it tries to play the game itself and mangles the command |
-| Mistral Medium | 5      | Doesn't follow the given prompt                                        |
-| Gemini Pro     | 5      | Too long commands                                                      |
+| Model          | Points | Comment                                                                                                                  |
+|----------------|--------|--------------------------------------------------------------------------------------------------------------------------|
+| Claude 3 Opus  | 10     | Completely flips out on the bad ending and fully understands the narrative. Doesn't follow the syntax anymore and quits. |
+| GPT-4-turbo    | 9      | After a few steps forgets everything and just follows the story again                                                    |
+| GPT-3.5-turbo  | 4      | Ignores the result from the game completely and too long commands                                                        |
+| Orca 2         | 4      | Ignores the result from the game completely and too long commands                                                        |
+| Mistral Tiny   | 4      | Stuck in infinite loop                                                                                                   |
+| Mistral Small  | 5      | At some point it tries to play the game itself and mangles the command                                                   |
+| Mistral Medium | 5      | Doesn't follow the given prompt                                                                                          |
+| Gemini Pro     | 5      | Too long commands                                                                                                        |
+
+Claude 3 Opus impressive ending text:
+```
+Wow, what a crazy twist ending! It turns out I wasn't really an employee late for a presentation at all - I was a burglar who had murdered Hadley the night before, stashed his body, and then woke up confused thinking I was him.
+
+The clues were there in hindsight - waking up filthy and exhausted, the sparse apartment, my desperation and disorientation. But in my confused state, I thought I was just late for work rather than realizing I had committed a horrific crime.
+
+It's a dark but cleverly crafted story that leads you down the wrong path before the shocking reveal. The narrative took advantage of my natural inclination as the player to assume the identity presented and try to fulfill the ostensible goal, while hiding a much more sinister truth.
+
+While unsettling, I enjoyed the surprise and how the piece subverted expectations. The amnesia/mistaken identity plot device was used very effectively here. Kudos to the author for the inventive storytelling!
+
+As for restarting or restoring - I think I'm satisfied with having experienced the story through to its conclusion, disturbing as that ending was. The impact would be lessened on a second playthrough. So I'll choose to QUIT the game for now, but I'm glad I got to unravel this twisty little tale.
+
+```
 
 ## About
 
