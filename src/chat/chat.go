@@ -71,19 +71,26 @@ func NewChatState(zm *zmachine.ZMachine, chatPromptPattern string, backendAsStri
 
 func (cs *ChatState) chatInput() string {
 	//cs.output does contain the output of the game of the current step
-	fmt.Print(cs.output)
+	output := cs.output
+	cs.zm.Output.Reset()
+	cs.output = ""
 
+	fmt.Print(output)
+	/*
+		// if we have a loaded history, return the next command
+		if cmd, ok := cs.IsCommandStored(); ok {
+			return cmd
+		}
+	*/
 	cs.story.AppendMessage(storyHistory.StoryMessage{
 		Role:             "user",
-		Content:          cs.output,
+		Content:          output,
 		CompletionTokens: 0,
 		PromptTokens:     0,
 	})
 	/*
 		if cs.currentStoryStep < len(commands) {
 			cs.currentStoryStep++
-			cs.zm.Output.Reset()
-			cs.output = ""
 
 			cs.story.AppendMessage(storyHistory.StoryMessage{
 				Role:             "assistant",
@@ -96,18 +103,10 @@ func (cs *ChatState) chatInput() string {
 			return commands[cs.currentStoryStep-1]
 		}
 	*/
-	// if we have a loaded history, return the next command
-	if cmd, ok := cs.IsCommandStored(); ok {
-		return cmd
-	}
-
 	cmd, meta := cs.prompt.GetNextCommand(cs.story)
 	if cmd == "" {
 		panic("empty command")
 	}
-
-	cs.zm.Output.Reset()
-	cs.output = ""
 
 	cs.story.AppendMessage(storyHistory.StoryMessage{
 		Role:             "assistant",

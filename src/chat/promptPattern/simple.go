@@ -2,7 +2,6 @@ package promptPattern
 
 import "C"
 import (
-	"fmt"
 	"github.com/s-macke/AdventureAI/src/chat/backend"
 	"github.com/s-macke/AdventureAI/src/chat/storyHistory"
 	"regexp"
@@ -28,11 +27,8 @@ The format of your output must be a single two word command you want to execute.
 }
 
 func (c *Simple) GetNextCommand(story *storyHistory.StoryHistory) (string, string) {
-	content, _, _ := c.chatClient.GetResponse(story.GetLastMessage().Content)
-	if content == "" {
-		panic("empty content")
-	}
-	fmt.Printf(InfoColor, content)
+	content, _, _ := c.chatClient.GetResponse(ToChatHistory(story))
+	CheckAndShowContent(&content)
 
 	content = c.re.ReplaceAllString(content, " ")
 	cmd := strings.TrimSpace(content)

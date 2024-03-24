@@ -1,7 +1,7 @@
 package backend
 
 type ChatBackend interface {
-	GetResponse(input string) (string, int, int)
+	GetResponse(ch *ChatHistory) (string, int, int)
 }
 
 func NewChatBackend(prompt string, backendAsString string) ChatBackend {
@@ -19,5 +19,4 @@ func NewChatBackend(prompt string, backendAsString string) ChatBackend {
 	default:
 		panic("Unknown backend")
 	}
-
 }

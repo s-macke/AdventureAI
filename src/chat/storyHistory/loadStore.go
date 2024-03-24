@@ -18,7 +18,7 @@ func (sh *StoryHistory) StoreToFile(name string) {
 }
 
 func (sh *StoryHistory) LoadFromFile(name string) {
-	filename := "storydump/" + name + ".json.backup12"
+	filename := "storydump/" + name + ".json.backup"
 	data, err := os.ReadFile(filename)
 	if err != nil {
 		panic(err)

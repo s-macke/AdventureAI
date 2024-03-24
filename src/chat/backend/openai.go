@@ -15,6 +15,7 @@ type OpenAIChat struct {
 	CompletionTokens      int
 	PromptTokens          int
 	model                 string
+	systemMsg             string
 }
 
 func NewOpenAIChat(systemMsg string, backend string) *OpenAIChat {
@@ -24,7 +25,8 @@ func NewOpenAIChat(systemMsg string, backend string) *OpenAIChat {
 	}
 
 	cs := &OpenAIChat{
-		client: openai.NewClient(key),
+		client:    openai.NewClient(key),
+		systemMsg: systemMsg,
 	}
 	switch backend {
 	case "gpt3":
@@ -42,42 +44,61 @@ func NewOpenAIChat(systemMsg string, backend string) *OpenAIChat {
 	return cs
 }
 
-func (cs *OpenAIChat) GetResponse(input string) (string, int, int) {
-	cs.messages = append(cs.messages, openai.ChatCompletionMessage{
-		Role:    openai.ChatMessageRoleUser,
-		Content: input,
-	})
-	cs.messages = append(cs.messages, openai.ChatCompletionMessage{
-		Role: openai.ChatMessageRoleAssistant,
+func (cs *OpenAIChat) GetResponse(ch *ChatHistory) (string, int, int) {
+	var messages []openai.ChatCompletionMessage
+	messages = append(messages, openai.ChatCompletionMessage{
+		Role:    openai.ChatMessageRoleSystem,
+		Content: cs.systemMsg,
 	})
 
+	for _, m := range ch.Messages {
+		messages = append(messages, openai.ChatCompletionMessage{
+			Role:    MapOpenAIRole(m.Role),
+			Content: m.Content,
+		})
+	}
+	//start := time.Now()
 	resp, err := cs.client.CreateChatCompletion(
 		context.Background(),
 		openai.ChatCompletionRequest{
 			Model:            cs.model,
-			Messages:         cs.messages,
+			Messages:         messages,
 			MaxTokens:        2048,
 			PresencePenalty:  0,
 			FrequencyPenalty: 0,
 		},
 	)
-	cs.totalCompletionTokens += resp.Usage.CompletionTokens
-	cs.totalPromptTokens += resp.Usage.PromptTokens
-	fmt.Printf("PromptTokens: %d CompletionTokens: %d\n", resp.Usage.PromptTokens, resp.Usage.CompletionTokens)
-	fmt.Printf("totalPromptTokens: %d totalCompletionTokens: %d price: %.2f\n",
-		cs.totalPromptTokens,
-		cs.totalCompletionTokens,
-		float32(cs.totalCompletionTokens)*0.00006+float32(cs.totalPromptTokens)*0.00003)
-
 	if err != nil {
 		fmt.Printf("ChatCompletion error: %v\n", err)
 		panic("ChatCompletion error")
 	}
-	content := resp.Choices[0].Message.Content
 
-	cs.messages = append(cs.messages, openai.ChatCompletionMessage{
-		Role:    openai.ChatMessageRoleAssistant,
-		Content: content,
-	})
+	/*
+		d := time.Since(start)
+		f, err := os.OpenFile("text2.log",
+			os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+		if err != nil {
+			log.Println(err)
+		}
+		defer f.Close()
+
+		_, _ = f.WriteString(fmt.Sprintf("%d %d %.2f\n",
+			resp.Usage.CompletionTokens,
+			resp.Usage.PromptTokens,
+			float64(d)/1.e9))
+	*/
+
+	content := resp.Choices[0].Message.Content
 	return content, resp.Usage.PromptTokens, resp.Usage.CompletionTokens
+}
+
+func MapOpenAIRole(role string) string {
+	switch role {
+	case "user":
+		return openai.ChatMessageRoleUser
+	case "assistant":
+		return openai.ChatMessageRoleAssistant
+	default:
+		panic("Unknown role")
+	}
 }

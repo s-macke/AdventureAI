@@ -10,6 +10,7 @@ type StoryMessage struct {
 
 type StoryHistory struct {
 	PromptPattern string
+	Prompt        string
 	Messages      []StoryMessage `json:"steps"`
 }
 
@@ -25,6 +26,9 @@ func (sh *StoryHistory) GetStory() string {
 	var output string
 	for _, msg := range sh.Messages {
 		output += msg.Content
+		if msg.Role == "user" {
+			output += " "
+		}
 		if msg.Role == "assistant" {
 			output += "\n"
 		}

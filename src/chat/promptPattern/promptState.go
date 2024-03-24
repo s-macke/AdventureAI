@@ -1,7 +1,9 @@
 package promptPattern
 
 import (
+	"fmt"
 	"github.com/s-macke/AdventureAI/src/chat/storyHistory"
+	"strings"
 )
 
 const (
@@ -20,7 +22,17 @@ func NewPrompt(stateAsString string, backendAsString string) State {
 		return NewPromptReAct(backendAsString)
 	case "discuss":
 		return NewPromptDiscussion(backendAsString)
+	case "history_react":
+		return NewPromptHistoryAugmentedReact(backendAsString)
 	default:
 		panic("Unknown prompt")
 	}
+}
+
+func CheckAndShowContent(content *string) {
+	if *content == "" {
+		panic("empty content")
+	}
+	*content = strings.ReplaceAll(*content, "\r\n", "\n")
+	fmt.Printf(InfoColor, *content)
 }

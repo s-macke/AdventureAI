@@ -1,7 +1,6 @@
 package promptPattern
 
 import (
-	"fmt"
 	"github.com/s-macke/AdventureAI/src/chat/backend"
 	"github.com/s-macke/AdventureAI/src/chat/storyHistory"
 	"regexp"
@@ -15,6 +14,7 @@ type ReAct struct {
 }
 
 type Command struct {
+	Summary   string `json:"summary"`
 	Situation string `json:"situation"`
 	Narrator  string `json:"narrator"`
 	Thought   string `json:"thought"`
@@ -41,16 +41,13 @@ COMMAND: {The single two word command you want to execute.}
 }
 
 func (c *ReAct) GetNextCommand(story *storyHistory.StoryHistory) (string, string) {
+	content, _, _ := c.chatClient.GetResponse(ToChatHistory(story))
+	CheckAndShowContent(&content)
+
+	temp := c.re.ReplaceAllString(content, " ")
+	matches := c.re2.FindStringSubmatch(temp)
+
 	cmd := Command{}
-	content, _, _ := c.chatClient.GetResponse(story.GetLastMessage().Content)
-	if content == "" {
-		panic("empty content")
-	}
-	fmt.Printf(InfoColor, content)
-
-	content = c.re.ReplaceAllString(content, " ")
-	matches := c.re2.FindStringSubmatch(content)
-
 	cmd.Situation = strings.TrimSpace(matches[1])
 	//cmd.Narrator = strings.TrimSpace(matches[2])
 	cmd.Thought = strings.TrimSpace(matches[2])
@@ -60,4 +57,25 @@ func (c *ReAct) GetNextCommand(story *storyHistory.StoryHistory) (string, string
 	}
 	cmd.Command = strings.ReplaceAll(cmd.Command, ".", "")
 	return cmd.Command, content
+}
+
+func ToChatHistory(story *storyHistory.StoryHistory) *backend.ChatHistory {
+	ch := backend.ChatHistory{
+		Messages: []backend.ChatMessage{},
+	}
+
+	for _, msg := range story.Messages {
+		if msg.Meta != "" {
+			ch.Messages = append(ch.Messages, backend.ChatMessage{
+				Role:    msg.Role,
+				Content: msg.Meta,
+			})
+		} else {
+			ch.Messages = append(ch.Messages, backend.ChatMessage{
+				Role:    msg.Role,
+				Content: msg.Content,
+			})
+		}
+	}
+	return &ch
 }

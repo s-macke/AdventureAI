@@ -2,14 +2,14 @@ package backend
 
 import (
 	"context"
+	"fmt"
 	"github.com/liushuangls/go-anthropic"
 	"os"
 )
 
 type AnthropicChat struct {
-	client   *anthropic.Client
-	messages []anthropic.Message
-	prompt   string
+	client *anthropic.Client
+	prompt string
 }
 
 func NewAnthropicChat(systemMsg string) *AnthropicChat {
@@ -19,34 +19,50 @@ func NewAnthropicChat(systemMsg string) *AnthropicChat {
 	}
 	c := anthropic.NewClient(key)
 	return &AnthropicChat{
-		client:   c,
-		messages: make([]anthropic.Message, 0),
-		prompt:   systemMsg,
+		client: c,
+		prompt: systemMsg,
 	}
 }
 
-func (cs *AnthropicChat) GetResponse(input string) (string, int, int) {
-	cs.messages = append(cs.messages, anthropic.Message{
-		Role:    anthropic.RoleUser,
-		Content: input,
-	})
-
-	response, err := cs.client.CreateMessages(
-		context.Background(),
-		anthropic.MessagesRequest{
-			Model:     "claude-3-opus-20240229",
-			Messages:  cs.messages,
-			MaxTokens: 2048,
-			System:    cs.prompt,
+func (cs *AnthropicChat) GetResponse(ch *ChatHistory) (string, int, int) {
+	var messages []anthropic.Message
+	for _, m := range ch.Messages {
+		messages = append(messages, anthropic.Message{
+			Role:    MapAnthropicRole(m.Role),
+			Content: []anthropic.MessageContent{anthropic.NewTextMessageContent(m.Content)},
 		})
+	}
+	var response anthropic.MessagesResponse
+	var err error
+	// retries
+	for i := 0; i < 5; i++ {
+		response, err = cs.client.CreateMessages(
+			context.Background(),
+			anthropic.MessagesRequest{
+				Model:     "claude-3-opus-20240229",
+				Messages:  messages,
+				MaxTokens: 4096,
+				System:    cs.prompt,
+			})
+		if err == nil {
+			break
+		}
+		fmt.Println(err)
+	}
 	if err != nil {
 		panic(err)
 	}
-	cs.messages = append(cs.messages, anthropic.Message{
-		Role:    anthropic.RoleAssistant,
-		Content: response.Content[0].Text,
-	})
 
-	return response.Content[0].Text, response.Usage.InputTokens, response.Usage.OutputTokens
+	return response.GetFirstContentText(), response.Usage.InputTokens, response.Usage.OutputTokens
+}
 
+func MapAnthropicRole(role string) string {
+	switch role {
+	case "user":
+		return anthropic.RoleUser
+	case "assistant":
+		return anthropic.RoleAssistant
+	default:
+		panic("Unknown role")
+	}
 }

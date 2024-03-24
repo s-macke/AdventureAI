@@ -1,17 +1,9 @@
 package backend
 
-import (
-	"bytes"
-	"encoding/json"
-	"github.com/sashabaranov/go-openai"
-	"net/http"
-	"strings"
-)
-
 type LlamaChat struct {
-	messages              []openai.ChatCompletionMessage
 	totalCompletionTokens int
 	totalPromptTokens     int
+	Prompt                string
 }
 
 type LlamaRequest struct {
@@ -105,105 +97,110 @@ func NewLlamaChat(systemMsg string, backend string) *LlamaChat {
 	cs := &LlamaChat{
 		totalCompletionTokens: 0,
 		totalPromptTokens:     0,
+		Prompt:                systemMsg,
 	}
-	cs.messages = append(cs.messages, openai.ChatCompletionMessage{
-		Role:    openai.ChatMessageRoleSystem,
-		Content: systemMsg,
-	})
 	return cs
 }
 
-func (cs *LlamaChat) PreparePrompt() string {
-	var sb strings.Builder
-	for _, msg := range cs.messages {
-		switch msg.Role {
-		case openai.ChatMessageRoleUser:
-			sb.WriteString("### User:\n")
-		case openai.ChatMessageRoleAssistant:
-			sb.WriteString("### Assistant:\n")
-		case openai.ChatMessageRoleSystem:
-			sb.WriteString("### System:\n")
-		default:
-			panic("Unknown role")
+/*
+	func (cs *LlamaChat) PreparePrompt() string {
+		var sb strings.Builder
+		for _, msg := range cs.messages {
+			switch msg.Role {
+			case openai.ChatMessageRoleUser:
+				sb.WriteString("### User:\n")
+			case openai.ChatMessageRoleAssistant:
+				sb.WriteString("### Assistant:\n")
+			case openai.ChatMessageRoleSystem:
+				sb.WriteString("### System:\n")
+			default:
+				panic("Unknown role")
+			}
+			sb.WriteString(msg.Content)
+			sb.WriteString("\n")
 		}
-		sb.WriteString(msg.Content)
-		sb.WriteString("\n")
+		sb.WriteString("### Assistant:\n")
+		return sb.String()
 	}
-	sb.WriteString("### Assistant:\n")
-	return sb.String()
-}
 
-func (cs *LlamaChat) PrepareLLamaPrompt() string {
-	var sb strings.Builder
-	for _, msg := range cs.messages {
-		switch msg.Role {
-		case openai.ChatMessageRoleUser:
-			sb.WriteString("[INST] <<SYS>> <</SYS>>\n\n" + msg.Content + " [/INST]")
-		case openai.ChatMessageRoleAssistant:
-			sb.WriteString("[INST] <<SYS>> <</SYS>>\n\n" + msg.Content + " [INST]")
-		case openai.ChatMessageRoleSystem:
-			sb.WriteString("[INST]<<SYS>>\n" + msg.Content + "\n<</SYS>>")
-		default:
-			panic("Unknown role")
+	func (cs *LlamaChat) PrepareLLamaPrompt() string {
+		var sb strings.Builder
+		for _, msg := range cs.messages {
+			switch msg.Role {
+			case openai.ChatMessageRoleUser:
+				sb.WriteString("[INST] <<SYS>> <</SYS>>\n\n" + msg.Content + " [/INST]")
+			case openai.ChatMessageRoleAssistant:
+				sb.WriteString("[INST] <<SYS>> <</SYS>>\n\n" + msg.Content + " [INST]")
+			case openai.ChatMessageRoleSystem:
+				sb.WriteString("[INST]<<SYS>>\n" + msg.Content + "\n<</SYS>>")
+			default:
+				panic("Unknown role")
+			}
 		}
+		sb.WriteString("[INST] <<SYS>> <</SYS>>\n\n")
+		return sb.String()
 	}
-	sb.WriteString("[INST] <<SYS>> <</SYS>>\n\n")
-	return sb.String()
-}
 
-func (cs *LlamaChat) PreparePromptChatMLV1() string {
-	var sb strings.Builder
-	for _, msg := range cs.messages {
+	func (cs *LlamaChat) PreparePromptChatMLV1() string {
+		var sb strings.Builder
+		for _, msg := range cs.messages {
+			sb.WriteString("<|im_start|>")
+			sb.WriteString(msg.Role)
+			sb.WriteString("\n")
+			sb.WriteString(msg.Content)
+			sb.WriteString("<|im_end|>\n")
+		}
 		sb.WriteString("<|im_start|>")
-		sb.WriteString(msg.Role)
+		sb.WriteString(openai.ChatMessageRoleAssistant)
 		sb.WriteString("\n")
-		sb.WriteString(msg.Content)
-		sb.WriteString("<|im_end|>\n")
+		return sb.String()
 	}
-	sb.WriteString("<|im_start|>")
-	sb.WriteString(openai.ChatMessageRoleAssistant)
-	sb.WriteString("\n")
-	return sb.String()
+*/
+func (cs *LlamaChat) GetResponse(ch *ChatHistory) (string, int, int) {
+	panic("not implemented")
+	/*
+		cs.messages = append(cs.messages, openai.ChatCompletionMessage{
+			Role:    openai.ChatMessageRoleUser,
+			Content: input,
+		})
+
+		req := LlamaRequest{
+			//Prompt: cs.PreparePrompt(),
+			Prompt: cs.PreparePromptChatMLV1(),
+			//Prompt:      cs.PrepareLLamaPrompt(),
+			NPredict:    1024,
+			CachePrompt: true,
+			Stop: []string{
+				"<|im_end|>",     // ChatMl
+				"### Assistant:", // Orca Hashes
+				"### User:",      // Orca Hashes
+				"[INST]"},
+		}
+
+		reqAsJson, err := json.Marshal(req)
+		if err != nil {
+			panic(err)
+		}
+		resp, err := http.Post("http://localhost:8080/completion", "application/json", bytes.NewBuffer(reqAsJson))
+		if err != nil {
+			panic(err)
+		}
+		if resp.StatusCode != 200 {
+			panic(err)
+		}
+		defer resp.Body.Close()
+
+		var response LlamaResponse
+		err = json.NewDecoder(resp.Body).Decode(&response)
+
+		cs.messages = append(cs.messages, openai.ChatCompletionMessage{
+			Role:    openai.ChatMessageRoleAssistant,
+			Content: response.Content,
+		})
+		return response.Content, response.TokensEvaluated, response.TokensPredicted
+	*/
 }
 
-func (cs *LlamaChat) GetResponse(input string) (string, int, int) {
-	cs.messages = append(cs.messages, openai.ChatCompletionMessage{
-		Role:    openai.ChatMessageRoleUser,
-		Content: input,
-	})
-
-	req := LlamaRequest{
-		//Prompt: cs.PreparePrompt(),
-		Prompt: cs.PreparePromptChatMLV1(),
-		//Prompt:      cs.PrepareLLamaPrompt(),
-		NPredict:    1024,
-		CachePrompt: true,
-		Stop: []string{
-			"<|im_end|>",     // ChatMl
-			"### Assistant:", // Orca Hashes
-			"### User:",      // Orca Hashes
-			"[INST]"},
-	}
-
-	reqAsJson, err := json.Marshal(req)
-	if err != nil {
-		panic(err)
-	}
-	resp, err := http.Post("http://localhost:8080/completion", "application/json", bytes.NewBuffer(reqAsJson))
-	if err != nil {
-		panic(err)
-	}
-	if resp.StatusCode != 200 {
-		panic(err)
-	}
-	defer resp.Body.Close()
-
-	var response LlamaResponse
-	err = json.NewDecoder(resp.Body).Decode(&response)
-
-	cs.messages = append(cs.messages, openai.ChatCompletionMessage{
-		Role:    openai.ChatMessageRoleAssistant,
-		Content: response.Content,
-	})
-	return response.Content, response.TokensEvaluated, response.TokensPredicted
+func (cs *LlamaChat) GetResponseFromHistory(ch *ChatHistory) (string, int, int) {
+	panic("not implemented")
 }

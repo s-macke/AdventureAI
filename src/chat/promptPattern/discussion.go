@@ -5,22 +5,14 @@ import (
 	"github.com/s-macke/AdventureAI/src/chat/backend"
 	"github.com/s-macke/AdventureAI/src/chat/storyHistory"
 	"regexp"
-	"strings"
 )
 
 type Discussion struct {
-	re              *regexp.Regexp
-	backendAsString string
+	re         *regexp.Regexp
+	chatClient backend.ChatBackend
 }
 
 func NewPromptDiscussion(backendAsString string) *Discussion {
-	return &Discussion{
-		backendAsString: backendAsString,
-		re:              regexp.MustCompile(`\[\[(.*)]]`),
-	}
-}
-
-func (c *Discussion) GetNextCommand(story *storyHistory.StoryHistory) (string, string) {
 	const systemMsg string = `The user provides you with a text adventure story up to a given point.
 
 You describe the discussion about how to continue the adventure. 
@@ -34,13 +26,22 @@ At the end of the discussion, all agree on the next two word command to continue
 The format of command must be 
 [[{Two word command}]]
 `
-	chatClient := backend.NewChatBackend(systemMsg, c.backendAsString)
-	content, _, _ := chatClient.GetResponse(story.GetStory())
-	if content == "" {
-		panic("empty content")
+	return &Discussion{
+		re:         regexp.MustCompile(`\[\[(.*)]]`),
+		chatClient: backend.NewChatBackend(systemMsg, backendAsString),
 	}
-	content = strings.ReplaceAll(content, "\r\n", "\n")
-	fmt.Printf(InfoColor, content)
+}
+
+func (c *Discussion) GetNextCommand(story *storyHistory.StoryHistory) (string, string) {
+	ch := backend.ChatHistory{
+		Messages: []backend.ChatMessage{{
+			Role:    "user",
+			Content: story.GetStory(),
+		}},
+	}
+
+	content, _, _ := c.chatClient.GetResponse(&ch)
+	CheckAndShowContent(&content)
 
 	matches := c.re.FindStringSubmatch(content)
 	command := matches[len(matches)-1]
