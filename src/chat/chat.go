@@ -76,18 +76,19 @@ func (cs *ChatState) chatInput() string {
 	cs.output = ""
 
 	fmt.Print(output)
-	/*
-		// if we have a loaded history, return the next command
-		if cmd, ok := cs.IsCommandStored(); ok {
-			return cmd
-		}
-	*/
+
+	// if we have a loaded history, return the next command
+	if cmd, ok := cs.IsCommandStored(); ok {
+		return cmd
+	}
+
 	cs.story.AppendMessage(storyHistory.StoryMessage{
 		Role:             "user",
 		Content:          output,
 		CompletionTokens: 0,
 		PromptTokens:     0,
 	})
+	cs.story.StoreToFile(cs.zm.Name)
 	/*
 		if cs.currentStoryStep < len(commands) {
 			cs.currentStoryStep++
@@ -103,23 +104,15 @@ func (cs *ChatState) chatInput() string {
 			return commands[cs.currentStoryStep-1]
 		}
 	*/
-	cmd, meta := cs.prompt.GetNextCommand(cs.story)
+	cmd := cs.prompt.GetNextCommand(cs.story)
 	if cmd == "" {
 		panic("empty command")
 	}
 
-	cs.story.AppendMessage(storyHistory.StoryMessage{
-		Role:             "assistant",
-		Content:          cmd,
-		CompletionTokens: 0,
-		PromptTokens:     0,
-		Meta:             meta,
-	})
-
 	cs.story.StoreToFile(cs.zm.Name)
 	cs.currentStoryStep++
 
-	if cs.currentStoryStep%5 == 0 {
+	if cs.currentStoryStep%10 == 0 {
 		fmt.Println("Press ENTER to continue...")
 		_, _ = fmt.Scanln()
 	}

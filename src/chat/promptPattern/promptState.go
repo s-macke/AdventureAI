@@ -11,7 +11,7 @@ const (
 )
 
 type State interface {
-	GetNextCommand(story *storyHistory.StoryHistory) (string, string)
+	GetNextCommand(story *storyHistory.StoryHistory) string
 }
 
 func NewPrompt(stateAsString string, backendAsString string) State {

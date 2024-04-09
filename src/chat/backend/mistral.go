@@ -53,7 +53,3 @@ func (cs *MistralChat) GetResponse(ch *ChatHistory) (string, int, int) {
 		return response.Choices[0].Message.Content, response.Usage.PromptTokens, response.Usage.TotalTokens
 	*/
 }
-
-func (cs *MistralChat) GetResponseFromHistory(ch *ChatHistory) (string, int, int) {
-	panic("not implemented")
-}

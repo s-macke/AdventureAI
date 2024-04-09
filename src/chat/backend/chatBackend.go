@@ -16,6 +16,10 @@ func NewChatBackend(prompt string, backendAsString string) ChatBackend {
 		return NewVertexAIChat(prompt)
 	case "claude":
 		return NewAnthropicChat(prompt)
+	case "llama":
+		return NewGroqChat(prompt, backendAsString)
+	case "gemma":
+		return NewGroqChat(prompt, backendAsString)
 	default:
 		panic("Unknown backend")
 	}

@@ -26,7 +26,7 @@ The format of your output must be a single two word command you want to execute.
 	}
 }
 
-func (c *Simple) GetNextCommand(story *storyHistory.StoryHistory) (string, string) {
+func (c *Simple) GetNextCommand(story *storyHistory.StoryHistory) string {
 	content, _, _ := c.chatClient.GetResponse(ToChatHistory(story))
 	CheckAndShowContent(&content)
 
@@ -36,5 +36,13 @@ func (c *Simple) GetNextCommand(story *storyHistory.StoryHistory) (string, strin
 		cmd = cmd[1 : len(cmd)-1]
 	}
 	cmd = strings.ReplaceAll(cmd, ".", "")
-	return cmd, ""
+	story.AppendMessage(storyHistory.StoryMessage{
+		Role:             "assistant",
+		Content:          cmd,
+		CompletionTokens: 0,
+		PromptTokens:     0,
+		Meta:             "",
+	})
+
+	return cmd
 }

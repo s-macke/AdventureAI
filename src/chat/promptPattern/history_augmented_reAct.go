@@ -31,7 +31,7 @@ COMMAND: {The single two word command you want to execute.}
 	}
 }
 
-func (c *HistoryAugmentedReact) GetNextCommand(story *storyHistory.StoryHistory) (string, string) {
+func (c *HistoryAugmentedReact) GetNextCommand(story *storyHistory.StoryHistory) string {
 	ch := backend.ChatHistory{
 		Messages: []backend.ChatMessage{{
 			Role:    "user",
@@ -53,5 +53,14 @@ func (c *HistoryAugmentedReact) GetNextCommand(story *storyHistory.StoryHistory)
 		cmd.Command = cmd.Command[1 : len(cmd.Command)-1]
 	}
 	cmd.Command = strings.ReplaceAll(cmd.Command, ".", "")
-	return cmd.Command, content
+
+	story.AppendMessage(storyHistory.StoryMessage{
+		Role:             "assistant",
+		Content:          cmd.Command,
+		CompletionTokens: 0,
+		PromptTokens:     0,
+		Meta:             content,
+	})
+
+	return cmd.Command
 }

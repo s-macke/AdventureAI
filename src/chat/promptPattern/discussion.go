@@ -32,7 +32,7 @@ The format of command must be
 	}
 }
 
-func (c *Discussion) GetNextCommand(story *storyHistory.StoryHistory) (string, string) {
+func (c *Discussion) GetNextCommand(story *storyHistory.StoryHistory) string {
 	ch := backend.ChatHistory{
 		Messages: []backend.ChatMessage{{
 			Role:    "user",
@@ -49,6 +49,14 @@ func (c *Discussion) GetNextCommand(story *storyHistory.StoryHistory) (string, s
 	if command == "" {
 		panic("empty command")
 	}
+	story.AppendMessage(storyHistory.StoryMessage{
+		Role:             "assistant",
+		Content:          command,
+		CompletionTokens: 0,
+		PromptTokens:     0,
+		Meta:             content,
+	})
+
 	fmt.Println("command: ", command)
-	return command, content
+	return command
 }

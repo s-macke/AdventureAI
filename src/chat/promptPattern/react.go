@@ -40,7 +40,7 @@ COMMAND: {The single two word command you want to execute.}
 	}
 }
 
-func (c *ReAct) GetNextCommand(story *storyHistory.StoryHistory) (string, string) {
+func (c *ReAct) GetNextCommand(story *storyHistory.StoryHistory) string {
 	content, _, _ := c.chatClient.GetResponse(ToChatHistory(story))
 	CheckAndShowContent(&content)
 
@@ -56,7 +56,15 @@ func (c *ReAct) GetNextCommand(story *storyHistory.StoryHistory) (string, string
 		cmd.Command = cmd.Command[1 : len(cmd.Command)-1]
 	}
 	cmd.Command = strings.ReplaceAll(cmd.Command, ".", "")
-	return cmd.Command, content
+	story.AppendMessage(storyHistory.StoryMessage{
+		Role:             "assistant",
+		Content:          cmd.Command,
+		CompletionTokens: 0,
+		PromptTokens:     0,
+		Meta:             content,
+	})
+
+	return cmd.Command
 }
 
 func ToChatHistory(story *storyHistory.StoryHistory) *backend.ChatHistory {

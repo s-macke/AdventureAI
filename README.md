@@ -127,12 +127,14 @@ the state of all runs
 |----------------|--------|--------------------------------------------------------------------------------------------------------------------------|
 | Claude 3 Opus  | 10     | Completely flips out on the bad ending and fully understands the narrative. Doesn't follow the syntax anymore and quits. |
 | GPT-4-turbo    | 9      | After a few steps forgets everything and just follows the story again                                                    |
-| GPT-3.5-turbo  | 4      | Ignores the result from the game completely and too long commands                                                        |
-| Orca 2         | 4      | Ignores the result from the game completely and too long commands                                                        |
-| Mistral Tiny   | 4      | Stuck in infinite loop                                                                                                   |
 | Mistral Small  | 5      | At some point it tries to play the game itself and mangles the command                                                   |
 | Mistral Medium | 5      | Doesn't follow the given prompt                                                                                          |
 | Gemini Pro     | 5      | Too long commands                                                                                                        |
+| GPT-3.5-turbo  | 4      | Ignores the result from the game completely and too long commands                                                        |
+| Orca 2 13B     | 4      | Ignores the result from the game completely and too long commands                                                        |
+| Mistral Tiny   | 4      | Stuck in infinite loop                                                                                                   |
+| Llama 70B      | 4      | Answers for the user                                                                                                     |
+| Gemma 7B       | 2      | Doesn't follow the given prompt                                                                                          |
 
 Claude 3 Opus impressive ending text:
 ```
