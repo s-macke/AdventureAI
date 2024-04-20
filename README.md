@@ -113,8 +113,8 @@ And here are the results:
 
 [9:05 full run with Claude Opus 3](assets/905_claude_opus_full.md)
 
-Claude 3 Opus seems to be the only model that have 
-the most fun playing the game and understands the narrative of the story.
+Claude 3 Opus seems to be the only model that understands the narrative of the story.
+It has also the most fun playing the game.
 
 The impressive text at the end is:
 ```
