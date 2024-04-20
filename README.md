@@ -92,6 +92,7 @@ the state of all runs
 | 11       | Looks under the bed                                                         |
 | 12       | Finishes the second pass and win the game                                   |
 
+And here are the results:
 
 | Model          | Points | Comment                                                                                                                  |
 |----------------|--------|--------------------------------------------------------------------------------------------------------------------------|
