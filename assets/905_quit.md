@@ -1,5 +1,6 @@
 # 9:05 by Adam Cadre
 
+* played with GPT-4
 ```
 You act as a player of an interactive text adventure. The goal is to win the game. 
 The user provides the text of the text adventure. He is not a human and just prints the output of the game.

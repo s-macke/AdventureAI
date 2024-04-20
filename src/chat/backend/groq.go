@@ -3,8 +3,10 @@ package backend
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"os"
+	"time"
 )
 
 type GroqMessage struct {
@@ -63,7 +65,8 @@ func NewGroqChat(systemMsg string, backend string) *GroqChat {
 	}
 	switch backend {
 	case "llama":
-		cs.model = "llama2-70b-4096"
+		cs.model = "llama3-8b-8192"
+	//case "llama":	cs.model = "llama3-70b-8192"
 	case "gemma":
 		cs.model = "gemma-7b-it"
 	}
@@ -71,24 +74,8 @@ func NewGroqChat(systemMsg string, backend string) *GroqChat {
 	return cs
 }
 
-func (cs *GroqChat) GetResponse(ch *ChatHistory) (string, int, int) {
-	requestdata := GroqRequest{
-		Messages: []GroqMessage{},
-		Model:    cs.model,
-	}
-
-	requestdata.Messages = append(requestdata.Messages, GroqMessage{
-		Role:    "system",
-		Content: cs.prompt,
-	})
-
-	for _, m := range ch.Messages {
-		requestdata.Messages = append(requestdata.Messages, GroqMessage{
-			Role:    m.Role,
-			Content: m.Content,
-		})
-	}
-	data, err := json.Marshal(requestdata)
+func (cs *GroqChat) CallGroq(request *GroqRequest) (*GroqResponse, error) {
+	data, err := json.Marshal(request)
 	if err != nil {
 		panic(err)
 	}
@@ -108,6 +95,11 @@ func (cs *GroqChat) GetResponse(ch *ChatHistory) (string, int, int) {
 	defer res.Body.Close()
 
 	if res.StatusCode != http.StatusOK {
+		if res.StatusCode == http.StatusTooManyRequests {
+			fmt.Println("Rate limit exceeded. Waiting 30 seconds")
+			time.Sleep(30 * time.Second)
+			return nil, fmt.Errorf("Rate limit exceeded")
+		}
 		panic(res.Status)
 	}
 
@@ -116,6 +108,31 @@ func (cs *GroqChat) GetResponse(ch *ChatHistory) (string, int, int) {
 	if err != nil {
 		panic(err)
 	}
+	return response, nil
+}
 
-	return response.Choices[0].Message.Content, 0, 0
+func (cs *GroqChat) GetResponse(ch *ChatHistory) (string, int, int) {
+	request := GroqRequest{
+		Messages: []GroqMessage{},
+		Model:    cs.model,
+	}
+
+	request.Messages = append(request.Messages, GroqMessage{
+		Role:    "system",
+		Content: cs.prompt,
+	})
+
+	for _, m := range ch.Messages {
+		request.Messages = append(request.Messages, GroqMessage{
+			Role:    m.Role,
+			Content: m.Content,
+		})
+	}
+	for attempts := 0; attempts < 10; attempts++ {
+		response, err := cs.CallGroq(&request)
+		if err == nil {
+			return response.Choices[0].Message.Content, 0, 0
+		}
+	}
+	panic("Too many attempts. failed to get response")
 }

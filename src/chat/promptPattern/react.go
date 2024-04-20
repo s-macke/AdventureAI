@@ -46,16 +46,30 @@ func (c *ReAct) GetNextCommand(story *storyHistory.StoryHistory) string {
 
 	temp := c.re.ReplaceAllString(content, " ")
 	matches := c.re2.FindStringSubmatch(temp)
-
 	cmd := Command{}
-	cmd.Situation = strings.TrimSpace(matches[1])
-	//cmd.Narrator = strings.TrimSpace(matches[2])
-	cmd.Thought = strings.TrimSpace(matches[2])
-	cmd.Command = strings.TrimSpace(matches[3])
-	if cmd.Command[0] == '"' && cmd.Command[len(cmd.Command)-1] == '"' {
-		cmd.Command = cmd.Command[1 : len(cmd.Command)-1]
+	if len(matches) < 4 { // fix for llama3 70B
+		content = strings.ToLower(content)
+		if content == "restart" {
+			cmd.Command = "restart"
+		} else if content == "quit" {
+			cmd.Command = "quit"
+		} else if content == "yes" {
+			cmd.Command = "yes"
+		} else if content == "no" {
+			cmd.Command = "yes"
+		} else {
+			panic("Invalid response from backend")
+		}
+	} else {
+		cmd.Situation = strings.TrimSpace(matches[1])
+		//cmd.Narrator = strings.TrimSpace(matches[2])
+		cmd.Thought = strings.TrimSpace(matches[2])
+		cmd.Command = strings.TrimSpace(matches[3])
+		if cmd.Command[0] == '"' && cmd.Command[len(cmd.Command)-1] == '"' {
+			cmd.Command = cmd.Command[1 : len(cmd.Command)-1]
+		}
+		cmd.Command = strings.ReplaceAll(cmd.Command, ".", "")
 	}
-	cmd.Command = strings.ReplaceAll(cmd.Command, ".", "")
 	story.AppendMessage(storyHistory.StoryMessage{
 		Role:             "assistant",
 		Content:          cmd.Command,

@@ -50,11 +50,12 @@ var commands = []string{
 	//"look under bed",
 }
 
-func NewChatState(zm *zmachine.ZMachine, chatPromptPattern string, backendAsString string) *ChatState {
+func NewChatState(zm *zmachine.ZMachine, chatPromptPattern string, backendAsString string, oldStoryFilename string) *ChatState {
 	cs := &ChatState{
 		zm: zm,
 		story: &storyHistory.StoryHistory{
 			PromptPattern: chatPromptPattern,
+			Model:         backendAsString,
 		},
 		output:           "",
 		currentStoryStep: 0,
@@ -65,7 +66,17 @@ func NewChatState(zm *zmachine.ZMachine, chatPromptPattern string, backendAsStri
 
 	fmt.Println("Use backend: ", backendAsString)
 	cs.zm.Input = cs.chatInput
-	//cs.story.LoadFromFile(cs.zm.Name)
+
+	if oldStoryFilename != "" {
+		fmt.Println("Load story from: ", oldStoryFilename)
+		cs.story.LoadFromFile(oldStoryFilename)
+		if cs.story.Model != backendAsString {
+			panic("Model mismatch")
+		}
+		if cs.story.PromptPattern != chatPromptPattern {
+			panic("PromptPattern mismatch")
+		}
+	}
 	return cs
 }
 
@@ -112,7 +123,7 @@ func (cs *ChatState) chatInput() string {
 	cs.story.StoreToFile(cs.zm.Name)
 	cs.currentStoryStep++
 
-	if cs.currentStoryStep%10 == 0 {
+	if cs.currentStoryStep%3 == 0 {
 		fmt.Println("Press ENTER to continue...")
 		_, _ = fmt.Scanln()
 	}
@@ -125,7 +136,7 @@ func (cs *ChatState) IsCommandStored() (string, bool) {
 	if (cs.currentStoryStep*2 + 1) < len(cs.story.Messages) {
 		step := cs.story.Messages[cs.currentStoryStep*2+1]
 		if step.Role == "assistant" {
-			fmt.Printf("%s\n", "COMMAND: "+step.Content)
+			fmt.Printf("\n\u001B[1;34m%s\u001B[0m\n", "COMMAND: "+step.Content)
 			cs.currentStoryStep++
 			return step.Content, true
 		} else {

@@ -17,8 +17,7 @@ func (sh *StoryHistory) StoreToFile(name string) {
 	}
 }
 
-func (sh *StoryHistory) LoadFromFile(name string) {
-	filename := "storydump/" + name + ".json.backup"
+func (sh *StoryHistory) LoadFromFile(filename string) {
 	data, err := os.ReadFile(filename)
 	if err != nil {
 		panic(err)

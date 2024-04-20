@@ -10,6 +10,7 @@ type StoryMessage struct {
 
 type StoryHistory struct {
 	PromptPattern string
+	Model         string
 	Prompt        string
 	Messages      []StoryMessage `json:"steps"`
 }

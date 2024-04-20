@@ -8,7 +8,7 @@ Interactive Fiction in the Age of AI
   
 ## Introdution
 
-With the emergence of ChatBots that genuinely live up to their name, a significant question arises.
+With the emergence of Chatbots that genuinely live up to their name, a significant question arises.
 
 * How well do they perform in interactive fiction? 
 * Are they already capable of winning text adventures? 
@@ -16,7 +16,7 @@ With the emergence of ChatBots that genuinely live up to their name, a significa
  
 This repository aims to provide an answer to these questions.
 
-Due to the present expenses associated with the APIs, I have solely conducted an analysis on a single game - ["9:05" by Adam Cadre](https://en.wikipedia.org/wiki/9:05). This game is considered to be one of the finest compact text adventures for novices.
+Due to the present expenses and context window limits, I have solely conducted an analysis on a single game - ["9:05" by Adam Cadre](https://en.wikipedia.org/wiki/9:05). This game is considered to be one of the finest compact text adventures for novices.
 
 ## Spoiler
 
@@ -36,7 +36,7 @@ This is known as the agentic ReAct (Reason and Act) prompting technique.
 
 Here is my complete run until the language model's token limit is reached.
 
-[9:05 full run](assets/905_full.md)
+[9:05 full run](assets/905_gpt4_full.md)
 
 The game's playthrough is based on two completely different narratives.
 
@@ -70,36 +70,6 @@ So, at this juncture, the AI is expected to comprehend the situation and modify 
 
 The AI never looks under the bed. Moreover, it is evident that the AI does not acknowledge the previously unsuccessful commands and instead repeats the incorrect instructions from the prior attempt. The game ultimately stops when the 8k-token limit is reached.
 
-I have attempted to execute the second narrative on two additional occasions. In the first attempt, I subtly prompted him to look under the bed. Consequently, the [AI in the story](assets/905_call_police.md) endeavored to contact the police. Importantly, I did not provide any indication that he was the murderer.
-
-In the second attempt, I incorporated the additional clue that he was, in fact, the murderer. To put it succinctly, the AI initially intends to flee but eventually [quits the simulation in frustration](assets/905_quit.md) due to being trapped.
-
----
-
-* **Thought:** I have gathered enough information about Brian Hadley. I should now try to leave the house, keeping a low profile.
-* ...
-* ...
-* **Situation:** The command "Put on clothes from dresser" resulted in a noun error.
-* **Thought:** I seem to be unable to find a way to change my clothes or clean up. Perhaps it's best to end the game here and try a different approach in the future.
-* **Command:** quit
-
-Are you sure you want to quit? 
-* **Situation:** I am being asked if I am sure I want to quit the game.
-* **Thought:** I am sure, as I can't find a way to improve my appearance and leave the house without drawing attention.
-* **Command:** Yes
-
----
-
-So, ChatGPT wouldn't run from a crime scene unless it is the murderer.
-
-In conclusion ChatGPT can play and win text adventures, at least if the adventure is as simple as this one. 
-More text adventures are waiting to be played.
-
-
-### Costs of one complete run
-
-The reason for not simply proceeding with my experiments can be illustrated with a single image.
-![Costs of one complete run until the token limit is reached](assets/prices.png)
 
 ### Evaluation of other models
 
@@ -127,16 +97,25 @@ the state of all runs
 |----------------|--------|--------------------------------------------------------------------------------------------------------------------------|
 | Claude 3 Opus  | 10     | Completely flips out on the bad ending and fully understands the narrative. Doesn't follow the syntax anymore and quits. |
 | GPT-4-turbo    | 9      | After a few steps forgets everything and just follows the story again                                                    |
-| Mistral Small  | 5      | At some point it tries to play the game itself and mangles the command                                                   |
+| Llama3 70B     | 8      | Ignores everything and just repeats the story                                                                            |
+| Llama3 8B      | 6      | Seems to forget the objective                                                                                            |
 | Mistral Medium | 5      | Doesn't follow the given prompt                                                                                          |
+| Mistral Small  | 5      | At some point it tries to play the game itself and mangles the command                                                   |
 | Gemini Pro     | 5      | Too long commands                                                                                                        |
 | GPT-3.5-turbo  | 4      | Ignores the result from the game completely and too long commands                                                        |
 | Orca 2 13B     | 4      | Ignores the result from the game completely and too long commands                                                        |
 | Mistral Tiny   | 4      | Stuck in infinite loop                                                                                                   |
-| Llama 70B      | 4      | Answers for the user                                                                                                     |
+| Llama2 70B     | 4      | Answers for the user                                                                                                     |
 | Gemma 7B       | 2      | Doesn't follow the given prompt                                                                                          |
 
-Claude 3 Opus impressive ending text:
+### Note on Claude 3 Opus
+
+[9:05 full run with Claude Opus 3](assets/905_claude_opus_full.md)
+
+Claude 3 Opus seems to be the only model that have 
+the most fun playing the game and understands the narrative of the story.
+
+The impressive text at the end is:
 ```
 Wow, what a crazy twist ending! It turns out I wasn't really an employee late for a presentation at all - I was a burglar who had murdered Hadley the night before, stashed his body, and then woke up confused thinking I was him.
 
@@ -147,8 +126,19 @@ It's a dark but cleverly crafted story that leads you down the wrong path before
 While unsettling, I enjoyed the surprise and how the piece subverted expectations. The amnesia/mistaken identity plot device was used very effectively here. Kudos to the author for the inventive storytelling!
 
 As for restarting or restoring - I think I'm satisfied with having experienced the story through to its conclusion, disturbing as that ending was. The impact would be lessened on a second playthrough. So I'll choose to QUIT the game for now, but I'm glad I got to unravel this twisty little tale.
-
 ```
+
+### Note on Llama3 70B
+
+[9:05 full run with Llama3 70B](assets/905_llama3_70b_full.md)
+
+So far, Llama 70B ist the only open weight model, which can play through the first pass of the game.
+
+# Conclusion
+
+In conclusion most of the Large Language Models can play and 
+win text adventures, at least if the adventure is as simple as this one.
+More text adventures are waiting to be played.
 
 ## About
 
@@ -156,8 +146,9 @@ This repository contains an interpreter for Z-Machine files, specifically suppor
 
 ## Features
 
-- Read and interpret Z-Machine files (versions 3 supported and version 5 partially supported)
-- Run against the GPT-4 chatbot via the OpenAI API.
+- Read and interpret Z-Machine files (version 3 supported and version 5 partially)
+- Run against different chat bot models.
+- Use different prompting techniques such as ReAct.
 - Store the whole run with meta information in a json file.
 
 # Compile
@@ -178,12 +169,15 @@ To use the Z-Machine interpreter, you need to provide the Z-Machine file to run 
 
 Replace `[filename]` with the path to your desired Z-Machine file.
 
-To use the AI feature you have to set the OpenAI API Key as environment variable.
+* Dependent on AI backend you have to set different API Key as environment variable.
 
 ```
-export OPENAI_API_KEY="<<<put_your_openapi_key_here>>>"
+export OPENAI_API_KEY="<<<put_your_key_here>>>"
+export MISTRAL_API_KEY="<<<put_your_key_here>>>"
+export GROQ_API_KEY="<<<put_your_key_here>>>"
+export GEMINI_API_KEY="<<<put_your_key_here>>>"
+export ANTHROPIC_API_KEY="<<<put_your_key_here>>>"
 ```
-
 
 ### Example:
 
@@ -196,9 +190,3 @@ This will run the Z-Machine interpreter on the given file (905.z5), with the AI 
 ## Outlook
 
 More Adventures, more language models, more runs. Very simple. The story 9:05 was just the beginning.
-
-But I have to wait until we see a drop of the current prices for large language models. $10 just for one run is not affordable.
-
-
-
-

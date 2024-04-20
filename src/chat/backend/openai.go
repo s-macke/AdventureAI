@@ -32,7 +32,7 @@ func NewOpenAIChat(systemMsg string, backend string) *OpenAIChat {
 	case "gpt3":
 		cs.model = openai.GPT3Dot5Turbo
 	case "gpt4":
-		cs.model = openai.GPT4TurboPreview
+		cs.model = openai.GPT4Turbo
 	default:
 		panic("Unknown backend")
 	}

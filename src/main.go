@@ -107,12 +107,13 @@ func Main() {
 	doChat := flag.Bool("ai", false, "Chat with AI")
 	prompt := flag.String("prompt", "react", "Chat with AI via prompt 'simple', or 'discuss', 'react' (reason and act) or 'history_react'")
 	backend := flag.String("backend", "gpt4", "Select AI backend. Either 'gpt3', 'gpt4', 'orca2', 'mistral', 'gemini', 'claude', 'llama', 'gemma'")
+	oldStoryFilename := flag.String("story", "", "Continue from story file")
 	flag.Parse()
 
 	zm := Init(*filename)
 
 	if *doChat {
-		chatState := chat.NewChatState(zm, *prompt, *backend)
+		chatState := chat.NewChatState(zm, *prompt, *backend, *oldStoryFilename)
 		chatState.ChatLoop()
 		return
 	}
