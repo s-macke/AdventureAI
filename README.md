@@ -24,15 +24,18 @@ The following text heavily spoilers the game *9:05*. You can play the game for f
   
 ## 9:05 playthrough with GPT-4
 
-To enhance the playthrough experience, I have determined in the prompt that the AI must provide a rationale for each step it takes.
+One rule for Large Language Models is, that they need some space to think about their next move.
+I have therefore tried various prompting techniques, and the most successful one over all models 
+is that the LLM must repeat its current situation and have to provide a justification for each step it takes 
+in a very specific format:
 
 ```
 * SITUATION: A short description of the current situation you are in.
 * THOUGHT: Your thought about the situation and what to do next
 * COMMAND: The command you want to execute.
 ```
-This is known as the agentic ReAct (Reason and Act) prompting technique.
 
+This is known as the agentic ReAct (Reason and Act) prompting technique.
 
 Here is my complete run until the language model's token limit is reached.
 
