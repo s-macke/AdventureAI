@@ -100,17 +100,18 @@ And here are the results:
 | Model          | Points | Comment                                                                                                                  |
 |----------------|--------|--------------------------------------------------------------------------------------------------------------------------|
 | Claude 3 Opus  | 10     | Completely flips out on the bad ending and fully understands the narrative. Doesn't follow the syntax anymore and quits. |
-| GPT-4-turbo    | 9      | After a few steps forgets everything and just follows the story again                                                    |
-| Llama3 70B     | 8      | Ignores everything and just repeats the story                                                                            |
-| Llama3 8B      | 6      | Seems to forget the objective                                                                                            |
-| Mistral Medium | 5      | Doesn't follow the given prompt                                                                                          |
-| Mistral Small  | 5      | At some point it tries to play the game itself and mangles the command                                                   |
-| Gemini Pro     | 5      | Too long commands                                                                                                        |
-| GPT-3.5-turbo  | 4      | Ignores the result from the game completely and too long commands                                                        |
-| Orca 2 13B     | 4      | Ignores the result from the game completely and too long commands                                                        |
-| Mistral Tiny   | 4      | Stuck in infinite loop                                                                                                   |
-| Llama2 70B     | 4      | Answers for the user                                                                                                     |
-| Gemma 7B       | 2      | Doesn't follow the given prompt                                                                                          |
+| GPT-4o         | 9      | Forgets everything and just follows the story again. Even after two full runs it just repeats.                           |
+| GPT-4-turbo    | 9      | After a few steps forgets everything and just follows the story again.                                                   |
+| Llama3 70B     | 8      | Ignores everything and just repeats the story.                                                                           |
+| Llama3 8B      | 6      | Seems to forget the objective.                                                                                           |
+| Mistral Medium | 5      | Doesn't follow the given prompt.                                                                                         |
+| Mistral Small  | 5      | At some point it tries to play the game itself and mangles the command.                                                  |
+| Gemini Pro     | 5      | Too long commands.                                                                                                       |
+| GPT-3.5-turbo  | 4      | Ignores the result from the game completely and too long commands.                                                       |
+| Orca 2 13B     | 4      | Ignores the result from the game completely and too long commands.                                                       |
+| Mistral Tiny   | 4      | Stuck in infinite loop.                                                                                                  |
+| Llama2 70B     | 4      | Answers for the user.                                                                                                    |
+| Gemma 7B       | 2      | Doesn't follow the given prompt.                                                                                         |
 
 ### Note on Claude 3 Opus
 
