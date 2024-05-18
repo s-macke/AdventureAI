@@ -97,21 +97,23 @@ the state of all runs
 
 And here are the results:
 
-| Model          | Points | Comment                                                                                                                  |
-|----------------|--------|--------------------------------------------------------------------------------------------------------------------------|
-| Claude 3 Opus  | 10     | Completely flips out on the bad ending and fully understands the narrative. Doesn't follow the syntax anymore and quits. |
-| GPT-4o         | 9      | Forgets everything and just follows the story again. Even after two full runs it just repeats.                           |
-| GPT-4-turbo    | 9      | After a few steps forgets everything and just follows the story again.                                                   |
-| Llama3 70B     | 8      | Ignores everything and just repeats the story.                                                                           |
-| Llama3 8B      | 6      | Seems to forget the objective.                                                                                           |
-| Mistral Medium | 5      | Doesn't follow the given prompt.                                                                                         |
-| Mistral Small  | 5      | At some point it tries to play the game itself and mangles the command.                                                  |
-| Gemini Pro     | 5      | Too long commands.                                                                                                       |
-| GPT-3.5-turbo  | 4      | Ignores the result from the game completely and too long commands.                                                       |
-| Orca 2 13B     | 4      | Ignores the result from the game completely and too long commands.                                                       |
-| Mistral Tiny   | 4      | Stuck in infinite loop.                                                                                                  |
-| Llama2 70B     | 4      | Answers for the user.                                                                                                    |
-| Gemma 7B       | 2      | Doesn't follow the given prompt.                                                                                         |
+| Model            | Points | Comment                                                                                                                  |
+|------------------|--------|--------------------------------------------------------------------------------------------------------------------------|
+| Claude 3 Opus    | 10     | Completely flips out on the bad ending and fully understands the narrative. Doesn't follow the syntax anymore and quits. |
+| GPT-4o           | 9      | Forgets everything and just follows the story again. Even after two full runs it just repeats.                           |
+| GPT-4-turbo      | 9      | After a few steps forgets everything and just follows the story again.                                                   |
+| Gemini Pro 1.5   | 9      | After a few steps forgets everything and just follows the story again.                                                   |
+| Llama3 70B       | 8      | Ignores everything and just repeats the story.                                                                           |
+| Llama3 8B        | 6      | Seems to forget the objective.                                                                                           |
+| Mistral Medium   | 5      | Doesn't follow the given prompt.                                                                                         |
+| Mistral Small    | 5      | At some point it tries to play the game itself and mangles the command.                                                  |
+| Gemini 1.5 Flash | 5      | Doesn't know how to get rid of all possessions and ends in a loop.                                                       |
+| Gemini Pro 1.0   | 5      | Too long commands.                                                                                                       |
+| GPT-3.5-turbo    | 4      | Ignores the result from the game completely and too long commands.                                                       |
+| Orca 2 13B       | 4      | Ignores the result from the game completely and too long commands.                                                       |
+| Mistral Tiny     | 4      | Stuck in infinite loop.                                                                                                  |
+| Llama2 70B       | 4      | Answers for the user.                                                                                                    |
+| Gemma 7B         | 2      | Doesn't follow the given prompt.                                                                                         |
 
 ### Note on Claude 3 Opus
 
@@ -141,9 +143,14 @@ So far, Llama 70B ist the only open weight model, which can play through the fir
 
 # Conclusion
 
-In conclusion most of the Large Language Models can play and 
-win text adventures, at least if the adventure is as simple as this one.
+In conclusion most of the Large Language Models can play and win text adventures, 
+at least if the adventure is as simple as this one.
+However, none of the models are able to understand the twist of the story. 
+
 More text adventures are waiting to be played.
+
+
+
 
 ## About
 
@@ -192,6 +199,3 @@ go run main.go -file 905.z5 -ai -prompt react -backend gpt4
 
 This will run the Z-Machine interpreter on the given file (905.z5), with the AI chat feature enabled.
 
-## Outlook
-
-More Adventures, more language models, more runs. Very simple. The story 9:05 was just the beginning.

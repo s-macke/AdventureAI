@@ -64,9 +64,9 @@ func NewGroqChat(systemMsg string, backend string) *GroqChat {
 		prompt: systemMsg,
 	}
 	switch backend {
+	//case "llama": cs.model = "llama3-8b-8192"
 	case "llama":
-		cs.model = "llama3-8b-8192"
-	//case "llama":	cs.model = "llama3-70b-8192"
+		cs.model = "llama3-70b-8192"
 	case "gemma":
 		cs.model = "gemma-7b-it"
 	}
