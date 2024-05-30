@@ -158,9 +158,9 @@ func (cs *VertexAIChat) GetResponse(ch *ChatHistory) (string, int, int) {
 
 func MapVertexAiRole(role string) string {
 	switch role {
-	case "user":
+	case ChatHistoryRoleUser:
 		return "user"
-	case "assistant":
+	case ChatHistoryRoleAssistant:
 		return "model"
 	default:
 		panic("Unknown role")

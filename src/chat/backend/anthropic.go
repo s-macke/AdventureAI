@@ -58,9 +58,9 @@ func (cs *AnthropicChat) GetResponse(ch *ChatHistory) (string, int, int) {
 
 func MapAnthropicRole(role string) string {
 	switch role {
-	case "user":
+	case ChatHistoryRoleUser:
 		return anthropic.RoleUser
-	case "assistant":
+	case ChatHistoryRoleAssistant:
 		return anthropic.RoleAssistant
 	default:
 		panic("Unknown role")

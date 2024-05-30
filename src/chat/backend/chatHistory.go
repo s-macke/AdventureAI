@@ -1,5 +1,8 @@
 package backend
 
+const ChatHistoryRoleUser = "user"
+const ChatHistoryRoleAssistant = "assistant"
+
 type ChatMessage struct {
 	Role    string `json:"role"`
 	Content string `json:"content"`

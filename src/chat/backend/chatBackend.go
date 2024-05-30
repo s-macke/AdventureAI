@@ -17,7 +17,7 @@ func NewChatBackend(prompt string, backendAsString string) ChatBackend {
 	case "claude":
 		return NewAnthropicChat(prompt)
 	case "llama":
-		return NewGroqChat(prompt, backendAsString)
+		return NewLlamaChat(prompt, backendAsString)
 	case "gemma":
 		return NewGroqChat(prompt, backendAsString)
 	default:

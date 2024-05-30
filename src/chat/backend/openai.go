@@ -94,9 +94,9 @@ func (cs *OpenAIChat) GetResponse(ch *ChatHistory) (string, int, int) {
 
 func MapOpenAIRole(role string) string {
 	switch role {
-	case "user":
+	case ChatHistoryRoleUser:
 		return openai.ChatMessageRoleUser
-	case "assistant":
+	case ChatHistoryRoleAssistant:
 		return openai.ChatMessageRoleAssistant
 	default:
 		panic("Unknown role")

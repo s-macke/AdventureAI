@@ -1,5 +1,12 @@
 package backend
 
+import (
+	"bytes"
+	"encoding/json"
+	"net/http"
+	"strings"
+)
+
 type LlamaChat struct {
 	totalCompletionTokens int
 	totalPromptTokens     int
@@ -156,51 +163,63 @@ func NewLlamaChat(systemMsg string, backend string) *LlamaChat {
 		return sb.String()
 	}
 */
-func (cs *LlamaChat) GetResponse(ch *ChatHistory) (string, int, int) {
-	panic("not implemented")
-	/*
-		cs.messages = append(cs.messages, openai.ChatCompletionMessage{
-			Role:    openai.ChatMessageRoleUser,
-			Content: input,
-		})
 
-		req := LlamaRequest{
-			//Prompt: cs.PreparePrompt(),
-			Prompt: cs.PreparePromptChatMLV1(),
-			//Prompt:      cs.PrepareLLamaPrompt(),
-			NPredict:    1024,
-			CachePrompt: true,
-			Stop: []string{
-				"<|im_end|>",     // ChatMl
-				"### Assistant:", // Orca Hashes
-				"### User:",      // Orca Hashes
-				"[INST]"},
+func (cs *LlamaChat) PreparePhi3Prompt(ch *ChatHistory) string {
+	var sb strings.Builder
+	//sb.WriteString("<|endoftext|>\n")
+	sb.WriteString("<|system|>\n")
+	sb.WriteString(cs.Prompt)
+	sb.WriteString("<|end|>\n")
+	for _, msg := range ch.Messages {
+		switch msg.Role {
+		case ChatHistoryRoleUser:
+			sb.WriteString("<|user|>\n")
+			sb.WriteString(msg.Content)
+			sb.WriteString("<|end|>\n")
+		case ChatHistoryRoleAssistant:
+			sb.WriteString("<|assistant|>\n")
+			sb.WriteString(msg.Content)
+			sb.WriteString("<|end|>\n")
+		default:
+			panic("Unknown role")
 		}
-
-		reqAsJson, err := json.Marshal(req)
-		if err != nil {
-			panic(err)
-		}
-		resp, err := http.Post("http://localhost:8080/completion", "application/json", bytes.NewBuffer(reqAsJson))
-		if err != nil {
-			panic(err)
-		}
-		if resp.StatusCode != 200 {
-			panic(err)
-		}
-		defer resp.Body.Close()
-
-		var response LlamaResponse
-		err = json.NewDecoder(resp.Body).Decode(&response)
-
-		cs.messages = append(cs.messages, openai.ChatCompletionMessage{
-			Role:    openai.ChatMessageRoleAssistant,
-			Content: response.Content,
-		})
-		return response.Content, response.TokensEvaluated, response.TokensPredicted
-	*/
+	}
+	sb.WriteString("<|assistant|>\n")
+	return sb.String()
 }
 
-func (cs *LlamaChat) GetResponseFromHistory(ch *ChatHistory) (string, int, int) {
-	panic("not implemented")
+func (cs *LlamaChat) GetResponse(ch *ChatHistory) (string, int, int) {
+
+	req := LlamaRequest{
+		Prompt: cs.PreparePhi3Prompt(ch),
+		// Prompt: cs.PreparePrompt(),
+		// Prompt:      cs.PrepareLLamaPrompt(),
+		NPredict:    1024,
+		CachePrompt: true,
+		Stop: []string{
+			"<|im_end|>",     // ChatMl
+			"<|end|>",        // Phi3
+			"### Assistant:", // Orca Hashes
+			"### User:",      // Orca Hashes
+			"[INST]"},
+	}
+
+	reqAsJson, err := json.Marshal(req)
+	if err != nil {
+		panic(err)
+	}
+	resp, err := http.Post("http://localhost:8080/completion", "application/json", bytes.NewBuffer(reqAsJson))
+	if err != nil {
+		panic(err)
+	}
+	if resp.StatusCode != 200 {
+		panic(err)
+	}
+	defer resp.Body.Close()
+
+	var response LlamaResponse
+	err = json.NewDecoder(resp.Body).Decode(&response)
+
+	return response.Content, response.TokensEvaluated, response.TokensPredicted
+
 }
