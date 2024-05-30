@@ -78,9 +78,10 @@ The AI never looks under the bed. Moreover, it is evident that the AI does not a
 1. To follow the exact format given in the prompt. Especially the ReAct format.
 2. Understand the current situation and what to do next.
 3. Remember the previous steps to act accordingly.
-4. Basic knowledge of text adventures. Especially the concept of short clear commands and variations to try.
-5. Further knowledge about text adventures. Especially the command "inventory" is probably necessary to enter the shower.
-6. To understand the narrative of the story after the first run. 
+4. Basic logical thinking. Such as if the door is closed, you have to open it first. 
+5. Basic knowledge of text adventures. Especially the concept of short clear commands and variations to try.
+6. Further knowledge about text adventures. Especially the command "inventory" is probably necessary to enter the shower.
+7. To understand the narrative of the story after the first run. 
 
 ### Evaluation of other models
 
