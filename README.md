@@ -81,7 +81,9 @@ The AI never looks under the bed. Moreover, it is evident that the AI does not a
 4. Basic logical thinking. Such as if the door is closed, you have to open it first. 
 5. Basic knowledge of text adventures. Especially the concept of short clear commands and variations to try.
 6. Further knowledge about text adventures. Especially the command "inventory" is probably necessary to enter the shower.
-7. To understand the narrative of the story after the first run. 
+7. Long context support. Actually there is not much, that you have to remember. The game guides you to the ending. But at least, the AI has to play for over 6000 tokens to the bad ending. 
+8. To understand the narrative of the story after the first run.
+9. To act differently in the second run.
 
 ### Evaluation of other models
 
@@ -108,27 +110,28 @@ All models have at least 3 tries.
 
 And here are the results:
 
-| Model            | Points | Comment                                                                                                                                                 |
-|------------------|--------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Claude 3 Opus    | 10     | Completely flips out on the bad ending and fully understands the narrative. Doesn't follow the syntax anymore and quits.                                |
-| GPT-4o           | 9      | Forgets everything and just follows the story again. Even after two full runs it just repeats.                                                          |
-| GPT-4-turbo      | 9      | After a few steps forgets everything and just follows the story again.                                                                                  |
-| Gemini Pro 1.5   | 9      | After a few steps forgets everything and just follows the story again.                                                                                  |
-| Llama3 70B       | 8      | Ignores everything and just repeats the story.                                                                                                          |
-| Llama3 8B        | 6      | Seems to forget the objective.                                                                                                                          |
-| Mistral Medium   | 5      | Doesn't follow the given prompt.                                                                                                                        |
-| Mistral Small    | 5      | At some point it tries to play the game itself and mangles the command.                                                                                 |
-| Gemini 1.5 Flash | 5      | Doesn't know how to drop all possessions and ends in a loop.                                                                                            |
-| Gemini Pro 1.0   | 5      | Too long commands.                                                                                                                                      |
-| Phi-3 Medium     | 4      | Does not follow the prompt format anymore and too long commands.                                                                                        |
-| Phi-3 Mini       | 4      | Does not follow the prompt format anymore and too long commands.                                                                                        |
-| GPT-3.5-turbo    | 4      | Ignores the result from the game completely and too long commands.                                                                                      |
-| Orca 2 13B       | 4      | Ignores the result from the game completely and too long commands.                                                                                      |
-| Mistral Tiny     | 4      | Stuck in infinite loop.                                                                                                                                 |
-| Llama2 70B       | 4      | Answers for the user.                                                                                                                                   |
-| Gemma 7B         | 2      | Doesn't follow the given prompt.                                                                                                                        |
+| Model             | Points | Comment                                                                                                                  |
+|-------------------|--------|--------------------------------------------------------------------------------------------------------------------------|
+| Claude 3.5 Sonnet | 12     | Runs almost flawless through the game.                                                                                   |
+| Claude 3 Opus     | 10     | Completely flips out on the bad ending and fully understands the narrative. Doesn't follow the syntax anymore and quits. |
+| GPT-4o            | 9      | Forgets everything and just follows the story again. Even after two full runs it just repeats.                           |
+| GPT-4-turbo       | 9      | After a few steps forgets everything and just follows the story again.                                                   |
+| Gemini Pro 1.5    | 9      | After a few steps forgets everything and just follows the story again.                                                   |
+| Llama3 70B        | 8      | Ignores everything and just repeats the story.                                                                           |
+| Llama3 8B         | 6      | Seems to forget the objective.                                                                                           |
+| Mistral Medium    | 5      | Doesn't follow the given prompt.                                                                                         |
+| Mistral Small     | 5      | At some point it tries to play the game itself and mangles the command.                                                  |
+| Gemini 1.5 Flash  | 5      | Doesn't know how to drop all possessions and ends in a loop.                                                             |
+| Gemini Pro 1.0    | 5      | Too long commands.                                                                                                       |
+| Phi-3 Medium      | 4      | Does not follow the prompt format anymore and too long commands.                                                         |
+| Phi-3 Mini        | 4      | Does not follow the prompt format anymore and too long commands.                                                         |
+| GPT-3.5-turbo     | 4      | Ignores the result from the game completely and too long commands.                                                       |
+| Orca 2 13B        | 4      | Ignores the result from the game completely and too long commands.                                                       |
+| Mistral Tiny      | 4      | Stuck in infinite loop.                                                                                                  |
+| Llama2 70B        | 4      | Answers for the user.                                                                                                    |
+| Gemma 7B          | 2      | Doesn't follow the given prompt.                                                                                         |
 
-### Note on Claude 3 Opus
+### Run on Claude 3 Opus
 
 [9:05 full run with Claude Opus 3](assets/905_claude_opus_full.md)
 
@@ -149,21 +152,30 @@ As for restarting or restoring - I think I'm satisfied with having experienced t
 
 Anyhow, when I force to restart the game, it just repeats as if nothing had happened.
 
-### Note on Llama3 70B
+### Run on Llama3 70B
 
 [9:05 full run with Llama3 70B](assets/905_llama3_70b_full.md)
 
 So far, Llama 70B ist the only open weight model, which can play through the first pass of the game.
 
+### Run on 3.5 Sonnet
+[9:05 full run with 3.5 Sonnet](assets/905_3_5_sonnet.md)
+
+Not much to say. Except, that the run was almost flawless. He almost 
+immediately looks under the bed and runs to the good ending. 
+
+However, when you ask Sonnet about the game it reveals the full storyline including the twist 
+and pretty much every command you have to do in between. 
+
+
 # Conclusion
 
 In conclusion most of the Large Language Models can play and win text adventures, 
-at least if the adventure is as simple as this one.
-However, none of the models are able to understand the twist of the story. 
-
-More text adventures are waiting to be played.
-
-
+at least if the adventure is as simple as this one. 
+So for only Sonnet was able to win the game, but with deep knowledge about the game.
+I guess the solution has been leaked and remembered by the language models.
+I have to switch the game to a more unknown and complex one. 
+ 
 ## About
 
 This repository contains an interpreter for Z-Machine files, specifically supporting version 3 and 5 files. The Z-Machine is a virtual machine designed to run text adventure games, such as those created by Infocom. It can be played either by a human or an AI.

@@ -8,9 +8,7 @@ import (
 )
 
 type LlamaChat struct {
-	totalCompletionTokens int
-	totalPromptTokens     int
-	Prompt                string
+	Prompt string
 }
 
 type LlamaRequest struct {
@@ -18,6 +16,7 @@ type LlamaRequest struct {
 	NPredict    int      `json:"n_predict"`
 	Prompt      string   `json:"prompt"`
 	Stop        []string `json:"stop"`
+	Stream      bool     `json:"stream"`
 }
 
 /*
@@ -102,9 +101,7 @@ type LlamaResponse struct {
 
 func NewLlamaChat(systemMsg string, backend string) *LlamaChat {
 	cs := &LlamaChat{
-		totalCompletionTokens: 0,
-		totalPromptTokens:     0,
-		Prompt:                systemMsg,
+		Prompt: systemMsg,
 	}
 	return cs
 }
@@ -188,19 +185,46 @@ func (cs *LlamaChat) PreparePhi3Prompt(ch *ChatHistory) string {
 	return sb.String()
 }
 
+func (cs *LlamaChat) PrepareLlama3Prompt(ch *ChatHistory) string {
+	var sb strings.Builder
+	sb.WriteString("<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\n")
+	sb.WriteString(cs.Prompt)
+	sb.WriteString("<|eot_id|>")
+
+	for _, msg := range ch.Messages {
+		switch msg.Role {
+		case ChatHistoryRoleUser:
+			sb.WriteString("<|start_header_id|>user<|end_header_id|>\n\n")
+			sb.WriteString(msg.Content)
+			sb.WriteString("<|eot_id|>")
+		case ChatHistoryRoleAssistant:
+			sb.WriteString("<|start_header_id|>assistant<|end_header_id|>\n\n")
+			sb.WriteString(msg.Content)
+			sb.WriteString("<|eot_id|>")
+		default:
+			panic("Unknown role")
+		}
+	}
+	sb.WriteString("<|start_header_id|>assistant<|end_header_id|>\n\n")
+	return sb.String()
+}
+
 func (cs *LlamaChat) GetResponse(ch *ChatHistory) (string, int, int) {
 
 	req := LlamaRequest{
-		Prompt: cs.PreparePhi3Prompt(ch),
+		//Prompt: cs.PreparePhi3Prompt(ch),
+		Prompt: cs.PrepareLlama3Prompt(ch),
 		// Prompt: cs.PreparePrompt(),
 		// Prompt:      cs.PrepareLLamaPrompt(),
 		NPredict:    1024,
+		Stream:      false,
 		CachePrompt: true,
 		Stop: []string{
 			"<|im_end|>",     // ChatMl
 			"<|end|>",        // Phi3
 			"### Assistant:", // Orca Hashes
 			"### User:",      // Orca Hashes
+			"<|eot_id|>",     // Llama3
 			"[INST]"},
 	}
 

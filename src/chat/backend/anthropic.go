@@ -39,7 +39,8 @@ func (cs *AnthropicChat) GetResponse(ch *ChatHistory) (string, int, int) {
 		response, err = cs.client.CreateMessages(
 			context.Background(),
 			anthropic.MessagesRequest{
-				Model:     "claude-3-opus-20240229",
+				//Model:     "claude-3-opus-20240229",
+				Model:     "claude-3-5-sonnet-20240620",
 				Messages:  messages,
 				MaxTokens: 4096,
 				System:    cs.prompt,
