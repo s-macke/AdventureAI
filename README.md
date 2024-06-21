@@ -158,23 +158,21 @@ Anyhow, when I force to restart the game, it just repeats as if nothing had happ
 
 So far, Llama 70B ist the only open weight model, which can play through the first pass of the game.
 
-### Run on 3.5 Sonnet
+### Run on Claude 3.5 Sonnet
 [9:05 full run with 3.5 Sonnet](assets/905_3_5_sonnet.md)
 
-Not much to say. Except, that the run was almost flawless. He almost 
-immediately looks under the bed and runs to the good ending. 
+Not much to say. Except, that the run was almost flawless. The LLM almost 
+immediately looks under the bed and runs to the second ending.
 
 However, when you ask Sonnet about the game it reveals the full storyline including the twist 
 and pretty much every command you have to do in between. 
-
 
 # Conclusion
 
 In conclusion most of the Large Language Models can play and win text adventures, 
 at least if the adventure is as simple as this one. 
-So for only Sonnet was able to win the game, but with deep knowledge about the game.
-I guess the solution has been leaked and remembered by the language models.
-I have to switch the game to a more unknown and complex one. 
+So far, only Claude 3.5 Sonnet was able to win the game, but is has also deep knowledge about this specific game.
+I guess the solution has been leaked and remembered by the language models and I have to switch the game to a more unknown and complex one. 
  
 ## About
 
@@ -189,7 +187,7 @@ This repository contains an interpreter for Z-Machine files, specifically suppor
 
 # Compile
 
-Install at least Go version 1.19 and run the following command
+Install at least Go version 1.22 and run the following command
 
 ```bash
 go build
