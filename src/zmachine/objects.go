@@ -313,7 +313,6 @@ func (zm *ZMachine) SetSiblingObjectIndex(objectIndex uint16, siblingIndex uint1
 
 func (zm *ZMachine) PrintObjectName(objectIndex uint16) {
 	objectEntryAddress := zm.GetObjectEntryAddress(objectIndex)
-	var propertiesAddress uint32
-	propertiesAddress = uint32(zm.GetUint16(objectEntryAddress + OBJECT_PROPERTY_ADDRESS_OFFSET))
+	propertiesAddress := uint32(zm.GetUint16(objectEntryAddress + OBJECT_PROPERTY_ADDRESS_OFFSET))
 	zm.DecodeZString(propertiesAddress + 1)
 }

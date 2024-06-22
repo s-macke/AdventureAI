@@ -7,6 +7,7 @@ func DebugPrintf(format string, v ...any) {
 }
 
 func (zm *ZMachine) ListObjects() {
+	fmt.Println("Objects:")
 	zm.Output.Reset()
 	for i := uint16(1); i < 85; i++ {
 		zm.PrintObjectName(i)
@@ -19,16 +20,16 @@ func (zm *ZMachine) ListObjects() {
 			}
 			//fmt.Println(addr, size)
 			//fmt.Printf("%0x\n", zm.GetUint16(uint32(addr)))
-
 		}
 
 		zm.Output.Reset()
 	}
+	fmt.Println("Objects end")
 }
 
 // https://www.inform-fiction.org/zmachine/standards/z1point1/sect13.html
 func (zm *ZMachine) ListDictionary() {
-
+	fmt.Println("Dictionary:")
 	numSeparators := uint32(zm.buf[zm.header.dictAddress])
 	// followed by a list of keyboard input codes
 
@@ -50,15 +51,16 @@ func (zm *ZMachine) ListDictionary() {
 		zm.Output.Reset()
 		//fmt.Println(foundAddress)
 	}
+	fmt.Println("Dictionary end")
 }
 
 func (zm *ZMachine) ListAbbreviations() {
-
+	fmt.Println("Abbreviations:")
 	//fmt.Println(numSeparators, entryLength, numEntries)
 	zm.Output.Reset()
 
 	entriesAddress := zm.header.abbreviationTable
-	for i := uint32(0); i < 96; i++ {
+	for i := uint32(0); i < 96; i++ { // 96 in V3+
 		foundAddress := entriesAddress + 2*i
 		//fmt.Println(foundAddress)
 		//zm.DecodeZString(zm.PackedAddress(uint32(zm.GetUint16(foundAddress))))
@@ -68,4 +70,5 @@ func (zm *ZMachine) ListAbbreviations() {
 		zm.Output.Reset()
 		//fmt.Println(foundAddress)
 	}
+	fmt.Println("Abbreviations end")
 }

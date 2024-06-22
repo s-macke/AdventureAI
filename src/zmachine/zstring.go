@@ -30,28 +30,30 @@ func (zm *ZMachine) DecodeZString(startOffset uint32) uint32 {
 
 		i += 2
 	}
-
+	//fmt.Println("ZChars", zchars)
 	alphabetType := 0
-
+	// TODO the treatment of zchars is different on the z-Machine version
 	for i := 0; i < len(zchars); i++ {
 		zc := zchars[i]
+
 		// z Characters 1,2,3 represent abbreviations, sometimes also called synonyms
 		if zc > 0 && zc < 4 {
-			//fmt.Println("Abbreviation", zc)
 			// TODO, not sure if the if is correct
 			var abbrevIndex uint8
 			if i+1 >= len(zchars) {
-				i++
-				continue
+				panic("abbreviation mark should always follow another character")
+				// incomplete abbreviations are ignored
+				//i++
+				//continue
 			} else {
 				abbrevIndex = zchars[i+1]
 			}
 
 			// "If z is the first Z-character (1, 2 or 3) and x the subsequent one,
 			// then the interpreter must look up entry 32(z-1)+x in the abbreviations table"
-			abbrevAddress := zm.GetUint16(zm.header.abbreviationTable + uint32(64*(zc-1)+abbrevIndex*2))
-			zm.DecodeZString(zm.PackedAddress(uint32(abbrevAddress)))
-
+			abbreviation := (zc-1)*32 + abbrevIndex
+			abbrevAddress := zm.GetUint16(zm.header.abbreviationTable + uint32(abbreviation*2))
+			zm.DecodeZString(uint32(abbrevAddress) << 1)
 			alphabetType = 0
 			i++
 			continue

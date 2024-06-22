@@ -6,6 +6,7 @@ func (zm *ZMachine) IsSafeToWrite(address uint32) bool {
 }
 
 func ZLoadB(zm *ZMachine, args []uint16, numArgs uint16) {
+	//DebugPrintf("ZLoadB %v\n", args)
 	address := args[0] + args[1]
 	value := zm.buf[address]
 

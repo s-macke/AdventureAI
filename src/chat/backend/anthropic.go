@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/liushuangls/go-anthropic"
 	"os"
+	"time"
 )
 
 type AnthropicChat struct {
@@ -49,6 +50,7 @@ func (cs *AnthropicChat) GetResponse(ch *ChatHistory) (string, int, int) {
 			break
 		}
 		fmt.Println(err)
+		time.Sleep(5 * time.Second)
 	}
 	if err != nil {
 		panic(err)

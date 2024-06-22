@@ -38,12 +38,14 @@ var ZFunctions_VAR = []ZFunction{
 	nil,
 	ZOutputStream,
 	nil,
-	nil,
+	nil, // sound effect
 	func(zm *ZMachine, args []uint16, numargs uint16) {
-		zm.StoreResult(13)
+		zm.StoreResult(13) // read char
 	},
 	nil,
-	nil, // not value -> (result)
+	func(zm *ZMachine, args []uint16, numargs uint16) {
+		zm.StoreResult(^args[0]) // not value -> (result)
+	},
 	func(zm *ZMachine, args []uint16, numargs uint16) {
 		ZCall(zm, args, numargs, ZCallTypeN)
 	},

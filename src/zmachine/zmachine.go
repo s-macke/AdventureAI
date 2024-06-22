@@ -1,13 +1,17 @@
 package zmachine
 
-// https://gitlab.com/DavidGriffith/frotz/
-// https://www.inform-fiction.org/zmachine/standards/
-
 import (
 	"fmt"
 	"io"
 	"math/rand"
 	"strings"
+)
+
+// https://gitlab.com/DavidGriffith/frotz/
+// https://www.inform-fiction.org/zmachine/standards/
+// https://www.ifarchive.org/if-archive/infocom/interpreters/specification/zspec02/zmach06e.pdf
+
+import (
 	"time"
 )
 
@@ -96,8 +100,8 @@ func ZPrintNum(zm *ZMachine, args []uint16, numArgs uint16) {
 // / but correct behaviour is to reseed the generator in as random a way as the interpreter can (e.g. by using the time
 // in milliseconds).
 func ZRandom(zm *ZMachine, args []uint16, numArgs uint16) {
+	DebugPrintf("ZRandom\n")
 	randRange := int16(args[0])
-
 	if randRange > 0 {
 		r := rand.Int31n(int32(randRange)) // [0, n]
 		zm.StoreResult(uint16(r + 1))
@@ -546,12 +550,13 @@ func TokenizeLine(zm *ZMachine, textaddress uint16, tokenaddress uint16, dct uin
 			break
 		}
 
+		//fmt.Printf("w = %s, %d\n", w, wordStarts[i])
 		DebugPrintf("w = %s, %d\n", w, wordStarts[i])
 		dictionaryAddress := zm.FindInDictionary(w)
 
 		zm.SetUint16(parseAddress, dictionaryAddress)
 		zm.buf[parseAddress+2] = uint8(len(w))
-		zm.buf[parseAddress+3] = uint8(wordStarts[i])
+		zm.buf[parseAddress+3] = uint8(wordStarts[i] + 1)
 		parseAddress += 4
 	}
 	//panic("Not implemented")
@@ -664,9 +669,9 @@ func ZRestart(zm *ZMachine) {
 	zm.stack = NewStack()
 	zm.InitObjectsConstants()
 
-	zm.buf[1] = 158 // TODO: why?
+	zm.buf[1] = 156 // TODO: Set config of z-machine. See z-machine header flag at offset 1
 
-	zm.buf[22] = 25  // screen rows
+	zm.buf[22] = 49  // screen rows
 	zm.buf[33] = 232 // screen cols
 
 	// Z-Machine standard 1.1
