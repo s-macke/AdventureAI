@@ -1,18 +1,21 @@
 package storyHistory
 
 type StoryMessage struct {
-	Role             string `json:"role"`
-	Content          string `json:"content"`
-	CompletionTokens int    `json:"CompletionTokens"`
-	PromptTokens     int    `json:"PromptTokens"`
-	Meta             string `json:"meta"`
+	Role             string   `json:"role"`
+	Content          string   `json:"content"`
+	CompletionTokens int      `json:"completionTokens"`
+	PromptTokens     int      `json:"promptTokens"`
+	Meta             string   `json:"meta"`
+	Score            *float64 `json:"score"`
 }
 
 type StoryHistory struct {
-	PromptPattern string
-	Model         string
-	Prompt        string
-	Messages      []StoryMessage `json:"steps"`
+	PromptPattern string         `json:"promptPattern"`
+	Model         string         `json:"model"`
+	Prompt        string         `json:"prompt"`
+	Date          string         `json:"date"`
+	Name          string         `json:"name"`
+	Messages      []StoryMessage `json:"messages"`
 }
 
 func (sh *StoryHistory) GetLastMessage() StoryMessage {

@@ -30,7 +30,6 @@ func Init(filename string) *zmachine.ZMachine {
 
 /*
 // for 9:05
-
 	var commands = []string{
 		"answer phone",
 		"stand",
@@ -158,9 +157,8 @@ var commands = []string{
 	"suveh madah firenos ani to", "suveh madah firenos",
 	"pull block",
 }
-*/
 var commandIndex = 0
-
+*/
 func Input() string {
 	/*
 		if commandIndex < len(commands) {
@@ -196,6 +194,7 @@ func Main() {
 		if zm.Output.Len() > 0 {
 			if zm.WindowId == 0 {
 				_, _ = os.Stdout.WriteString(zm.Output.String())
+				//fmt.Println("Score: ", zm.ReadGlobal(59)) // Score for
 			}
 			zm.Output.Reset()
 		}

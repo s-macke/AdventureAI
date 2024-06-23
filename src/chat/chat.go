@@ -5,6 +5,7 @@ import (
 	"github.com/s-macke/AdventureAI/src/chat/promptPattern"
 	"github.com/s-macke/AdventureAI/src/chat/storyHistory"
 	"github.com/s-macke/AdventureAI/src/zmachine"
+	"time"
 )
 
 type ChatState struct {
@@ -56,6 +57,8 @@ func NewChatState(zm *zmachine.ZMachine, chatPromptPattern string, backendAsStri
 		story: &storyHistory.StoryHistory{
 			PromptPattern: chatPromptPattern,
 			Model:         backendAsString,
+			Name:          zm.Name,
+			Date:          time.Now().Format("2006-01-02_15-04-05"),
 		},
 		output:           "",
 		currentStoryStep: 0,
@@ -93,13 +96,20 @@ func (cs *ChatState) chatInput() string {
 		return cmd
 	}
 
-	cs.story.AppendMessage(storyHistory.StoryMessage{
+	userMessage := storyHistory.StoryMessage{
 		Role:             "user",
 		Content:          output,
 		CompletionTokens: 0,
 		PromptTokens:     0,
-	})
-	cs.story.StoreToFile(cs.zm.Name)
+	}
+
+	if cs.zm.Name == "suvehnux.z5" {
+		score := new(float64)
+		*score = float64(cs.zm.ReadGlobal(59))
+		userMessage.Score = score
+	}
+	cs.story.AppendMessage(userMessage)
+	cs.story.StoreToFile()
 	/*
 		if cs.currentStoryStep < len(commands) {
 			cs.currentStoryStep++
@@ -120,7 +130,7 @@ func (cs *ChatState) chatInput() string {
 		panic("empty command")
 	}
 
-	cs.story.StoreToFile(cs.zm.Name)
+	cs.story.StoreToFile()
 	cs.currentStoryStep++
 
 	if cs.currentStoryStep%5 == 0 {

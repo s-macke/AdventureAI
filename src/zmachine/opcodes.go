@@ -35,7 +35,9 @@ var ZFunctions_VAR = []ZFunction{
 	func(zm *ZMachine, args []uint16, numargs uint16) {
 		// set Text Style
 	},
-	nil,
+	func(zm *ZMachine, args []uint16, numargs uint16) {
+		// z_buffer_mode TODO
+	},
 	ZOutputStream,
 	nil,
 	nil, // sound effect

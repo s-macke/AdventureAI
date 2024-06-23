@@ -9,14 +9,20 @@ func DebugPrintf(format string, v ...any) {
 func (zm *ZMachine) ListObjects() {
 	fmt.Println("Objects:")
 	zm.Output.Reset()
-	for i := uint16(1); i < 85; i++ {
+	for i := uint16(1); i < MAX_OBJECT; i++ {
 		zm.PrintObjectName(i)
 		propData := zm.GetFirstPropertyAddress(i)
-		fmt.Printf("%3d %s %04x\n", i, zm.Output.String(), propData)
+		fmt.Printf("%3d '%s' offset=0x%04x\n", i, zm.Output.String(), propData)
 		for j := uint16(1); j < 64; j++ {
 			addr, size := zm.GetObjectPropertyInfo(i, j)
 			if addr != 0 {
-				fmt.Printf("    [%d] size %d bytes\n", j, size)
+				if size == 1 {
+					fmt.Printf("    [%d] size %d bytes = 0x%2x\n", j, size, zm.GetUint8(uint32(addr)))
+				} else if size == 2 {
+					fmt.Printf("    [%d] size %d bytes = 0x%04x\n", j, size, zm.GetUint16(uint32(addr)))
+				} else {
+					fmt.Printf("    [%d] size %d bytes\n", j, size)
+				}
 			}
 			//fmt.Println(addr, size)
 			//fmt.Printf("%0x\n", zm.GetUint16(uint32(addr)))

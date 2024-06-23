@@ -5,12 +5,12 @@ import (
 	"os"
 )
 
-func (sh *StoryHistory) StoreToFile(name string) {
+func (sh *StoryHistory) StoreToFile() {
 	stateAsJson, err := json.MarshalIndent(sh, "", " ")
 	if err != nil {
 		panic(err)
 	}
-	filename := "storydump/" + name + ".json"
+	filename := "storydump/" + sh.Name + "_" + sh.Date + ".json"
 	err = os.WriteFile(filename, stateAsJson, 0644)
 	if err != nil {
 		panic(err)

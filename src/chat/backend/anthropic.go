@@ -36,7 +36,7 @@ func (cs *AnthropicChat) GetResponse(ch *ChatHistory) (string, int, int) {
 	var response anthropic.MessagesResponse
 	var err error
 	// retries
-	for i := 0; i < 5; i++ {
+	for i := 0; i < 20; i++ {
 		response, err = cs.client.CreateMessages(
 			context.Background(),
 			anthropic.MessagesRequest{
@@ -50,7 +50,7 @@ func (cs *AnthropicChat) GetResponse(ch *ChatHistory) (string, int, int) {
 			break
 		}
 		fmt.Println(err)
-		time.Sleep(5 * time.Second)
+		time.Sleep(15 * time.Second)
 	}
 	if err != nil {
 		panic(err)
