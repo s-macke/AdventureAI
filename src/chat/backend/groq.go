@@ -69,6 +69,8 @@ func NewGroqChat(systemMsg string, backend string) *GroqChat {
 		cs.model = "llama3-70b-8192"
 	case "gemma":
 		cs.model = "gemma-7b-it"
+	default:
+		panic("Unknown model")
 	}
 
 	return cs

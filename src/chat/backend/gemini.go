@@ -15,9 +15,10 @@ type VertexAIChat struct {
 	ctx    context.Context
 	client *genai.Client
 	gemini *genai.GenerativeModel
+	model  string
 }
 
-func NewVertexAIChat(systemMsg string) *VertexAIChat {
+func NewVertexAIChat(systemMsg string, model string) *VertexAIChat {
 	key := os.Getenv("GEMINI_API_KEY")
 	if key == "" {
 		panic("GEMINI_API_KEY env var not set")
@@ -25,7 +26,8 @@ func NewVertexAIChat(systemMsg string) *VertexAIChat {
 
 	var err error
 	cs := &VertexAIChat{
-		ctx: context.Background(),
+		ctx:   context.Background(),
+		model: model,
 	}
 	cs.client, err = genai.NewClient(cs.ctx, option.WithAPIKey(key))
 	if err != nil {
@@ -44,12 +46,19 @@ func NewVertexAIChat(systemMsg string) *VertexAIChat {
 	*/
 	//cs.gemini = cs.client.GenerativeModel("gemini-pro") // reference to gemini-1.0-pro
 	//cs.gemini = cs.client.GenerativeModel("gemini-1.5-flash-latest")
-	cs.gemini = cs.client.GenerativeModel("gemini-1.5-pro-latest")
+	switch cs.model {
+	case "gemini15pro":
+		cs.gemini = cs.client.GenerativeModel("gemini-1.5-pro-latest")
+	case "gemini15flash":
+		cs.gemini = cs.client.GenerativeModel("gemini-1.5-flash-latest")
+	default:
+		panic("Unknown model")
+	}
+
 	cs.gemini.SystemInstruction = &genai.Content{
 		Parts: []genai.Part{genai.Text(systemMsg)},
 	}
 
-	//cs.gemini = cs.client.GenerativeModel("gemini-1.0-pro")
 	safety := []*genai.SafetySetting{
 		/*
 			{

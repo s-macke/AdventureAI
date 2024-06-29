@@ -11,9 +11,10 @@ import (
 type AnthropicChat struct {
 	client *anthropic.Client
 	prompt string
+	model  string
 }
 
-func NewAnthropicChat(systemMsg string) *AnthropicChat {
+func NewAnthropicChat(systemMsg string, backend string) *AnthropicChat {
 	key := os.Getenv("ANTHROPIC_API_KEY")
 	if key == "" {
 		panic("ANTHROPIC_API_KEY env var not set")
@@ -22,6 +23,7 @@ func NewAnthropicChat(systemMsg string) *AnthropicChat {
 	return &AnthropicChat{
 		client: c,
 		prompt: systemMsg,
+		model:  backend,
 	}
 }
 
@@ -37,15 +39,22 @@ func (cs *AnthropicChat) GetResponse(ch *ChatHistory) (string, int, int) {
 	var err error
 	// retries
 	for i := 0; i < 20; i++ {
+		request := anthropic.MessagesRequest{
+			Messages:  messages,
+			MaxTokens: 4096,
+			System:    cs.prompt,
+		}
+		switch cs.model {
+		case "opus3":
+			request.Model = "claude-3-opus-20240229"
+		case "sonnet35":
+			request.Model = "claude-3-5-sonnet-20240620"
+		default:
+			panic("Unknown model")
+		}
+
 		response, err = cs.client.CreateMessages(
-			context.Background(),
-			anthropic.MessagesRequest{
-				//Model:     "claude-3-opus-20240229",
-				Model:     "claude-3-5-sonnet-20240620",
-				Messages:  messages,
-				MaxTokens: 4096,
-				System:    cs.prompt,
-			})
+			context.Background(), request)
 		if err == nil {
 			break
 		}

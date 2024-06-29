@@ -15,6 +15,14 @@ func NewStack() *ZStack {
 	return s
 }
 
+func (s *ZStack) Clone() *ZStack {
+	s2 := NewStack()
+	copy(s2.stack, s.stack)
+	s2.top = s.top
+	s2.localFrame = s.localFrame
+	return s2
+}
+
 func (s *ZStack) Push(value uint16) {
 	if s.top == 0 {
 		panic("Stack overflow")

@@ -176,7 +176,7 @@ func Main() {
 	filename := flag.String("file", "905.z5", "Z-Machine file to run")
 	doChat := flag.Bool("ai", false, "Chat with AI")
 	prompt := flag.String("prompt", "react", "Chat with AI via prompt 'simple', or 'discuss', 'react' (reason and act) or 'history_react'")
-	backend := flag.String("backend", "gpt4", "Select AI backend. Either 'gpt3', 'gpt4', 'orca2', 'mistral', 'gemini', 'claude', 'llama', 'gemma'")
+	backend := flag.String("backend", "gpt4", "Select AI backend. Either 'gpt3', 'gpt4', 'gpt4o', 'orca2', 'mistral', 'gemini15pro', 'gemini15flash', 'opus3', 'sonnet35' 'llama', 'gemma'")
 	oldStoryFilename := flag.String("story", "", "Continue from story file")
 	flag.Parse()
 

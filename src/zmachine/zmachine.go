@@ -35,6 +35,16 @@ const (
 	//ZCallTypeDirect           = 2
 )
 
+type Checkpoint struct {
+	ip                uint32
+	stack             *ZStack
+	localFrame        uint16
+	buf               []uint8
+	outputstreamtable uint32
+	outputstream      int
+	WindowId          int
+}
+
 type ZMachine struct {
 	Name       string
 	ip         uint32
@@ -50,6 +60,7 @@ type ZMachine struct {
 	outputstream      int // the id to where we are writing output
 	outputstreamtable uint32
 	WindowId          int // The selected window ID to print
+	Undo              Checkpoint
 }
 
 type ZFunction func(*ZMachine, []uint16, uint16)
@@ -70,6 +81,27 @@ func (zm *ZMachine) ReadGlobal(x uint8) uint16 {
 	ret := zm.GetUint16(zm.header.globalVarAddress + addr)
 
 	return ret
+}
+
+func (zm *ZMachine) SaveUndo() {
+	zm.Undo.outputstream = zm.outputstream
+	zm.Undo.outputstreamtable = zm.outputstreamtable
+	zm.Undo.ip = zm.ip
+	zm.Undo.localFrame = zm.localFrame
+	zm.Undo.WindowId = zm.WindowId
+	zm.Undo.buf = make([]uint8, len(zm.buf))
+	copy(zm.Undo.buf, zm.buf)
+	zm.Undo.stack = zm.stack.Clone()
+}
+
+func (zm *ZMachine) Restore() {
+	zm.outputstream = zm.Undo.outputstream
+	zm.outputstreamtable = zm.Undo.outputstreamtable
+	zm.ip = zm.Undo.ip
+	zm.localFrame = zm.Undo.localFrame
+	zm.WindowId = zm.Undo.WindowId
+	copy(zm.buf, zm.Undo.buf)
+	zm.stack = zm.Undo.stack.Clone()
 }
 
 func (zm *ZMachine) SetGlobal(x uint16, v uint16) {

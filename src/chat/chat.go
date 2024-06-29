@@ -133,7 +133,7 @@ func (cs *ChatState) chatInput() string {
 	cs.story.StoreToFile()
 	cs.currentStoryStep++
 
-	if cs.currentStoryStep%5 == 0 {
+	if cs.currentStoryStep%100 == 0 {
 		fmt.Println("Press ENTER to continue...")
 		_, _ = fmt.Scanln()
 	}

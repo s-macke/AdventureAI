@@ -1,5 +1,7 @@
 package zmachine
 
+import "strconv"
+
 func (zm *ZMachine) InterpretLongVARInstruction() {
 	opcode := zm.ReadByte()
 	//instruction := opcode & 0x1F
@@ -109,10 +111,18 @@ func (zm *ZMachine) InterpretExtended() {
 		break
 	case 9:
 		// Save Undo
+		// -1 doesn't support, otherwise returns the save return value
+		zm.SaveUndo()
 		zm.StoreResult(1)
 		break
+	case 10:
+		// Restore Undo
+		zm.Restore()
+		zm.StoreResult(1)
+		break
+
 	default:
-		panic("Extended not supported")
+		panic("Extended " + strconv.Itoa(int(opcode)) + " not supported")
 	}
 }
 

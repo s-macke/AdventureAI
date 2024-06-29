@@ -31,7 +31,7 @@ The user provides the text of the text adventure. He is not a human and just pri
 The format of your output must be:
 SITUATION: {A short description of the current situation you are in.}
 THOUGHT: {A curious, adventurous thought.}
-COMMAND: {The single short command you want to execute.}
+COMMAND: {The single two word command you want to execute.}
 `
 	return &ReAct{
 		chatClient: backend.NewChatBackend(systemMsg, backendAsString),

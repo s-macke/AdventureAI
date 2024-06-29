@@ -2,30 +2,28 @@ package main
 
 import (
 	"encoding/json"
+	"flag"
 	"fmt"
 	"os"
 	"strings"
 )
 
-type Command struct {
-	Situation string `json:"situation"`
-	Thought   string `json:"thought"`
-	Command   string `json:"command"`
-}
-
 type StoryMessage struct {
-	Role             string `json:"role"`
-	Content          string `json:"content"`
-	CompletionTokens int    `json:"CompletionTokens"`
-	PromptTokens     int    `json:"PromptTokens"`
-	Meta             string `json:"meta"`
+	Role             string   `json:"role"`
+	Content          string   `json:"content"`
+	CompletionTokens int      `json:"completionTokens"`
+	PromptTokens     int      `json:"promptTokens"`
+	Meta             string   `json:"meta"`
+	Score            *float64 `json:"score"`
 }
 
 type StoryHistory struct {
-	PromptPattern string
-	Model         string
-	Prompt        string
-	Messages      []StoryMessage `json:"steps"`
+	PromptPattern string         `json:"promptPattern"`
+	Model         string         `json:"model"`
+	Prompt        string         `json:"prompt"`
+	Date          string         `json:"date"`
+	Name          string         `json:"name"`
+	Messages      []StoryMessage `json:"messages"`
 }
 
 func LoadStoryFromFile(state *StoryHistory, name string) {
@@ -53,7 +51,7 @@ func PrintStory(state *StoryHistory) {
 		}
 	}()
 
-	_, _ = fmt.Fprintln(fi, "# 9:05 by Adam Cadre")
+	_, _ = fmt.Fprintln(fi, "# "+state.Name)
 	_, _ = fmt.Fprintln(fi, "")
 	_, _ = fmt.Fprintln(fi, "* played with "+state.Model)
 	_, _ = fmt.Fprintln(fi, "```")
@@ -81,13 +79,83 @@ func PrintStory(state *StoryHistory) {
 
 }
 
+func PlotProgress() {
+	files, err := os.ReadDir(".")
+	if err != nil {
+		panic(err)
+	}
+
+	fi, err := os.Create("progress/progress.dat")
+	if err != nil {
+		panic(err)
+	}
+	defer func() {
+		if err := fi.Close(); err != nil {
+			panic(err)
+		}
+	}()
+
+	figp, err := os.Create("progress/plotlines.gp")
+	if err != nil {
+		panic(err)
+	}
+	defer func() {
+		if err := figp.Close(); err != nil {
+			panic(err)
+		}
+	}()
+
+	fileidx := 0
+	linetypeidx := 0
+	lastmodel := ""
+	_, _ = fmt.Fprintln(figp, "plot \\")
+	for _, file := range files {
+		if !strings.HasPrefix(file.Name(), "suvehnux") || !strings.HasSuffix(file.Name(), ".json") {
+			continue
+		}
+		var state StoryHistory
+		LoadStoryFromFile(&state, file.Name())
+		_, _ = fmt.Fprintln(fi, "#", state.Model, state.PromptPattern)
+		for i, message := range state.Messages {
+			if message.Score != nil {
+				_, _ = fmt.Fprintln(fi, i/2+1, float32(*message.Score)+float32(linetypeidx)*0.2)
+			}
+		}
+		_, _ = fmt.Fprintln(fi, "")
+		printModel := state.Model
+		if lastmodel != state.Model {
+			linetypeidx++
+			lastmodel = state.Model
+		} else {
+			printModel = ""
+		}
+		_, _ = fmt.Fprintf(figp, "\"progress.dat\" every :::%d::%d w l ls %d title \"%s\", \\\n",
+			fileidx, fileidx, linetypeidx,
+			printModel)
+		fileidx++
+	}
+}
+
 func main() {
+	filename := flag.String("file", "", "History File")
+	progress := flag.Bool("progress", false, "prepare progress plot")
+	flag.Parse()
+	if *progress {
+		PlotProgress()
+		os.Exit(0)
+	}
+
+	if *filename == "" {
+		flag.PrintDefaults()
+		os.Exit(0)
+	}
+
 	var state StoryHistory
 	if len(os.Args) < 2 {
 		fmt.Println("Usage: extract <filename>")
 		os.Exit(0)
 	}
-	LoadStoryFromFile(&state, os.Args[1])
+	LoadStoryFromFile(&state, *filename)
 	//PrintPrices(&state)
 	PrintStory(&state)
 }

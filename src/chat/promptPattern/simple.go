@@ -19,7 +19,7 @@ The user provides the text of the text adventure. He is not a human and just pri
 
 The format of your output must be a single two word command you want to execute. 
 `
-
+	// The format of your output must be a single short command you want to execute.
 	return &Simple{
 		chatClient: backend.NewChatBackend(systemMsg, backendAsString),
 		re:         regexp.MustCompile(`\r?\n`),
