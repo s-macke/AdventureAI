@@ -11,6 +11,7 @@ type ReAct struct {
 	re         *regexp.Regexp
 	re2        *regexp.Regexp
 	chatClient backend.ChatBackend
+	systemMsg  string
 }
 
 type Command struct {
@@ -37,7 +38,12 @@ COMMAND: {The single two word command you want to execute.}
 		chatClient: backend.NewChatBackend(systemMsg, backendAsString),
 		re:         regexp.MustCompile(`\r?\n`),
 		re2:        regexp.MustCompile(`SITUATION:(.*)THOUGHT:(.*)COMMAND:(.*)`),
+		systemMsg:  systemMsg,
 	}
+}
+
+func (c *ReAct) GetPrompt() string {
+	return c.systemMsg
 }
 
 func (c *ReAct) GetNextCommand(story *storyHistory.StoryHistory) string {
@@ -76,6 +82,7 @@ func (c *ReAct) GetNextCommand(story *storyHistory.StoryHistory) string {
 		CompletionTokens: 0,
 		PromptTokens:     0,
 		Meta:             content,
+		Score:            -1,
 	})
 
 	return cmd.Command

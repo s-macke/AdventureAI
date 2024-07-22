@@ -10,6 +10,7 @@ import (
 type Discussion struct {
 	re         *regexp.Regexp
 	chatClient backend.ChatBackend
+	systemMsg  string
 }
 
 func NewPromptDiscussion(backendAsString string) *Discussion {
@@ -29,7 +30,12 @@ The format of command must be
 	return &Discussion{
 		re:         regexp.MustCompile(`\[\[(.*)]]`),
 		chatClient: backend.NewChatBackend(systemMsg, backendAsString),
+		systemMsg:  systemMsg,
 	}
+}
+
+func (c *Discussion) GetPrompt() string {
+	return c.systemMsg
 }
 
 func (c *Discussion) GetNextCommand(story *storyHistory.StoryHistory) string {
@@ -55,6 +61,7 @@ func (c *Discussion) GetNextCommand(story *storyHistory.StoryHistory) string {
 		CompletionTokens: 0,
 		PromptTokens:     0,
 		Meta:             content,
+		Score:            -1,
 	})
 
 	fmt.Println("command: ", command)

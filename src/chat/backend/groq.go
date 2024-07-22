@@ -64,11 +64,12 @@ func NewGroqChat(systemMsg string, backend string) *GroqChat {
 		prompt: systemMsg,
 	}
 	switch backend {
-	//case "llama": cs.model = "llama3-8b-8192"
-	case "llama":
+	case "llama3-8b":
+		cs.model = "llama3-8b-8192"
+	case "llama3-70b":
 		cs.model = "llama3-70b-8192"
-	case "gemma":
-		cs.model = "gemma-7b-it"
+	case "gemma2":
+		cs.model = "gemma2-9b-it"
 	default:
 		panic("Unknown model")
 	}

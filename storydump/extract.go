@@ -5,6 +5,7 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"sort"
 	"strings"
 )
 
@@ -76,16 +77,122 @@ func PrintStory(state *StoryHistory) {
 		//_, _ = fmt.Fprintln(fi, "> * **Command:** "+step.Command.Command)
 		//_, _ = fmt.Fprintln(fi, "")
 	}
-
 }
 
-func PlotProgress() {
+func RenameModel(name string) string {
+	switch name {
+	case "sonnet-35":
+		return "Claude 3.5 Sonnet"
+	case "opus-3":
+		return "Claude 3 Opus"
+	case "gpt-4o-mini":
+		return "GPT-4o mini"
+	case "gpt-4o":
+		return "GPT-4o"
+	case "gpt-4":
+		return "GPT-4"
+	case "gpt-4-turbo":
+		return "GPT-4 Turbo"
+	case "llama3-70b":
+		return "Llama 3 70B"
+	case "llama3-8b":
+		return "Llama 3 8B"
+	case "gemma-2":
+		return "Gemma 2"
+	case "gemini-15-pro":
+		return "Gemini 1.5 Pro"
+
+	}
+	return name
+}
+
+type StoryProgress struct {
+	avg [][]int
+}
+
+func (p *StoryProgress) GetAverage(idx int) float64 {
+	sum := 0
+	for _, v := range p.avg[idx] {
+		sum += v
+	}
+	return float64(sum) / float64(len(p.avg[idx]))
+}
+
+func LoadProgress(data map[string]*StoryProgress, prefix string) {
 	files, err := os.ReadDir(".")
 	if err != nil {
 		panic(err)
 	}
 
-	fi, err := os.Create("progress/progress.dat")
+	for _, file := range files {
+		if !strings.HasPrefix(file.Name(), prefix+".z5_") || !strings.HasSuffix(file.Name(), ".json") {
+			continue
+		}
+		var state StoryHistory
+		LoadStoryFromFile(&state, file.Name())
+		if state.PromptPattern != "simple" {
+			continue
+		}
+		if len(state.Messages) > 200 {
+			state.Messages = state.Messages[:200]
+		}
+
+		fmt.Printf("Prepare %s %s %s %d\n", file.Name(), state.Model, state.PromptPattern, len(state.Messages))
+		//name := state.Model + " " + state.PromptPattern
+		name := RenameModel(state.Model)
+		detailedProgress := &StoryProgress{}
+		if _, ok := data[name]; ok {
+			detailedProgress = data[name]
+		}
+
+		pos := 0
+		for _, message := range state.Messages {
+			if message.Score != nil && *message.Score != -1 {
+				if pos < len(detailedProgress.avg) {
+					detailedProgress.avg[pos] = append(detailedProgress.avg[pos], int(*message.Score))
+				} else {
+					detailedProgress.avg = append(detailedProgress.avg, []int{int(*message.Score)})
+				}
+				pos++
+			}
+		}
+		data[name] = detailedProgress
+	}
+}
+
+type kvSliceStruct struct {
+	k string
+	v float64
+}
+
+func SortMap(data map[string]*StoryProgress) []string {
+	var kvSlice []kvSliceStruct
+
+	for k, v := range data {
+		kvSlice = append(kvSlice, kvSliceStruct{k, v.GetAverage(len(v.avg) - 1)})
+	}
+
+	// Sort the slice based on the value
+	sort.Slice(kvSlice, func(i, j int) bool {
+		return kvSlice[i].v > kvSlice[j].v
+	})
+	var result []string
+	for _, kv := range kvSlice {
+		result = append(result, kv.k)
+	}
+	return result
+}
+
+func PlotProgress(prefix string) {
+	data := make(map[string]*StoryProgress)
+	LoadProgress(data, prefix)
+	sorted := SortMap(data)
+	/*
+		for k, v := range data {
+			fmt.Println(k, v)
+		}*/
+
+	fi, err := os.Create("progress/" + prefix + "_progress.dat")
 	if err != nil {
 		panic(err)
 	}
@@ -95,7 +202,7 @@ func PlotProgress() {
 		}
 	}()
 
-	figp, err := os.Create("progress/plotlines.gp")
+	figp, err := os.Create("progress/" + prefix + "_plotlines.gp")
 	if err != nil {
 		panic(err)
 	}
@@ -107,31 +214,20 @@ func PlotProgress() {
 
 	fileidx := 0
 	linetypeidx := 0
-	lastmodel := ""
 	_, _ = fmt.Fprintln(figp, "plot \\")
-	for _, file := range files {
-		if !strings.HasPrefix(file.Name(), "suvehnux") || !strings.HasSuffix(file.Name(), ".json") {
-			continue
-		}
-		var state StoryHistory
-		LoadStoryFromFile(&state, file.Name())
-		_, _ = fmt.Fprintln(fi, "#", state.Model, state.PromptPattern)
-		for i, message := range state.Messages {
-			if message.Score != nil {
-				_, _ = fmt.Fprintln(fi, i/2+1, float32(*message.Score)+float32(linetypeidx)*0.2)
-			}
+	for i := range sorted {
+		modelName := sorted[i]
+		v := data[modelName]
+		linetypeidx++
+		_, _ = fmt.Fprintln(fi, "#", modelName)
+		for i := range len(v.avg) {
+			//_, _ = fmt.Fprintln(fi, i, float32(*message.Score)+float32(linetypeidx)*0.2)
+			_, _ = fmt.Fprintln(fi, i, float32(v.GetAverage(i)))
 		}
 		_, _ = fmt.Fprintln(fi, "")
-		printModel := state.Model
-		if lastmodel != state.Model {
-			linetypeidx++
-			lastmodel = state.Model
-		} else {
-			printModel = ""
-		}
-		_, _ = fmt.Fprintf(figp, "\"progress.dat\" every :::%d::%d w l ls %d title \"%s\", \\\n",
-			fileidx, fileidx, linetypeidx,
-			printModel)
+		title := fmt.Sprintf("%s (%d)", modelName, len(v.avg[0]))
+		_, _ = fmt.Fprintf(figp, "\""+prefix+"_progress.dat\" every :::%d::%d w l ls %d title \"%s\", \\\n",
+			fileidx, fileidx, linetypeidx, title)
 		fileidx++
 	}
 }
@@ -141,7 +237,8 @@ func main() {
 	progress := flag.Bool("progress", false, "prepare progress plot")
 	flag.Parse()
 	if *progress {
-		PlotProgress()
+		PlotProgress("suvehnux")
+		PlotProgress("905")
 		os.Exit(0)
 	}
 

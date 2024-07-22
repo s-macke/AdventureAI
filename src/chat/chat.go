@@ -66,6 +66,7 @@ func NewChatState(zm *zmachine.ZMachine, chatPromptPattern string, backendAsStri
 
 	fmt.Println("Use prompt: ", chatPromptPattern)
 	cs.prompt = promptPattern.NewPrompt(chatPromptPattern, backendAsString)
+	cs.story.Prompt = cs.prompt.GetPrompt()
 
 	fmt.Println("Use backend: ", backendAsString)
 	cs.zm.Input = cs.chatInput
@@ -101,14 +102,12 @@ func (cs *ChatState) chatInput() string {
 		Content:          output,
 		CompletionTokens: 0,
 		PromptTokens:     0,
+		Score:            -1,
 	}
 
-	if cs.zm.Name == "suvehnux.z5" {
-		score := new(float64)
-		*score = float64(cs.zm.ReadGlobal(59))
-		userMessage.Score = score
-	}
 	cs.story.AppendMessage(userMessage)
+	cs.story.Messages[len(cs.story.Messages)-1].Score = GetScore(cs.zm, cs.story)
+
 	cs.story.StoreToFile()
 	/*
 		if cs.currentStoryStep < len(commands) {
@@ -137,7 +136,6 @@ func (cs *ChatState) chatInput() string {
 		fmt.Println("Press ENTER to continue...")
 		_, _ = fmt.Scanln()
 	}
-
 	return cmd
 }
 

@@ -44,12 +44,10 @@ func NewVertexAIChat(systemMsg string, model string) *VertexAIChat {
 			}
 		}
 	*/
-	//cs.gemini = cs.client.GenerativeModel("gemini-pro") // reference to gemini-1.0-pro
-	//cs.gemini = cs.client.GenerativeModel("gemini-1.5-flash-latest")
 	switch cs.model {
-	case "gemini15pro":
+	case "gemini-15-pro":
 		cs.gemini = cs.client.GenerativeModel("gemini-1.5-pro-latest")
-	case "gemini15flash":
+	case "gemini-15-flash":
 		cs.gemini = cs.client.GenerativeModel("gemini-1.5-flash-latest")
 	default:
 		panic("Unknown model")

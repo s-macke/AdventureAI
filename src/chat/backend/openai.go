@@ -29,12 +29,16 @@ func NewOpenAIChat(systemMsg string, backend string) *OpenAIChat {
 		systemMsg: systemMsg,
 	}
 	switch backend {
-	case "gpt3":
+	case "gpt-3.5":
 		cs.model = openai.GPT3Dot5Turbo
-	case "gpt4":
+	case "gpt-4-turbo":
 		cs.model = openai.GPT4Turbo
-	case "gpt4o":
+	case "gpt-4":
+		cs.model = openai.GPT4
+	case "gpt-4o":
 		cs.model = openai.GPT4o
+	case "gpt-4o-mini":
+		cs.model = openai.GPT4oMini
 	default:
 		panic("Unknown backend")
 	}
@@ -59,17 +63,26 @@ func (cs *OpenAIChat) GetResponse(ch *ChatHistory) (string, int, int) {
 			Content: m.Content,
 		})
 	}
-	//start := time.Now()
-	resp, err := cs.client.CreateChatCompletion(
-		context.Background(),
-		openai.ChatCompletionRequest{
-			Model:            cs.model,
-			Messages:         messages,
-			MaxTokens:        2048,
-			PresencePenalty:  0,
-			FrequencyPenalty: 0,
-		},
-	)
+
+	var resp openai.ChatCompletionResponse
+	var err error
+	for i := 0; i < 3; i++ {
+		resp, err = cs.client.CreateChatCompletion(
+			context.Background(),
+			openai.ChatCompletionRequest{
+				Model:            cs.model,
+				Messages:         messages,
+				MaxTokens:        2048,
+				PresencePenalty:  0,
+				FrequencyPenalty: 0,
+			},
+		)
+		if err == nil {
+			break
+		}
+		fmt.Println("ChatCompletion error:", err)
+		fmt.Println("Retrying...")
+	}
 	if err != nil {
 		fmt.Printf("ChatCompletion error: %v\n", err)
 		panic("ChatCompletion error")

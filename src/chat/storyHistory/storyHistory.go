@@ -1,12 +1,14 @@
 package storyHistory
 
+import "strings"
+
 type StoryMessage struct {
-	Role             string   `json:"role"`
-	Content          string   `json:"content"`
-	CompletionTokens int      `json:"completionTokens"`
-	PromptTokens     int      `json:"promptTokens"`
-	Meta             string   `json:"meta"`
-	Score            *float64 `json:"score"`
+	Role             string  `json:"role"`
+	Content          string  `json:"content"`
+	CompletionTokens int     `json:"completionTokens"`
+	PromptTokens     int     `json:"promptTokens"`
+	Meta             string  `json:"meta"`
+	Score            float64 `json:"score"`
 }
 
 type StoryHistory struct {
@@ -38,4 +40,15 @@ func (sh *StoryHistory) GetStory() string {
 		}
 	}
 	return output
+}
+
+func (sh *StoryHistory) ContainsStoryText(contains string) bool {
+	for _, msg := range sh.Messages {
+		if msg.Role == "user" {
+			if strings.Contains(msg.Content, contains) {
+				return true
+			}
+		}
+	}
+	return false
 }

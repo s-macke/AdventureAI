@@ -11,6 +11,7 @@ type HistoryAugmentedReact struct {
 	re         *regexp.Regexp
 	re2        *regexp.Regexp
 	chatClient backend.ChatBackend
+	systemMsg  string
 }
 
 func NewPromptHistoryAugmentedReact(backendAsString string) *HistoryAugmentedReact {
@@ -28,7 +29,12 @@ COMMAND: {The single two word command you want to execute.}
 		re:         regexp.MustCompile(`\r?\n`),
 		re2:        regexp.MustCompile(`SUMMARY:(.*)SITUATION:(.*)THOUGHT:(.*)COMMAND:(.*)`),
 		chatClient: backend.NewChatBackend(systemMsg, backendAsString),
+		systemMsg:  systemMsg,
 	}
+}
+
+func (c *HistoryAugmentedReact) GetPrompt() string {
+	return c.systemMsg
 }
 
 func (c *HistoryAugmentedReact) GetNextCommand(story *storyHistory.StoryHistory) string {
@@ -60,6 +66,7 @@ func (c *HistoryAugmentedReact) GetNextCommand(story *storyHistory.StoryHistory)
 		CompletionTokens: 0,
 		PromptTokens:     0,
 		Meta:             content,
+		Score:            -1,
 	})
 
 	return cmd.Command
