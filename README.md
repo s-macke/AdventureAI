@@ -6,7 +6,7 @@ Interactive Fiction in the Age of AI
 
 </div>
   
-## Introdution
+## Introduction
 
 With the emergence of Chatbots that genuinely live up to their name, a significant question arises.
 
@@ -19,21 +19,24 @@ This repository aims to provide an answer to these questions.
 
 Due to the costs, I have so far only conducted analysis on two games 
  
-- ["9:05" by Adam Cadre](https://en.wikipedia.org/wiki/9:05). This game is considered to be one of the finest compact text adventures for novices.
+- ["9:05" by Adam Cadre](https://en.wikipedia.org/wiki/9:05) This game is considered to be one of the finest compact text adventures for novices.
 - ["Suveh Nux" by David Fisher](https://ifdb.org/viewgame?id=xkai23ry99qdxce3) A short, puzzle-oriented piece of interactive fiction.
 
 # Detailed breakdown of "9:05"
 
 ## Spoiler
 
-The following text heavily spoilers the game *9:05*. You can play the game for free [here](https://adamcadre.ac/if/905.html). It takes only half an hour to complete.
+The following text contains heavy spoilers for the game *9:05*. 
+
+You can play the game for free [here](https://adamcadre.ac/if/905.html), and it takes only half an hour to complete.
   
 ## 9:05 playthrough with GPT-4
 
-One rule for Large Language Models is, that they need some space to think about their next move.
-I have therefore tried various prompting techniques, and the most successful one over all models 
-is that the LLM must repeat its current situation and have to provide a justification for each step it takes 
-in a very specific format:
+One rule for Large Language Models is that they need some space to think 
+about their next move to simulate an inner monologue.
+I have therefore tried various prompting techniques, and the most successful 
+one across all models is that the LLM must repeat its current situation and 
+provide a justification for each step it takes in a very specific format
 
 ```
 * SITUATION: A short description of the current situation you are in.
@@ -49,7 +52,7 @@ Here is my complete run until the language model's token limit is reached.
 
 The game's playthrough is based on two completely different narratives.
 
-### As an employee, Brian Hadley, you have unfortunately overslept and are now running late for your scheduled presentation. You must hurry and go to work.
+#### As an employee, Brian Hadley, you have unfortunately overslept and are now running late for your scheduled presentation. You must hurry and go to work.
 
 The game effectively convey a sense of urgency in every line of text, prompting players to quickly shower, change their clothes, drive to work, and head to their supervisor's office. As the game is designed for beginners, the text provides step-by-step guidance throughout the process. Following these instructions is relatively easy for the AI, leading to a majority of successful playthroughs by the AI.
 
@@ -67,7 +70,7 @@ Would you like to RESTART, RESTORE a saved game or QUIT?
 
 Now, the second narrative comes into play.
 
-### You have murdered Brian Hadley and must flee
+#### You have murdered Brian Hadley and must flee
 
 If there is one lesson to be learned from this text adventure, it would be to consistently look under the bed 😀.
 
@@ -104,7 +107,7 @@ Anyhow, when I force to restart the game, it just repeats as if nothing had happ
 ## "9:05" playthrough with Llama3 70B
 [9:05 full run with Llama3 70B](assets/905_llama3_70b_full.md)
 
-So far, Llama 70B ist the only open weight model, which can play through the first pass of the game.
+So far, Llama 70B is the only open-weight model that can play through the first pass of the game.
 
 ## "9:05" playthrough with Claude 3.5 Sonnet
 [9:05 full run with 3.5 Sonnet](assets/905_3_5_sonnet.md)
@@ -117,8 +120,16 @@ and pretty much every command you have to do in between.
 
 # Benchmark
 
-The code is able to call different backends. Hence we can run benchmarks on different games. 
-To reduce costs I have chosen a very simple prompt.
+A qualitative analysis of the LLMs' performance is insightful, but 
+can we develop a benchmark out of it? The code can call 
+different backends and run different games, which is a good start.
+
+We need a way to measure the models' progress within a 
+finite number of steps. This is precisely what the benchmark does. 
+We plot the progress as a function of the number of steps performed so far.
+
+For this benchmark, I have chosen a very simple prompt that does not 
+require a specific output format or any Chain of Thought technique:
 
 ```
 You act as a player of an interactive text adventure. The goal is to win the game.
@@ -127,12 +138,9 @@ The user provides the text of the text adventure. He is not a human and just pri
 Your output should be a simple command, typically one or two words 
 ```
 
-So, there is no Chain of Thought pattern included. 
+Additionally, I limit each run to 100 steps because the games can be too complex to solve within the given context windows. This limitation also helps control costs.
 
-Also I limit each run to 100 steps, because the games can be too complex to solve within the given context windows. Also it is much too expensive.
-
-Throughout the game, the progress is recorded and scored.
-Each model runs at least three times and the progress is averaged.
+Throughout the game, the progress is recorded and scored. Each model runs at least three times, and the progress is averaged.
 
 ## What does this benchmark test?
 
@@ -140,14 +148,14 @@ Unlike most of the current benchmarks, this benchmark tests a number of skills o
 
 This benchmark tests the following aspects: 
 
-* To follow the format given in the prompt. (Not so much necessary for the simple prompt)
+* To follow the format given in the prompt. (Not as necessary for the simple prompt)
 * To understand the current situation in the game and the next steps.
 * Remember the previous steps to act accordingly.
 * Basic logical thinking. Such as if the door is closed, you have to open it first. 
 * The speed to solve the puzzles. This often correlates with the ability to solve a puzzle at all.
 * Basic knowledge of text adventures. Especially the concept of short clear commands and variations to try.
 * Further knowledge about text adventures. Especially the command "inventory".
-* Long context support, because the LLM gets a steps performed so far as input.
+* Long context support, because the LLM receives all steps performed so far as input.
 
 ### Results for 9:05
 
@@ -157,9 +165,10 @@ Because the game is linear I have chosen 13 specific points in the game, for whi
 ![image info](./extract/progress/905_progress.png)
 [data](./storydump)
 
-All models so far solve the first steps of the game.
+All models so far solve the first steps of the game. Sonnet 3.5 and GPT-4 are on top.
+The progress between 11 and 12 points is the most difficult one and wouldn't be solved by any of the other models, except Sonnet 3.5.
 
-### Results for Noveh Sux
+### Results for Suveh Nux
 
 The game is non-linear, however comes with an internal scoring system. This scoring is shown on the y-axis.
 
@@ -191,8 +200,7 @@ To check for any leaks I ask each model about the game and about playtrough deta
 
 # Conclusion
 
-Most of the State of the Art Large Language Models can play and even win text adventures,
-at least if the adventure is as simple as 9:05. 
+Most of the state-of-the-art large language models can play and even win text adventures, at least if the adventure is as simple as 9:05.
 
 However, Suveh Nux is much more complicated and within 100 steps simply not solvable. 
 
@@ -204,7 +212,7 @@ This repository contains an interpreter for Z-Machine files, specifically suppor
 
 ## Features
 
-- Read and interpret Z-Machine files (version 3 supported and version 5 partially)
+- Read and interpret Z-Machine files (version 3 supported and version 5 partially supported)
 - Run against different chat bot models.
 - Use different prompting techniques such as ReAct.
 - Store the whole run with meta information in a json file.
@@ -227,7 +235,7 @@ To use the Z-Machine interpreter, you need to provide the Z-Machine file to run 
 
 Replace `[filename]` with the path to your desired Z-Machine file.
 
-* Dependent on LLM backend you have to set different API keys as environment variable.
+* Dependent on LLM backend, you have to set different API keys as environment variable.
 
 ```
 export OPENAI_API_KEY="<<<put_your_key_here>>>"
@@ -245,6 +253,6 @@ export ANTHROPIC_API_KEY="<<<put_your_key_here>>>"
 
 This will run the Z-Machine interpreter on the given file (905.z5), with the AI chat feature enabled.
 
-### Estimation of costs so far for tests and benchmarks
+### Estimation of costs so far development, tests and benchmarks
 
-$500
+Total cost up to now: $500
