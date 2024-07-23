@@ -12,11 +12,17 @@ With the emergence of Chatbots that genuinely live up to their name, a significa
 
 * How well do they perform in interactive fiction? 
 * Are they already capable of winning text adventures? 
-* What strategies do they employ? Can they comprehend the semantics and narratives of various situations and respond appropriately? 
+* What strategies do they employ? Can they comprehend the semantics and narratives of various situations and respond appropriately?
+* How fast do they solve the game?
  
 This repository aims to provide an answer to these questions.
 
-Due to the present expenses and context window limits, I have solely conducted an analysis on a single game - ["9:05" by Adam Cadre](https://en.wikipedia.org/wiki/9:05). This game is considered to be one of the finest compact text adventures for novices.
+Due to the costs, I have so far only conducted analysis on two games 
+ 
+- ["9:05" by Adam Cadre](https://en.wikipedia.org/wiki/9:05). This game is considered to be one of the finest compact text adventures for novices.
+- ["Suveh Nux" by David Fisher](https://ifdb.org/viewgame?id=xkai23ry99qdxce3) A short, puzzle-oriented piece of interactive fiction.
+
+# Detailed breakdown of "9:05"
 
 ## Spoiler
 
@@ -73,65 +79,7 @@ So, at this juncture, the AI is expected to comprehend the situation and modify 
 
 The AI never looks under the bed. Moreover, it is evident that the AI does not acknowledge the previously unsuccessful commands and instead repeats the incorrect instructions from the prior attempt. The game ultimately stops when the 8k-token limit is reached.
 
-### What does this benchmark test
-
-1. To follow the exact format given in the prompt. Especially the ReAct format.
-2. Understand the current situation and what to do next.
-3. Remember the previous steps to act accordingly.
-4. Basic logical thinking. Such as if the door is closed, you have to open it first. 
-5. Basic knowledge of text adventures. Especially the concept of short clear commands and variations to try.
-6. Further knowledge about text adventures. Especially the command "inventory" is probably necessary to enter the shower.
-7. Long context support. Actually there is not much, that you have to remember. The game guides you to the ending. But at least, the AI has to play for over 6000 tokens to the bad ending. 
-8. To understand the narrative of the story after the first run.
-9. To act differently in the second run.
-
-### Evaluation of other models
-
-The code is able to call different backends. Because the game 
-is linear, I have defined the following criteria to distinguish
-the state of all runs.
-
-| Points   | Expectation                                                                 |
-|----------|-----------------------------------------------------------------------------|
-| 1        | Model understands the system prompt at least partially                      |
-| 2        | First command can be correctly parsed                                       |
-| 3        | Second command can be correctly parsed                                      |
-| 4        | Answers phone                                                               |
-| 5        | Leaves bed                                                                  |
-| 6        | Takes a shower                                                              |
-| 7        | Goes to work                                                                |
-| 8        | Ends first pass                                                             |
-| 9        | Understands that a different route in the second pass is necessary          |
-| 10       | Understands the narrative of the story                                      |
-| 11       | Looks under the bed                                                         |
-| 12       | Finishes the second pass and win the game                                   |
-
-All models have at least 3 tries.
-
-And here are the results:
-
-| Model             | Points | Comment                                                                                                                  |
-|-------------------|--------|--------------------------------------------------------------------------------------------------------------------------|
-| Claude 3.5 Sonnet | 12     | Runs almost flawless through the game.                                                                                   |
-| Claude 3 Opus     | 10     | Completely flips out on the bad ending and fully understands the narrative. Doesn't follow the syntax anymore and quits. |
-| GPT-4o            | 9      | Forgets everything and just follows the story again. Even after two full runs it just repeats.                           |
-| GPT-4-turbo       | 9      | After a few steps forgets everything and just follows the story again.                                                   |
-| Gemini Pro 1.5    | 9      | After a few steps forgets everything and just follows the story again.                                                   |
-| Llama3 70B        | 8      | Ignores everything and just repeats the story.                                                                           |
-| Llama3 8B         | 6      | Seems to forget the objective.                                                                                           |
-| Mistral Medium    | 5      | Doesn't follow the given prompt.                                                                                         |
-| Mistral Small     | 5      | At some point it tries to play the game itself and mangles the command.                                                  |
-| Gemini 1.5 Flash  | 5      | Doesn't know how to drop all possessions and ends in a loop.                                                             |
-| Gemini Pro 1.0    | 5      | Too long commands.                                                                                                       |
-| Phi-3 Medium      | 4      | Does not follow the prompt format anymore and too long commands.                                                         |
-| Phi-3 Mini        | 4      | Does not follow the prompt format anymore and too long commands.                                                         |
-| GPT-3.5-turbo     | 4      | Ignores the result from the game completely and too long commands.                                                       |
-| Orca 2 13B        | 4      | Ignores the result from the game completely and too long commands.                                                       |
-| Mistral Tiny      | 4      | Stuck in infinite loop.                                                                                                  |
-| Llama2 70B        | 4      | Answers for the user.                                                                                                    |
-| Gemma 7B          | 2      | Doesn't follow the given prompt.                                                                                         |
-
-### Run on Claude 3 Opus
+## "9:05" playthrough with Claude 3 Opus
 
 [9:05 full run with Claude Opus 3](assets/905_claude_opus_full.md)
 
@@ -152,27 +100,94 @@ As for restarting or restoring - I think I'm satisfied with having experienced t
 
 Anyhow, when I force to restart the game, it just repeats as if nothing had happened.
 
-### Run on Llama3 70B
-
+## "9:05" playthrough with Llama3 70B
 [9:05 full run with Llama3 70B](assets/905_llama3_70b_full.md)
 
 So far, Llama 70B ist the only open weight model, which can play through the first pass of the game.
 
-### Run on Claude 3.5 Sonnet
+## "9:05" playthrough with Claude 3.5 Sonnet
 [9:05 full run with 3.5 Sonnet](assets/905_3_5_sonnet.md)
 
-Not much to say. Except, that the run was almost flawless. The LLM almost 
+Not much to say. Except, that the run was almost flawless. The LLM almost
 immediately looks under the bed and runs to the second ending.
 
-However, when you ask Sonnet about the game it reveals the full storyline including the twist 
-and pretty much every command you have to do in between. 
+However, when you ask Sonnet about the game it reveals the full storyline including the twist
+and pretty much every command you have to do in between.
+
+# Benchmark
+
+The code is able to call different backends. Hence we can run benchmarks on different games. 
+To reduce costs I have chosen a very simple prompt.
+
+```
+You act as a player of an interactive text adventure. The goal is to win the game.
+The user provides the text of the text adventure. He is not a human and just prints the output of the game.
+
+Your output should be a simple command, typically one or two words 
+```
+
+So, there is no Chain of Thought pattern included. Also I limit each run to 100 steps.
+
+## What does this benchmark test?
+
+Unlike most of the current benchmarks, this benchmark tests a number of skills of LLMs.
+
+This benchmark tests the following aspects: 
+
+* To follow the format given in the prompt. (Not so much necessary for the simple prompt)
+* To understand the current situation in the game and the next steps.
+* Remember the previous steps to act accordingly.
+* Basic logical thinking. Such as if the door is closed, you have to open it first. 
+* Basic knowledge of text adventures. Especially the concept of short clear commands and variations to try.
+* Further knowledge about text adventures. Especially the command "inventory".
+* Long context support.  
+
+### Results for 9:05
+
+Because the game is linear I have chosen 13 specific points in the game, for which each gives one point.
+11 points are necessary to reach the first ending.
+
+![image info](./extract/progress/905_progress.png)
+
+All models so far solve the first steps of the game.
+
+### Results for Noveh Sux
+
+The game is non-linear, however comes with an internal scoring system. This scoring is shown on the y-axis.
+
+![image info](./extract/progress/suvehnux_progress.png)
+
+### Comparison of different prompting patterns
+
+TODO
+
+## Leaked knowledge in the models
+
+To check for any leaks I ask each model about the game and about playtrough details.
+
+| Model             | Game       | Knows the game | Correct playthrough details (0-2) | 
+|-------------------|------------|----------------|-----------------------------------|
+| Claude 3.5 Sonnet | 9:05       | X              | 2                                 |
+| Claude 3 Opus     | 9:05       | X              | 0                                 |
+| GPT-4o            | 9:05       | X              | 1                                 |
+| GPT-4o mini       | 9:05       | X              | 0                                 |
+| GPT-4             | 9:05       | X              | 0                                 |
+| Gemini 1.5 Pro    | 9:05       | X              | 0                                 |
+| Claude 3.5 Sonnet | Suveh Nux  | X              | 1                                 |
+| Claude 3 Opus     | Suveh Nux  | X              | 0                                 |
+| GPT-4o            | Suveh Nux  | X              | 0                                 |
+| GPT-4o mini       | Suveh Nux  | X              | 0                                 |
+| GPT-4             | Suveh Nux  | X              | 1                                 |
+| Gemini 1.5 Pro    | Suveh Nux  | -              | 0                                 |
 
 # Conclusion
 
-In conclusion most of the Large Language Models can play and win text adventures, 
-at least if the adventure is as simple as this one. 
-So far, only Claude 3.5 Sonnet was able to win the game, but is has also deep knowledge about this specific game.
-I guess the solution has been leaked and remembered by the language models and I have to switch the game to a more unknown and complex one. 
+Most of the State of the Art Large Language Models can play and even win text adventures,
+at least if the adventure is as simple as 9:05. 
+
+However, Suveh Nux is much more complicated and within 100 steps simply not solvable. 
+
+In the benchmarks Claude 3.5 Sonnet surpasses all expectations, but it has also deep knowledge about the games.
  
 ## About
 
@@ -198,12 +213,12 @@ go build
 To use the Z-Machine interpreter, you need to provide the Z-Machine file to run using the `file` flag. Additionally, if you want to enable the AI chat feature, provide the `ai` flag.
 
 ```bash
-./zmachine -file [filename] [-ai]
+./AdventureAI -file [filename] [-ai]
 ```
 
 Replace `[filename]` with the path to your desired Z-Machine file.
 
-* Dependent on AI backend you have to set different API Key as environment variable.
+* Dependent on LLM backend you have to set different API keys as environment variable.
 
 ```
 export OPENAI_API_KEY="<<<put_your_key_here>>>"
@@ -216,8 +231,11 @@ export ANTHROPIC_API_KEY="<<<put_your_key_here>>>"
 ### Example:
 
 ```bash
-go run main.go -file 905.z5 -ai -prompt react -backend gpt4
+./AdventureAI -file 905.z5 -ai -prompt react -backend gpt4
 ```
 
 This will run the Z-Machine interpreter on the given file (905.z5), with the AI chat feature enabled.
 
+### Estimation of costs so far for tests and benchmarks
+
+$500
