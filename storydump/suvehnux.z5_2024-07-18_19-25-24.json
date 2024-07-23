@@ -1,0 +1,1609 @@
+{
+ "promptPattern": "simple",
+ "model": "gpt-4o-mini",
+ "prompt": "You act as a player of an interactive text adventure. The goal is to win the game. \nThe user provides the text of the text adventure. He is not a human and just prints the output of the game.\n\nThe format of your output must be a single two word command you want to execute. \n",
+ "date": "2024-07-18_19-25-24",
+ "name": "suvehnux.z5",
+ "messages": [
+  {
+   "role": "user",
+   "content": "\n\"Yes, master?\"\n\nYou rush to your master's side and await his instructions. He is studying a fragile looking scroll and muttering to himself.\n\nHe looks up and says, \"Ah, there you are. This ...\" -- he hands you the scroll -- \" ... goes back in the vault. I believe it is still open. And this little beastie ...\" -- he hands you a small, empty brass cage -- \"... goes back to my private quarters. Thank you, that will be all.\"\n\nYou bow, and head downstairs to the vault. The heavy stone door is wide open, and a golden key juts out of the lock.\n\nWithout warning, someone shoves you roughly from behind. The scroll and the brass cage fly out of your hands as you fall to the ground. There is a loud \"click\", and everything turns black.\n\n[Press a key]\n\nSuveh Nux by David Fisher, version 1.1.\nRelease 1 / Serial number 150314 / Inform v6.30 Library 6/11 S\nIdentification number: //4E7C2725-E359-B23A-ABA9-F6AF1FD9A26F//\n\nDarkness\nIt is pitch dark, and you can't see a thing.\n\nWhich is not good.\n\n(Type \"about\" for game information and special commands).\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "feel around",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "(It is not quite as dark as you thought. A sliver of light under the door provides a tiny amount of light, and your eyes begin to adjust to the near darkness ...)\n\nYou find a brass cage and a scroll on the floor.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "pick up",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "What do you want to pick up?\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "pick scroll",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know how to pick things.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "take scroll",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Taken.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "take cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Taken. You notice that it has fallen open.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "close cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You close the brass cage.\n\nSomething brushes past your foot.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "check surroundings",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know what \"surroundings\" means.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "look around",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Vault\nThere is plenty of room to move around, and the ceiling is quite high. You can just make out a shelf along one of the walls.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "move towards shelf",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't see any such thing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "crawl forward",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know how to crawl forward.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "walk forward",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know what \"forward\" means.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "move ahead",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "=\u003e move head e\n\nI only understood you as far as wanting to move your head.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "move north",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "(the north wall)\nThere is no north wall, just the door to the vault.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "approach door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know how to approach things.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "go to door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The vault door is already within reach.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "open door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The vault door won't budge.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "examine door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't see the door too well. There is a sliver of light coming in from under it.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "kick door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You kick the vault door, and hurt your toe.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "inspect scroll",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know how to inspect things.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "read scroll",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The sliver of light under the door is not enough to read by.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait quietly",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to wait.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "stay still",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "=\u003e say still\n\nYou say \" still\".\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "listen closely",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know what \"closely\" means.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "listen carefully",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know what \"carefully\" means.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "listen",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You hear nothing but the sound of your own heart beating.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "tap on door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "=\u003e map on door\n\nI only understood you as far as wanting to see the map.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "knock on door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You knock on the vault door, but you doubt if anyone can hear you.\n\nYou feel something nibbling on your shoe.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "swat away",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "=\u003e swat way a\n\nI don't know how to swat things a.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "shake foot",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You shake your foot around a bit.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "check shoe",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "It's too dark to see.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "feel shoe",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Your shoes feel leathery and slightly nibbled.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "examine nibbling",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "It's too dark to see.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "search ground",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You find no objects on the floor.\n\nYou can't find whatever it was that nibbled on your shoe.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait again",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to wait.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "remain still",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know how to remain still.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "stay quiet",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "=\u003e say quit a\n\nYou say \" quit a\".\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "shout for help",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You shout \"For help\" at the top of your voice.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "listen for response",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know what \"response\" means.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "listen for sounds",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "=\u003e listen for sound a\n\nYou can't see any such thing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "yell again",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You yell \"Again\" at the top of your voice.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "shout louder",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You shout \"Louder\" at the top of your voice.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "scream for help",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You scream \"For help\" at the top of your voice.\n\nSomething brushes past you again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "move away",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "=\u003e move way e\n\nYou can't see any such thing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "step back",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know how to step back.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "shift position",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know what \"position\" means.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "turn around",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Sorry, I didn't understand that sentence.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "change direction",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know how to change direction.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "back away",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "=\u003e back way e\n\nI only understood you as far as wanting to see the previous page.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "stand still",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to stand.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "stay put",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "=\u003e say put\n\nYou say \" put\".\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait silently",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to wait.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "remain quiet",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "=\u003e remain quit a\n\nI don't know how to remain quit a.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "stay silent",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "=\u003e say silent\n\nYou say \" silent\".\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "listen carefully",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know what \"carefully\" means.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "listen closely",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know what \"closely\" means.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "listen",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You hear nothing but the sound of your own heart beating.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "try door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "=\u003e cry door\n\nI only understood you as far as wanting to cry.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "try pushing",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "=\u003e cry pushing\n\nI only understood you as far as wanting to cry.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "attempt open",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know how to attempt open.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "force door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "What do you want to force the vault door open with?\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "use strength",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know what \"strength\" means.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "push door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You push the door with all your might, but it doesn't budge.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "pound on door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "=\u003e bound on door\n\nI don't know how to bound on things.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "hit door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You bang your fist against the vault door, but solid stone wins out against mortal flesh. The door remains stubbornly closed.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "kick door again",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to kick the vault door.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "attempt to kick",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know how to attempt to things.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "kick again",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't see any such thing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "stop kicking",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "=\u003e stomp kicking\n\nI only understood you as far as wanting to stomp.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "take a break",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't see any such thing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "sit down",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You're fine standing up.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "rest briefly",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to rest.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "pause here",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know how to pause things.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "stay put",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "=\u003e say put\n\nYou say \" put\".\n\nYou briefly feel something small standing on your foot.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "gently step away",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "=\u003e gently step way a\n\nI don't know how to gently step things a.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "carefully move",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know how to carefully move.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "lift foot",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "(first taking your foot)\nYour foot is already about as close to you as it can be.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wiggle toes",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "=\u003e giggle toes\n\nI only understood you as far as wanting to giggle.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "shake foot",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You shake your foot around a bit.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "search floor",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You find no objects on the floor.\n\nYou can't find whatever it was that stood on your foot.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait for movement",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to wait.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "stay alert",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "=\u003e say alert\n\nYou say \" alert\".\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "listen intently",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know what \"intently\" means.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "listen hard",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "=\u003e listen hand\n\nYour hand is not making a sound.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "listen closely",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know what \"closely\" means.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "listen silently",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know what \"silently\" means.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "listen",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You hear nothing but the sound of your own heart beating.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "scratch floor",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know how to scratch things.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "tap floor",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "=\u003e map floor\n\nI only understood you as far as wanting to see the map.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "hit ground",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You hit the floor in frustration.\n\nSomething briefly tugs at your trousers and then lets go.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "check trousers",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Your trousers are loose fitting and comfortable.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "pull up trousers",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to pull the ceiling.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "adjust trousers",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know how to adjust things.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "grab waistband",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know what \"waistband\" means.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "hold trousers",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You would rather leave your trousers on.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "feel around again",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't see any such thing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "tap foot again",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "=\u003e map foot again\n\nI only understood you as far as wanting to see the map.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "stomp foot",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to stomp.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wave foot",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You wave your foot around a bit.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "swing leg",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "That doesn't make any sense at all.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "move foot",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  }
+ ]
+}

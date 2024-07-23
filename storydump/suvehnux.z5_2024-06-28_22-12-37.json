@@ -1,0 +1,1609 @@
+{
+ "promptPattern": "simple",
+ "model": "gpt-4-turbo",
+ "prompt": "",
+ "date": "2024-06-28_22-12-37",
+ "name": "suvehnux.z5",
+ "messages": [
+  {
+   "role": "user",
+   "content": "\n\"Yes, master?\"\n\nYou rush to your master's side and await his instructions. He is studying a fragile looking scroll and muttering to himself.\n\nHe looks up and says, \"Ah, there you are. This ...\" -- he hands you the scroll -- \" ... goes back in the vault. I believe it is still open. And this little beastie ...\" -- he hands you a small, empty brass cage -- \"... goes back to my private quarters. Thank you, that will be all.\"\n\nYou bow, and head downstairs to the vault. The heavy stone door is wide open, and a golden key juts out of the lock.\n\nWithout warning, someone shoves you roughly from behind. The scroll and the brass cage fly out of your hands as you fall to the ground. There is a loud \"click\", and everything turns black.\n\n[Press a key]\n\nSuveh Nux by David Fisher, version 1.1.\nRelease 1 / Serial number 150314 / Inform v6.30 Library 6/11 S\nIdentification number: //4E7C2725-E359-B23A-ABA9-F6AF1FD9A26F//\n\nDarkness\nIt is pitch dark, and you can't see a thing.\n\nWhich is not good.\n\n(Type \"about\" for game information and special commands).\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "Feel around",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "(It is not quite as dark as you thought. A sliver of light under the door provides a tiny amount of light, and your eyes begin to adjust to the near darkness ...)\n\nYou find a brass cage and a scroll on the floor.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "Pick scroll",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know how to pick things.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "Take scroll",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Taken.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "Take cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Taken. You notice that it has fallen open.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "Close cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You close the brass cage.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "Stand up",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You're already standing up.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "Open door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The vault door won't budge.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "Examine lock",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "There is no keyhole on this side of the door.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "Search room",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You find a shelf along one wall, and no objects on the floor.\n\nSomething brushes past your foot.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "Examine shelf",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The shelf seems to have some objects on it, but you can't clearly make them out.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "Feel objects",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You stretch out your hand and feel your way along the shelf ... there is a piece of parchment, what feels like a leather bound book, a crystal or gemstone of some kind ...\n\nClunk! You knock over a small vial of liquid, which glows briefly with a dull green light. The glow soon fades away.\n\nYou noticed that the vial had a stopper, so nothing was spilled. (Fortunately for you; your master may have been upset if it had).\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "Take vial",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Taken.\n\nYou feel something nibbling on your shoe.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "Look down",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "It is quite difficult to see in the dark.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "Feel ground",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The floor feels smooth and hard.\n\nYou can't feel any objects on the floor.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "Open door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The vault door won't budge.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "Use vial",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "If there is a use for the vial of liquid, you'll have to find it yourself.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "Examine vial",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't see it very well in the dark. It only glowed for a brief time.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "Shake vial",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You give the vial of liquid a vigorous shake, and it starts to glow with a faint, phosphorescent green light -- enough to get a better look at your surroundings.\n\n[Your score has just gone up by 10%.]\n\n[Type \"full score\" at any time for a breakdown of your score.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Look around",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Vault\nThere is plenty of room to move around, and the ceiling is quite high. You view your surroundings by the dull green glow of the liquid ...\n\nOn the shelf you can see a leather bound book, a piece of parchment and a crystal or gemstone.\n\nSomething brushes past you again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Examine floor",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The floor is solid stone, just like the walls and the door.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Catch beastie",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't find whatever it was that brushed past you.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Listen carefully",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know what \"carefully\" means.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Listen sounds",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "=\u003e listen sound e\n\nI only understood you as far as wanting to listen the twittering sound.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Listen twittering",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "=\u003e listen twitterin e\n\nI only understood you as far as wanting to listen the twittering sound.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Listen sound",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I am not sure which sound you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Listen",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You hear nothing but the sound of your own heart beating.\n\nThe glow from the vial has faded to nothing, and you are in the dark once again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Shake vial",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You give the vial of liquid another shake, and it starts to glow again.\n\nYou briefly feel something small standing on your foot.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Catch beastie",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't find whatever it was that stood on your foot.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Examine beastie",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't see whatever it was that stood on your foot.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Search room",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "There is a shelf along one wall, and no objects on the floor.\n\nYou can't find whatever it was that stood on your foot.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Examine shelf",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The shelf is made from solid wood. On the shelf you can see a leather bound book, a piece of parchment and a crystal or gemstone of some kind.\n\nSomething briefly tugs at your trousers and then lets go.\n\nThe glow from the vial has faded to nothing again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Shake vial",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You give the vial of liquid another shake, and it starts to glow again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Grab beastie",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't find whatever it was that tugged at your trousers.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Place cage on floor",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Dropped.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Look cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't see any such thing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Examine floor",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The floor is solid stone, just like the walls and the door.\n\nOn the floor is a brass cage.\n\nThe glow from the vial has faded to nothing again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Shake vial",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You give the vial of liquid another shake, and it starts to glow again.\n\nSomething nibbles on your shoe.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Catch beastie",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't find whatever it was that nibbled on your shoe.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Place cage near shoe",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "(first taking the brass cage)\nTaken.\n\nThere doesn't seem to be much point.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Open cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You open the brass cage.\n\nYou feel something brush against you again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Place cage on floor",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Dropped.\n\nThe glow from the vial has faded to nothing again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Shake vial",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You give the vial of liquid another shake, and it starts to glow again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Watch cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "A small brass cage with closely fitting bars, currently open.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\nSomething hops onto your foot and then hops off again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Catch beastie",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't find whatever it was that stood on your foot.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Place food in cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't see any such thing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Examine room",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Vault\nYou view your surroundings by the fading glow of the liquid ...\n\nOn the shelf you can see a leather bound book, a piece of parchment and a crystal or gemstone.\n\nOn the floor is an open brass cage.\n\nThe glow from the vial has faded to nothing again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Shake vial",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You give the vial of liquid another shake, and it starts to glow again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Examine cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "A small brass cage with closely fitting bars, currently open.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Close cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You close the brass cage.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Examine cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "A small brass cage with closely fitting bars. It opens at the bottom.\n\nThe glow from the vial has faded to nothing again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Shake vial",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You give the vial of liquid another shake, and it starts to glow again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Look inside cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "(first opening the cage)\nYou open the brass cage.\n\nYou feel around, but the cage is empty.\n\nSomething tickles your ankle.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Catch beastie",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't find whatever it was that tickled your ankle.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Place cage near ankle",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "(first taking the brass cage)\nTaken.\n\nThere doesn't seem to be much point.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Put cage down",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Dropped.\n\nSomething tries to climb up your leg, then drops to the floor again.\n\nThe glow from the vial has faded to nothing again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Shake vial",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You give the vial of liquid another shake, and it starts to glow again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Watch floor",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The floor is solid stone, just like the walls and the door.\n\nOn the floor is an open brass cage.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Close cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You close the brass cage.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Open cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You open the brass cage.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Place cage on floor",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "It's already on the floor.\n\nSomething nibbles on your shoe.\n\nThe glow from the vial has faded to nothing again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Shake vial",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You give the vial of liquid another shake, and it starts to glow again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Watch beastie",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't see whatever it was that nibbled on your shoe.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Examine cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "A small brass cage with closely fitting bars, currently open.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Close cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You close the brass cage.\n\nThe glow from the vial has faded to nothing again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Shake vial",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You give the vial of liquid another shake, and it starts to glow again.\n\nYou feel something nibbling on your shoe.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Catch beastie",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't find whatever it was that nibbled on your shoe.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Place food in cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't see any such thing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Examine room",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Vault\nYou view your surroundings by the dull green glow of the liquid ...\n\nOn the shelf you can see a leather bound book, a piece of parchment and a crystal or gemstone.\n\nOn the floor is a brass cage.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Open cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You open the brass cage.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Place cage on floor",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "It's already on the floor.\n\nThe glow from the vial has faded to nothing again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Shake vial",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You give the vial of liquid another shake, and it starts to glow again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Watch cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "A small brass cage with closely fitting bars, currently open.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Close cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You close the brass cage.\n\nSomething brushes past your foot.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Open cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You open the brass cage.\n\nThe glow from the vial has faded to nothing again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Shake vial",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You give the vial of liquid another shake, and it starts to glow again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Place cage near foot",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "(first taking the brass cage)\nTaken.\n\nThere doesn't seem to be much point.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Put cage down",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Dropped.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Examine cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "A small brass cage with closely fitting bars, currently open.\n\nThe glow from the vial has faded to nothing again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Shake vial",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You give the vial of liquid another shake, and it starts to glow again.\n\nSomething hops onto your foot and then hops off again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Catch beastie",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't find whatever it was that stood on your foot.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Place food in cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't see any such thing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Examine room",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Vault\nYou view your surroundings by the dull green glow of the liquid ...\n\nOn the shelf you can see a leather bound book, a piece of parchment and a crystal or gemstone.\n\nOn the floor is an open brass cage.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Shake vial",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You give the vial of liquid another shake, and it briefly glows a little brighter.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Watch beastie",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't see whatever it was that stood on your foot.\n\nYou feel something nibbling on your shoe.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Catch beastie",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't find whatever it was that nibbled on your shoe.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Place food in cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't see any such thing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Examine room",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Vault\nYou view your surroundings by the dull green glow of the liquid ...\n\nOn the shelf you can see a leather bound book, a piece of parchment and a crystal or gemstone.\n\nOn the floor is an open brass cage.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Close cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You close the brass cage.\n\nThe glow from the vial has faded to nothing again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Shake vial",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You give the vial of liquid another shake, and it starts to glow again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Open cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You open the brass cage.\n\nSomething tries to climb up your leg, then drops to the floor again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Catch beastie",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't find whatever it was that climbed up your leg.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Place cage near foot",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "(first taking the brass cage)\nTaken.\n\nThere doesn't seem to be much point.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Put cage down",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Dropped.\n\nThe glow from the vial has faded to nothing again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Shake vial",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  }
+ ]
+}

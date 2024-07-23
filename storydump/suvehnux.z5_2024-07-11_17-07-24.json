@@ -1,0 +1,1681 @@
+{
+ "promptPattern": "simple",
+ "model": "gpt-4o",
+ "prompt": "",
+ "date": "2024-07-11_17-07-24",
+ "name": "suvehnux.z5",
+ "messages": [
+  {
+   "role": "user",
+   "content": "\n\"Yes, master?\"\n\nYou rush to your master's side and await his instructions. He is studying a fragile looking scroll and muttering to himself.\n\nHe looks up and says, \"Ah, there you are. This ...\" -- he hands you the scroll -- \" ... goes back in the vault. I believe it is still open. And this little beastie ...\" -- he hands you a small, empty brass cage -- \"... goes back to my private quarters. Thank you, that will be all.\"\n\nYou bow, and head downstairs to the vault. The heavy stone door is wide open, and a golden key juts out of the lock.\n\nWithout warning, someone shoves you roughly from behind. The scroll and the brass cage fly out of your hands as you fall to the ground. There is a loud \"click\", and everything turns black.\n\n[Press a key]\n\nSuveh Nux by David Fisher, version 1.1.\nRelease 1 / Serial number 150314 / Inform v6.30 Library 6/11 S\nIdentification number: //4E7C2725-E359-B23A-ABA9-F6AF1FD9A26F//\n\nDarkness\nIt is pitch dark, and you can't see a thing.\n\nWhich is not good.\n\n(Type \"about\" for game information and special commands).\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "turn key",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "(It is not quite as dark as you thought. A sliver of light under the door provides a tiny amount of light, and your eyes begin to adjust to the near darkness ...)\n\nThe key is on the other side of the door.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "open door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The vault door won't budge.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "feel ground",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The floor feels smooth and hard.\n\nOn the floor you can feel a brass cage and a scroll.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "take scroll",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Taken.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "take cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Taken. You notice that it has fallen open.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "search cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You feel around, but the cage is empty.\n\nSomething brushes past your foot.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "catch creature",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't find whatever it was that brushed past you.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "stay still",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "=\u003e say still\n\nYou say \" still\".\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "stand still",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to stand.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "stay still",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "=\u003e say still\n\nYou say \" still\".\n\nYou feel something nibbling on your shoe.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "drop cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Dropped.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "catch creature",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't find whatever it was that nibbled on your shoe.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "search ground",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You find an open brass cage on the floor.\n\nYou can't find whatever it was that nibbled on your shoe.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait quietly",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to wait.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "stay still",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "=\u003e say still\n\nYou say \" still\".\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "reach down",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "=\u003e each down\n\nI don't know how to each  down.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "feel cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The bars of the cage are quite close together.\n\nSomething brushes past you again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "catch creature",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't find whatever it was that brushed past you.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "feel ground",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The floor feels smooth and hard.\n\nOn the floor you can feel a brass cage.\n\nYou briefly feel something small standing on your foot.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "grab creature",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You grab for whatever it was, and feel something hairy, but it gets away.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "stay still",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "=\u003e say still\n\nYou say \" still\".\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "drop scroll",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Dropped.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "grab creature",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't find whatever it was that stood on your foot.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "stay still",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "=\u003e say still\n\nYou say \" still\".\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "feel air",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The air feels normal.\n\nSomething briefly tugs at your trousers and then lets go.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "grab creature",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You grab for whatever it was, and feel something hairy, but it gets away.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "stay still",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "=\u003e say still\n\nYou say \" still\".\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "move slowly",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know what \"slowly\" means.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "open cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "That's already open.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "look around",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Vault\nThere is plenty of room to move around, and the ceiling is quite high. You can just make out a shelf along one of the walls.\n\nOn the floor you can faintly see a scroll and an open brass cage.\n\nSomething nibbles on your shoe.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "grab creature",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You grab for whatever it was, and feel something hairy, but it gets away.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "throw cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You had better not destroy your master's things, if at all possible.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "open scroll",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The scroll is already unrolled.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "read scroll",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The sliver of light under the door is not enough to read by.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "feel shoe",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Your shoes feel leathery and slightly nibbled.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "stay still",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "=\u003e say still\n\nYou say \" still\".\n\nYou feel something brush against you again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "grab creature",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You grab for whatever it was, and feel something hairy, but it gets away.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "drop shoe",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Your shoes are already here.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "jiggle shoe",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "That doesn't make any sense at all.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "feel shelf",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You stretch out your hand and feel your way along the shelf ... there is a piece of parchment, what feels like a leather bound book, a crystal or gemstone of some kind ...\n\nClunk! You knock over a small vial of liquid, which glows briefly with a dull green light. The glow soon fades away.\n\nYou noticed that the vial had a stopper, so nothing was spilled. (Fortunately for you; your master may have been upset if it had).\n\nSomething hops onto your foot and then hops off again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "take vial",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Taken.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "open vial",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Your remove the stopper from the vial, but the pungent vapours make you feel dizzy, so you replace it again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "search shelf",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can feel a leather bound book, a piece of parchment and a crystal or gemstone of some kind on the shelf.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "take book",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Taken.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "feel ground",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The floor feels smooth and hard.\n\nOn the floor you can feel a scroll and a brass cage.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "drop book",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Dropped.\n\nSomething tickles your ankle.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "stomp foot",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to stomp.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "grab creature",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You grab for whatever it was, and feel something hairy, but it gets away.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wrap hand",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know how to wrap hand.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "move slowly",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know what \"slowly\" means.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "touch scroll",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The scroll seems undamaged by its rough treatment.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "离开",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know how to \n[** Programming error: tried to print (char) 128, which is not a valid ZSCII character code for output **]\n   .\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "describe surroundings",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know what \"surroundings\" means.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "take scroll",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Taken.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "tap foot",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "=\u003e map foot\n\nI only understood you as far as wanting to see the map.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "feel cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The bars of the cage are quite close together.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "fix cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "There is nothing wrong with the brass cage.\n\nSomething tries to climb up your leg, then drops to the floor again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "grab creature",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You grab for whatever it was, and feel something hairy, but it gets away.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "light vial",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You don't have a flame.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "search vial",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You find nothing of interest.\n\nYou feel something brush against you again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "feel ground",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The floor feels smooth and hard.\n\nOn the floor you can feel a leather bound book and a brass cage.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "grab creature",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't find whatever it was that brushed past you.\n\nSomething briefly tugs at your trousers and then lets go.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wave hand",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You attempt to perform a magical gesture that you have seen your master do occasionally, but nothing happens.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "drop vial",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Dropped.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "feel trousers",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Your trousers feel a little worn but comfortable.\n\nYou briefly feel something small standing on your foot.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "grab creature",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You grab for whatever it was, and feel something hairy, but it gets away.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "search ground",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You find a vial of liquid with a cork stopper, a leather bound book and an open brass cage on the floor.\n\nYou can't find whatever it was that stood on your foot.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "pat ground",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "That doesn't make any sense at all.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait quietly",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to wait.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "search trousers",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You find nothing of interest.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "leave vault",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "That is the general idea, yes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "touch ground",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The floor feels smooth and hard.\n\nOn the floor you can feel a vial of liquid with a cork stopper, a leather bound book and a brass cage.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "grab creature",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't find whatever it was that stood on your foot.\n\nSomething nibbles on your shoe.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "grab shoe",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You would rather leave your shoes on.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "drop scroll",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Dropped.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "crush creature",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't see where it is.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "block light",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know how to block light.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "grab creature",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't find whatever it was that nibbled on your shoe.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "feel shoe",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Your shoes feel leathery and slightly nibbled.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait silently",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to wait.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "block light",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know how to block light.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "feel ankle",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Your ankle feels fine.\n\nYou feel something nibbling on your shoe.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "shake foot",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You shake your foot around a bit.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "kick air",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't do that with the air.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "search floor",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You find a scroll, a vial of liquid with a cork stopper, a leather bound book and an open brass cage on the floor.\n\nYou can't find whatever it was that nibbled on your shoe.\n\nSomething brushes past you again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "grab creature",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You grab for whatever it was, and feel something hairy, but it gets away.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait quietly",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to wait.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "search ground",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You find a scroll, a vial of liquid with a cork stopper, a leather bound book and an open brass cage on the floor.\n\nYou can't find whatever it was that brushed past you.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "take vial",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Taken.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "shake vial",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You give the vial of liquid a vigorous shake, and it starts to glow with a faint, phosphorescent green light -- enough to get a better look at your surroundings.\n\n[Your score has just gone up by 10%.]\n\n[Type \"full score\" at any time for a breakdown of your score.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "look around",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Vault\nYou view your surroundings by the dull green glow of the liquid ...\n\nOn the shelf you can see a piece of parchment and a crystal or gemstone.\n\nOn the floor are a scroll, a leather bound book and an open brass cage.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "take parchment",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Taken.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "read parchment",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "There is something written on it, but you can't read it in this low light. The glow from the vial has faded too much.\n\nYou feel something brush against you again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "grab creature",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You grab for whatever it was, and feel something hairy, but it gets away.\n\nThe glow from the vial has faded to nothing, and you are in the dark once again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "look shelves",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know what \"shelves\" means.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "search shelves",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know what \"shelves\" means.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "pat ground",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "That doesn't make any sense at all.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "search scroll",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You find nothing of interest.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "search shelf",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "On the shelf is a crystal or gemstone.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "take crystal",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Taken.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "wait silently",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to wait.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "touch crystal",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "It has a large number of facets, and is roughly teardrop shaped. It is about the size of your fist.\n\nSomething nibbles on your shoe.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "grab creature",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You grab for whatever it was, and feel something hairy, but it gets away.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "break crystal",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You had better not destroy your master's things, if at all possible.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  }
+ ]
+}

@@ -1,0 +1,1609 @@
+{
+ "promptPattern": "simple",
+ "model": "gemini-15-pro",
+ "prompt": "",
+ "date": "2024-06-28_23-28-23",
+ "name": "suvehnux.z5",
+ "messages": [
+  {
+   "role": "user",
+   "content": "\n\"Yes, master?\"\n\nYou rush to your master's side and await his instructions. He is studying a fragile looking scroll and muttering to himself.\n\nHe looks up and says, \"Ah, there you are. This ...\" -- he hands you the scroll -- \" ... goes back in the vault. I believe it is still open. And this little beastie ...\" -- he hands you a small, empty brass cage -- \"... goes back to my private quarters. Thank you, that will be all.\"\n\nYou bow, and head downstairs to the vault. The heavy stone door is wide open, and a golden key juts out of the lock.\n\nWithout warning, someone shoves you roughly from behind. The scroll and the brass cage fly out of your hands as you fall to the ground. There is a loud \"click\", and everything turns black.\n\n[Press a key]\n\nSuveh Nux by David Fisher, version 1.1.\nRelease 1 / Serial number 150314 / Inform v6.30 Library 6/11 S\nIdentification number: //4E7C2725-E359-B23A-ABA9-F6AF1FD9A26F//\n\nDarkness\nIt is pitch dark, and you can't see a thing.\n\nWhich is not good.\n\n(Type \"about\" for game information and special commands).\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "inventory",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "(It is not quite as dark as you thought. A sliver of light under the door provides a tiny amount of light, and your eyes begin to adjust to the near darkness ...)\n\nYou are not carrying anything.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "look around",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Vault\nThere is plenty of room to move around, and the ceiling is quite high. You can just make out a shelf along one of the walls.\n\nOn the floor you can faintly see a brass cage and a scroll.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "take cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Taken. You notice that it has fallen open.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "take scroll",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Taken.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "open door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The vault door won't budge.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "examine door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't see the door too well. There is a sliver of light coming in from under it.\n\nSomething brushes past your foot.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "look around",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Vault\nYou can just make out a shelf along one of the walls.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "examine floor",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "It is quite difficult to see in the dark.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "look under door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The gap under the door isn't big enough to see through.\n\nYou feel something nibbling on your shoe.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "kick under door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't see any such thing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "examine cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can feel it, but you can't see it very well in the dark.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "open cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "That's already open.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "drop cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Dropped.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "move cage under door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to move the brass cage.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "put cage under door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "There isn't enough room under the door to do that.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\nSomething brushes past you again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "close cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You close the brass cage.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "listen",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You hear nothing but the sound of your own heart beating.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\nYou briefly feel something small standing on your foot.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "lift cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "(first taking the brass cage)\nTaken.\n\nYou lift the brass cage in the air.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "listen",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You hear nothing but the sound of your own heart beating.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "lower cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know how to lower things.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "drop cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Dropped.\n\nSomething briefly tugs at your trousers and then lets go.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\nSomething nibbles on your shoe.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\nYou feel something brush against you again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "take cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Taken.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "listen",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You hear nothing but the sound of your own heart beating.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "open cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You open the brass cage.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "close cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You close the brass cage.\n\nSomething hops onto your foot and then hops off again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "listen",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You hear nothing but the sound of your own heart beating.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "lift cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You lift the brass cage in the air.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "listen",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You hear nothing but the sound of your own heart beating.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "lower cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know how to lower things.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "drop cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Dropped.\n\nSomething tickles your ankle.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\nSomething tries to climb up your leg, then drops to the floor again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "take cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Taken.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "listen",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You hear nothing but the sound of your own heart beating.\n\nYou feel something brush against you again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "open cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You open the brass cage.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "close cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You close the brass cage.\n\nSomething tries to climb up your leg, then drops to the floor again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "take cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You already have that.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "listen",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You hear nothing but the sound of your own heart beating.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\nSomething nibbles on your shoe.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "open cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You open the brass cage.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\nYou briefly feel something small standing on your foot.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "close cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You close the brass cage.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "listen",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You hear nothing but the sound of your own heart beating.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "shake cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You shake the brass cage and it rattles a little.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "listen",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You hear nothing but the sound of your own heart beating.\n\nSomething briefly tugs at your trousers and then lets go.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "drop cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Dropped.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "take cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Taken.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "open cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You open the brass cage.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\nYou feel something nibbling on your shoe.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "close cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You close the brass cage.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "listen",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You hear nothing but the sound of your own heart beating.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "shake cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You shake the brass cage and it rattles a little.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "listen",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You hear nothing but the sound of your own heart beating.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "open cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You open the brass cage.\n\nYou feel something brush against you again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "close cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You close the brass cage.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "listen",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You hear nothing but the sound of your own heart beating.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "shake cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You shake the brass cage and it rattles a little.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "listen",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You hear nothing but the sound of your own heart beating.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "open cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You open the brass cage.\n\nSomething tickles your ankle.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "close cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You close the brass cage.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "listen",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You hear nothing but the sound of your own heart beating.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "shake cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You shake the brass cage and it rattles a little.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "listen",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You hear nothing but the sound of your own heart beating.\n\nYou feel something brush against you again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "open cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You open the brass cage.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "close cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You close the brass cage.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "listen",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You hear nothing but the sound of your own heart beating.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "shake cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  }
+ ]
+}

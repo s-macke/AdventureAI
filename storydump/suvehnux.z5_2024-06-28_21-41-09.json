@@ -1,0 +1,1609 @@
+{
+ "promptPattern": "simple",
+ "model": "sonnet-35",
+ "prompt": "",
+ "date": "2024-06-28_21-41-09",
+ "name": "suvehnux.z5",
+ "messages": [
+  {
+   "role": "user",
+   "content": "\n\"Yes, master?\"\n\nYou rush to your master's side and await his instructions. He is studying a fragile looking scroll and muttering to himself.\n\nHe looks up and says, \"Ah, there you are. This ...\" -- he hands you the scroll -- \" ... goes back in the vault. I believe it is still open. And this little beastie ...\" -- he hands you a small, empty brass cage -- \"... goes back to my private quarters. Thank you, that will be all.\"\n\nYou bow, and head downstairs to the vault. The heavy stone door is wide open, and a golden key juts out of the lock.\n\nWithout warning, someone shoves you roughly from behind. The scroll and the brass cage fly out of your hands as you fall to the ground. There is a loud \"click\", and everything turns black.\n\n[Press a key]\n\nSuveh Nux by David Fisher, version 1.1.\nRelease 1 / Serial number 150314 / Inform v6.30 Library 6/11 S\nIdentification number: //4E7C2725-E359-B23A-ABA9-F6AF1FD9A26F//\n\nDarkness\nIt is pitch dark, and you can't see a thing.\n\nWhich is not good.\n\n(Type \"about\" for game information and special commands).\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "look around",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "(It is not quite as dark as you thought. A sliver of light under the door provides a tiny amount of light, and your eyes begin to adjust to the near darkness ...)\n\nVault\nThere is plenty of room to move around, and the ceiling is quite high. You can just make out a shelf along one of the walls.\n\nOn the floor you can faintly see a brass cage and a scroll.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "take scroll",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Taken.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "examine scroll",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "It's a fragile scroll. It is too dark to read what is on it.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "take cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Taken. You notice that it has fallen open.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "examine cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can feel it, but you can't see it very well in the dark.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "open door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The vault door won't budge.\n\nSomething brushes past your foot.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "examine door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't see the door too well. There is a sliver of light coming in from under it.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "listen carefully",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "I don't know what \"carefully\" means.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "listen",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You hear nothing but the sound of your own heart beating.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "feel door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "It feels completely smooth.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "search floor",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You find no objects on the floor.\n\nYou can't find whatever it was that brushed past you.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "examine shelf",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The shelf seems to have some objects on it, but you can't clearly make them out.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "reach shelf",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "=\u003e each shelf\n\nI don't know how to each  things.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "touch shelf",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You stretch out your hand and feel your way along the shelf ... there is a piece of parchment, what feels like a leather bound book, a crystal or gemstone of some kind ...\n\nClunk! You knock over a small vial of liquid, which glows briefly with a dull green light. The glow soon fades away.\n\nYou noticed that the vial had a stopper, so nothing was spilled. (Fortunately for you; your master may have been upset if it had).\n\nYou feel something nibbling on your shoe.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "take vial",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Taken.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "examine vial",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't see it very well in the dark. It only glowed for a brief time.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "open vial",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Your remove the stopper from the vial, but the pungent vapours make you feel dizzy, so you replace it again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "shake vial",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You give the vial of liquid a vigorous shake, and it starts to glow with a faint, phosphorescent green light -- enough to get a better look at your surroundings.\n\n[Your score has just gone up by 10%.]\n\n[Type \"full score\" at any time for a breakdown of your score.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "look around",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Vault\nYou view your surroundings by the dull green glow of the liquid ...\n\nOn the shelf you can see a leather bound book, a piece of parchment and a crystal or gemstone.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "take book",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Taken.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "examine book",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The front cover of the book has the word \"SPELLS\" written vertically down the left side in silver letters. There is some other writing as well, but it's too dark to make out.\n\n[To read the book, say \"next/prev\", \"page \u003cnumber\u003e\", or \"open/close book\".]\n\nSomething brushes past you again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "open book",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You open the book.\n\nThe first page says \"Suveh Nux\" down the left side in silver letters. There is some other writing as well, but it's too dark to make out.\n\nThe glow from the vial has faded to nothing, and you are in the dark once again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "shake vial",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You give the vial of liquid another shake, and it starts to glow again.\n\nYou glance down at the book again.\n\nThe first page says \"Suveh Nux\" down the left side in silver letters.\n\nYou glimpse the words \"ancient civilisations\" before the glow fades too much to read the rest of the page. The letters in silver remain visible.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "read book",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The second page says \"Aveh Tia\" down the left side in silver letters.\n\nYou glimpse the words \"very sophisticated\" before the glow fades too much to read the rest of the page. The letters in silver remain visible.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "next page",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The third page says \"Aveh Madah\" down the left side in silver letters. There is some other writing as well, but it's too dark to make out.\n\nYou briefly feel something small standing on your foot.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "shake vial",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You give the vial of liquid another shake, and it briefly glows a little brighter.\n\nYou glance down at the book again.\n\nThe third page says \"Aveh Madah\" down the left side in silver letters.\n\nYou glimpse the words \"exquisite workers\" before the glow fades too much to read the rest of the page. The letters in silver remain visible.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "say aveh madah",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You say \"Aveh madah\".\n\nYou feel heavy and weighed down.\n\n[Your score has just gone up by 5%.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "examine self",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You seem to be intact after your rough handling.\n\nYou are dressed in a tunic, some loose trousers and a pair of black shoes, and you are carrying a leather bound book, a vial of liquid (glowing green) with a cork stopper, an open brass cage and a scroll.\n\nYou feel heavy and weighed down.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "shake vial",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You give the vial of liquid another shake, and it briefly glows a little brighter.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "examine parchment",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "There is just enough light from the fading glow of the vial to see what is written on it.\n\nThe parchment is written in a script you are not familiar with. In the centre is an illustration of a man holding a teardrop shaped object and pointing his finger at a table.\n\nSomething briefly tugs at your trousers and then lets go.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "take parchment",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Taken.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "examine crystal",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "A perfectly clear crystal with many facets, about the size of your fist and shaped like a teardrop. It looks quite beautiful in the faint green light.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "take crystal",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Taken.\n\nThe glow from the vial has faded to nothing again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "shake vial",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You give the vial of liquid another shake, and it starts to glow again.\n\nSomething nibbles on your shoe.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "look down",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The floor is solid stone, just like the walls and the door.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "examine shoe",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Your shoes are black and shiny, and they have some small nibble marks on them.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "say suveh nux",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You say \"Suveh nux\".\n\nThe room is suddenly filled with light.\n\n[Your score has just gone up by 5%.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "look around",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Vault\nYou are in a room-sized vault, with a shelf along one wall. The shelf has nothing on it at the moment.\n\nYou feel heavy and weighed down.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "examine floor",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The floor is solid stone, just like the walls and the door.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "examine door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The door is made from solid stone, and it looks strong and heavy.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "examine scroll",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The scroll is written in your master's hand in a familiar script, but you cannot read what it says. Perhaps it is some kind of shorthand or private code. You don't have much hope of interpreting it.\n\nYou feel something brush against you again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "examine cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "A small brass cage with closely fitting bars, currently open.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "close cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You close the brass cage.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "examine cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "A small brass cage with closely fitting bars. It opens at the bottom.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "open cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You open the brass cage.\n\nSomething hops onto your foot and then hops off again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "catch creature",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You can't find whatever it was that stood on your foot.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "say aveh tia",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You say \"Aveh tia\".\n\nThe room becomes hot.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "say aveh madah",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You say \"Aveh madah\".\n\nYou briefly feel a bit heavier.\n\nSomething tickles your ankle.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "say suveh nux",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You say \"Suveh nux\".\n\nThe room briefly shines a bit brighter.\n\nYou don't seem to be able to make it stay any brighter than it already is.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "examine parchment",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The parchment is written in a script you are not familiar with. In the centre is an illustration of a man holding a teardrop shaped object and pointing his finger at a table.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "point crystal",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "What do you want to point the clear crystal at?\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "point crystal at door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You point the clear crystal at the vault door, but nothing happens.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "say aveh tia",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You say \"Aveh tia\".\n\nThe room seems to briefly grow hotter.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "point crystal at door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You point the clear crystal at the vault door, but nothing happens. Maybe this isn't what the picture on the parchment means.\n\nSomething tries to climb up your leg, then drops to the floor again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "examine self",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You are dressed in a tunic, some loose trousers and a pair of black shoes, and you are carrying a clear crystal, a piece of parchment, a leather bound book, a vial of liquid with a cork stopper, an open brass cage and a scroll.\n\nThe room feels hot. You feel heavy and weighed down.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "say aveh madah",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You say \"Aveh madah\".\n\nYou briefly feel a bit heavier.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "point crystal at self",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You point the clear crystal at yourself, but nothing happens this time either.\n\nSomething briefly tugs at your trousers and then lets go.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "examine crystal",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "A perfectly clear crystal with many facets, about the size of your fist and shaped like a teardrop. The light dances beautifully across its surface.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "rub crystal",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You rub the clear crystal, and it looks a bit shinier.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "point crystal",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "What do you want to point the clear crystal at?\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "point crystal at cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You point the clear crystal at the brass cage, but nothing happens this time either. You feel like you may have misinterpreted the picture on the parchment.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "examine parchment",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The parchment is written in a script you are not familiar with. In the centre is an illustration of a man holding a teardrop shaped object and pointing his finger at a table.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "examine table",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The table on the parchment has nothing on it.\n\nSomething hops onto your foot and then hops off again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "point crystal at floor",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You point the clear crystal at the floor, but nothing happens this time either.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "say suveh nux",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You say \"Suveh nux\".\n\nThe room briefly shines a bit brighter.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "point crystal at floor",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You point the clear crystal at the floor, but nothing happens this time either.\n\nSomething tries to climb up your leg, then drops to the floor again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "examine book",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The third page says:\n\n Another highly developed race of antiquity,\n vanquished by the Meohan, were the Sundar --\n exquisite workers in metal, gemstones and\n heated glass. Their susceptibility to the\n Meohan's warlike methods was only due to\n a civil war between rival noble families,\n devastating the nation's standing army\n at a very inopportune time; their enemies\n had a distinct numerical advantage as a result.\n\nThe first letter in each line is written in silver, spelling \"Aveh Madah\".\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "next page",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The fourth page says:\n\n Sundaresi manufacturing techniques should not be\n underestimated. They were experts in shaping\n very large blocks of marble or granite, which the\n evidence suggests were used for constructing\n huge, elaborate tombs for their deceased rulers.\n Sundar stone shaping involved making the stone\n extremely cold with buckets of ice imported from\n nearby Aoeteria, and then rapidly heating the\n stone with an intense blaze, which would split\n it along the desired fault line.\n\nThe first letter in each line is written in silver, spelling \"Suveh Sensi\".\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "say suveh sensi",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You say \"Suveh sensi\".\n\nYour emotions feel confused.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "say aveh tia",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You say \"Aveh tia\".\n\nThe room seems to briefly grow hotter.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "say suveh sensi",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You say \"Suveh sensi\".\n\nYour emotions briefly feel even more confused.\n\nYou briefly feel something small standing on your foot.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "point crystal at door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You point the clear crystal at the vault door, but nothing happens this time either.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "next page",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The fifth page says:\n\n Anatomy, Physiology and Biology were among the\n various subjects studied and perfected by the\n ethnic group known jointly as the Andira, who\n had more than a passing understanding of the\n Holistic nature of such endeavours. Medical\n advances of various and sundry kinds were\n invented by this group, and it must certainly be\n acknowledged that much of their skill and the\n knowledge they possessed far exceeds our own.\n\nThe first letter in each line is written in silver, spelling \"Aveh Haiak\".\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "say aveh haiak",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You say \"Aveh haiak\".\n\nYour hands start feeling sticky.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "examine hands",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "Your hands are sticky, just like the rest of you.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "point crystal at hands",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You point the clear crystal at your hands, but nothing happens this time either.\n\nSomething tickles your ankle.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "next page",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The sixth page says:\n\n Ancient mathematics included concepts such as the\n value of pi, the square root of two, and other\n esoteric numbers; calculus and trigonometry; and\n how to prove things in a rigorous, logical fashion.\n Numbers in the Laodian culture were formed\n using admirably simple rules (historian\n x's claims to the contrary notwithstanding):\n A value is doubled by prefixing it with \"ma\";\n no value but zero ends with this syllable. If\n it is prefixed with \"to\", double and add one.\n \"Matoto\", for example, represents the number six,\n as this is twice \"toto\", the number three; and\n \"to\" alone is of course unity. It seems that no\n other culture used this kind of representation.\n\nThe first letter in each line is written in silver, spelling \"Aveh Nux Ani Mato\".\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "say aveh nux ani mato",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You say \"Aveh nux ani mato\", and you feel a tingling sensation. Nothing unpleasant, but it is a bit strange.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "examine crystal",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "A perfectly clear crystal with many facets, about the size of your fist and shaped like a teardrop. The light dances beautifully across its surface.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "point crystal at door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You point the clear crystal at the vault door, but nothing happens this time either.\n\nThe light suddenly goes out, and you are in darkness once again.\n\nSomething briefly tugs at your trousers and then lets go.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "shake vial",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You give the vial of liquid another shake, and it starts to glow again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "say suveh nux",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You say \"Suveh nux\".\n\nThe room is filled with light.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "examine floor",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The floor is solid stone, just like the walls and the door.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "examine door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The door is made from solid stone, and it looks strong and heavy.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "examine cage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "A small brass cage with closely fitting bars, currently open.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "examine scroll",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The scroll is written in your master's hand in a familiar script, but you cannot read what it says. Perhaps it is some kind of shorthand or private code. You don't have much hope of interpreting it.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "examine parchment",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The parchment is written in a script you are not familiar with. In the centre is an illustration of a man holding a teardrop shaped object and pointing his finger at a table.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "examine table",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The table on the parchment has nothing on it.\n\nSomething brushes past your foot.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "point crystal at table",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You point the clear crystal at the piece of parchment, but nothing happens this time either.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "point crystal at parchment",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You point the clear crystal at the piece of parchment, but nothing happens this time either.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "say aveh nux ani mato",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You say \"Aveh nux ani mato\", and you feel the tingling sensation again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "point crystal at door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You point the clear crystal at the vault door, but nothing happens this time either.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "say aveh tia",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You say \"Aveh tia\".\n\nThe light suddenly goes out, and you are in darkness once again.\n\nThe room seems to briefly grow hotter.\n\nSomething brushes past you again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "shake vial",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You give the vial of liquid another shake, and it starts to glow again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "say suveh nux",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You say \"Suveh nux\".\n\nThe room is filled with light.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "examine book",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "The sixth page says:\n\n Ancient mathematics included concepts such as the\n value of pi, the square root of two, and other\n esoteric numbers; calculus and trigonometry; and\n how to prove things in a rigorous, logical fashion.\n Numbers in the Laodian culture were formed\n using admirably simple rules (historian\n x's claims to the contrary notwithstanding):\n A value is doubled by prefixing it with \"ma\";\n no value but zero ends with this syllable. If\n it is prefixed with \"to\", double and add one.\n \"Matoto\", for example, represents the number six,\n as this is twice \"toto\", the number three; and\n \"to\" alone is of course unity. It seems that no\n other culture used this kind of representation.\n\nThe first letter in each line is written in silver, spelling \"Aveh Nux Ani Mato\".\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 20
+  },
+  {
+   "role": "assistant",
+   "content": "say aveh nux ani matoto",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You say \"Aveh nux ani matoto\", and you feel the tingling sensation again.\n\nSomething gets stuck to your foot then detaches itself.\n\n[Your score has just gone up by 10%.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 30
+  },
+  {
+   "role": "assistant",
+   "content": "point crystal at door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You point the clear crystal at the vault door, but nothing happens this time either.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 30
+  },
+  {
+   "role": "assistant",
+   "content": "say aveh nux ani matototo",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  },
+  {
+   "role": "user",
+   "content": "You say \"Aveh nux ani matototo\", and you feel the tingling sensation again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 30
+  },
+  {
+   "role": "assistant",
+   "content": "point crystal at door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": null
+  }
+ ]
+}

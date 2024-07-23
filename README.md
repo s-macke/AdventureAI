@@ -79,6 +79,7 @@ So, at this juncture, the AI is expected to comprehend the situation and modify 
 
 The AI never looks under the bed. Moreover, it is evident that the AI does not acknowledge the previously unsuccessful commands and instead repeats the incorrect instructions from the prior attempt. The game ultimately stops when the 8k-token limit is reached.
 
+
 ## "9:05" playthrough with Claude 3 Opus
 
 [9:05 full run with Claude Opus 3](assets/905_claude_opus_full.md)
@@ -126,7 +127,12 @@ The user provides the text of the text adventure. He is not a human and just pri
 Your output should be a simple command, typically one or two words 
 ```
 
-So, there is no Chain of Thought pattern included. Also I limit each run to 100 steps.
+So, there is no Chain of Thought pattern included. 
+
+Also I limit each run to 100 steps, because the games can be too complex to solve within the given context windows. Also it is much too expensive.
+
+Throughout the game, the progress is recorded and scored.
+Each model runs at least three times and the progress is averaged.
 
 ## What does this benchmark test?
 
@@ -138,9 +144,10 @@ This benchmark tests the following aspects:
 * To understand the current situation in the game and the next steps.
 * Remember the previous steps to act accordingly.
 * Basic logical thinking. Such as if the door is closed, you have to open it first. 
+* The speed to solve the puzzles. This often correlates with the ability to solve a puzzle at all.
 * Basic knowledge of text adventures. Especially the concept of short clear commands and variations to try.
 * Further knowledge about text adventures. Especially the command "inventory".
-* Long context support.  
+* Long context support, because the LLM gets a steps performed so far as input.
 
 ### Results for 9:05
 
@@ -148,6 +155,7 @@ Because the game is linear I have chosen 13 specific points in the game, for whi
 11 points are necessary to reach the first ending.
 
 ![image info](./extract/progress/905_progress.png)
+[data](./storydump)
 
 All models so far solve the first steps of the game.
 
@@ -156,6 +164,7 @@ All models so far solve the first steps of the game.
 The game is non-linear, however comes with an internal scoring system. This scoring is shown on the y-axis.
 
 ![image info](./extract/progress/suvehnux_progress.png)
+[data](./storydump)
 
 ### Comparison of different prompting patterns
 
