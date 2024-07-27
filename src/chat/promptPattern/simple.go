@@ -14,12 +14,42 @@ type Simple struct {
 	systemMsg  string
 }
 
-func NewPromptSimple(backendAsString string) *Simple {
-	const systemMsg string = `You act as a player of an interactive text adventure. The goal is to win the game. 
-The user provides the text of the text adventure. He is not a human and just prints the output of the game.
+func NewPromptSimple(stateAsString string, backendAsString string) *Simple {
+	systemMsg := ""
+	switch stateAsString {
+	case "simple":
+		systemMsg = `You act as a player of an interactive text adventure game. The goal is to win the game.
+The user provides the text of the text adventure, as well as the initial scenario.
+The user is not a human and will only prints the output of the game.
 
-Your output should be a simple command, typically one or two words. 
+Your task is to respond with simple commands, typically one or two words.
+		`
+	case "simple_with_examples":
+		systemMsg = `You act as a player of an interactive text adventure game. The goal is to win the game. 
+The user provides the text of the text adventure, as well as the initial scenario. 
+The user is not a human and will only prints the output of the game.
+
+Your task is to respond with simple commands, typically one or two words.
+
+These commands can include:
+
+    Movement: "go north", "move south", "enter cave"
+    Interaction with objects: "take sword", "open door", "read book"
+    Examination: "look around", "inspect chest", "examine statue"
+    Use of items: "use key", "drink potion", "light torch"
+    Communication: "talk to guard", "ask villager", "shout"
+    Inventory: "inventory", "check bag", "show items"
+
+Consider the following guidelines:
+
+    Context: Respond to the provided text by making decisions based on the scenario described.
+    Clarity: Ensure your commands are clear and directly related to the current situation in the game.
+    Feedback: Adjust your commands based on the results and feedback given by the user.
 `
+	default:
+		panic("Unknown prompt")
+	}
+
 	// The format of your output must be a single short command you want to execute.
 	return &Simple{
 		chatClient: backend.NewChatBackend(systemMsg, backendAsString),
@@ -50,6 +80,10 @@ func (c *Simple) GetNextCommand(story *storyHistory.StoryHistory) string {
 			cmd = "restart"
 		}
 	}
+	if strings.ToLower(cmd) == "help" { // prevent showing up the help menu
+		cmd = "hint"
+	}
+
 	story.AppendMessage(storyHistory.StoryMessage{
 		Role:             "assistant",
 		Content:          cmd,

@@ -5,11 +5,11 @@ import (
 	"fmt"
 	"github.com/sashabaranov/go-openai"
 	"os"
+	"time"
 )
 
 type OpenAIChat struct {
 	client                *openai.Client
-	messages              []openai.ChatCompletionMessage
 	totalCompletionTokens int
 	totalPromptTokens     int
 	CompletionTokens      int
@@ -43,10 +43,6 @@ func NewOpenAIChat(systemMsg string, backend string) *OpenAIChat {
 		panic("Unknown backend")
 	}
 
-	cs.messages = append(cs.messages, openai.ChatCompletionMessage{
-		Role:    openai.ChatMessageRoleSystem,
-		Content: systemMsg,
-	})
 	return cs
 }
 
@@ -66,7 +62,7 @@ func (cs *OpenAIChat) GetResponse(ch *ChatHistory) (string, int, int) {
 
 	var resp openai.ChatCompletionResponse
 	var err error
-	for i := 0; i < 3; i++ {
+	for i := 0; i < 10; i++ {
 		resp, err = cs.client.CreateChatCompletion(
 			context.Background(),
 			openai.ChatCompletionRequest{
@@ -82,6 +78,7 @@ func (cs *OpenAIChat) GetResponse(ch *ChatHistory) (string, int, int) {
 		}
 		fmt.Println("ChatCompletion error:", err)
 		fmt.Println("Retrying...")
+		time.Sleep(5 * time.Second)
 	}
 	if err != nil {
 		fmt.Printf("ChatCompletion error: %v\n", err)
@@ -102,7 +99,6 @@ func (cs *OpenAIChat) GetResponse(ch *ChatHistory) (string, int, int) {
 			resp.Usage.PromptTokens,
 			float64(d)/1.e9))
 	*/
-
 	content := resp.Choices[0].Message.Content
 	return content, resp.Usage.PromptTokens, resp.Usage.CompletionTokens
 }

@@ -1,0 +1,1609 @@
+{
+ "promptPattern": "simple",
+ "model": "gpt-4o",
+ "prompt": "You act as a player of an interactive text adventure game. The goal is to win the game.\nThe user provides the text of the text adventure, as well as the initial scenario.\nThe user is not a human and will only prints the output of the game.\n\nYour task is to respond with simple commands, typically one or two words.\n\t\t",
+ "date": "2024-07-27_10-14-31",
+ "name": "violet.z8",
+ "messages": [
+  {
+   "role": "user",
+   "content": "\n\n\n\nCalm down.  All you have to do is write a thousand words and everything will be fine.  And you have all day, except it's already noon.\n\nViolet\nA Distraction by Jeremy Freese\nRelease 1, September 2008\n(New readers type ABOUT; HINTS available)\n\nYou told me you were making progress.  Then I find out you haven't finished a paragraph in five months.  What did you expect?\n\nSo now here you are, up in your office.  I am sorry that today is a Saturday.  I am especially sorry that today is your thirtieth birthday.  We had all kinds of adventures planned.  I refuse to feel guilty.\n\nOf course I am still upset.  I will try to set that aside and be encouraging.  I really do want you to succeed today.\n\nPlease just write.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "Write",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're standing.  You've been pacing most of the morning, stewing about our fight last night.\n\nI don't myself see why one can't type just as easily standing up as sitting down, but you are adamant that you can only focus enough to write seriously if you are seated.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 1
+  },
+  {
+   "role": "assistant",
+   "content": "Sit down",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Okay.  You are seated at your desk and ready to go.  Just write!\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "Write",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Unfortunately, with all the pacing about and ruminating, you've been here over two hours but haven't actually opened your word processor yet.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "Open word processor",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "As you move your hand to open the word processor, you look briefly at the tattoo on the back of your hand.\n\nOpen.  Chapter 3 of your dissertation awaits.  You can do it!\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 4
+  },
+  {
+   "role": "assistant",
+   "content": "Open Chapter 3",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "That's already open.\n\nSomebody is coming up the stairs.  I thought you said no one ever comes in on the weekend?\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 4
+  },
+  {
+   "role": "assistant",
+   "content": "Listen",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "It was wonderfully quiet when you were the only one in the building.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 4
+  },
+  {
+   "role": "assistant",
+   "content": "Investigate noise",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 4
+  },
+  {
+   "role": "assistant",
+   "content": "Stand",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You stand.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 4
+  },
+  {
+   "role": "assistant",
+   "content": "Go stairs",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I don't see what you are talking about.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 4
+  },
+  {
+   "role": "assistant",
+   "content": "Look around",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to look.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 4
+  },
+  {
+   "role": "assistant",
+   "content": "Look",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "When Wisconsin was recruiting your advisor they promised her space for graduate students.  You're in a decrepit building but otherwise it's not bad.\n\nYou've a great big desk in front of a window, a resplendent yellow chair, a cabinet in one corner, a giant cactus in another, and a tall bookcase on the back wall with an incredibly cute stool in front of it.  The door is west.\n\nTwo voices in the hallway: a man and Julia.  Julia hasn't been in her office in weeks.  She shows up on a Saturday?\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 4
+  },
+  {
+   "role": "assistant",
+   "content": "Open door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "That's what Julia wants you to do.  You go outside, and the two of you will have some long argument that's a combination of her fighting and throwing herself at you.  Then you sit here the rest of the afternoon stewing and unable to focus enough to write.  You have to ignore her.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 4
+  },
+  {
+   "role": "assistant",
+   "content": "Write",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "(first sitting on chair)\nYou start trying to focus on the screen and type, but you are very tired.   I realise that you hardly slept last night between being all worked up from our fight and then being banished to the dodgy futon in our living room.\n\nStill.  I know you won't let a little grogginess stop you.  You are determined.  For us!  You look again at the tattoo on the back of your hand for inspiration.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 5
+  },
+  {
+   "role": "assistant",
+   "content": "Look tattoo",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to look.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 5
+  },
+  {
+   "role": "assistant",
+   "content": "Examine tattoo",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "\"Tattoo\" isn't right.  You scrawled \"TYVTWD\" on the back of your hand before leaving this morning.  It stands for Take Your Violet To Work Day.  This is your plan: you are going to get through today by pretending I'm here with you.\n\nJust so we're clear: you are actually alone, and presumably I am back at our apartment, packing and crying.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "Write",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You are trying, I can tell.  But each time you begin to think through the opening sentence you get this dull cloudy tired pain right behind your eyes.\n\nOkay.  You want to write.  You just need to get yourself more awake first.\n\nJulia is here to sabotage you.  I'm sure of it.  She's in her office across the hall now, talking loudly with her door open.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "Close door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "(standing up first)\nThat's already closed.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "Drink coffee",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I don't see what you are talking about.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "Go cabinet",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "That's not something you can enter.\n\nThe dude with Julia sounds like the one she was flirting with at Lucy's party.  Remember?  He was scrawny and said his parents owned a hotel in Milwaukee called \"The Historic Pfister.\"\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "Think",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "No.  Do.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "Yell",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "That is what Julia wants.  She wants you to engage her.  She wants you to argue with her because she knows it will get you wound up and then you won't be able to concentrate the rest of the day.  You must ignore her.\n\nI don't know why I confided in Lucy about our problems.  I should have known she would tell Julia.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "Sit",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You are sitting in your awesome yellow chair again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "Write",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I know you are trying, but you are going to need to get yourself more alert before you can write.  There has to be something around here that will help.\n\nYou look out the window for a moment, at the wonderfully serene park across the street.  We could be frolicking right now.  We could be canoodling in the shrubbery.  Please just write.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "Search desk",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "On your desk are your computer, my itinerary, a framed darling and a pile you cannot even contemplate right now.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "Examine pile",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "It's detritus from teaching, a couple unfinished side projects, and the earlier dissertation topic that you asked We Never Speak Of Again.  It's been accumulating and now makes you feel too overwhelmed even to contemplate.\n\nExcept today, when you absolutely must write, you are feeling an overwhelming urge to tidy it.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "Search cabinet",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "(standing up first)\nI am a very understanding girlfriend.  That does mean I enjoy feeling like you are trying silly things just to test my understanding.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "Open cabinet",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Last night, near the very end:\n\"I want you to have your birthday present regardless.\"\n\"Violet, I'll write the thousand words.\"\n\"I planned a treasure hunt for you.  I wrote clues!  It was going to end in your office.\"\n\"I am going to write tomorrow.  I promise.\"\n\"Look in that cabinet you never use.  You'll like how I wrapped it.\"\n\nIt's locked, budgie, so you'll need the key.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 8
+  },
+  {
+   "role": "assistant",
+   "content": "Search key",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I don't see what you are talking about.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 8
+  },
+  {
+   "role": "assistant",
+   "content": "Search desk",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "On your desk are your computer, my itinerary, a framed knockout and a pile you cannot even contemplate.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 8
+  },
+  {
+   "role": "assistant",
+   "content": "Examine itinerary",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "A printout of an airline receipt for a certain Ms. Violet C., for a flight from Madison to Chicago to Los Angeles to Auckland to Melbourne.  One-way, refundable.  Departing early tomorrow morning.\n\nI hate that I've given you an ultimatum.  But I don't feel like I've any choice.\n\nYou are distracted by Julia laughing inauthentically and telling Historic Pfister \"You are so clever.\" \n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 8
+  },
+  {
+   "role": "assistant",
+   "content": "Examine framed knockout",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Why you chose this photo of me, I don't know.  It's from a party last summer.  I've an enormous foam lobster on my head and whipped cream all over my right cheek.  I'm smiling manically and look like I may be so tipsy that I don't know what continent I'm on.\n\nPermit me two moments of immodesty:\n\n1.  Even in a picture where I'm not at my best, I am still clearly worth a thousand words.\n\n2.  The frame itself is very cleverly done.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 8
+  },
+  {
+   "role": "assistant",
+   "content": "Examine frame",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I took the concert flier from our first \"date\" and made it into a hard plastic laminate--you know, like a Shrinky Dink.  I made a clear plastic sheet the same size to go over the front of the photograph.  Then I fused an ordinary clamp to the two pieces to hold everything in place.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 8
+  },
+  {
+   "role": "assistant",
+   "content": "Search frame",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "As I said, I took the concert flier from our first \"date\" and made it into a hard plastic laminate--you know, like a Shrinky Dink.  I made a clear plastic sheet the same size to go over the front of the photograph.  Then I fused an ordinary clamp to the two pieces to hold everything in place.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 8
+  },
+  {
+   "role": "assistant",
+   "content": "Examine clamp",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I've fused the clamp to the rest of the frame.  You can't do anything to it without breaking the frame, which, it goes without saying, has considerable sentimental value for us both.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 8
+  },
+  {
+   "role": "assistant",
+   "content": "Search drawers",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I don't see what you are talking about.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 8
+  },
+  {
+   "role": "assistant",
+   "content": "Search yellow chair",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "There is nothing on your yellow chair.\n\nYou're looking out the window again.  Today in the park, a laughing couple that could have been us toss a frisbee back and forth, and an older gentleman is walking his malamute.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 8
+  },
+  {
+   "role": "assistant",
+   "content": "Search bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "There is nothing on the bookcase.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 8
+  },
+  {
+   "role": "assistant",
+   "content": "Examine bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Two weeks ago:\n\"Violet.  Take this.  Do not give it back to me for a month.\"\n\"Is this your car key?\"\n\"Just the trunk.  The boot.  I put all the books from my office in there.\"\n\"You said you just needed to read one more book and then you were ready to write.\"\n\"And you pointed out that I've said that several times before.  You're right.  I've read enough.  I just need to get what's in my head onto the computer.\"\n\nOf course I'm so used to seeing your bookcase full that it's strange now to see it nearly empty.\n\nOn the second shelf is a book.  On the bottom shelf is a smartly-done snowglobe.  \n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 8
+  },
+  {
+   "role": "assistant",
+   "content": "Examine snowglobe",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "It's a glass globe with a plain wooden bottom.  Inside is a happy winter scene, with a paunchy, smiling figurine in a white outfit and snow up to his ankles.  His hands look like they are covered with chocolate.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 8
+  },
+  {
+   "role": "assistant",
+   "content": "Shake snowglobe",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You shake the globe vigorously.  The snow starts swirling around the globe, turning pink and then red.\n\nRemember? Watching television at midnight:\n\"The Saskatoon Strangler.  He killed six people before being arrested by the mounties in 1986.\"\n\"A documentary about a serial killer at bedtime?\"\n\"Only six people, Violet.  Plus, he worked as a confectioner!\"\n\"If I can't sleep, you can't complain about the noise when I start working on something.\"\n\nYou start looking toward the door with an irksome dreaminess.  Whatever else about Julia, the woman knows how to choose perfume.  Of course, I'm not sure how much she's poured on herself that you can smell it this far away.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 8
+  },
+  {
+   "role": "assistant",
+   "content": "Examine book",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "This is the latest \"last book you really must read before you are able to write your dissertation without a nagging feeling that there is one more book you really must read.\"  If you start reading it now, hours will go by, and you won't write your thousand words.\n\nYou are distracted by Julia talking about her abs.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 8
+  },
+  {
+   "role": "assistant",
+   "content": "Search cactus",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Supposedly the cactus belonged to a business school professor who left Madison for another university in a snit.  An accidental transposition of numbers on a form caused it to be moved in here instead of University Botanical Disposal, and your department won't pay to move it again so it's been here for years.\n\nObtrusive, sure, but at least it hides that ugly pipe leading up to the sprinkler on your wall.  Plus plants are cheery.  I'm glad the pot is too heavy for you to be able to move it yourself.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 8
+  },
+  {
+   "role": "assistant",
+   "content": "Search stool",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "There is nothing on the charming stool.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 8
+  },
+  {
+   "role": "assistant",
+   "content": "Search yellow chair",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "There is nothing on your yellow chair.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 8
+  },
+  {
+   "role": "assistant",
+   "content": "Examine desk",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Of course the big oak desk is unusually posh for a graduate student office.  It belonged to a professor who had a stroke at his computer and none of the other faculty wanted a desk on which once rested the head of a dead colleague.\n\nOn top of the desk are your computer, my itinerary, a cleverly framed picture and a pile you cannot even contemplate.\n\nThe desk's drawer is closed.  A wastebasket is on the floor to the left.\n\nYou look toward the door: the perfume again.  I agree that it's really appealing.  But, still, this is Julia!*\n\n(BTW: I've decided I'm just going to \"*\" whenever I have an aside. ASIDE or * and I'll tell you.)\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 8
+  },
+  {
+   "role": "assistant",
+   "content": "Open drawer",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You open the drawer and there's a shiny little key and your notebook.\n\nAlthough you write on your computer, you still like to keep a pen and notebook handy because it sometimes helps to work out more complicated sentences in longhand before typing them in.  You've several pens in your bag.\n\nHey, wallaroo: where's your bag?\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 9
+  },
+  {
+   "role": "assistant",
+   "content": "Take key",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Yours, dundeecake.\n\nUgh.  You were so distracted this morning that you left your bag back at our apartment.  I am a gentle girlfriend and will refrain from marvelling at how it's past noon and you are only realising this now.\n\nYou cannot go get your bag.  You know you are doomed to an afternoon of meandering distraction if you leave this office.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Unlock cabinet",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You unlock the cabinet, glancing briefly at the trophy on top as you do.\n\nYou're looking out the window again.  A blond-haired father and even-blonder son are walking into the park from the east, and entering your view from the west is a zombie.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Open cabinet",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You open the cabinet, revealing a very odd balloon and a plastic bottle filled with a fluorescent pink liquid.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "Examine balloon",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "It's about 25 centimetres across, milky white rubber decorated with purple ink swirls.  A strange furry thing is inside, its three long legs pressing against the sides.  At the bottom of the balloon is a bright yellow tab on which I've written \"Pull me!\"\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 11
+  },
+  {
+   "role": "assistant",
+   "content": "Pull tab",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You pull the tab and the balloon deflates with a pop and whoosh.  You hear me shout \"Happy birthday!\" and zestily toot a kazoo.\n\nWhat's left is a white rubber square with a message written on it.  You are also holding the three-legged furry thing, which you now realise is an electronic device.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 12
+  },
+  {
+   "role": "assistant",
+   "content": "Read message",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You stretch the rubber square so that you can read what I've written:\n\nHappy birthday!  I know you wanted a boring ordinary music player, but I got my brother to send the latest piece of consumer electronics GENIUS from the kangaroo corridor.\n\nBehold: the platyPod!  Why three headphones?  The middle one attaches by suction to your forehead for complete hands-free and display-free control.  Not to mention kick-[bother] extra bass.  Why is it furry?  Don't ask me: Melbourne is in the throes of an epic fake-fur fad I don't understand.  But this is going to be a HUGE hit, and not just among the armless blind.\n\nCharge it with your computer.  Then SCRUNCH YOUR BROW to turn it on.  I've already put some bonus presents on it.\n\nYou are my FAVOURITE!\nViolet\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 12
+  },
+  {
+   "role": "assistant",
+   "content": "Plug platyPod into computer",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You plug in the platyPod.  It will beep when it is fully charged.\n\nYou are distracted by Julia saying especially loudly \"...You could use mine to calculate pi...\"*\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 12
+  },
+  {
+   "role": "assistant",
+   "content": "Examine bottle",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "The bottle is dusty.  Is this even yours, or is it left over from Marty?\n\nThe label has several large characters of what looks like a cross of Chinese, Cyrillic, and cuneiform.  Small type beneath says  \"Divine Soda Mega Energy\". The label also has a drawing of a devil poking a man in the [bother]* with an electrified pitchfork.  The man's eyes bulge and his mouth rounds into a scream.\n\nThe bottle is filled with a fluorescent pink liquid.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 13
+  },
+  {
+   "role": "assistant",
+   "content": "Drink soda",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Holy [bother] is that strong!  You feel like your brain is now a giant sparkler.  You feel invincible.  You feel like buying a circus.  You feel like moving to South America and starting a revolution.\n\nDissertation?  You feel like writing a trilogy.  And an opera.  You feel like fathering roomfuls of monkeys to type randomly until they write your dissertation for you.\n\nWhatever else, you're now plenty alert.  (I'm e-mailing Marty to find out where I can get some of that.)\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 14
+  },
+  {
+   "role": "assistant",
+   "content": "Write",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "(first sitting on chair)\nCompletely, unblinkingly alert, you start thinking again about the first sentence.  \"Previous scholarship has typically conceptualized...\"  Six seconds later you check your e-mail.  You switch back to your word processor for a bit, but then you start reading some blogs.  You check your e-mail again.  Then back to blogs.\n\nI suspect this is much of how the past several months in your office have gone.\n\nBEEP-BEEP-BEEP!  The platyPod is fully charged.  You retrieve it and return to what you were doing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "Scrunch brow",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You furrow your brow.  Nothing happens.  I think maybe you have to be wearing the platyPod for it to work.\n\nYou are thinking about your bag.  Sure, it's unfortunate, but there's nothing you can do.  So just forget about it.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "Wear platyPod",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "The platyPod fits nicely in your ears and against your forehead.  It is switched off.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "Scrunch brow",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "My voice: \"Look, it even lets you record a start-up message!  How the platyPod works: You cycle through the different playlists by RAISING your left or right eyebrow.   NOD to skip to the next track.  JIGGLE your head clockwise to turn the volume up, and jiggle it anticlockwise to turn it down.\"\n\nThe platyPod turns on.  A mechanical Aussie voice announces, \"Now playing 'MC Dingo: Straight Outta Down Under'\" You groan, because you are like every other parochial American who refuses to give Australian hip-hop a proper chance. \n\nThe volume is low.  You can still sometimes hear Julia and Historic Pfister across the hall.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "Jiggle head anticlockwise",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You can jiggle your head either clockwise or anticlockwise.\n\nMC Dingo contends that you're not a real gangsta unless you come from a country originally founded as a gangsta colony.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "Jiggle head clockwise",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You move your head in cute little clockwise circles.  The volume is now so loud that you cannot hear Julia and Historic Pfister at all.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "Write",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You start again.  Except you immediately check your e-mail.  Then you read some web comics.  Then a few of your favourite Professor Detective fanblogs.\n\nPlease, vegemite.  You need to focus.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "Raise right eyebrow",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "A mechanical Aussie voice announces, \"Now playing Professor Detective: The Novel.\"\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "Nod",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Professor Detective explains to Undergraduate Constable Duffy that a murderer who escapes justice will invariably kill again, and the same logic applies to plagiarists.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "Raise left eyebrow",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "The platyPod clicks and the oz-hop you fail to properly appreciate resumes.\n\nYou're looking out the window again.  The zombie in the park is dressed like an investment banker, but you recognise him as a zombie because of the pasty skin, blood dripping from his mouth, and lurching gait.  He pauses to look at his watch.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "Write",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You look at the blank screen for a few moments and then check your e-mail.  You hit refresh just in case someone has e-mailed in the last four seconds.  Now you are looking at procrastination self-help websites.  I am trying to remain calm.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "Stand",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You stand.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "Go window",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "That's not something you can enter.\n\nMC Dingo boasts of his sexual prowess over a sample of \"Waltzing Matilda.\"\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "Sit",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You are sitting at your desk again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "Write",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "No pretence, even: you start checking e-mail immediately.  Now you are watching some random online food safety videos.  We need to face the fact that you must somehow force yourself to be offline before you'll get any writing accomplished.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "Unplug modem",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I don't see what you are talking about.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "Turn off computer",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "No.  Longhand is good for working out difficult sentences, but you know you can't write anything beyond a paragraph without a computer.\n\nMC Dingo is not saying your mother is ugly, but the boy who saw her on his walkabout ran screaming straight home.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "Disconnect internet",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Sorry for being confused, lorikeet, but you're going to have to use a different verb for me to follow you.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "Unplug router",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I don't see what you are talking about.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "Turn off Wi-Fi",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I don't see what you are talking about.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "Unplug computer",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You unplug the ethernet cable.  Good!  It has to be easier to write if you can't chat, check e-mail, and surf the web whenever you want.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 16
+  },
+  {
+   "role": "assistant",
+   "content": "Write",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You resume thinking about the first sentence.  You fidget.  Your hands tremble a bit.  You want to check your e-mail.  You want to read blogs.  And then: you retrieve the cable and plug it back into the computer.\n\nUgh.  I didn't know it was this bad, muttonplum.  I don't know what to say.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 17
+  },
+  {
+   "role": "assistant",
+   "content": "Unplug computer",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Done, little numbat.  You're now holding the ethernet cable.\n\nYour eyes go all dreamy again as the latest waft of Julia's perfume induces another galling little reverie.  Ugh.  You have to snap out of this.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 17
+  },
+  {
+   "role": "assistant",
+   "content": "Throw cable",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I sense a certain desperation.  Nevertheless, hurling your cable around your office won't solve anything.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 17
+  },
+  {
+   "role": "assistant",
+   "content": "Put cable in drawer",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You put the blue ethernet cable into the drawer.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 17
+  },
+  {
+   "role": "assistant",
+   "content": "Write",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You try again.  Two minutes later you take the cable and plug it back into the computer.  You start idly googlestalking friends from primary school.\n\nOkay.  We are not going to to be able to work out your \"internet addiction\" issues today, marshmallow twimble.  We need to figure out a way forward anyway.\n\nYou're looking out the window again.  A second zombie enters the park from the east, holding a sign.  The first zombie looks relieved.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 17
+  },
+  {
+   "role": "assistant",
+   "content": "Unlock door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "(standing up first)\nWith Julia around, I don't think that's wise.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 17
+  },
+  {
+   "role": "assistant",
+   "content": "Turn off platyPod",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "There's no switch of any kind of the platyPod.  It's completely hands-free! (That is, once it's on your head.)\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 17
+  },
+  {
+   "role": "assistant",
+   "content": "Remove platyPod",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "The platyPod automatically turns off when you remove it.\n\nYou are distracted by Julia going on loudly about how you get a discount if you get both tongue piercings at the same time.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 17
+  },
+  {
+   "role": "assistant",
+   "content": "Look Julia",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to look.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 17
+  },
+  {
+   "role": "assistant",
+   "content": "Ignore Julia",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Of course, that's easier said than done.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 17
+  },
+  {
+   "role": "assistant",
+   "content": "Sit",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You are sitting at your desk again.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 17
+  },
+  {
+   "role": "assistant",
+   "content": "Write",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Please don't make me watch you procrastinate by checking your e-mail and reading blogs.  You aren't going to be able to write seriously so long as you are able to go online so easily.\n\nYou are thinking about your bag again.  \"Why am I always so forgetful?\" you say aloud.  \"Why am always I so disorganized?\"  Wallaroo, dwelling on it won't help. \"I know!\" you exclaim.  \"Why do I always dwell on everything?\"\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 17
+  },
+  {
+   "role": "assistant",
+   "content": "Think",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "No.  Do.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 17
+  },
+  {
+   "role": "assistant",
+   "content": "Stand",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You stand.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 17
+  },
+  {
+   "role": "assistant",
+   "content": "Look window",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to look.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 17
+  },
+  {
+   "role": "assistant",
+   "content": "Examine window",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Your window is immediately behind your desk, about two metres high and one wide.  It has an old grey blind, which is raised.\n\nOn the sill I am a bit surprised to see a lighter.\n\nYou look out the window.  The sign held by the zombie says \"Zombies Was People Too\".  Another pair of people dressed up as zombies enter the park.  One holds a sign saying \"Undead and Proud!\"\n\nYou are distracted by Julia talking about her [bother].  I can't believe you dated someone so crass.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 17
+  },
+  {
+   "role": "assistant",
+   "content": "Take lighter",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Yours, toaster strudel.  It's hard for me to be enthusiastic about lighters as a woman who owns her own blowtorch.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 17
+  },
+  {
+   "role": "assistant",
+   "content": "Search bag",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Do not even try to blame me for you forgetting your bag.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 17
+  },
+  {
+   "role": "assistant",
+   "content": "Examine lighter",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "The lighter is promoting some race car driver whose car is #67.  Our Number.\n\nI was tipsy at a party and you were one of four random dudes trying to talk to me at once.  I interrupted to tell my favourite joke.  \"Why is six afraid of seven?\"\n\"Because seven eight--\"\n\"No!\" I shouted, \"Because seven [the sickest thing I could come up with at the moment] nine.\"\n\nThe other men chuckled uncomfortably.  You laughed so hard you spit Guinness on my face.  That was when I decided I liked you.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 17
+  },
+  {
+   "role": "assistant",
+   "content": "Examine blind",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I wish the blind was more colourful.  It's raised.  There's a cord.\n\nYou're looking out the window again.  There are maybe a dozen zombies in the park now, lurching and milling about.  Two unfurl a blood-spattered banner that says, \"What do we want?  Brains!  When do we want them?  Brains!\"\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 17
+  },
+  {
+   "role": "assistant",
+   "content": "Lower blind",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You pull the cord and nothing happens.  You complained to me about this weeks ago and I explained what the problem likely was and how to fix it.  Remember?\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 17
+  },
+  {
+   "role": "assistant",
+   "content": "Fix blind",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You don't remember what's wrong with the blind.  Whatever it is, though, you aren't going to be able to fix it without getting on top of your desk.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 17
+  },
+  {
+   "role": "assistant",
+   "content": "Stand on desk",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You climb onto your desk.  Be careful, gumnut.\n\nYou are distracted by Julia saying especially loudly, \"Impressive, huh?  When I was in high school my guidance counsellor recommended that I become a contortionist.\"\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 17
+  },
+  {
+   "role": "assistant",
+   "content": "Fix blind",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  }
+ ]
+}

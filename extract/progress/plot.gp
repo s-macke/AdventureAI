@@ -51,4 +51,16 @@ set title "Game 9:05"
 set output "905_progress.png"
 load "905_plotlines.gp"
 
+set yrange [-1:20]
+unset arrow
+unset label
+set title "Game Shade"
+set output "shade_progress.png"
+load "shade_plotlines.gp"
 
+set yrange [-1:20]
+unset arrow
+unset label
+set title "Game Violet"
+set output "violet_progress.png"
+load "violet_plotlines.gp"

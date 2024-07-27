@@ -27,7 +27,7 @@ func LoadProgress(data map[string]*StoryProgress, prefix string) {
 	}
 
 	for _, file := range files {
-		if !strings.HasPrefix(file.Name(), prefix+".z5_") || !strings.HasSuffix(file.Name(), ".json") {
+		if (!strings.HasPrefix(file.Name(), prefix+".z5_") && !strings.HasPrefix(file.Name(), prefix+".z8_")) || !strings.HasSuffix(file.Name(), ".json") {
 			continue
 		}
 		var state StoryHistory

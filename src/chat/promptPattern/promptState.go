@@ -17,8 +17,8 @@ type State interface {
 
 func NewPrompt(stateAsString string, backendAsString string) State {
 	switch stateAsString {
-	case "simple":
-		return NewPromptSimple(backendAsString)
+	case "simple", "simple_with_examples":
+		return NewPromptSimple(stateAsString, backendAsString)
 	case "react":
 		return NewPromptReAct(backendAsString)
 	case "discuss":

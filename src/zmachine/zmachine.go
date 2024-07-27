@@ -60,6 +60,7 @@ type ZMachine struct {
 	outputstream      int // the id to where we are writing output
 	outputstreamtable uint32
 	WindowId          int // The selected window ID to print
+	PrevUndo          Checkpoint
 	Undo              Checkpoint
 }
 
@@ -72,18 +73,8 @@ var alphabets = []string{
 	"ABCDEFGHIJKLMNOPQRSTUVWXYZ",
 	" \n0123456789.,!?_#'\"/\\-:()"}
 
-func (zm *ZMachine) ReadGlobal(x uint8) uint16 {
-	if x < 0x10 {
-		panic("Invalid global variable")
-	}
-
-	addr := (uint32(x) - 0x10) * 2
-	ret := zm.GetUint16(zm.header.globalVarAddress + addr)
-
-	return ret
-}
-
 func (zm *ZMachine) SaveUndo() {
+	zm.PrevUndo = zm.Undo
 	zm.Undo.outputstream = zm.outputstream
 	zm.Undo.outputstreamtable = zm.outputstreamtable
 	zm.Undo.ip = zm.ip
@@ -95,13 +86,23 @@ func (zm *ZMachine) SaveUndo() {
 }
 
 func (zm *ZMachine) Restore() {
-	zm.outputstream = zm.Undo.outputstream
-	zm.outputstreamtable = zm.Undo.outputstreamtable
-	zm.ip = zm.Undo.ip
-	zm.localFrame = zm.Undo.localFrame
-	zm.WindowId = zm.Undo.WindowId
-	copy(zm.buf, zm.Undo.buf)
-	zm.stack = zm.Undo.stack.Clone()
+	zm.outputstream = zm.PrevUndo.outputstream
+	zm.outputstreamtable = zm.PrevUndo.outputstreamtable
+	zm.ip = zm.PrevUndo.ip
+	zm.localFrame = zm.PrevUndo.localFrame
+	zm.WindowId = zm.PrevUndo.WindowId
+	copy(zm.buf, zm.PrevUndo.buf)
+	zm.stack = zm.PrevUndo.stack.Clone()
+}
+
+func (zm *ZMachine) ReadGlobal(x uint8) uint16 {
+	if x < 0x10 {
+		panic("Invalid global variable")
+	}
+
+	addr := (uint32(x) - 0x10) * 2
+	ret := zm.GetUint16(zm.header.globalVarAddress + addr)
+	return ret
 }
 
 func (zm *ZMachine) SetGlobal(x uint16, v uint16) {
@@ -157,84 +158,13 @@ func ZPull(zm *ZMachine, args []uint16, numArgs uint16) {
 }
 
 func ZNOP_VAR(zm *ZMachine, args []uint16, numArgs uint16) {
-	fmt.Printf("IP=0x%X\n", zm.ip)
-	panic("NOP VAR")
+	//fmt.Printf("IP=0x%X\n", zm.ip)
+	//panic("NOP VAR")
 }
 
 func ZNOP(zm *ZMachine, args []uint16) {
 	fmt.Printf("IP=0x%X\n", zm.ip)
 	panic("NOP 2OP")
-}
-
-func GenericBranch(zm *ZMachine, conditionSatisfied bool) {
-	branchInfo := zm.ReadByte()
-
-	// "If bit 7 of the first byte is 0, a branch occurs when the condition was false; if 1, then branch is on true"
-	branchOnFalse := (branchInfo >> 7) == 0
-
-	var jumpAddress int32
-	var branchOffset int32
-	// 0 = return false, 1 = return true, 2 = standard jump
-	returnFromCurrent := int32(2)
-	// "If bit 6 is set, then the branch occupies 1 byte only, and the "offset" is in the range 0 to 63, given in the bottom 6 bits"
-	if (branchInfo & (1 << 6)) != 0 {
-		branchOffset = int32(branchInfo & 0x3F)
-
-		// "An offset of 0 means "return false from the current routine", and 1 means "return true from the current routine".
-		if branchOffset <= 1 {
-			returnFromCurrent = branchOffset
-		}
-	} else {
-		// If bit 6 is clear, then the offset is a signed 14-bit number given in bits 0 to 5 of the first
-		// byte followed by all 8 of the second.
-		secondPart := zm.ReadByte()
-		firstPart := uint16(branchInfo & 0x3F)
-		// Propagate sign bit (2 complement)
-		if (firstPart & 0x20) != 0 {
-			firstPart |= (1 << 6) | (1 << 7)
-		}
-
-		branchOffset16 := int16(firstPart<<8) | int16(secondPart)
-		branchOffset = int32(branchOffset16)
-
-		//DebugPrintf("Offset: 0x%X [%d]\n", branchOffset, branchOffset)
-	}
-	ip := int32(zm.ip)
-
-	// "Otherwise, a branch moves execution to the instruction at address
-	// Address after branch data + Offset - 2."
-	jumpAddress = ip + int32(branchOffset) - 2
-
-	//DebugPrintf("Jump address = 0x%X\n", jumpAddress)
-
-	doJump := (conditionSatisfied != branchOnFalse)
-
-	//DebugPrintf("Do jump: %t\n", doJump)
-
-	if doJump {
-		if returnFromCurrent != 2 {
-			ZRet(zm, uint16(returnFromCurrent))
-		} else {
-			zm.ip = uint32(jumpAddress)
-		}
-	}
-}
-
-func ZJumpEqual(zm *ZMachine, args []uint16, numArgs uint16) {
-
-	conditionSatisfied := (args[0] == args[1] ||
-		(numArgs > 2 && args[0] == args[2]) || (numArgs > 3 && args[0] == args[3]))
-	GenericBranch(zm, conditionSatisfied)
-}
-
-func ZJumpLess(zm *ZMachine, args []uint16, numArgs uint16) {
-	conditionSatisfied := int16(args[0]) < int16(args[1])
-	GenericBranch(zm, conditionSatisfied)
-}
-
-func ZJumpGreater(zm *ZMachine, args []uint16, numArgs uint16) {
-	conditionSatisfied := int16(args[0]) > int16(args[1])
-	GenericBranch(zm, conditionSatisfied)
 }
 
 func ZAdd(zm *ZMachine, args []uint16, numArgs uint16) {
@@ -274,16 +204,6 @@ func ZStore(zm *ZMachine, args []uint16, numArgs uint16) {
 	zm.StoreAtLocation(args[0], args[1])
 }
 
-func ZTestAttr(zm *ZMachine, args []uint16, numArgs uint16) {
-	GenericBranch(zm, zm.TestObjectAttr(args[0], args[1]))
-}
-
-func ZCheckArgCountArgumentNumber(zm *ZMachine, args []uint16, numargs uint16) { // check arg count
-	//DebugPrintf("Arg count: %d %v\n", numargs, args)
-	argumentNumber := args[0]
-	GenericBranch(zm, argumentNumber <= zm.stack.stack[zm.stack.localFrame+1]) // localFrame points to the number of arguments. See ZCall
-}
-
 func ZOr(zm *ZMachine, args []uint16, numArgs uint16) {
 	zm.StoreResult(args[0] | args[1])
 }
@@ -315,46 +235,6 @@ func ZGetNextProp(zm *ZMachine, args []uint16, numArgs uint16) {
 	zm.StoreResult(addr)
 }
 
-// Returns new value.
-func (zm *ZMachine) AddToVar(varType uint16, value int16) uint16 {
-	retValue := uint16(0)
-	if varType == 0 {
-		zm.stack.stack[zm.stack.top] += uint16(value)
-		retValue = zm.stack.GetTopItem()
-	} else if varType < 0x10 {
-		retValue = zm.stack.GetLocalVar((int)(varType - 1))
-		retValue += uint16(value)
-		zm.stack.SetLocalVar(int(varType-1), retValue)
-	} else {
-		retValue = zm.ReadGlobal(uint8(varType))
-		retValue += uint16(value)
-		zm.SetGlobal(varType, retValue)
-	}
-	return retValue
-}
-
-// dec_chk (variable) value ?(label)
-// Decrement variable, and branch if it is now less than the given value.
-func ZDecChk(zm *ZMachine, args []uint16, numArgs uint16) {
-	newValue := zm.AddToVar(args[0], -1)
-	GenericBranch(zm, int16(newValue) < int16(args[1]))
-}
-
-// inc_chk (variable) value ?(label)
-// Increment variable, and branch if now greater than value.
-func ZIncChk(zm *ZMachine, args []uint16, numArgs uint16) {
-	newValue := zm.AddToVar(args[0], 1)
-	GenericBranch(zm, int16(newValue) > int16(args[1]))
-}
-
-// test bitmap flags ?(label)
-// Jump if all of the flags in bitmap are set (i.e. if bitmap & flags == flags).
-func ZTest(zm *ZMachine, args []uint16, numArgs uint16) {
-	bitmap := args[0]
-	flags := args[1]
-	GenericBranch(zm, (bitmap&flags) == flags)
-}
-
 //	jin obj1 obj2 ?(label)
 //
 // Jump if object a is a direct child of b, i.e., if parent of a is b.
@@ -364,10 +244,6 @@ func ZJin(zm *ZMachine, args []uint16, numArgs uint16) {
 
 func ZInsertObj(zm *ZMachine, args []uint16, numArgs uint16) {
 	zm.ReparentObject(args[0], args[1])
-}
-
-func ZJumpZero(zm *ZMachine, arg uint16) {
-	GenericBranch(zm, arg == 0)
 }
 
 // get_sibling object -> (result) ?(label)
@@ -381,7 +257,11 @@ func ZGetSibling(zm *ZMachine, arg uint16) {
 // get_child object -> (result) ?(label)
 // Get first object contained in given object, branching if this exists, i.e. is not nothing (i.e., is not 0).
 func ZGetChild(zm *ZMachine, arg uint16) {
-	childIndex := zm.GetChildIndex(arg)
+	DebugPrintf("Get child: %d\n", arg)
+	childIndex := uint16(0)
+	if arg != 0 {
+		childIndex = zm.GetChildIndex(arg)
+	}
 	zm.StoreResult(childIndex)
 	GenericBranch(zm, childIndex != NULL_OBJECT_INDEX)
 }
@@ -418,18 +298,6 @@ func ZGetPropLen(zm *ZMachine, arg uint16) {
 // print_paddr packed-address-of-string
 func ZPrintPAddr(zm *ZMachine, arg uint16) {
 	zm.DecodeZString(zm.PackedAddress(uint32(arg)))
-}
-
-func ZLoad(zm *ZMachine, arg uint16) {
-	zm.StoreResult(arg)
-}
-
-func ZInc(zm *ZMachine, arg uint16) {
-	zm.AddToVar(arg, 1)
-}
-
-func ZDec(zm *ZMachine, arg uint16) {
-	zm.AddToVar(arg, -1)
 }
 
 func ZPrintAddr(zm *ZMachine, arg uint16) {
@@ -703,15 +571,16 @@ func ZRestart(zm *ZMachine) {
 
 	zm.buf[1] = 156 // TODO: Set config of z-machine. See z-machine header flag at offset 1
 
-	zm.buf[22] = 49  // screen rows
-	zm.buf[33] = 232 // screen cols
+	zm.buf[22] = 48  // screen rows
+	zm.buf[33] = 228 // screen cols
 
 	// Z-Machine standard 1.1
 	zm.buf[50] = 1
 	zm.buf[51] = 1
 
-	zm.buf[16] = 0  // flags
-	zm.buf[17] = 16 // flags
+	zm.buf[16] = 0 // flags
+	//zm.buf[17] = 16 // flags
+	zm.buf[17] = 0 // flags
 }
 
 func (zm *ZMachine) GetPropertyDefault(propertyIndex uint16) uint16 {

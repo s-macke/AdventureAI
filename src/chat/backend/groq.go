@@ -68,6 +68,12 @@ func NewGroqChat(systemMsg string, backend string) *GroqChat {
 		cs.model = "llama3-8b-8192"
 	case "llama3-70b":
 		cs.model = "llama3-70b-8192"
+	case "llama3.1-8b":
+		cs.model = "llama-3.1-8b-instant"
+	case "llama3.1-70b":
+		cs.model = "llama-3.1-70b-versatile"
+	case "llama3.1-405b":
+		cs.model = "llama-3.1-405b-reasoning"
 	case "gemma2":
 		cs.model = "gemma2-9b-it"
 	default:
@@ -131,7 +137,7 @@ func (cs *GroqChat) GetResponse(ch *ChatHistory) (string, int, int) {
 			Content: m.Content,
 		})
 	}
-	for attempts := 0; attempts < 10; attempts++ {
+	for attempts := 0; attempts < 30; attempts++ {
 		response, err := cs.CallGroq(&request)
 		if err == nil {
 			return response.Choices[0].Message.Content, 0, 0

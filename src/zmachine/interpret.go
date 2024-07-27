@@ -1,6 +1,8 @@
 package zmachine
 
-import "strconv"
+import (
+	"strconv"
+)
 
 func (zm *ZMachine) InterpretLongVARInstruction() {
 	opcode := zm.ReadByte()
@@ -49,6 +51,9 @@ func (zm *ZMachine) InterpretVARInstruction() {
 		fn(zm, opValues, numOperands)
 	} else {
 		fn := ZFunctions_VAR[instruction]
+		if fn == nil {
+			panic("VAR Instruction" + strconv.Itoa(int(instruction)) + " not supported")
+		}
 		fn(zm, opValues, numOperands)
 	}
 }
@@ -119,6 +124,9 @@ func (zm *ZMachine) InterpretExtended() {
 		// Restore Undo
 		zm.Restore()
 		zm.StoreResult(1)
+		break
+	case 11:
+		// Print Unicode Character
 		break
 
 	default:

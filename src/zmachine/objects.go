@@ -37,7 +37,7 @@ func (zm *ZMachine) InitObjectsConstants() {
 
 func (zm *ZMachine) GetObjectEntryAddress(objectIndex uint16) uint32 {
 	if objectIndex > MAX_OBJECT || objectIndex == 0 {
-		fmt.Printf("Index: %d\n", objectIndex)
+		fmt.Printf("Invalid Index: %d\n", objectIndex)
 		panic("Invalid object index")
 	}
 

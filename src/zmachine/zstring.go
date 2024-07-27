@@ -8,7 +8,7 @@ import (
 // V3 only
 // Returns offset pointing just after the string data
 func (zm *ZMachine) DecodeZString(startOffset uint32) uint32 {
-
+	//fmt.Println("Decode Z String", startOffset)
 	done := false
 	var zchars []uint8
 
@@ -30,11 +30,13 @@ func (zm *ZMachine) DecodeZString(startOffset uint32) uint32 {
 
 		i += 2
 	}
+
 	//fmt.Println("ZChars", zchars)
 	alphabetType := 0
-	// TODO the treatment of zchars is different on the z-Machine version
+	// TODO the treatment of zchars is different on the Z-Machine version
 	for i := 0; i < len(zchars); i++ {
 		zc := zchars[i]
+		//fmt.Println(i, zc)
 
 		// z Characters 1,2,3 represent abbreviations, sometimes also called synonyms
 		if zc > 0 && zc < 4 {
@@ -69,12 +71,11 @@ func (zm *ZMachine) DecodeZString(startOffset uint32) uint32 {
 		// Z-character 6 from A2 means that the two subsequent Z-characters specify a ten-bit ZSCII character code:
 		// the next Z-character gives the top 5 bits and the one after the bottom 5.
 		if alphabetType == 2 && zc == 6 {
-
-			zc10 := (uint16(zchars[i+1]) << 5) | uint16(zchars[i+2])
-			PrintZChar(&zm.Output, zc10)
-
+			if len(zchars) > i+2 { // only valid, if the next zchars exist
+				zc10 := (uint16(zchars[i+1]) << 5) | uint16(zchars[i+2])
+				PrintZChar(&zm.Output, zc10)
+			}
 			i += 2
-
 			alphabetType = 0
 			continue
 		}

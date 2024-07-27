@@ -20,145 +20,14 @@ func Init(filename string) *zmachine.ZMachine {
 	var header zmachine.ZHeader
 	header.Read(buffer)
 
-	if header.Version != 3 && header.Version != 5 {
-		panic("Only Version 3 and 5 files supported. But found version " + strconv.Itoa(int(header.Version)))
+	if header.Version != 3 && header.Version != 5 && header.Version != 8 {
+		panic("Only Version 3 or 5 or 8 files supported. But found version " + strconv.Itoa(int(header.Version)))
 	}
 
 	zm := zmachine.NewZMachine(filepath.Base(filename), buffer, header)
 	return zm
 }
 
-/*
-// for 9:05
-	var commands = []string{
-		"answer phone",
-		"stand",
-		"s",
-		"remove watch",
-		"remove clothes",
-		"drop all",
-		"enter shower",
-		"take watch",
-		"wear watch",
-		"n",
-		"get all from table",
-		"open dresser",
-		"get clothes",
-		"wear clothes",
-		"e",
-		"open front door",
-		"s",
-		"open car with keys",
-		"enter car",
-		"no",
-		"yes",
-		"open wallet",
-		"take ID",
-		"insert card in slot",
-		"enter cubicle",
-		"read note",
-		"take form and pen",
-		"sign form",
-		"out",
-		"west",
-		"RESTART",
-		"look under bed",
-		"look at corpse",
-		"stand",
-		"s",
-		"remove watch",
-		"remove clothes",
-		"drop all",
-		"enter shower",
-		"take watch",
-		"wear watch",
-		"n",
-		"get all from table",
-		"open dresser",
-		"get clothes",
-		"wear clothes",
-		"e",
-		"open front door",
-		"s",
-		"open car with keys",
-		"enter car",
-		"yes",
-		"no",
-		"yes",
-	}
-*/
-// for Suveh Nux
-/*
-var commands = []string{
-	"look",
-	"x cage", "x scroll", "x shelf", "x floor", "x door", "x me",
-	"touch shelf", "take vial", "x vial", "shake vial",
-	"x book", "open book",
-	"say suveh nux",
-	"look", "take scroll", "x it", "put it on shelf",
-
-	"x creature", "listen",
-	"x parchment", "x crystal", "take crystal",
-	"x vial", "x door", "x floor", "x ceiling",
-	"x north wall", "x east wall", "x south wall", "x west wall",
-	"x shelf",
-	"x book",
-	"x cover", "turn to page two",
-
-	"say aveh tia",
-	"say suveh tia",
-
-	"turn page", "say aveh madah", "say suveh madah",
-	"turn page", "say suveh sensi", "say aveh sensi",
-	"turn page", "say aveh haiak", "touch hands", "say suvek haiak",
-	"turn page", "say aveh nux ani mato", "z", "z", // light goes out
-
-	"say suveh nux ani mato", "z", "z",
-	"say aveh nux ani to", "z", "say suveh nux", // light goes on
-
-	"point at cage", "point at crystal",
-	"point at me", "point at door",
-	"point at floor", "point at ceiling",
-	"point at east wall", "point at south wall",
-	"point at west wall", "point at shelf",
-	"point at scroll", "point at parchment",
-	"point at book", "point at vial",
-	"point at creature", // Don't know where it is
-
-	// capture invisible creature
-	"aveh haiak tolanisu", // floor becomes sticky
-	"listen", "search floor",
-	"touch creature", "point at creature", "put creature in cage",
-	"suveh haiak tolanisu", // the floor is no longer sticky
-
-	// open door
-	"suveh tia fireno ani matoto",
-	"suveh tia fireno ani tomato",
-	"aveh tia fireno ani tomato",
-	"aveh tia fireno ani mamato",
-	"aveh tia fireno ani toto",
-	"aveh tia fireno ani mato",
-	"z",
-	"z",
-
-	// move the block
-	"x block", "point at block",
-	"suveh tia fireno", "suveh tia fireno",
-	"suveh tia firenos", "suveh tia firenos",
-	"push block", "pull block",
-	//"save",
-	"aveh haiak firenos",
-	"pull block",
-	"aveh haiak",
-	"pull block",
-	"suveh madah firenos",
-	"pull block",
-	"aveh madah firenos",
-	"suveh madah firenos ani to", "suveh madah firenos",
-	"pull block",
-}
-var commandIndex = 0
-*/
 func Input() string {
 	/*
 		if commandIndex < len(commands) {
@@ -176,14 +45,15 @@ func Main() {
 	filename := flag.String("file", "905.z5", "Z-Machine file to run")
 	doChat := flag.Bool("ai", false, "Chat with AI")
 	prompt := flag.String("prompt", "react", "Chat with AI via prompt 'simple', or 'discuss', 'react' (reason and act) or 'history_react'")
-	backend := flag.String("backend", "gpt-4-turbo", "Select AI backend. One of\n"+
-		"'gpt-3.5', 'gpt-4', 'gpt-4-turbo', 'gpt-4o', , 'gpt-4o-mini' \n"+
-		"'orca2',\n"+
-		"'mistral',\n"+
-		"'gemini-15-pro', 'gemini-15-flash',\n"+
-		"'opus-3', 'sonnet-35',\n"+
-		"'llama3-8b', 'llama3-70b',\n"+
-		"'gemma2'")
+	backend := flag.String("backend", "gpt-4o", "Select AI backend. One of\n"+
+		"OpenAI:    'gpt-3.5', 'gpt-4', 'gpt-4-turbo', 'gpt-4o', , 'gpt-4o-mini' \n"+
+		"llama.cpp: 'orca2',\n"+
+		"Mistral:   'mistral',\n"+
+		"Gemini:    'gemini-15-pro', 'gemini-15-flash',\n"+
+		"Anthropic: 'opus-3', 'sonnet-35',\n"+
+		"Groq:      'llama3-8b', 'llama3-70b',\n"+
+		"Groq:      'gemma2',\n"+
+		"Together:  'llama3.1-8b', 'llama3.1-70b', 'llama3.1-405b'\n")
 	oldStoryFilename := flag.String("story", "", "Continue from story file")
 	flag.Parse()
 
@@ -201,7 +71,7 @@ func Main() {
 		if zm.Output.Len() > 0 {
 			if zm.WindowId == 0 {
 				_, _ = os.Stdout.WriteString(zm.Output.String())
-				//fmt.Println("Score: ", zm.ReadGlobal(59)) // Score for
+				//fmt.Println("Score: ", zm.ReadGlobal(59)) // Score for Suveh Nux
 			}
 			zm.Output.Reset()
 		}

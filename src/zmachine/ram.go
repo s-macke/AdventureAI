@@ -39,12 +39,17 @@ func (zm *ZMachine) SetUint8(offset uint32, v uint8) {
 	zm.buf[offset] = v
 }
 
-// " Given a packed address P, the formula to obtain the corresponding byte address B is:
+// Given a packed address P, the formula to obtain the corresponding byte address B is:
 //
-//	2P           Versions 1, 2 and 3"
+//		2P           Versions 1, 2 and 3
+//		4P           Versions 4, 5
+//	    8P			 Version 8
 func (zm *ZMachine) PackedAddress(a uint32) uint32 {
 	if zm.header.Version <= 3 {
 		return a * 2
 	}
-	return a * 4
+	if zm.header.Version <= 5 {
+		return a * 4
+	}
+	return a * 8
 }

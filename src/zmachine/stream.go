@@ -4,6 +4,12 @@ import "strconv"
 
 func ZOutputStream(zm *ZMachine, args []uint16, numArgs uint16) {
 	switch int16(args[0]) {
+	case 1:
+		//ostream_screen = TRUE;
+		break
+	case -1:
+		//ostream_screen = FALSE;
+		break
 	case -3: // memory_close
 		zm.outputstream = 0
 		break

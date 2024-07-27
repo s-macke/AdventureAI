@@ -6,13 +6,12 @@ import (
 )
 
 type MistralChat struct {
-	totalCompletionTokens int
-	totalPromptTokens     int
-	client                *mistral.MistralClient
-	prompt                string
+	client *mistral.MistralClient
+	prompt string
+	model  string
 }
 
-func NewMistralChat(systemMsg string) *MistralChat {
+func NewMistralChat(systemMsg string, backend string) *MistralChat {
 	key := os.Getenv("MISTRAL_API_KEY")
 	if key == "" {
 		panic(" MISTRAL_API_KEY env var not set")
@@ -21,6 +20,10 @@ func NewMistralChat(systemMsg string) *MistralChat {
 	cs := &MistralChat{
 		client: mistral.NewMistralClientDefault(key),
 	}
+	cs.model = "open-mistral-7b"
+	cs.model = "open-mixtral-8x7b"
+	cs.model = "open-mixtral-8x22b"
+	cs.model = "open-mixtral-8x22b"
 
 	return cs
 

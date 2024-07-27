@@ -2,7 +2,8 @@
   
 # AdventureAI
 
-Interactive Fiction in the Age of AI
+Interactive 
+Fiction in the Age of AI
 
 </div>
   
@@ -17,10 +18,12 @@ With the emergence of Chatbots that genuinely live up to their name, a significa
  
 This repository aims to provide an answer to these questions.
 
-Due to the costs, I have so far only conducted analysis on two games 
+So far I have conducted analysis on four games 
  
 - ["9:05" by Adam Cadre](https://en.wikipedia.org/wiki/9:05) This game is considered to be one of the finest compact text adventures for novices.
 - ["Suveh Nux" by David Fisher](https://ifdb.org/viewgame?id=xkai23ry99qdxce3) A short, puzzle-oriented piece of interactive fiction.
+- ["Violet" by Jeremy Freese](https://ifdb.org/viewgame?id=4glrrfh7wrp9zz7b) All you have to do is write a thousand words and everything will be fine.
+- ["Shade" by Andrew Plotkin ](https://ifdb.org/viewgame?id=hsfc7fnl40k4a30q) A one-room game set in your apartment.
 
 # Detailed breakdown of "9:05"
 
@@ -155,25 +158,31 @@ This benchmark tests the following aspects:
 * The speed to solve the puzzles. This often correlates with the ability to solve a puzzle at all.
 * Basic knowledge of text adventures. Especially the concept of short clear commands and variations to try.
 * Further knowledge about text adventures. Especially the command "inventory".
-* Long context support, because the LLM receives all steps performed so far as input.
+* Long context recall, because the LLM receives all steps performed so far as input.
 
-### Results for 9:05
+### Results
 
-Because the game is linear I have chosen 13 specific points in the game, for which each gives one point.
+![image info](./extract/progress/progress.png)
+[All runs as JSON](./storydump)
+
+Example runs:
+
+* [9:05](assets%2F905_benchmark.md)
+* [Suveh Nux](assets%2Fsuveh_nux_benchmark.md)
+* [Shade](assets%2Fshade_benchmark.md)
+* [Violet](assets%2Fviolet_benchmark.md)
+
+Because the game 9:05 is linear I have chosen 13 specific points in the game, for which each gives one point.
 11 points are necessary to reach the first ending.
-
-![image info](./extract/progress/905_progress.png)
-[data](./storydump)
 
 All models so far solve the first steps of the game. Sonnet 3.5 and GPT-4 are on top.
 The progress between 11 and 12 points is the most difficult one and wouldn't be solved by any of the other models, except Sonnet 3.5.
 
-### Results for Suveh Nux
+The game Suveh Nux is non-linear, however comes with an internal scoring system. This scoring is shown on the y-axis.
+Claude Sonnet 3.5 beats all other models by far.
 
-The game is non-linear, however comes with an internal scoring system. This scoring is shown on the y-axis.
-
-![image info](./extract/progress/suvehnux_progress.png)
-[data](./storydump)
+The games Violet and Shade are a linear one-room experience and relatively easy to solve.
+Here the gap between Sonnet 3.5 and the other models is much less significant.  
 
 ### Comparison of different prompting patterns
 
@@ -212,7 +221,7 @@ This repository contains an interpreter for Z-Machine files, specifically suppor
 
 ## Features
 
-- Read and interpret Z-Machine files (version 3 supported and version 5 partially supported)
+- Read and interpret Z-Machine files (version 3, 5, 8 supported)
 - Run against different chat bot models.
 - Use different prompting techniques such as ReAct.
 - Store the whole run with meta information in a json file.

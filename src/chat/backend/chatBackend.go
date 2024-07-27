@@ -11,7 +11,7 @@ func NewChatBackend(prompt string, backendAsString string) ChatBackend {
 	case "orca2":
 		return NewLlamaChat(prompt, backendAsString)
 	case "mistral":
-		return NewMistralChat(prompt)
+		return NewMistralChat(prompt, backendAsString)
 	case "gemini-15-pro", "gemini-15-flash":
 		return NewVertexAIChat(prompt, backendAsString)
 	case "opus-3", "sonnet-35":
@@ -20,10 +20,14 @@ func NewChatBackend(prompt string, backendAsString string) ChatBackend {
 		return NewLlamaChat(prompt, backendAsString)
 	case "gemma2":
 		return NewGroqChat(prompt, backendAsString)
-	case "llama3-8b":
+	case "llama3-8b", "llama3-70b":
 		return NewGroqChat(prompt, backendAsString)
-	case "llama3-70b":
-		return NewGroqChat(prompt, backendAsString)
+		//	case "llama3.1-8b", "llama3.1-70b", "llama3.1-405b":
+		//		return NewTogetherChat(prompt, backendAsString)
+	case "llama3.1-8b", "llama3.1-70b", "llama3.1-405b":
+		return NewDeepInfraChat(prompt, backendAsString)
+	case "qwern2-72b", "phi3-medium":
+		return NewDeepInfraChat(prompt, backendAsString)
 	default:
 		panic("Unknown backend")
 	}

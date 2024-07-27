@@ -4,7 +4,6 @@ import (
 	"flag"
 	"fmt"
 	"os"
-	"strings"
 )
 
 func PrintStory(state *StoryHistory) {
@@ -32,10 +31,12 @@ func PrintStory(state *StoryHistory) {
 			_, _ = fmt.Fprintln(fi, message.Content)
 		}
 		if message.Role == "assistant" {
-			text := "> * " + message.Meta
-			text = strings.Replace(text, "\n\n", "\n", -1)
-			text = strings.Replace(text, "\n", "\n> * ", -1)
-
+			text := "> " + message.Content
+			/*
+				text := "> * " + message.Meta
+				text = strings.Replace(text, "\n\n", "\n", -1)
+				text = strings.Replace(text, "\n", "\n> * ", -1)
+			*/
 			_, _ = fmt.Fprintln(fi, text)
 			_, _ = fmt.Fprintln(fi, "")
 		}
@@ -65,6 +66,12 @@ func RenameModel(name string) string {
 		return "Llama 3 70B"
 	case "llama3-8b":
 		return "Llama 3 8B"
+	case "llama3.1-8b":
+		return "Llama 3.1 8B"
+	case "llama3.1-70b":
+		return "Llama 3.1 70B"
+	case "llama3.1-405b":
+		return "Llama 3.1 405B"
 	case "gemma-2":
 		return "Gemma 2"
 	case "gemini-15-pro":
@@ -81,6 +88,9 @@ func main() {
 	if *progress {
 		PlotProgress("suvehnux")
 		PlotProgress("905")
+		PlotProgress("shade")
+		PlotProgress("violet")
+		//PlotProgress("ChildsPlay")
 		os.Exit(0)
 	}
 
