@@ -287,6 +287,7 @@ export MISTRAL_API_KEY="<<<put_your_key_here>>>"
 export GROQ_API_KEY="<<<put_your_key_here>>>"
 export GEMINI_API_KEY="<<<put_your_key_here>>>"
 export ANTHROPIC_API_KEY="<<<put_your_key_here>>>"
+export DEEPINFRA_TOKEN="<<<put_your_key_here>>>"
 ```
 
 ### Example:
