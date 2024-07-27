@@ -1,0 +1,1609 @@
+{
+ "promptPattern": "simple",
+ "model": "qwen2-72b",
+ "prompt": "You act as a player of an interactive text adventure game. The goal is to win the game.\nThe user provides the text of the text adventure, as well as the initial scenario.\nThe user is not a human and will only prints the output of the game.\n\nYour task is to respond with simple commands, typically one or two words.\n\t\t",
+ "date": "2024-07-27_17-47-12",
+ "name": "905.z5",
+ "messages": [
+  {
+   "role": "user",
+   "content": "\n\n\n\nThe phone rings.\n\nOh, no - how long have you been asleep? Sure, it was a tough night, but... This is bad. This is very bad.\n\nThe phone rings.\n\n  -----\n9:05 by Adam Cadre\nv1.12 (2016.0430) / Original release 2000.0103\n  -----\n\nBedroom (in bed)\nThis bedroom is extremely spare, with dirty laundry scattered haphazardly all over the floor. Cleaner clothing can be found in the dresser. A bathroom lies to the south, while a door to the east leads to the living room.\n\nOn the end table are a telephone, a wallet and some keys.\n\nThe phone rings.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "answer phone",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You pick up the phone. \"Hadley!\" a shrill voice cries. \"Hadley, haven't you even left yet?? You knew that our presentation was at nine o'clock sharp! First the thing with the printers, now this - there won't even be enough left of you for Bowman to fire once he's done with you. Now get the hell down here!!\"\n\nClick.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 1
+  },
+  {
+   "role": "assistant",
+   "content": "get wallet",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Taken.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 1
+  },
+  {
+   "role": "assistant",
+   "content": "get keys",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Taken.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 1
+  },
+  {
+   "role": "assistant",
+   "content": "go to bathroom",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You'll have to get out of bed first.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 1
+  },
+  {
+   "role": "assistant",
+   "content": "get out of bed",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You get out of bed.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "go to bathroom",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "\nBathroom\nThis is a far from luxurious but still quite functional bathroom, with a sink, toilet and shower. The bedroom lies to the north.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "use toilet",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Good idea. A few moments and a loud flush later you feel much better.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "go to bedroom",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "\nBedroom\nThis bedroom is extremely spare, with dirty laundry scattered haphazardly all over the floor. Cleaner clothing can be found in the dresser. A bathroom lies to the south, while a door to the east leads to the living room.\n\nOn the end table is a telephone.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "go to living room",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "\nLiving room\nThe furniture isn't as carefully arranged as one might like, and it's a bit lacking in the luxuries that might make this a more pleasant place to spend an evening - no stereo, no TV, no DVD, none of that - but this living room is still nicer than most of those in this neighborhood. A kitchenette lies to the east, the bedroom to the west and the front door to the south.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "go to kitchenette",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error. (This could mean a number of things: a noun used in your command may not be present, or it may be present but not visible; it may be scenery you can't interact with; you may have specified too many indirect objects; you may have misspelled something; the list goes on.)]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "go east",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "\nKitchenette\nYou don't really have time to poke around and cook yourself a fabulous breakfast right now. Best to keep your time here limited. The exit is west.\n\nOn the counter are a toaster and a Pop-Tart.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "take Pop-Tart",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Taken.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "go west",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "\nLiving room\nThe furniture isn't as carefully arranged as one might like, and it's a bit lacking in the luxuries that might make this a more pleasant place to spend an evening - no stereo, no TV, no DVD, none of that - but this living room is still nicer than most of those in this neighborhood. A kitchenette lies to the east, the bedroom to the west and the front door to the south.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "go south",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "The front door is closed.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "open front door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You open the front door.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "go south",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You need to clear out quickly, true, but you look like an absolute wreck - going out in this condition and drawing the inevitable bewildered stares would just be making a bad situation worse.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "go back to bathroom",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error. (This could mean a number of things: a noun used in your command may not be present, or it may be present but not visible; it may be scenery you can't interact with; you may have specified too many indirect objects; you may have misspelled something; the list goes on.)]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "go to bathroom",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error. (This could mean a number of things: a noun used in your command may not be present, or it may be present but not visible; it may be scenery you can't interact with; you may have specified too many indirect objects; you may have misspelled something; the list goes on.)\n\nIf you are unfamiliar with the conventions of interactive fiction, you may wish to play through the tutorial at http://adamcadre.ac/if.html - it explains how to phrase commands in a way that produces fewer errors.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "go west",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "\nBedroom\nThis bedroom is extremely spare, with dirty laundry scattered haphazardly all over the floor. Cleaner clothing can be found in the dresser. A bathroom lies to the south, while a door to the east leads to the living room.\n\nOn the end table is a telephone.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "go to dresser",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "That's not something you can enter.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "search dresser",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You can't see inside, since the dresser is closed.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "open dresser",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You open the dresser, revealing some clean clothing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "take clean clothing",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Taken.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "go to bathroom",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "\nBathroom\nThis is a far from luxurious but still quite functional bathroom, with a sink, toilet and shower. The bedroom lies to the north.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "get dressed",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "use clean clothing",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You'll have to take off the soiled clothes you're wearing first.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "take off soiled clothes",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You take off the soiled clothing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "use clean clothing",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "It seems ridiculous to put on fresh, clean clothes when you yourself are covered with mud and dried sweat.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "take shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You don't think the watch you're wearing is waterproof.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "take off watch",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You take off the gold watch.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "take shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Carrying your possessions into the shower is a bad idea.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "put down wallet put down keys",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"put down the wallet.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "put down wallet",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Dropped.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "put down keys",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Dropped.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "take shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Carrying your possessions into the shower is a bad idea.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "leave wallet leave keys leave watch leave Pop-Tart",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "put wallet on counter put keys on counter put watch on counter put Pop-Tart on counter",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.\n\nAgain, if you're getting frustrated, please consider playing through the tutorial at http://adamcadre.ac/if.html.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "go to counter",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "go to kitchenette",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "go east",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "That isn't a useful direction from here.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "go to living room",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "go west",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "That isn't a useful direction from here.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "go south",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "That isn't a useful direction from here.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "examine surroundings",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "look around",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "look",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "\nBathroom\nThis is a far from luxurious but still quite functional bathroom, with a sink, toilet and shower. The bedroom lies to the north.\n\nYou can also see some keys and a wallet (which is closed) here.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "take shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Carrying your possessions into the shower is a bad idea.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "remove wallet remove keys remove watch remove Pop-Tart",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"remove the wallet.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "remove wallet from me remove keys from me remove watch from me remove Pop-Tart from me",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"remove the wallet.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "drop wallet drop keys drop watch drop Pop-Tart",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"drop the wallet.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "leave wallet leave keys leave watch leave Pop-Tart",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "put wallet on floor put keys on floor put watch on floor put Pop-Tart on floor",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"put the wallet on the ground.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "go to floor",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "That isn't a useful direction from here.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "put wallet down put keys down put watch down put Pop-Tart down",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"put the wallet down.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "drop wallet drop keys drop watch drop Pop-Tart",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"drop the wallet.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "use shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Carrying your possessions into the shower is a bad idea.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "remove items from me use shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "remove all items from me use shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: That verb cannot take multiple objects.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "remove all items use shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: That verb cannot take multiple objects.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "remove every item use shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: That verb cannot take multiple objects.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "remove wallet remove keys remove watch remove Pop-Tart use shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"remove the wallet.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "drop wallet drop keys drop watch drop Pop-Tart use shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"drop the wallet.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "inventory",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You are carrying:\n  some clean clothing\n  a Pop-Tart\n  some soiled clothing\n  a gold watch\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "remove clean clothing remove Pop-Tart remove soiled clothing remove gold watch use shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"remove the clean clothing.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "drop clean clothing drop Pop-Tart drop soiled clothing drop gold watch use shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"drop the clean clothing.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "take off clean clothing take off Pop-Tart take off gold watch take off soiled clothing use shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "remove soiled clothing use shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"remove the soiled clothing.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "take off soiled clothing use shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "remove wallet remove keys remove watch remove Pop-Tart take off soiled clothing use shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"remove the wallet.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "inventory",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You are carrying:\n  some clean clothing\n  a Pop-Tart\n  some soiled clothing\n  a gold watch\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "remove soiled clothing use shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"remove the soiled clothing.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "take off soiled clothing",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're not wearing that.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "wear clean clothing use shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"wear the clean clothing.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "put on clean clothing use shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "take off clean clothing use shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "take off soiled clothing use shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "take off shirt take off pants take off underwear use shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "remove shirt remove pants remove underwear use shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "remove all clothing use shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "take off all clothing use shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "strip use shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Verb error. (This generally means that the first word of your command was not recognized.)]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "remove clothes use shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "take off everything use shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "use shower nude",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"use the shower.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "take shower nude",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"take the shower.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "shower nude",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"shower.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "shower without clothes",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"shower.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "use shower without clothes",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"use the shower.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "go to shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Carrying your possessions into the shower is a bad idea.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "enter shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Carrying your possessions into the shower is a bad idea.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "drop all items enter shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "drop all items use shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "leave all items use shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: That verb cannot take multiple objects.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "leave everything use shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "remove all items use shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: That verb cannot take multiple objects.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "remove everything use shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "remove all clothing use shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "remove wallet remove keys remove watch remove Pop-Tart shower without clothes",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"remove the wallet.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "shower nude without items",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"shower.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "shower without items nude",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  }
+ ]
+}

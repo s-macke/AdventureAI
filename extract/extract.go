@@ -76,6 +76,12 @@ func RenameModel(name string) string {
 		return "Gemma 2"
 	case "gemini-15-pro":
 		return "Gemini 1.5 Pro"
+	case "qwen2-72b":
+		return "Qwen2 72B"
+	case "phi3-medium":
+		return "Phi 3 Medium"
+	case "phi3-mini":
+		return "Phi 3 Mini"
 
 	}
 	return name

@@ -22,11 +22,13 @@ func NewChatBackend(prompt string, backendAsString string) ChatBackend {
 		return NewGroqChat(prompt, backendAsString)
 	case "llama3-8b", "llama3-70b":
 		return NewGroqChat(prompt, backendAsString)
-		//	case "llama3.1-8b", "llama3.1-70b", "llama3.1-405b":
-		//		return NewTogetherChat(prompt, backendAsString)
+	//	case "llama3.1-8b", "llama3.1-70b", "llama3.1-405b":
+	//		return NewTogetherChat(prompt, backendAsString)
 	case "llama3.1-8b", "llama3.1-70b", "llama3.1-405b":
 		return NewDeepInfraChat(prompt, backendAsString)
-	case "qwern2-72b", "phi3-medium":
+	//case "llama3.1-8b", "llama3.1-70b", "llama3.1-405b":
+	//	return NewGroqChat(prompt, backendAsString)
+	case "qwen2-72b", "phi3-medium", "phi3-mini":
 		return NewDeepInfraChat(prompt, backendAsString)
 	default:
 		panic("Unknown backend")

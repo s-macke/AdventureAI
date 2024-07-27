@@ -38,6 +38,8 @@ func NewDeepInfraChat(systemMsg string, backend string) *DeepInfraChat {
 		cs.model = "Qwen/Qwen2-72B-Instruct"
 	case "phi3-medium":
 		cs.model = "microsoft/Phi-3-medium-4k-instruct"
+	case "phi3-mini":
+		cs.model = "microsoft/Phi-3-mini-4k-instruct"
 
 	default:
 		panic("Unknown backend")

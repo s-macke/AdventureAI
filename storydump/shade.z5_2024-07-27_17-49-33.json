@@ -1,0 +1,1609 @@
+{
+ "promptPattern": "simple",
+ "model": "gemini-15-pro",
+ "prompt": "You act as a player of an interactive text adventure game. The goal is to win the game.\nThe user provides the text of the text adventure, as well as the initial scenario.\nThe user is not a human and will only prints the output of the game.\n\nYour task is to respond with simple commands, typically one or two words.\n\t\t",
+ "date": "2024-07-27_17-49-33",
+ "name": "shade.z5",
+ "messages": [
+  {
+   "role": "user",
+   "content": "\n\n    *** SHADE ***\nA brief story by \"Ampe R. Sand\" (Andrew Plotkin)\nFirst-time players should type \"about\".\nRelease 3 / Serial number 001107 / Inform v6.21 Library 6/10 \n\nOdd, how the light just makes your apartment gloomier. Pre-dawn darkness pools in the corners and around the tops of walls. Your desk lamp glares yellow, but the shadows only draw your eyes and deepen.\n\nNot much of an apartment, no. One desk, paper-piled, with a dusty computer shoved to the side. Your futon. Second-hand stereo sitting on a cardboard crate. A kitchen nook one way and a bathroom nook the other, with a closet to the side. A broad mirror tries to make the place seem twice its size; it halfway works. One window, whose shade is down, and the front door firmly shut.\n\nYour luggage is piled untidily by the door. A potted hyacinth sits beneath the window.\n\nYou are sprawled on the futon, staring up into that gloom. Your eyes feel gritty. But it's too late -- early -- no time left for sleep, anyway. In a few hours your ride will arrive.\n\nOn the desk are your to-do list and a travel book.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "read list",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You won't accomplish much while slumped on the futon. That's been getting slowly more apparent for hours now.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "stand up",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You lever yourself upright. Umf. It's amazing how much lack of sleep feels like a hangover, only without the preceding party.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 1
+  },
+  {
+   "role": "assistant",
+   "content": "read list",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You sit down at the desk.\n\nThe task list for your impending journey is a mess of crossed-out items and scribbled corrections. However, everything seems to have gotten done. The last line reads \"Call taxi\", and it has its checkmark, and here you wait.\n\nCome to think of it, as with a hangover, dehydration is probably the problem. Your mouth is dry wool.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "get water",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Which do you mean, the water from the bathroom sink, the water from the shower or the water from the kitchen sink?\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "kitchen sink",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You stand up, and step into the kitchen nook.\n\nYou have nothing in which to carry water.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "open cupboards",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You can't see any such thing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "look around",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to look.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "look",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You survey your one small room. The kitchen alcove has a refrigerator, a sink, a stove, and barely enough space to stand between them. One wall projects out to form a counter, with a cupboard beneath it.\n\nOn the counter is a glass.\n\nThe rest of the place is mostly filled by your futon, and the computer desk in the corner. The bathroom alcove is across from you, and the closet next to it. The stereo sits on a cardboard crate. A broad mirror tries to make the place seem twice its size; it halfway works. One window, whose shade is down, and the front door firmly shut.\n\nThe place is still too dim, except the corner where the desk lamp is somehow too bright.\n\nYour luggage is piled untidily by the door. A potted hyacinth sits beneath the window.\n\nOn the desk are your to-do list and a travel book.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "take glass",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Taken.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "fill glass with water",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "(the water from the kitchen sink)\nNothing comes from the tap but an eerie distant howling. The kitchen sink hasn't worked since you moved in.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 4
+  },
+  {
+   "role": "assistant",
+   "content": "open fridge",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You open the refrigerator, revealing a jar of peanut butter.\n\nYou're still feeling thirsty.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 5
+  },
+  {
+   "role": "assistant",
+   "content": "close fridge",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You close the refrigerator.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 5
+  },
+  {
+   "role": "assistant",
+   "content": "look at list",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You step out of the kitchen nook, and sit down at the desk.\n\nThe task list for your impending journey is a mess of crossed-out items and scribbled corrections. However, everything seems to have gotten done. The last line reads \"Call taxi\", and it has its checkmark, and here you wait.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "look at travel book",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "The Schmendrick's Guide to Desert Camping -- you've been studying it for weeks now. Vast alien reams of information: perspiration rates, sunburn factors, tent guying, and how to make a condensation still out of a trashbag and a tin can. You could probably write the book out longhand from memory; and none of it means a damn thing to you.\n\n(That's why you're going on this trip, after all. It is, of course, the Death Valley Om -- half arts festival, half cult, a week in the deep desert where people show off, have sex, take drugs, and maintain a twenty-four-hour constant OM. Sand, heat, and thousands of throats. A space outside the world; with no dues except that you join in the chant, as much as is in you to chant.)\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "look at glass",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "An ordinary drinking glass.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "drop glass",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Dropped (onto the desk).\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\nYou run your tongue over dry teeth.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\nYou're still feeling thirsty.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "look at phone",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You can't see any such thing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "look around",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to look.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "look",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You glance around. The desk is, of course, an organized mess; overlapping piles of paper, inches high. The computer is a dusty beige block, several generations out of date, poking up hopefully from among the strata. The lamp hangs over all.\n\nA game-over message is flashing on the screen.\n\nYou see a glass, your to-do list and a travel book on the desk.\n\nBehind you, the futon takes up most of the apartment. A second-hand stereo sits on a cardboard crate. A kitchen nook one way and a bathroom nook the other, with a closet to the side. A broad mirror tries to make the place seem twice its size; it halfway works. One window, whose shade is down, and the front door firmly shut.\n\nThe place is still too dim, except the corner where the desk lamp is somehow too bright.\n\nYour luggage is piled untidily by the door. A potted hyacinth sits beneath the window.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "look at computer",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "The computer is years old, and incompatible with just about everything but electricity. You use it for writing -- at least, you try to believe that you do.\n\nRight now, however, there's a game on the screen -- one of the text adventures, or interactive fictions, or whatever they are this month -- the only kind of game your beige antique can run, anyway.\n\nThe you-have-died message is blinking morosely at you. You started up Ready, Okay! last night, trying to distract yourself until morning. But you can't get even halfway through without running out of insulin.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "turn off computer",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You hit the power key; the computer gives a tiny sigh and shuts down.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\nYou run your tongue over dry teeth.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\nYou're still feeling thirsty.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "open door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You stand up.\n\nThe sun hasn't risen; what light you have would just leak out into the night. Anyway, the taxi hasn't arrived, so there's nowhere to go.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\nYou run your tongue over dry teeth.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\nYou're still feeling thirsty.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "drink water",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Which do you mean, the water from the bathroom sink, the water from the shower or the water from the kitchen sink?\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "bathroom sink",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You broke that habit of drinking from the faucet when you were eleven.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "open window",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "The window-glass is sealed; it can't open or close. Some notion of thermal efficiency. Truthfully, you like it that way.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "open door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "The sun hasn't risen; what light you have would just leak out into the night. Anyway, the taxi hasn't arrived, so there's nowhere to go.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\nYou run your tongue over dry teeth.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\nYou're still feeling thirsty.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "open door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "The sun hasn't risen; what light you have would just leak out into the night. Anyway, the taxi hasn't arrived, so there's nowhere to go.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\nYou run your tongue over dry teeth.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\nYou're still feeling thirsty.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "open door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "The sun hasn't risen; what light you have would just leak out into the night. Anyway, the taxi hasn't arrived, so there's nowhere to go.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\nYou run your tongue over dry teeth.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\nYou're still feeling thirsty.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "open door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "The sun hasn't risen; what light you have would just leak out into the night. Anyway, the taxi hasn't arrived, so there's nowhere to go.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  }
+ ]
+}

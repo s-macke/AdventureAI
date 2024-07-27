@@ -1,0 +1,33 @@
+{
+ "promptPattern": "simple",
+ "model": "llama3.1-70b",
+ "prompt": "You act as a player of an interactive text adventure game. The goal is to win the game.\nThe user provides the text of the text adventure, as well as the initial scenario.\nThe user is not a human and will only prints the output of the game.\n\nYour task is to respond with simple commands, typically one or two words.\n\t\t",
+ "date": "2024-07-27_15-58-04",
+ "name": "shade.z5",
+ "messages": [
+  {
+   "role": "user",
+   "content": "\n\n    *** SHADE ***\nA brief story by \"Ampe R. Sand\" (Andrew Plotkin)\nFirst-time players should type \"about\".\nRelease 3 / Serial number 001107 / Inform v6.21 Library 6/10 \n\nOdd, how the light just makes your apartment gloomier. Pre-dawn darkness pools in the corners and around the tops of walls. Your desk lamp glares yellow, but the shadows only draw your eyes and deepen.\n\nNot much of an apartment, no. One desk, paper-piled, with a dusty computer shoved to the side. Your futon. Second-hand stereo sitting on a cardboard crate. A kitchen nook one way and a bathroom nook the other, with a closet to the side. A broad mirror tries to make the place seem twice its size; it halfway works. One window, whose shade is down, and the front door firmly shut.\n\nYour luggage is piled untidily by the door. A potted hyacinth sits beneath the window.\n\nYou are sprawled on the futon, staring up into that gloom. Your eyes feel gritty. But it's too late -- early -- no time left for sleep, anyway. In a few hours your ride will arrive.\n\nOn the desk are your to-do list and a travel book.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "go kitchen",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You won't accomplish much while slumped on the futon. That's been getting slowly more apparent for hours now.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  }
+ ]
+}

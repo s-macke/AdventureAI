@@ -1,0 +1,1609 @@
+{
+ "promptPattern": "simple",
+ "model": "qwen2-72b",
+ "prompt": "You act as a player of an interactive text adventure game. The goal is to win the game.\nThe user provides the text of the text adventure, as well as the initial scenario.\nThe user is not a human and will only prints the output of the game.\n\nYour task is to respond with simple commands, typically one or two words.\n\t\t",
+ "date": "2024-07-27_17-37-28",
+ "name": "violet.z8",
+ "messages": [
+  {
+   "role": "user",
+   "content": "\n\n\n\nCalm down.  All you have to do is write a thousand words and everything will be fine.  And you have all day, except it's already noon.\n\nViolet\nA Distraction by Jeremy Freese\nRelease 1, September 2008\n(New readers type ABOUT; HINTS available)\n\nYou told me you were making progress.  Then I find out you haven't finished a paragraph in five months.  What did you expect?\n\nSo now here you are, up in your office.  I am sorry that today is a Saturday.  I am especially sorry that today is your thirtieth birthday.  We had all kinds of adventures planned.  I refuse to feel guilty.\n\nOf course I am still upset.  I will try to set that aside and be encouraging.  I really do want you to succeed today.\n\nPlease just write.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "look around",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to look.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "look",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "When Wisconsin was recruiting your advisor they promised her space for graduate students.  You're in a decrepit building but otherwise it's not bad.\n\nYou've a great big desk in front of a window, a resplendent yellow chair, a cabinet in one corner, a giant cactus in another, and a tall bookcase on the back wall with an incredibly cute stool in front of it.  The door is west.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "check desk",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Of course the big oak desk is unusually posh for a graduate student office.  It belonged to a professor who had a stroke at his computer and none of the other faculty wanted a desk on which once rested the head of a dead colleague.\n\nOn top of the desk are your computer, my itinerary, a framed darling and a pile you cannot even contemplate right now.\n\nThe desk's drawer is closed.  A wastebasket is on the floor to the left.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "open drawer",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You open the drawer and there's a shiny little key and your notebook.\n\nAlthough you write on your computer, you still like to keep a pen and notebook handy because it sometimes helps to work out more complicated sentences in longhand before typing them in.  You've several pens in your bag.\n\nHey, budgie: where's your bag?\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 1
+  },
+  {
+   "role": "assistant",
+   "content": "check under desk",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I don't see what you are talking about.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 1
+  },
+  {
+   "role": "assistant",
+   "content": "look under desk",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Underneath your desk you see the amethyst-encrusted Sword Of Dissertator Melancholia.\n\nUgh.  You were so distracted this morning that you left your bag back at our apartment.  I am a gentle girlfriend and will refrain from marvelling at how it's past noon and you are only realising this now.\n\nYou cannot go get your bag.  You know you are doomed to an afternoon of meandering distraction if you leave this office.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 1
+  },
+  {
+   "role": "assistant",
+   "content": "take key",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Yours, wallaroo.\n\nSomebody is coming up the stairs.  I thought you said no one ever comes in on the weekend?\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "hide behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to hide.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "hide behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to hide.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "hide under desk",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to hide.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "hide under desk",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to hide.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "quick, hide under desk!",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "crawl under desk",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Sorry for being confused, dundeecake, but you're going to have to use a different verb for me to follow you.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "duck under desk",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "sneak under desk",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "go under desk",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I don't see what you are talking about.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "hide under desk",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to hide.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "dive under desk",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "move under desk",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I don't see what you are talking about.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "squeeze under desk",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I don't see what you are talking about.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "crawl under desk",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "kneel under desk",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "lie under desk",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "slip under desk",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "duck and cover under desk",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "hide behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to hide.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "sneak behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "move behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I don't see what you are talking about.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "step behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "walk behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I don't see what you are talking about.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "go behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I don't see what you are talking about.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "approach bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "move to bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I don't see what you are talking about.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "stand behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to stand.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "stand to the side of bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to stand.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "position behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "squeeze behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I don't see what you are talking about.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "squeeze to the side of bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I don't see what you are talking about.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "move sideways to bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I don't see what you are talking about.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "walk sideways to bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I don't see what you are talking about.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "slip behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "duck behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "crouch behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "take cover behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to take the cover.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "find cover behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "conceal behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "position self behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "stand behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to stand.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "hide self behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to hide.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "attempt to hide behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "try to hide behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "take shelter behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I don't see what you are talking about.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "seek shelter behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "gulp, someone's coming, quickly, look for a hiding spot behind the bookcase!",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "peek behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "shelter behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "seek cover behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "take hiding place behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I don't see what you are talking about.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "hide in shadow behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to hide.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "conceal oneself behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "sneak behind bookcase and hide",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "crouch down behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "crawl behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "move stealthily behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I don't see what you are talking about.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "sneak quietly behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "sneak to the side of the bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "tiptoe behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "tiptoe to the side of the bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "scoot behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "scoot to the side of the bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "slither behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "duck behind bookcase quickly",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "quickly move behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "quickly step behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "quickly go behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "quickly approach bookcase and hide",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "quickly sneak behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "quickly slide behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "quickly move to the side of bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "try to quickly hide behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "make a quick dash behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I didn't understand that sentence.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "attempt to quickly hide behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "scurry behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "scurry to the side of bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "dodge behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "dodge to the side of bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "evade sight behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "evade notice behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "evade detection behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "evade behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "evade to the side of bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "duck behind bookcase for cover",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "seek refuge behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "take refuge behind bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I don't see what you are talking about.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "take shelter to the side of bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I don't see what you are talking about.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "take cover to the side of bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I don't see what you are talking about.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "find cover to the side of bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "find a hiding spot to the side of bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "find a place to hide to the side of bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're going to have to use a different verb for me to understand what you mean.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "find a spot to hide to the side of bookcase",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  }
+ ]
+}

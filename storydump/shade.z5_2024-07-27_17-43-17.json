@@ -1,0 +1,1609 @@
+{
+ "promptPattern": "simple",
+ "model": "gpt-4o",
+ "prompt": "You act as a player of an interactive text adventure game. The goal is to win the game.\nThe user provides the text of the text adventure, as well as the initial scenario.\nThe user is not a human and will only prints the output of the game.\n\nYour task is to respond with simple commands, typically one or two words.\n\t\t",
+ "date": "2024-07-27_17-43-17",
+ "name": "shade.z5",
+ "messages": [
+  {
+   "role": "user",
+   "content": "\n\n    *** SHADE ***\nA brief story by \"Ampe R. Sand\" (Andrew Plotkin)\nFirst-time players should type \"about\".\nRelease 3 / Serial number 001107 / Inform v6.21 Library 6/10 \n\nOdd, how the light just makes your apartment gloomier. Pre-dawn darkness pools in the corners and around the tops of walls. Your desk lamp glares yellow, but the shadows only draw your eyes and deepen.\n\nNot much of an apartment, no. One desk, paper-piled, with a dusty computer shoved to the side. Your futon. Second-hand stereo sitting on a cardboard crate. A kitchen nook one way and a bathroom nook the other, with a closet to the side. A broad mirror tries to make the place seem twice its size; it halfway works. One window, whose shade is down, and the front door firmly shut.\n\nYour luggage is piled untidily by the door. A potted hyacinth sits beneath the window.\n\nYou are sprawled on the futon, staring up into that gloom. Your eyes feel gritty. But it's too late -- early -- no time left for sleep, anyway. In a few hours your ride will arrive.\n\nOn the desk are your to-do list and a travel book.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "look at to-do list",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You won't accomplish much while slumped on the futon. That's been getting slowly more apparent for hours now.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "get up",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You lever yourself upright. Umf. It's amazing how much lack of sleep feels like a hangover, only without the preceding party.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 1
+  },
+  {
+   "role": "assistant",
+   "content": "look at to-do list",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You sit down at the desk.\n\nThe task list for your impending journey is a mess of crossed-out items and scribbled corrections. However, everything seems to have gotten done. The last line reads \"Call taxi\", and it has its checkmark, and here you wait.\n\nCome to think of it, as with a hangover, dehydration is probably the problem. Your mouth is dry wool.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "go to kitchen",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You can't see any such thing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "go to kitchen nook",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You can't see any such thing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "stand",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You stand up.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "go to kitchen",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You can't see any such thing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "go to nook",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You can't see any such thing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "drink water",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Which do you mean, the water from the bathroom sink, the water from the shower or the water from the kitchen sink?\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "drink water from kitchen sink",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You broke that habit of drinking from the faucet when you were eleven.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "go to bathroom",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You can't see any such thing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "look around",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to look.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "examine apartment",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You survey your one small room. One desk, paper-piled, with a dusty computer shoved to the side. Your futon. Second-hand stereo sitting on a cardboard crate. A kitchen nook one way and a bathroom nook the other, with a closet to the side. A broad mirror tries to make the place seem twice its size; it halfway works. One window, whose shade is down, and the front door firmly shut.\n\nThe place is still too dim, except the corner where the desk lamp is somehow too bright.\n\nYour luggage is piled untidily by the door. A potted hyacinth sits beneath the window.\n\nOn the desk are your to-do list and a travel book.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "go to bathroom nook",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You can't see any such thing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "go to bathroom",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You can't see any such thing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "go to closet",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You can't see any such thing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "go to door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You can't see any such thing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "go to desk",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You can't see any such thing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "look at futon",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "The futon is definitely on the downhill side of life's rolling knolls. It serves as both couch and bed, if inadequately in each case, which makes it the most important piece of furniture you own.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "look at luggage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You've packed and repacked: breakdown tent, dried food, sunscreen, compass, mylar space-blanket, long underwear and showoff tats, walking shoes and dancing shoes and hiking shoes. You're ready for the Death Valley Om.\n\n(As ready as you're likely to get. It is, of course, the Death Valley Om -- half arts festival, half cult, a week in the deep desert where people show off, have sex, take drugs, and maintain a twenty-four-hour constant OM. Sand, heat, and thousands of throats. A space outside the world; with no dues except that you join in the chant, as much as is in you to chant.)\n\nYou're still feeling thirsty.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "go to kitchen sink",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You can't see any such thing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "look at window",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "The shade is drawn.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "look at hyacinth",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "This plant is your one claim to actual responsibility. The hyacinth sits by the window, soaking up sunlight (when it's not night) and managing to thrive despite your lack of gardening skill. Although it looks a little parched at the moment.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "water hyacinth",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're not carrying any water.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "get water",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Which do you mean, the water from the bathroom sink, the water from the shower or the water from the kitchen sink?\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "get water from bathroom sink",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You step into the bathroom nook.\n\nYou have nothing in which to carry water.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "drink water from bathroom sink",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You broke that habit of drinking from the faucet when you were eleven.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "look for glass",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "The glass is in the kitchen nook, on the kitchen counter.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "go to kitchen nook",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You can't see any such thing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "look at kitchen counter",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to look at the kitchen nook.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "go to counter",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You can't see any such thing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "get glass",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You step out of the bathroom nook, and step into the kitchen nook.\n\nTaken.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 5
+  },
+  {
+   "role": "assistant",
+   "content": "fill glass with water",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "(the water from the kitchen sink)\nNothing comes from the tap but an eerie distant howling. The kitchen sink hasn't worked since you moved in.\n\nYou run your tongue over dry teeth.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "fill glass with water from bathroom sink",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You step out of the kitchen nook, and step into the bathroom nook.\n\nThe faucet rattles, and water dribbles into the glass.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 7
+  },
+  {
+   "role": "assistant",
+   "content": "drink water",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "(the glassful of water)\nYou gulp the water. It feels vaguely astringent in your mouth, unsatisfying. Well, no doubt thirst will be more real after you fly to California --\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 8
+  },
+  {
+   "role": "assistant",
+   "content": "go to desk",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You can't see any such thing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 8
+  },
+  {
+   "role": "assistant",
+   "content": "go to door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You can't see any such thing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 8
+  },
+  {
+   "role": "assistant",
+   "content": "look at luggage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You've packed and repacked: breakdown tent, dried food, sunscreen, compass, mylar space-blanket, long underwear and showoff tats, walking shoes and dancing shoes and hiking shoes. You're ready for the Death Valley Om.\n\nOh dear. You didn't pack the tickets in with your luggage, did you?\n\n-- Fly? Where did you leave your plane tickets?\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 9
+  },
+  {
+   "role": "assistant",
+   "content": "search desk",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You step out of the bathroom nook.\n\nYou sit down at the desk.\n\nYou carefully tilt up piles of paper, trying to avoid an avalanche. Nope. The tickets aren't there.\n\nYou hate this feeling. It happens all the time. Something safely accomplished, and then pow, you have to worry about it again. Unfair! The tickets must be here somewhere.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 9
+  },
+  {
+   "role": "assistant",
+   "content": "search futon",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You stand up.\n\nThere is nothing on your futon.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 9
+  },
+  {
+   "role": "assistant",
+   "content": "search luggage",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You quickly pop open each suitcase and riffle through, trying not to disarrange your tidy packing too badly. Nope. The tickets aren't there.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 9
+  },
+  {
+   "role": "assistant",
+   "content": "search bookshelf",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You can't see any such thing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 9
+  },
+  {
+   "role": "assistant",
+   "content": "search travel book",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You sit down at the desk.\n\nThe Schmendrick's Guide to Desert Camping -- you've been studying it for weeks now. Vast alien reams of information: perspiration rates, sunburn factors, tent guying, and how to make a condensation still out of a trashbag and a tin can. You could probably write the book out longhand from memory; and none of it means a damn thing to you.\n\n(That's why you're going on this trip, after all. Nothing is off-limits at the Om. \"Law ends at sea level.\" In one place in the country, for one week, a community is formed from pure will. No enforcement; only desire, and the knowledge of what the desert can do. And the Om. Every religion chants, you remember reading that.)\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 9
+  },
+  {
+   "role": "assistant",
+   "content": "open travel book",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "The Schmendrick's Guide to Desert Camping -- you've been studying it for weeks now. Vast alien reams of information: perspiration rates, sunburn factors, tent guying, and how to make a condensation still out of a trashbag and a tin can. You could probably write the book out longhand from memory; and none of it means a damn thing to you.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 9
+  },
+  {
+   "role": "assistant",
+   "content": "search futon again",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to search your futon.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 9
+  },
+  {
+   "role": "assistant",
+   "content": "search closet",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You stand up.\n\nThe closet (if you can call it that) is a shallow recess next to the bathroom. Peering into the (ahem) depths, you see an old jacket and a vacuum cleaner.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 9
+  },
+  {
+   "role": "assistant",
+   "content": "search jacket",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You root through the jacket's myriad pockets. Nope. The tickets aren't -- Aha. They are, after all. The tickets slide to the floor and lie there, smirking at you.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 10
+  },
+  {
+   "role": "assistant",
+   "content": "take tickets",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Taken. Something scrapes underfoot as you bend to pick the tickets up.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 11
+  },
+  {
+   "role": "assistant",
+   "content": "look at floor",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "It's a bit sandy.\n\nThe sound of a helicopter comes faintly through the closed window.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 11
+  },
+  {
+   "role": "assistant",
+   "content": "look at window",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "The shade is drawn.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 11
+  },
+  {
+   "role": "assistant",
+   "content": "open window shade",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Darkness is already crawling around the edges of the windowshade. You have no desire to look night in the face.\n\nThe helicopter is getting closer.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 11
+  },
+  {
+   "role": "assistant",
+   "content": "open door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "The sun hasn't risen; what light you have would just leak out into the night. Anyway, the taxi hasn't arrived, so there's nowhere to go.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 11
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\nThe sound of the helicopter is fading now.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 11
+  },
+  {
+   "role": "assistant",
+   "content": "look at watch",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You can't see any such thing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 11
+  },
+  {
+   "role": "assistant",
+   "content": "look at mirror",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "The far side of the mirror is just as shadowy as this one. It's probably meant as commentary; not more space, just more of the same.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 11
+  },
+  {
+   "role": "assistant",
+   "content": "look at computer",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You sit down at the desk.\n\nThe computer is years old, and incompatible with just about everything but electricity. You use it for writing -- at least, you try to believe that you do.\n\nRight now, however, there's a game on the screen -- one of the text adventures, or interactive fictions, or whatever they are this month -- the only kind of game your beige antique can run, anyway.\n\nThe you-have-died message is blinking morosely at you. You started up Ready, Okay! last night, trying to distract yourself until morning. But you can't get even halfway through without running out of insulin.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 11
+  },
+  {
+   "role": "assistant",
+   "content": "turn off computer",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You hit the power key; the computer gives a tiny sigh and shuts down.\n\nYou can barely hear the helicopter any more.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 11
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 11
+  },
+  {
+   "role": "assistant",
+   "content": "look around",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "I only understood you as far as wanting to look.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 11
+  },
+  {
+   "role": "assistant",
+   "content": "look at to-do list",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "The task list for your impending journey is a mess of crossed-out items and scribbled corrections. Huh. \"Vacuum\" is checked; you remember doing it. But look at this floor.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 12
+  },
+  {
+   "role": "assistant",
+   "content": "open door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You stand up.\n\nThe sun hasn't risen; what light you have would just leak out into the night. Anyway, the taxi hasn't arrived, so there's nowhere to go.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 12
+  },
+  {
+   "role": "assistant",
+   "content": "examine futon",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "The futon is definitely on the downhill side of life's rolling knolls. It serves as both couch and bed, if inadequately in each case, which makes it the most important piece of furniture you own.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 12
+  },
+  {
+   "role": "assistant",
+   "content": "move futon",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "The futon is theoretically easy to move. In practice, you never bother.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 12
+  },
+  {
+   "role": "assistant",
+   "content": "sit on futon",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You flop down on the futon.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 12
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 12
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 12
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 12
+  },
+  {
+   "role": "assistant",
+   "content": "look at window shade",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "The shade is a white plastic sheet -- more yellowing, maybe. One of those roller mechanisms that never quite works. The shade is pulled down against the pre-dawn gloom.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 12
+  },
+  {
+   "role": "assistant",
+   "content": "open window shade",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You stand up.\n\nDarkness is already crawling around the edges of the windowshade. You have no desire to look night in the face.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 12
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 12
+  },
+  {
+   "role": "assistant",
+   "content": "wait",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Time passes.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 12
+  },
+  {
+   "role": "assistant",
+   "content": "examine hyacinth",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "This plant is your one claim to actual responsibility. The hyacinth sits by the window, soaking up sunlight (when it's not night) and managing to thrive despite your lack of gardening skill. Although it looks a little parched at the moment.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 12
+  },
+  {
+   "role": "assistant",
+   "content": "water hyacinth",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You're not carrying any water.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 12
+  },
+  {
+   "role": "assistant",
+   "content": "fill glass with water from bathroom sink",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You step into the bathroom nook.\n\nThe faucet rattles, and water dribbles into the glass.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 12
+  },
+  {
+   "role": "assistant",
+   "content": "water hyacinth",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You step out of the bathroom nook.\n\nYou water the plant.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 12
+  },
+  {
+   "role": "assistant",
+   "content": "look at to-do list",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You sit down at the desk.\n\nThe task list for your impending journey is a mess of crossed-out items and scribbled corrections. Huh. \"Vacuum\" is checked; you remember doing it. But look at this floor.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 12
+  },
+  {
+   "role": "assistant",
+   "content": "vacuum floor",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Just \"vacuum\". When you clean, it's pretty much cleaning the whole area.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 12
+  },
+  {
+   "role": "assistant",
+   "content": "vacuum",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You stand up.\n\nThe vacuum cleaner won't work usefully in the closet.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 12
+  },
+  {
+   "role": "assistant",
+   "content": "get vacuum cleaner",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Taken. (Awkwardly.)\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 13
+  },
+  {
+   "role": "assistant",
+   "content": "vacuum floor",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Just \"vacuum\". When you clean, it's pretty much cleaning the whole area.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 13
+  },
+  {
+   "role": "assistant",
+   "content": "vacuum",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You squeeze the handle, and the vacuum cleaner begins humming industriously. You run it back and forth on the floor. But it only seems to spread the sand around. In fact, it looks like there's more sand than before you started.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "turn off vacuum cleaner",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "This vacuum cleaner turns itself off automatically.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "drop vacuum cleaner",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Dropped.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "examine sand",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "A trail of sand is visible on the living room floor.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "follow sand trail",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "That's not a verb I recognize.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "look at sand trail",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "A trail of sand is visible on the living room floor.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "touch sand",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You feel nothing unexpected.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "examine floor",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "It's a bit sandy.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "follow trail",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "That's not a verb I recognize.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "walk towards window",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You can't see any such thing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "touch mirror",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You reach out and touch your hand to itself. It feels like glass.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "search floor",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You find nothing of interest.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "go to futon",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You can't see any such thing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "search sand",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You find nothing of interest.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "check under futon",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You can't see any such thing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "look at nook",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Which do you mean, the bathroom nook or the kitchen nook?\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "look at bathroom nook",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "The bathroom alcove has a toilet, a sink, and a shower stall that manages to make the rest of the place look roomy. Not much else; most of your accoutrements have been packed.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "look at kitchen nook",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "The kitchen alcove has a refrigerator, a sink, a stove, and barely enough space to stand between them. One wall projects out to form a counter, with a cupboard beneath it.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "look in refrigerator",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You can't see any such thing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 15
+  },
+  {
+   "role": "assistant",
+   "content": "open refrigerator",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  }
+ ]
+}

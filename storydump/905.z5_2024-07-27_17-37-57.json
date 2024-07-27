@@ -1,0 +1,1609 @@
+{
+ "promptPattern": "simple",
+ "model": "qwen2-72b",
+ "prompt": "You act as a player of an interactive text adventure game. The goal is to win the game.\nThe user provides the text of the text adventure, as well as the initial scenario.\nThe user is not a human and will only prints the output of the game.\n\nYour task is to respond with simple commands, typically one or two words.\n\t\t",
+ "date": "2024-07-27_17-37-57",
+ "name": "905.z5",
+ "messages": [
+  {
+   "role": "user",
+   "content": "\n\n\n\nThe phone rings.\n\nOh, no - how long have you been asleep? Sure, it was a tough night, but... This is bad. This is very bad.\n\nThe phone rings.\n\n  -----\n9:05 by Adam Cadre\nv1.12 (2016.0430) / Original release 2000.0103\n  -----\n\nBedroom (in bed)\nThis bedroom is extremely spare, with dirty laundry scattered haphazardly all over the floor. Cleaner clothing can be found in the dresser. A bathroom lies to the south, while a door to the east leads to the living room.\n\nOn the end table are a telephone, a wallet and some keys.\n\nThe phone rings.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 0
+  },
+  {
+   "role": "assistant",
+   "content": "answer phone",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You pick up the phone. \"Hadley!\" a shrill voice cries. \"Hadley, haven't you even left yet?? You knew that our presentation was at nine o'clock sharp! First the thing with the printers, now this - there won't even be enough left of you for Bowman to fire once he's done with you. Now get the hell down here!!\"\n\nClick.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 1
+  },
+  {
+   "role": "assistant",
+   "content": "get dressed",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error. (This could mean a number of things: a noun used in your command may not be present, or it may be present but not visible; it may be scenery you can't interact with; you may have specified too many indirect objects; you may have misspelled something; the list goes on.)]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 1
+  },
+  {
+   "role": "assistant",
+   "content": "go to dresser",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You'll have to get out of bed first.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 1
+  },
+  {
+   "role": "assistant",
+   "content": "get out of bed",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You get out of bed.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "go to dresser",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "That's not something you can enter.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "examine dresser",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Just a simple dresser.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "open dresser",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You open the dresser, revealing some clean clothing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "take clean clothing",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Taken.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "get dressed",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error. (This could mean a number of things: a noun used in your command may not be present, or it may be present but not visible; it may be scenery you can't interact with; you may have specified too many indirect objects; you may have misspelled something; the list goes on.)]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "wear clothing",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[Which do you mean, the clean clothing or the soiled clothing?]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "wear clean clothing",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You'll have to take off the soiled clothes you're wearing first.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 2
+  },
+  {
+   "role": "assistant",
+   "content": "take off soiled clothes",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You take off the soiled clothing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "wear clean clothing",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "It seems ridiculous to put on fresh, clean clothes when you yourself are covered with mud and dried sweat.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "take a shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error. (This could mean a number of things: a noun used in your command may not be present, or it may be present but not visible; it may be scenery you can't interact with; you may have specified too many indirect objects; you may have misspelled something; the list goes on.)\n\nIf you are unfamiliar with the conventions of interactive fiction, you may wish to play through the tutorial at http://adamcadre.ac/if.html - it explains how to phrase commands in a way that produces fewer errors.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "go to bathroom",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "\nBathroom\nThis is a far from luxurious but still quite functional bathroom, with a sink, toilet and shower. The bedroom lies to the north.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "take a shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You don't think the watch you're wearing is waterproof.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "remove watch",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You take off the gold watch.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "take a shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Carrying your possessions into the shower is a bad idea.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "put down possessions",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "put down items",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "drop all items",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.\n\nAgain, if you're getting frustrated, please consider playing through the tutorial at http://adamcadre.ac/if.html.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "drop everything",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "look",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "\nBathroom\nThis is a far from luxurious but still quite functional bathroom, with a sink, toilet and shower. The bedroom lies to the north.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "look at inventory",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "inventory",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You are carrying:\n  some clean clothing\n  some soiled clothing\n  a gold watch\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "put down clean clothing",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Dropped.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "put down soiled clothing",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Dropped.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "take a shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Carrying your possessions into the shower is a bad idea.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "drop gold watch",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Dropped.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 3
+  },
+  {
+   "role": "assistant",
+   "content": "take a shower",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You step into the shower, turn on the water, and within a few moments you feel like a new man. But no time to dawdle - you hop back out again and dry off in record time.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 4
+  },
+  {
+   "role": "assistant",
+   "content": "put on clean clothing",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "(first taking the clean clothing)\nYou put on the clean clothing.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 5
+  },
+  {
+   "role": "assistant",
+   "content": "take phone",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 5
+  },
+  {
+   "role": "assistant",
+   "content": "take telephone",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 5
+  },
+  {
+   "role": "assistant",
+   "content": "go to bedroom",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "\nBedroom\nThis bedroom is extremely spare, with dirty laundry scattered haphazardly all over the floor. A bathroom lies to the south, while a door to the east leads to the living room.\n\nOn the end table are a telephone, a wallet and some keys.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 5
+  },
+  {
+   "role": "assistant",
+   "content": "take telephone",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "It isn't ringing anymore.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 5
+  },
+  {
+   "role": "assistant",
+   "content": "take wallet",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Taken.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 5
+  },
+  {
+   "role": "assistant",
+   "content": "take keys",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Taken.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 5
+  },
+  {
+   "role": "assistant",
+   "content": "go to living room",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "\nLiving room\nThe furniture isn't as carefully arranged as one might like, and it's a bit lacking in the luxuries that might make this a more pleasant place to spend an evening - no stereo, no TV, no DVD, none of that - but this living room is still nicer than most of those in this neighborhood. A kitchenette lies to the east, the bedroom to the west and the front door to the south.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 5
+  },
+  {
+   "role": "assistant",
+   "content": "go to kitchenette",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 5
+  },
+  {
+   "role": "assistant",
+   "content": "go east",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "\nKitchenette\nYou don't really have time to poke around and cook yourself a fabulous breakfast right now. Best to keep your time here limited. The exit is west.\n\nOn the counter are a toaster and a Pop-Tart.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 5
+  },
+  {
+   "role": "assistant",
+   "content": "take Pop-Tart",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "Taken.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 5
+  },
+  {
+   "role": "assistant",
+   "content": "go to living room",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "\nLiving room\nThe furniture isn't as carefully arranged as one might like, and it's a bit lacking in the luxuries that might make this a more pleasant place to spend an evening - no stereo, no TV, no DVD, none of that - but this living room is still nicer than most of those in this neighborhood. A kitchenette lies to the east, the bedroom to the west and the front door to the south.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 5
+  },
+  {
+   "role": "assistant",
+   "content": "go to front door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "The front door is closed.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 5
+  },
+  {
+   "role": "assistant",
+   "content": "open front door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "You open the front door.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 5
+  },
+  {
+   "role": "assistant",
+   "content": "leave house",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 5
+  },
+  {
+   "role": "assistant",
+   "content": "go south",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "\nDriveway\nThis is quite a seedy neighborhood, but there isn't really anywhere in the whole Las Mesas metro area that isn't at least a little rundown. Of course, the locals may complain about the ugliness and the crime, but the fact is that a starter home like this one would cost easily five times as much in someplace like Las Playas - and that's if you could find one.\n\nThe house lies to the north. A car is parked here in the driveway.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "take car",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "That's not something you can pick up.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "enter car",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "The car is locked.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "use keys",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "In this particular case you'll have to be more specific.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "use keys on car",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"use the keys.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "unlock car with keys",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"unlock the car.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "unlock car using keys",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"unlock the car.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "unlock car door with keys",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"unlock the car.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "insert key into car lock",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"insert the keys into the car.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "examine keys",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "House keys, car keys, they're all on the same chain.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "unlock car with car keys",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"unlock the car.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "use car keys on car",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"use the car.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "unlock car door with car keys",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"unlock the car.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "try car keys on car door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Verb error. (This generally means that the first word of your command was not recognized.)]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "use car keys to unlock car door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"use the car.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "examine car door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"examine the car.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "look at car door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "look at car",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "It's a nicer car than one would expect in this neighborhood - a real eye-catcher.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "look at car door lock",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "look for car door lock",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "search car door for lock",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"search the car.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "check car door for lock",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Verb error. (This generally means that the first word of your command was not recognized.)]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "inspect car door for lock",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Verb error. (This generally means that the first word of your command was not recognized.)\n\nIf you are unfamiliar with the conventions of interactive fiction, you may wish to play through the tutorial at http://adamcadre.ac/if.html - it explains how to phrase commands in a way that produces fewer errors.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "find car door lock",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Verb error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "look at car for door lock",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "look for car door lock on car",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "examine car for door lock",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"examine the car.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "examine car door for lock",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"examine the car.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "use keys on car door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"use the keys.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "use car keys on car door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"use the car.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "insert car key into car door lock",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "unlock car door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"unlock the car.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "unlock car door with keys on chain",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"unlock the car.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "use keys on car door lock",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"use the keys.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "try keys on car door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Verb error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "use car keys on car door lock",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"use the car.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "unlock car door with car keys on chain",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"unlock the car.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "look at keys",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "House keys, car keys, they're all on the same chain.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "use car keys on car door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"use the car.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "unlock car with car keys",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"unlock the car.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "use car key from keys on car door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"use the car.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "select car key from keys and use on car door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Verb error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "separate car key from keys and use on car door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Verb error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "remove car key from keychain and use on car door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"remove the car.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "use car key from keychain on car door",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"use the car.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "manually unlock car door with car key from keychain",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Verb error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "unlock car door with car key from keychain",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"unlock the car.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "look at keychain",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Noun error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "examine keys",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "House keys, car keys, they're all on the same chain.\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "unlock car door with car key from keys",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"unlock the car.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "use car key from keychain on car door lock",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"use the car.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "select car key from keychain and use on car door lock",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Verb error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "separate car key from keychain and use on car door lock",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Verb error.]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "unlock car using car key from keychain",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  },
+  {
+   "role": "user",
+   "content": "[!: Command not understood past \"unlock the car.\"]\n\n\u003e",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": 6
+  },
+  {
+   "role": "assistant",
+   "content": "unlock car door using car key from keychain",
+   "completionTokens": 0,
+   "promptTokens": 0,
+   "meta": "",
+   "score": -1
+  }
+ ]
+}
