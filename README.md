@@ -180,7 +180,14 @@ For the benchmark, each model runs at least three times, and the progress is ave
 
 ## What does this benchmark test?
 
-Unlike most of the current benchmarks, this benchmark tests a number of skills of LLMs.
+Most if not all major benchmarks for LLM test in a question/answer type of format, 
+combined with Chain of Thought or similar techniques. 
+
+What makes this benchmark unique is its multi-turn nature. 
+In one session the chatbot is tested one hundred times and 
+receives an overall score at the end.
+
+Also this benchmark tests a number of skills of LLMs:
 
 * To follow the format given in the prompt. (Not as necessary for the simple prompt)
 * To understand the current situation in the game and the next steps.
