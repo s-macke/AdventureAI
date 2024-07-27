@@ -2,11 +2,37 @@
   
 # AdventureAI
 
-Interactive 
-Fiction in the Age of AI
+Interactive Fiction in the Age of AI
 
 </div>
-  
+
+# Table of contents
+
+<!-- TOC -->
+* [Introduction](#introduction)
+* [Detailed breakdown of "9:05"](#detailed-breakdown-of-905)
+  * [Spoiler](#spoiler)
+  * [9:05 playthrough with GPT-4](#905-playthrough-with-gpt-4)
+      * [As an employee, Brian Hadley, you have unfortunately overslept and are now running late for your scheduled presentation. You must hurry and go to work.](#as-an-employee-brian-hadley-you-have-unfortunately-overslept-and-are-now-running-late-for-your-scheduled-presentation-you-must-hurry-and-go-to-work)
+      * [You have murdered Brian Hadley and must flee](#you-have-murdered-brian-hadley-and-must-flee)
+  * ["9:05" playthrough with Claude 3 Opus](#905-playthrough-with-claude-3-opus)
+  * ["9:05" playthrough with Llama3 70B](#905-playthrough-with-llama3-70b)
+  * ["9:05" playthrough with Claude 3.5 Sonnet](#905-playthrough-with-claude-35-sonnet)
+* [Benchmark](#benchmark)
+  * [What does this benchmark test?](#what-does-this-benchmark-test)
+    * [Results](#results)
+    * [Comparison of different prompting patterns](#comparison-of-different-prompting-patterns)
+  * [Leaked knowledge in the models](#leaked-knowledge-in-the-models)
+* [Conclusion](#conclusion)
+* [Code](#code)
+  * [About](#about)
+  * [Features](#features)
+* [Compile](#compile)
+* [Usage](#usage)
+    * [Example:](#example)
+    * [Estimation of costs so far development, tests and benchmarks](#estimation-of-costs-so-far-development-tests-and-benchmarks)
+<!-- TOC -->
+
 ## Introduction
 
 With the emergence of Chatbots that genuinely live up to their name, a significant question arises.
@@ -14,7 +40,6 @@ With the emergence of Chatbots that genuinely live up to their name, a significa
 * How well do they perform in interactive fiction? 
 * Are they already capable of winning text adventures? 
 * What strategies do they employ? Can they comprehend the semantics and narratives of various situations and respond appropriately?
-* How fast do they solve the game?
  
 This repository aims to provide an answer to these questions.
 
@@ -24,6 +49,11 @@ So far I have conducted analysis on four games
 - ["Suveh Nux" by David Fisher](https://ifdb.org/viewgame?id=xkai23ry99qdxce3) A short, puzzle-oriented piece of interactive fiction.
 - ["Violet" by Jeremy Freese](https://ifdb.org/viewgame?id=4glrrfh7wrp9zz7b) All you have to do is write a thousand words and everything will be fine.
 - ["Shade" by Andrew Plotkin ](https://ifdb.org/viewgame?id=hsfc7fnl40k4a30q) A one-room game set in your apartment.
+
+The README is separated in three parts. 
+First I write about a detailed breakdown about 9:05, 
+then I will discuss and show Benchmark and 
+in the end I describe the content of the repository.
 
 # Detailed breakdown of "9:05"
 
@@ -131,7 +161,7 @@ We need a way to measure the models' progress within a
 finite number of steps. This is precisely what the benchmark does. 
 We plot the progress as a function of the number of steps performed so far.
 
-For this benchmark, I have chosen a very simple prompt that does not 
+Contrary to the first chapter, I have chosen a very simple prompt that does not 
 require a specific output format or any Chain of Thought technique:
 
 ```
@@ -141,24 +171,23 @@ The user provides the text of the text adventure. He is not a human and just pri
 Your output should be a simple command, typically one or two words 
 ```
 
-Additionally, I limit each run to 100 steps because the games can be too complex to solve within the given context windows. This limitation also helps control costs.
+Additionally, I limit each run to 100 steps because the games can be too 
+complex to solve within the given context windows. This limitation 
+also helps control costs.
 
-Throughout the game, the progress is recorded and scored. Each model runs at least three times, and the progress is averaged.
+Throughout the game, the progress is recorded and scored. 
+For the benchmark, each model runs at least three times, and the progress is averaged.
 
 ## What does this benchmark test?
 
 Unlike most of the current benchmarks, this benchmark tests a number of skills of LLMs.
 
-This benchmark tests the following aspects: 
-
 * To follow the format given in the prompt. (Not as necessary for the simple prompt)
 * To understand the current situation in the game and the next steps.
-* Remember the previous steps to act accordingly.
+* Long context recall. Remember the previous steps to act accordingly.
 * Basic logical thinking. Such as if the door is closed, you have to open it first. 
 * The speed to solve the puzzles. This often correlates with the ability to solve a puzzle at all.
-* Basic knowledge of text adventures. Especially the concept of short clear commands and variations to try.
-* Further knowledge about text adventures. Especially the command "inventory".
-* Long context recall, because the LLM receives all steps performed so far as input.
+* Basic knowledge of text adventures. Especially the concept of short clear commands and variations to try. Sometimes it is also beneficial to know commands such as "inventory".
 
 ### Results
 
@@ -178,10 +207,11 @@ Because the game 9:05 is linear I have chosen 13 specific points in the game, fo
 All models so far solve the first steps of the game. Sonnet 3.5 and GPT-4 are on top.
 The progress between 11 and 12 points is the most difficult one and wouldn't be solved by any of the other models, except Sonnet 3.5.
 
-The game Suveh Nux is non-linear, however comes with an internal scoring system. This scoring is shown on the y-axis.
-Claude Sonnet 3.5 beats all other models by far.
+The game Suveh Nux is non-linear and more difficult. It is simply not solvable in 100 steps. 
+Here I use the internal scoring system to measure the progress. This scoring is shown on the y-axis.
+Also here, Claude Sonnet 3.5 beats all other models by far.
 
-The games Violet and Shade are a linear one-room experience and relatively easy to solve.
+The games Violet and Shade are linear one-room experiences and relatively easy to solve for a human and longer than 9:05.
 Here the gap between Sonnet 3.5 and the other models is much less significant.  
 
 ### Comparison of different prompting patterns
@@ -192,29 +222,34 @@ TODO
 
 To check for any leaks I ask each model about the game and about playtrough details.
 
-| Model             | Game       | Knows the game | Correct playthrough details (0-2) | 
-|-------------------|------------|----------------|-----------------------------------|
-| Claude 3.5 Sonnet | 9:05       | X              | 2                                 |
-| Claude 3 Opus     | 9:05       | X              | 0                                 |
-| GPT-4o            | 9:05       | X              | 1                                 |
-| GPT-4o mini       | 9:05       | X              | 0                                 |
-| GPT-4             | 9:05       | X              | 0                                 |
-| Gemini 1.5 Pro    | 9:05       | X              | 0                                 |
-| Claude 3.5 Sonnet | Suveh Nux  | X              | 1                                 |
-| Claude 3 Opus     | Suveh Nux  | X              | 0                                 |
-| GPT-4o            | Suveh Nux  | X              | 0                                 |
-| GPT-4o mini       | Suveh Nux  | X              | 0                                 |
-| GPT-4             | Suveh Nux  | X              | 1                                 |
-| Gemini 1.5 Pro    | Suveh Nux  | -              | 0                                 |
+| Model             | Game      | Knows the game | Correct playthrough details (0-2) | 
+|-------------------|-----------|----------------|-----------------------------------|
+| Claude 3.5 Sonnet | 9:05      | X              | 2                                 |
+| Claude 3 Opus     | 9:05      | X              | 0                                 |
+| GPT-4o            | 9:05      | X              | 1                                 |
+| GPT-4o mini       | 9:05      | X              | 0                                 |
+| GPT-4             | 9:05      | X              | 0                                 |
+| Gemini 1.5 Pro    | 9:05      | X              | 0                                 |
+| Claude 3.5 Sonnet | Suveh Nux | X              | 1                                 |
+| Claude 3 Opus     | Suveh Nux | X              | 0                                 |
+| GPT-4o            | Suveh Nux | X              | 0                                 |
+| GPT-4o mini       | Suveh Nux | X              | 0                                 |
+| GPT-4             | Suveh Nux | X              | 1                                 |
+| Gemini 1.5 Pro    | Suveh Nux | -              | 0                                 |
+| Claude 3.5 Sonnet | Shade     | X              | 0                                 |
+| Claude 3.5 Sonnet | Violet    | X              | 0                                 |
 
 # Conclusion
 
-Most of the state-of-the-art large language models can play and even win text adventures, at least if the adventure is as simple as 9:05.
+The state-of-the-art large language models exhibit impressive capabilities in playing and even winning text adventures, especially when the games are relatively straightforward, like "9:05."
 
-However, Suveh Nux is much more complicated and within 100 steps simply not solvable. 
+In the benchmarks, Claude 3.5 Sonnet consistently exceeded expectations, 
+demonstrating superior performance across almost all games. 
 
-In the benchmarks Claude 3.5 Sonnet surpasses all expectations, but it has also deep knowledge about the games.
+This model seems to exhibit better problem-solving skills and an ability to adapt its strategies as needed.
  
+# Code
+
 ## About
 
 This repository contains an interpreter for Z-Machine files, specifically supporting version 3 and 5 files. The Z-Machine is a virtual machine designed to run text adventure games, such as those created by Infocom. It can be played either by a human or an AI.
