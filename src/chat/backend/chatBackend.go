@@ -10,7 +10,7 @@ func NewChatBackend(prompt string, backendAsString string) ChatBackend {
 		return NewOpenAIChat(prompt, backendAsString)
 	case "orca2":
 		return NewLlamaChat(prompt, backendAsString)
-	case "mistral":
+	case "mistral-large-2":
 		return NewMistralChat(prompt, backendAsString)
 	case "gemini-15-pro", "gemini-15-flash":
 		return NewVertexAIChat(prompt, backendAsString)

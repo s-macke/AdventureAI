@@ -1,8 +1,10 @@
 package backend
 
 import (
+	"fmt"
 	"github.com/gage-technologies/mistral-go"
 	"os"
+	"time"
 )
 
 type MistralChat struct {
@@ -20,39 +22,62 @@ func NewMistralChat(systemMsg string, backend string) *MistralChat {
 	cs := &MistralChat{
 		client: mistral.NewMistralClientDefault(key),
 	}
-	cs.model = "open-mistral-7b"
-	cs.model = "open-mixtral-8x7b"
-	cs.model = "open-mixtral-8x22b"
-	cs.model = "open-mixtral-8x22b"
+	switch backend {
+	case "mistral-large-2":
+		cs.model = "mistral-large-2407"
+	default:
+		panic("Unknown backend")
 
+	}
+	//cs.model = "open-mistral-7b"
+	//cs.model = "open-mixtral-8x7b"
+	//cs.model = "open-mixtral-8x22b"
+	//cs.model = "open-mixtral-8x22b"
 	return cs
 
 }
 
 func (cs *MistralChat) GetResponse(ch *ChatHistory) (string, int, int) {
-	panic("not implemented")
-	/*
-		cs.messages = append(cs.messages, mistral.ChatMessage{
-			Role:    mistral.RoleUser,
-			Content: input,
+	var messages []mistral.ChatMessage
+
+	messages = append(messages, mistral.ChatMessage{
+		Role:    mistral.RoleSystem,
+		Content: cs.prompt,
+	})
+
+	for _, m := range ch.Messages {
+		messages = append(messages, mistral.ChatMessage{
+			Role:    MapMistralRole(m.Role),
+			Content: m.Content,
 		})
-		/*
-				"mistral-medium"
-				"mistral-small"
-				"mistral-tiny"
-			    "mistral-large"
-	*/
-	/*
-		response, err := cs.client.Chat("mistral-medium", cs.messages, &mistral.DefaultChatRequestParams)
-		if err != nil {
-			panic(err)
+	}
+
+	var response *mistral.ChatCompletionResponse
+	var err error
+	for i := 0; i < 10; i++ {
+		response, err = cs.client.Chat(cs.model, messages, &mistral.DefaultChatRequestParams)
+		if err == nil {
+			break
 		}
+		fmt.Println("ChatCompletion error:", err)
+		fmt.Println("Retrying...")
+		time.Sleep(10 * time.Second)
+	}
+	if err != nil {
+		fmt.Printf("ChatCompletion error: %v\n", err)
+		panic("ChatCompletion error")
+	}
+	return response.Choices[0].Message.Content, response.Usage.PromptTokens, response.Usage.TotalTokens
 
-		cs.messages = append(cs.messages, mistral.ChatMessage{
-			Role:    mistral.RoleAssistant,
-			Content: response.Choices[0].Message.Content,
-		})
+}
 
-		return response.Choices[0].Message.Content, response.Usage.PromptTokens, response.Usage.TotalTokens
-	*/
+func MapMistralRole(role string) string {
+	switch role {
+	case ChatHistoryRoleUser:
+		return mistral.RoleUser
+	case ChatHistoryRoleAssistant:
+		return mistral.RoleAssistant
+	default:
+		panic("Unknown role")
+	}
 }

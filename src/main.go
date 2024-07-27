@@ -48,7 +48,7 @@ func Main() {
 	backend := flag.String("backend", "gpt-4o", "Select AI backend. One of\n"+
 		"OpenAI:    'gpt-3.5', 'gpt-4', 'gpt-4-turbo', 'gpt-4o', , 'gpt-4o-mini' \n"+
 		"llama.cpp: 'orca2',\n"+
-		"Mistral:   'mistral',\n"+
+		"Mistral:   'mistral-large-2',\n"+
 		"Gemini:    'gemini-15-pro', 'gemini-15-flash',\n"+
 		"Anthropic: 'opus-3', 'sonnet-35',\n"+
 		"Groq:      'llama3-8b', 'llama3-70b',\n"+

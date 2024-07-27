@@ -51,6 +51,7 @@ go build
 #./AdventureAI -ai -backend llama3.1-70b -prompt simple_with_examples -file games/905.z5
 #./AdventureAI -ai -backend llama3.1-405b -prompt simple_with_examples -file games/suvehnux.z5
 
+#./AdventureAI -ai -backend mistral-large-2 -prompt simple -file games/905.z5
 #./AdventureAI -ai -backend gpt-4o -prompt simple -file games/905.z5
 #./AdventureAI -ai -backend gpt-4 -prompt simple -file games/905.z5
 #./AdventureAI -ai -backend gpt-4-turbo -prompt simple -file games/905.z5
@@ -76,6 +77,7 @@ go build
 #./AdventureAI -ai -backend llama3.1-70b -prompt simple -file games/suvehnux.z5
 #./AdventureAI -ai -backend llama3.1-405b -prompt simple -file games/suvehnux.z5
 
+#./AdventureAI -ai -backend mistral-large-2 -prompt simple -file games/shade.z5
 #./AdventureAI -ai -backend gpt-4o-mini -prompt simple -file games/shade.z5
 #./AdventureAI -ai -backend gpt-4o -prompt simple -file games/shade.z5
 #./AdventureAI -ai -backend sonnet-35 -prompt simple -file games/shade.z5
