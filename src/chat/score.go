@@ -15,6 +15,12 @@ func GetScore(zm *zmachine.ZMachine, story *storyHistory.StoryHistory) float64 {
 	if zm.Name == "Balances.z5" {
 		return float64(zm.ReadGlobal(29))
 	}
+	if zm.Name == "planetfall.z3" {
+		return float64(zm.ReadGlobal(17))
+	}
+	if zm.Name == "hhgg.z3" {
+		return float64(zm.ReadGlobal(17))
+	}
 	if zm.Name == "ChildsPlay.z8" {
 		return float64(zm.ReadGlobal(58))
 	}

@@ -74,10 +74,31 @@ func ZRead(zm *ZMachine, args []uint16, numArgs uint16) {
 	}
 }
 
+func (zm *ZMachine) CompareWord(str1 string, str2 string) bool {
+	/*
+		resolution := 4
+		if zm.header.Version > 3 {
+			resolution = 6
+		}
+
+		resolution = min(len(str2), resolution)
+		fmt.Println(str1, str2)
+		return str1 == str2[0:resolution]
+	*/
+	if str1 == str2 {
+		return true
+	}
+	resolution := min(len(str2), len(str1))
+	if resolution < 6 {
+		return false
+	}
+	return str1[0:resolution] == str2[0:resolution]
+
+}
+
 // Return DICT_NOT_FOUND (= 0) if not found
 // Address in dictionary otherwise
 func (zm *ZMachine) FindInDictionary(str string) uint16 {
-
 	numSeparators := uint32(zm.buf[zm.header.dictAddress])
 	entryLength := uint16(zm.buf[zm.header.dictAddress+1+numSeparators])
 	numEntries := zm.GetUint16(zm.header.dictAddress + 1 + numSeparators + 1)
@@ -94,7 +115,8 @@ func (zm *ZMachine) FindInDictionary(str string) uint16 {
 	for i := uint16(0); i < numEntries; i++ {
 		foundAddress := entriesAddress + uint32(i)*uint32(entryLength)
 		zm.DecodeZString(foundAddress)
-		if zm.Output.String() == str {
+
+		if zm.CompareWord(zm.Output.String(), str) {
 			zm.Output.Reset()
 			return uint16(foundAddress)
 		}

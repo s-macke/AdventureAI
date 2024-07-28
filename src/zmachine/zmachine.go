@@ -102,6 +102,7 @@ func (zm *ZMachine) ReadGlobal(x uint8) uint16 {
 
 	addr := (uint32(x) - 0x10) * 2
 	ret := zm.GetUint16(zm.header.globalVarAddress + addr)
+	//fmt.Println("Read global", x, ret)
 	return ret
 }
 
@@ -394,6 +395,7 @@ func TokenizeLine(zm *ZMachine, textaddress uint16, tokenaddress uint16, dct uin
 		}
 	}
 	DebugPrintf("%s\n", text)
+	// TODO: include other separators, not only spaces
 	words := strings.Split(text, " ")
 	wordStarts := make([]uint16, len(words))
 	wordStarts[0] = 1
@@ -428,7 +430,8 @@ func TokenizeLine(zm *ZMachine, textaddress uint16, tokenaddress uint16, dct uin
 			wordStarts = append(wordStarts, prevWordStart)
 		}
 	*/
-	// TODO: include other separators, not only spaces
+	//Remove all tokens before inserting new ones
+	//zm.buf[tokenaddress+1] = 0
 
 	parseAddress := uint32(tokenaddress)
 	maxTokens := zm.buf[parseAddress]
@@ -449,17 +452,14 @@ func TokenizeLine(zm *ZMachine, textaddress uint16, tokenaddress uint16, dct uin
 		if uint8(i) >= maxTokens {
 			break
 		}
-
-		//fmt.Printf("w = %s, %d\n", w, wordStarts[i])
-		DebugPrintf("w = %s, %d\n", w, wordStarts[i])
 		dictionaryAddress := zm.FindInDictionary(w)
+		DebugPrintf("w = '%s' starts=%d address=%d\n", w, wordStarts[i], dictionaryAddress)
 
 		zm.SetUint16(parseAddress, dictionaryAddress)
 		zm.buf[parseAddress+2] = uint8(len(w))
-		zm.buf[parseAddress+3] = uint8(wordStarts[i] + 1)
+		zm.buf[parseAddress+3] = uint8(wordStarts[i])
 		parseAddress += 4
 	}
-	//panic("Not implemented")
 }
 
 func ZTokenize(zm *ZMachine, args []uint16, numArgs uint16) {

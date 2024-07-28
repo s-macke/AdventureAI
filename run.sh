@@ -33,6 +33,13 @@ go build
 #./AdventureAI -file rameses.z5
 #./AdventureAI -file shrapnel.z5
 #./AdventureAI -file bunny.z5
+#./AdventureAI -file games/planetfall.z3
+
+#./AdventureAI -ai -backend sonnet-35 -prompt simple -file games/hhgg.z3
+#./AdventureAI -ai -backend gpt-4o -prompt simple -file games/hhgg.z3
+#./AdventureAI -ai -backend gpt-4o-mini -prompt simple -file games/hhgg.z3
+
+#./AdventureAI -ai -backend gpt-4o-mini -prompt simple -file games/planetfall.z3
 
 #./AdventureAI -ai -backend gpt-4o-mini -prompt simple -file games/ChildsPlay.z8
 #./AdventureAI -ai -backend sonnet-35 -prompt simple -file games/ChildsPlay.z8
@@ -94,7 +101,7 @@ go build
 #./AdventureAI -ai -backend llama3.1-8b -prompt simple -file games/violet.z8
 #./AdventureAI -ai -backend llama3.1-70b -prompt simple -file games/violet.z8
 #./AdventureAI -ai -backend llama3.1-405b -prompt simple -file games/violet.z8
-./AdventureAI -ai -backend qwen2-72b -prompt simple -file games/violet.z8
+#./AdventureAI -ai -backend qwen2-72b -prompt simple -file games/violet.z8
 
 #./AdventureAI -ai -backend gpt-4o-mini -prompt simple -file 905.z5
 #./AdventureAI -ai -backend gpt-4o-mini -prompt react -file 905.z5
