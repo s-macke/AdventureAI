@@ -125,10 +125,11 @@ func (cs *ChatState) chatInput() string {
 		}
 	*/
 	cmd := cs.prompt.GetNextCommand(cs.story)
-	if cmd == "" {
-		panic("empty command")
-	}
-
+	/*
+		if cmd == "" {
+			panic("empty command")
+		}
+	*/
 	cs.story.StoreToFile()
 	cs.currentStoryStep++
 

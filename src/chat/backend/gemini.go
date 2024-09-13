@@ -47,6 +47,8 @@ func NewVertexAIChat(systemMsg string, model string) *VertexAIChat {
 	switch cs.model {
 	case "gemini-15-pro":
 		cs.gemini = cs.client.GenerativeModel("gemini-1.5-pro-latest")
+	case "gemini-15-pro-exp":
+		cs.gemini = cs.client.GenerativeModel("gemini-1.5-pro-exp-0801")
 	case "gemini-15-flash":
 		cs.gemini = cs.client.GenerativeModel("gemini-1.5-flash-latest")
 	default:
@@ -112,7 +114,7 @@ func NewVertexAIChat(systemMsg string, model string) *VertexAIChat {
 func (cs *VertexAIChat) CallChat(messages []*genai.Content, lastMessage genai.Text) *genai.GenerateContentResponse {
 	var err error
 	var response *genai.GenerateContentResponse
-	for i := 0; i < 10; i++ {
+	for i := 0; i < 60; i++ {
 		chat := cs.gemini.StartChat()
 		chat.History = messages
 		response, err = chat.SendMessage(cs.ctx, lastMessage)
@@ -159,6 +161,11 @@ func (cs *VertexAIChat) GetResponse(ch *ChatHistory) (string, int, int) {
 	response := cs.CallChat(messages, lastMessage)
 
 	//fmt.Println(response.Candidates[0].Content.Parts[0].(genai.Text))
+
+	// An empty string or just a new line is returned as no text
+	if len(response.Candidates[0].Content.Parts) == 0 {
+		return "", 0, 0
+	}
 	output := response.Candidates[0].Content.Parts[0].(genai.Text)
 	return string(output), 0, 0
 }

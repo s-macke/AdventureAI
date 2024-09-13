@@ -68,8 +68,10 @@ func (c *Simple) GetNextCommand(story *storyHistory.StoryHistory) string {
 
 	content = c.re.ReplaceAllString(content, " ")
 	cmd := strings.TrimSpace(content)
-	if cmd[0] == '"' && cmd[len(cmd)-1] == '"' {
-		cmd = cmd[1 : len(cmd)-1]
+	if len(cmd) > 1 {
+		if cmd[0] == '"' && cmd[len(cmd)-1] == '"' {
+			cmd = cmd[1 : len(cmd)-1]
+		}
 	}
 	cmd = strings.ReplaceAll(cmd, ".", "")
 

@@ -6,6 +6,15 @@ import (
 )
 
 func GetScore(zm *zmachine.ZMachine, story *storyHistory.StoryHistory) float64 {
+	if zm.Name == "Balances.z5" {
+		return float64(zm.ReadGlobal(29))
+	}
+	if zm.Name == "Adventureland.z5" {
+		return float64(zm.ReadGlobal(22))
+	}
+	if zm.Name == "Advent.z5" {
+		return float64(zm.ReadGlobal(33))
+	}
 	if zm.Name == "suvehnux.z5" {
 		return float64(zm.ReadGlobal(59))
 	}
@@ -16,9 +25,6 @@ func GetScore(zm *zmachine.ZMachine, story *storyHistory.StoryHistory) float64 {
 		return float64(zm.ReadGlobal(29))
 	}
 	if zm.Name == "planetfall.z3" {
-		return float64(zm.ReadGlobal(17))
-	}
-	if zm.Name == "hhgg.z3" {
 		return float64(zm.ReadGlobal(17))
 	}
 	if zm.Name == "ChildsPlay.z8" {
@@ -240,6 +246,184 @@ func GetScore(zm *zmachine.ZMachine, story *storyHistory.StoryHistory) float64 {
 			score++
 		}
 		if story.ContainsStoryText("You pull the tab and the balloon") {
+			score++
+		}
+		return score
+	}
+	if zm.Name == "hhgg.z3" {
+		//return float64(zm.ReadGlobal(17))
+		score := float64(0)
+		if story.ContainsStoryText("Good start to the day") {
+			score++
+		}
+		if story.ContainsStoryText("The room is still spinning") {
+			score++
+		}
+		if story.ContainsStoryText("this is large enough for you to get hold of") {
+			score++
+		}
+		if story.ContainsStoryText("Opening your gown reveals") {
+			score++
+		}
+		if story.ContainsStoryText("You swallow the tablet") {
+			score++
+		}
+		if story.ContainsStoryText("Taken") {
+			score++
+		}
+		if story.ContainsStoryText("As you pick up the toothbrush") {
+			score++
+		}
+		if story.ContainsStoryText("You make your way down to the front porch") {
+			score++
+		}
+		if story.ContainsStoryText("This is the enclosed front porch of your home") {
+			score++
+		}
+		if story.ContainsStoryText("You gather up the pile of mail") {
+			score++
+		}
+		if story.ContainsStoryText("Front of House") {
+			score++
+		}
+		if story.ContainsStoryText("You lie down in the path") {
+			score++
+		}
+		if story.ContainsStoryText("The bulldozer thunders toward you") {
+			score++
+		}
+		if story.ContainsStoryText("The noise of the giant bulldozer") {
+			score++
+		}
+		if story.ContainsStoryText("With a terrible grinding of gears") {
+			score++
+		}
+		if story.ContainsStoryText("Ford glances uncomfortably at the sky") {
+			score++
+		}
+		if story.ContainsStoryText("Ford seems oblivious to your trouble") {
+			score++
+		}
+		if story.ContainsStoryText("Ford and Prosser stop talking") {
+			score++
+		}
+		if story.ContainsStoryText("Country Lane") {
+			score++
+		}
+		if story.ContainsStoryText("The Pub is pleasant and cheerful") {
+			score++
+		}
+		if story.ContainsStoryText("The barman gives you a cheese sandwich") {
+			score++
+		}
+		if story.ContainsStoryText("It's very good beer") {
+			score++
+		}
+		if story.ContainsStoryText("It is really very pleasant stuff") {
+			score++
+		}
+		if story.ContainsStoryText("There is a distant crash which") {
+			score++
+		}
+		if story.ContainsStoryText("You see the huge bulldozer heaving itself among") {
+			score++
+		}
+		if story.ContainsStoryText("The dog is deeply moved") {
+			score++
+		}
+		if story.ContainsStoryText("You reach the site of what was your home") {
+			score++
+		}
+		if story.ContainsStoryText("Mr. Prosser, from the local council") {
+			score++
+		}
+		if story.ContainsStoryText("With a noise like a cross between Led Zeppelin's farewell") {
+			score++
+		}
+		if story.ContainsStoryText("The vast yellow ships thunder") {
+			score++
+		}
+		if story.ContainsStoryText("Fierce gales whip across the land") {
+			score++
+		}
+		if story.ContainsStoryText("Lights whirl sickeningly around your head") {
+			score++
+		}
+		if story.ContainsStoryText("There's nothing you can taste") {
+			score++
+		}
+		if story.ContainsStoryText("There's nothing you can taste, nothing you can see, nothing you can hear, nothing you can feel, you do not even know who you are") {
+			score++
+		}
+		if story.ContainsStoryText("It does smell a bit") {
+			score++
+		}
+		if story.ContainsStoryText("The shadow is vaguely Ford Prefect-shaped") {
+			score++
+		}
+		if story.ContainsStoryText("This is a squalid room filled") {
+			score++
+		}
+		if story.ContainsStoryText("You feel stronger as the peanuts") {
+			score++
+		}
+		if story.ContainsStoryText("Okay, you're no longer wearing your gown.") {
+			score++
+		}
+		return score
+	}
+
+	if zm.Name == "Tangle.z5" {
+		score := float64(0)
+		if story.ContainsStoryText("a naked sheet of metal") {
+			score++
+		}
+		if story.ContainsStoryText("Mouth of Alley") {
+			score++
+		}
+		if story.ContainsStoryText("You leave door and alley behind") {
+			score++
+		}
+		if story.ContainsStoryText("Interrogation Chamber") {
+			score++
+		}
+		if story.ContainsStoryText("You scrape your knuckles without result") {
+			score++
+		}
+		if story.ContainsStoryText("stand there rattling the door like a nightclump") {
+			score++
+		}
+		if story.ContainsStoryText("The pick locks itself rigidly") {
+			score++
+		}
+		if story.ContainsStoryText("You stand lightly in a bare tiled corridor") {
+			score++
+		}
+		if story.ContainsStoryText("Corner At Doors") {
+			score++
+		}
+		if story.ContainsStoryText("You bend and leap") {
+			score++
+		}
+		if story.ContainsStoryText("You strain, pulling yourself") {
+			score++
+		}
+		if story.ContainsStoryText("with one hand, hanging by the other") {
+			score++
+		}
+		if story.ContainsStoryText("The ventilator grille isn't important") {
+			score++
+		}
+		if story.ContainsStoryText("You drop lightly to the ground") {
+			score++
+		}
+		if story.ContainsStoryText("Corridor Boundary") {
+			score++
+		}
+		if story.ContainsStoryText("through our secure zone like a scalpel") {
+			score++
+		}
+		if story.ContainsStoryText("The white corridor runs east to west here") {
 			score++
 		}
 		return score

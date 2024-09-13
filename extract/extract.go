@@ -82,7 +82,6 @@ func RenameModel(name string) string {
 		return "Phi 3 Medium"
 	case "phi3-mini":
 		return "Phi 3 Mini"
-
 	}
 	return name
 }
@@ -96,6 +95,7 @@ func main() {
 		PlotProgress("905")
 		PlotProgress("shade")
 		PlotProgress("violet")
+		PlotProgress("hhgg")
 		//PlotProgress("ChildsPlay")
 		os.Exit(0)
 	}

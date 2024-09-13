@@ -27,3 +27,12 @@ http://inform-fiction.org/zmachine/standards/
 
 # zblorb Standard
 https://eblong.com/zarf/blorb/
+
+# GitHub models
+https://github.blog/news-insights/product-news/introducing-github-models/
+
+# SambaNova
+https://sambanova.ai/
+
+# Open Router
+https://openrouter.ai/

@@ -64,3 +64,10 @@ unset label
 set title "Game Violet"
 set output "violet_progress.png"
 load "violet_plotlines.gp"
+
+set yrange [-1:20]
+unset arrow
+unset label
+set title "Game The Hitchhiker's Guide to the Galaxy"
+set output "hhgg_progress.png"
+load "hhgg_plotlines.gp"

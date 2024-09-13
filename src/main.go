@@ -20,8 +20,8 @@ func Init(filename string) *zmachine.ZMachine {
 	var header zmachine.ZHeader
 	header.Read(buffer)
 
-	if header.Version != 3 && header.Version != 5 && header.Version != 8 {
-		panic("Only Version 3 or 5 or 8 files supported. But found version " + strconv.Itoa(int(header.Version)))
+	if header.Version != 3 && header.Version != 4 && header.Version != 5 && header.Version != 8 {
+		panic("Only Version 3, 4, 5 or 8 files supported. But found version " + strconv.Itoa(int(header.Version)))
 	}
 
 	zm := zmachine.NewZMachine(filepath.Base(filename), buffer, header)
@@ -49,7 +49,7 @@ func Main() {
 		"OpenAI:    'gpt-3.5', 'gpt-4', 'gpt-4-turbo', 'gpt-4o', , 'gpt-4o-mini' \n"+
 		"llama.cpp: 'orca2',\n"+
 		"Mistral:   'mistral-large-2',\n"+
-		"Gemini:    'gemini-15-pro', 'gemini-15-flash',\n"+
+		"Gemini:    'gemini-15-pro', 'gemini-15-flash', 'gemini-15-pro-exp'\n"+
 		"Anthropic: 'opus-3', 'sonnet-35',\n"+
 		"Groq:      'llama3-8b', 'llama3-70b',\n"+
 		"Groq:      'gemma2',\n"+

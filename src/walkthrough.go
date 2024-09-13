@@ -267,7 +267,8 @@ var commands = []string{
 }
 
 */
-
+/*
+// for Violet
 var commands = []string{
 	"I",
 	"WRITE",
@@ -382,4 +383,103 @@ var commands = []string{
 	"WRITE",
 	"PEE IN BOTTLE",
 	"WRITE",
+}
+*/
+
+// for hhgg
+/*
+var commands = []string{
+	"turn on light",
+	"stand",
+	"get gown",
+	"wear gown",
+	"open pocket",
+	"eat analgesic",
+	"get screwdriver",
+	"get toothbrush",
+	"s",
+	"get mail",
+	"s",
+	"lie down",
+	"wait",
+	"wait",
+	"wait",
+	"look",
+	"wait",
+	"wait",
+	"s",
+	"w",
+	"purchase sandwich",
+	"drink beer",
+	"drink beer",
+	"drink beer",
+	"drink beer",
+	"east",
+	"give sandwich to dog",
+	"north",
+	"wait",
+	"wait",
+	"wait",
+	"get device",
+	"press green button",
+	"look",
+	"look",
+	"wait",
+	"wait",
+	"smell",
+	"examine shadow",
+	"eat peanuts",
+	"remove gown",
+}
+*/
+
+// for planetfall
+/*
+var commands = []string{
+	"wait",
+	"wait",
+	"wait",
+	"wait",
+	"wait",
+	"wait",
+	"wait",
+	"wait",
+	"wait",
+	"w",
+	"enter webbing",
+	"wait",
+	"wait",
+	"wait",
+	"wait",
+	"wait",
+	"wait",
+	"wait",
+	"wait",
+	"wait",
+	"wait",
+	"wait",
+	"wait",
+	"exit webbing",
+	"take kit",
+	"open door",
+	"exit",
+	"swim up",
+	"u",
+	"u",
+	"u",
+}
+*/
+
+// for tangle
+var commands = []string{
+	"I",
+	"X door",
+	"X plate",
+	"Push plate",
+	"S",
+	"S",
+	"no",
+	"yes",
+	"i",
+	"knock on door",
 }

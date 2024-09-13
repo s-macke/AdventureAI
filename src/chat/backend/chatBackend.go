@@ -12,7 +12,7 @@ func NewChatBackend(prompt string, backendAsString string) ChatBackend {
 		return NewLlamaChat(prompt, backendAsString)
 	case "mistral-large-2":
 		return NewMistralChat(prompt, backendAsString)
-	case "gemini-15-pro", "gemini-15-flash":
+	case "gemini-15-pro", "gemini-15-flash", "gemini-15-pro-exp":
 		return NewVertexAIChat(prompt, backendAsString)
 	case "opus-3", "sonnet-35":
 		return NewAnthropicChat(prompt, backendAsString)
@@ -24,8 +24,9 @@ func NewChatBackend(prompt string, backendAsString string) ChatBackend {
 		return NewGroqChat(prompt, backendAsString)
 	//	case "llama3.1-8b", "llama3.1-70b", "llama3.1-405b":
 	//		return NewTogetherChat(prompt, backendAsString)
+	//	return NewDeepInfraChat(prompt, backendAsString)
 	case "llama3.1-8b", "llama3.1-70b", "llama3.1-405b":
-		return NewDeepInfraChat(prompt, backendAsString)
+		return NewHyperbolicChat(prompt, backendAsString)
 	//case "llama3.1-8b", "llama3.1-70b", "llama3.1-405b":
 	//	return NewGroqChat(prompt, backendAsString)
 	case "qwen2-72b", "phi3-medium", "phi3-mini":

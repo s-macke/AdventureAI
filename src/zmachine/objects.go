@@ -1,7 +1,5 @@
 package zmachine
 
-import "fmt"
-
 var (
 	OBJECT_PARENT_INDEX            uint32 = 4
 	OBJECT_SIBLING_INDEX           uint32 = 5
@@ -37,8 +35,8 @@ func (zm *ZMachine) InitObjectsConstants() {
 
 func (zm *ZMachine) GetObjectEntryAddress(objectIndex uint16) uint32 {
 	if objectIndex > MAX_OBJECT || objectIndex == 0 {
-		fmt.Printf("Invalid Index: %d\n", objectIndex)
-		panic("Invalid object index")
+		//fmt.Printf("Invalid Index: %d\n", objectIndex)
+		//panic("Invalid object index")
 	}
 
 	// Convert from 1-based (0 = NULL = no object) to 0-based
@@ -162,7 +160,9 @@ func (zm *ZMachine) GetObjectProperty(objectIndex uint16, propertyId uint16) uin
 		} else if numBytes == 2 {
 			result = zm.GetUint16(uint32(propData))
 		} else {
-			panic("GetObjectProperty only supports 1/2 byte properties")
+			result = zm.GetUint16(uint32(propData))
+			//fmt.Println("Property size: ", numBytes)
+			//panic("GetObjectProperty only supports 1/2 byte properties")
 		}
 	}
 
@@ -207,6 +207,9 @@ func (zm *ZMachine) ClearObjectAttr(objectIndex uint16, attribute uint16) {
 }
 
 func (zm *ZMachine) IsDirectParent(childIndex uint16, parentIndex uint16) bool {
+	if childIndex == 0 { // ignore this error in hhgg.z3
+		return false
+	}
 	return zm.GetParentObjectIndex(childIndex) == parentIndex
 }
 
