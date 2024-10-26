@@ -31,6 +31,10 @@ func NewOpenAIChat(systemMsg string, backend string) *OpenAIChat {
 	switch backend {
 	case "gpt-3.5":
 		cs.model = openai.GPT3Dot5Turbo
+	case "o1-preview":
+		cs.model = openai.O1Preview
+	case "o1-mini":
+		cs.model = openai.O1Mini
 	case "gpt-4-turbo":
 		cs.model = openai.GPT4Turbo
 	case "gpt-4":
@@ -48,10 +52,17 @@ func NewOpenAIChat(systemMsg string, backend string) *OpenAIChat {
 
 func (cs *OpenAIChat) GetResponse(ch *ChatHistory) (string, int, int) {
 	var messages []openai.ChatCompletionMessage
-	messages = append(messages, openai.ChatCompletionMessage{
-		Role:    openai.ChatMessageRoleSystem,
-		Content: cs.systemMsg,
-	})
+	if cs.model == openai.O1Preview || cs.model == openai.O1Mini {
+		messages = append(messages, openai.ChatCompletionMessage{
+			Role:    openai.ChatMessageRoleUser,
+			Content: cs.systemMsg,
+		})
+	} else {
+		messages = append(messages, openai.ChatCompletionMessage{
+			Role:    openai.ChatMessageRoleSystem,
+			Content: cs.systemMsg,
+		})
+	}
 
 	for _, m := range ch.Messages {
 		messages = append(messages, openai.ChatCompletionMessage{

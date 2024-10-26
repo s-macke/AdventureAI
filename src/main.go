@@ -51,8 +51,8 @@ func Main() {
 		"Mistral:   'mistral-large-2',\n"+
 		"Gemini:    'gemini-15-pro', 'gemini-15-flash', 'gemini-15-pro-exp'\n"+
 		"Anthropic: 'opus-3', 'sonnet-35',\n"+
-		"Groq:      'llama3-8b', 'llama3-70b',\n"+
-		"Groq:      'gemma2',\n"+
+		"Groq:      'llama3-8b', 'llama3-70b', 'gemma2'\n"+
+		"XAI:       'grok-beta',\n"+
 		"DeepInfra: 'qwen2-72b', 'phi3-medium', 'phi3-mini', \n"+
 		"DeepInfra: 'llama3.1-8b', 'llama3.1-70b', 'llama3.1-405b'\n")
 	oldStoryFilename := flag.String("story", "", "Continue from story file")
