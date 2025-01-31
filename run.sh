@@ -41,7 +41,6 @@ go build
 #./AdventureAI -file games/gostak.z5 # too complicated
 
 
-
 #./AdventureAI -ai -backend sonnet-35 -prompt simple -file games/Tangle.z5
 
 #./AdventureAI -ai -backend sonnet-35 -prompt simple -file games/hhgg.z3
@@ -65,6 +64,9 @@ go build
 #./AdventureAI -ai -backend sonnet-35 -prompt simple -file Balances.z5
 #./AdventureAI -ai -backend gpt-4o-mini -prompt simple -file Balances.z5
 
+#./AdventureAI -ai -backend o1-mini -prompt simple -file games/905.z5
+./AdventureAI -ai -backend o3-mini -prompt simple -file games/905.z5
+
 #./AdventureAI -ai -backend gpt-4o-mini -prompt simple_with_examples -file games/905.z5
 #./AdventureAI -ai -backend llama3.1-8b -prompt simple_with_examples -file games/905.z5
 #./AdventureAI -ai -backend llama3.1-70b -prompt simple_with_examples -file games/905.z5
@@ -82,7 +84,7 @@ go build
 #./AdventureAI -ai -backend llama3.1-70b -prompt simple -file games/905.z5
 #./AdventureAI -ai -backend llama3.1-405b -prompt simple -file games/905.z5
 #./AdventureAI -ai -backend gemini-15-pro -prompt simple -file games/905.z5
-./AdventureAI -ai -backend gemini-15-pro-exp -prompt simple -file games/905.z5
+#./AdventureAI -ai -backend gemini-15-pro-exp -prompt simple -file games/905.z5
 
 #./AdventureAI -ai -backend gpt-4o -prompt simple -file games/suvehnux.z5
 #./AdventureAI -ai -backend gpt-4o-mini -prompt simple -file games/suvehnux.z5

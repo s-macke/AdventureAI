@@ -6,7 +6,7 @@ type ChatBackend interface {
 
 func NewChatBackend(prompt string, backendAsString string) ChatBackend {
 	switch backendAsString {
-	case "o1-preview", "o1-mini", "gpt-3.5", "gpt-4", "gpt-4-turbo", "gpt-4o", "gpt-4o-mini":
+	case "o1", "o3-mini", "gpt-3.5", "gpt-4", "gpt-4-turbo", "gpt-4o", "gpt-4o-mini":
 		return NewOpenAIChat(prompt, backendAsString)
 	case "orca2":
 		return NewLlamaChat(prompt, backendAsString)
