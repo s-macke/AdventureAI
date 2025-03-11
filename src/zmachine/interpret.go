@@ -30,7 +30,6 @@ func (zm *ZMachine) InterpretLongVARInstruction() {
 }
 
 func (zm *ZMachine) InterpretVARInstruction() {
-
 	opcode := zm.ReadByte()
 	// "In variable form, if bit 5 is 0 then the count is 2OP; if it is 1, then the count is VAR.
 	// The opcode number is given in the bottom 5 bits.
@@ -79,7 +78,6 @@ func (zm *ZMachine) InterpretShortInstruction() {
 }
 
 func (zm *ZMachine) InterpretLongInstruction() {
-
 	opcode := zm.ReadByte()
 
 	// In long form the operand count is always 2OP. The opcode number is given in the bottom 5 bits.
@@ -137,6 +135,7 @@ func (zm *ZMachine) InterpretExtended() {
 var counter = 0
 
 func (zm *ZMachine) InterpretInstruction() {
+	zm.opcodeip = zm.ip
 	opcode := zm.PeekByte()
 
 	// Form is stored in top 2 bits

@@ -103,7 +103,7 @@ func (zm *ZMachine) GetObjectPropertyInfo(objectIndex uint16, propertyId uint16)
 				propSize = uint16(zm.buf[propData])
 				propSize &= 0x3f
 				if propSize == 0 {
-					propSize = 64 /* demanded by Spec 1.0 */
+					propSize = 64 // demanded by Spec 1.0
 				}
 				addOne = 1
 			}
@@ -147,6 +147,7 @@ func (zm *ZMachine) GetNextObjectProperty(objectIndex uint16, propertyId uint16)
 }
 
 func (zm *ZMachine) GetObjectProperty(objectIndex uint16, propertyId uint16) uint16 {
+	//fmt.Println("GetObjectProperty", objectIndex, propertyId)
 	propData, numBytes := zm.GetObjectPropertyInfo(objectIndex, propertyId)
 	result := uint16(0)
 
@@ -156,11 +157,13 @@ func (zm *ZMachine) GetObjectProperty(objectIndex uint16, propertyId uint16) uin
 		//DebugPrintf("Default prop %d = 0x%X\n", propertyId, result)
 	} else {
 		if numBytes == 1 {
-			result = uint16(zm.buf[propData])
+			result = uint16(zm.GetUint8(uint32(propData)))
 		} else if numBytes == 2 {
 			result = zm.GetUint16(uint32(propData))
+			DebugPrintf("Read property of %d at %d\n", result, propData)
 		} else {
-			result = zm.GetUint16(uint32(propData))
+			result = zm.GetUint16(uint32(propData - 1))
+			DebugPrintf("Read property of %d at %d\n", result, propData-1)
 			//fmt.Println("Property size: ", numBytes)
 			//panic("GetObjectProperty only supports 1/2 byte properties")
 		}
@@ -190,6 +193,7 @@ func (zm *ZMachine) SetObjectAttr(objectIndex uint16, attribute uint16) {
 
 	byteIndex := uint32(attribute >> 3)
 	shift := 7 - (attribute & 0x7)
+	//DebugPrintf("SetObjectAttr %d %d\n", objectEntryAddress+byteIndex, 1<<shift)
 
 	zm.buf[objectEntryAddress+byteIndex] |= 1 << shift
 }

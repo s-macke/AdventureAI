@@ -47,7 +47,8 @@ type Checkpoint struct {
 
 type ZMachine struct {
 	Name       string
-	ip         uint32
+	opcodeip   uint32 // the ip when reading the opcode, used for reverse
+	ip         uint32 // the current ip during evaluation
 	header     ZHeader
 	backupBuf  []uint8 // the initial buffer
 	buf        []uint8
@@ -232,6 +233,7 @@ func ZGetPropAddr(zm *ZMachine, args []uint16, numArgs uint16) {
 }
 
 func ZGetNextProp(zm *ZMachine, args []uint16, numArgs uint16) {
+	panic("Not sure if this command is correct, Frotz sets z_get_prop_len here")
 	addr := zm.GetNextObjectProperty(args[0], args[1])
 	zm.StoreResult(addr)
 }
@@ -571,7 +573,9 @@ func ZRestart(zm *ZMachine) {
 
 	zm.buf[1] = 156 // TODO: Set config of z-machine. See z-machine header flag at offset 1
 
-	zm.buf[22] = 48  // screen rows
+	zm.buf[22] = 48 // screen rows???
+
+	zm.buf[32] = 40  // also screen rows ???
 	zm.buf[33] = 228 // screen cols
 
 	// Z-Machine standard 1.1
@@ -579,8 +583,9 @@ func ZRestart(zm *ZMachine) {
 	zm.buf[51] = 1
 
 	zm.buf[16] = 0 // flags
-	//zm.buf[17] = 16 // flags
-	zm.buf[17] = 0 // flags
+
+	zm.buf[17] = 16 // flags
+	//zm.buf[17] = 0 // flags
 }
 
 func (zm *ZMachine) GetPropertyDefault(propertyIndex uint16) uint16 {

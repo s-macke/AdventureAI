@@ -4,6 +4,24 @@ import (
 	"strings"
 )
 
+func CallInput(zm *ZMachine) string {
+	key := 13 // CR .Terminating key or special key such as mouse click or timeout
+	input := zm.Input()
+
+	if key == 0x7f {
+		return ""
+	}
+
+	input = strings.ToLower(input)
+	input = strings.Trim(input, "\r\n")
+	input = strings.Trim(input, "\n")
+	input = strings.TrimSpace(input)
+
+	DebugPrintf("Key: %d\n", key)
+	DebugPrintf("Input: %s\n", input)
+	return input
+}
+
 func ZRead(zm *ZMachine, args []uint16, numArgs uint16) {
 	const INPUT_BUFFER_SIZE = 200
 	textAddress := args[0]
@@ -27,22 +45,11 @@ func ZRead(zm *ZMachine, args []uint16, numArgs uint16) {
 	}
 	DebugPrintf("Size: %d\n", size)
 
-	key := 13 // CR .Terminating key or special key such as mouse click or timeout
-	//reader := bufio.NewReader(os.Stdin)
-	//input, _ := reader.ReadString('\n')
-	input := zm.Input()
-
-	if key == 0x7f {
+	input := CallInput(zm)
+	if HookCommand(zm, input) { // redo command
+		zm.ip = zm.opcodeip
 		return
 	}
-
-	input = strings.ToLower(input)
-	input = strings.Trim(input, "\r\n")
-	input = strings.Trim(input, "\n")
-	input = strings.TrimSpace(input)
-
-	DebugPrintf("Key: %d\n", key)
-	DebugPrintf("Input: %s\n", input)
 
 	// copy text and terminate with 0
 	//copy(zm.buf[textAddress+1:textAddress+maxChars], input)

@@ -22,6 +22,7 @@ var ZFunctions_VAR = []ZFunction{
 		// set window
 	},
 	func(zm *ZMachine, args []uint16, numargs uint16) {
+		// command 0xec, call_vs2
 		ZCall(zm, args, numargs, ZCallTypeStore)
 	},
 	func(zm *ZMachine, args []uint16, numargs uint16) {
@@ -49,6 +50,7 @@ var ZFunctions_VAR = []ZFunction{
 		zm.StoreResult(^args[0]) // not value -> (result)
 	},
 	func(zm *ZMachine, args []uint16, numargs uint16) {
+		// command 0xfa, call_vs2
 		ZCall(zm, args, numargs, ZCallTypeN)
 	},
 	nil,
