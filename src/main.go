@@ -27,12 +27,13 @@ func Init(filename string) *zmachine.ZMachine {
 	return zm
 }
 
+var filename = ""
+
 func Input() string {
 	/*
-		if commandIndex < len(commands) {
-			fmt.Println(commands[commandIndex])
-			commandIndex++
-			return commands[commandIndex-1]
+		input, ok := getWalkthrough(filename)
+		if ok {
+			return input
 		}
 	*/
 	reader := bufio.NewReader(os.Stdin)

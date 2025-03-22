@@ -1,67 +1,68 @@
 package mainsrc
 
-/*
+import "fmt"
+
 // for 9:05
-	var commands = []string{
-		"answer phone",
-		"stand",
-		"s",
-		"remove watch",
-		"remove clothes",
-		"drop all",
-		"enter shower",
-		"take watch",
-		"wear watch",
-		"n",
-		"get all from table",
-		"open dresser",
-		"get clothes",
-		"wear clothes",
-		"e",
-		"open front door",
-		"s",
-		"open car with keys",
-		"enter car",
-		"no",
-		"yes",
-		"open wallet",
-		"take ID",
-		"insert card in slot",
-		"enter cubicle",
-		"read note",
-		"take form and pen",
-		"sign form",
-		"out",
-		"west",
-		"RESTART",
-		"look under bed",
-		"look at corpse",
-		"stand",
-		"s",
-		"remove watch",
-		"remove clothes",
-		"drop all",
-		"enter shower",
-		"take watch",
-		"wear watch",
-		"n",
-		"get all from table",
-		"open dresser",
-		"get clothes",
-		"wear clothes",
-		"e",
-		"open front door",
-		"s",
-		"open car with keys",
-		"enter car",
-		"yes",
-		"no",
-		"yes",
-	}
-*/
+var commands905 = []string{
+	"answer phone",
+	"stand",
+	"s",
+	"remove watch",
+	"remove clothes",
+	"drop all",
+	"enter shower",
+	"take watch",
+	"wear watch",
+	"n",
+	"get all from table",
+	"open dresser",
+	"get clothes",
+	"wear clothes",
+	"e",
+	"open front door",
+	"s",
+	"open car with keys",
+	"enter car",
+	"no",
+	"yes",
+	"open wallet",
+	"take ID",
+	"insert card in slot",
+	"enter cubicle",
+	"read note",
+	"take form and pen",
+	"sign form",
+	"out",
+	"west",
+	"RESTART",
+	"look under bed",
+	"look at corpse",
+	"stand",
+	"s",
+	"remove watch",
+	"remove clothes",
+	"drop all",
+	"enter shower",
+	"take watch",
+	"wear watch",
+	"n",
+	"get all from table",
+	"open dresser",
+	"get clothes",
+	"wear clothes",
+	"e",
+	"open front door",
+	"s",
+	"open car with keys",
+	"enter car",
+	"yes",
+	"no",
+	"yes",
+}
+
 // for Suveh Nux
-/*
-var commands = []string{
+
+var commandsSuvehNux = []string{
 	"look",
 	"x cage", "x scroll", "x shelf", "x floor", "x door", "x me",
 	"touch shelf", "take vial", "x vial", "shake vial",
@@ -129,13 +130,9 @@ var commands = []string{
 	"suveh madah firenos ani to", "suveh madah firenos",
 	"pull block",
 }
-*/
 
-var commandIndex = 0
-
-/*
 // for Shade
-var commands = []string{
+var commandsShade = []string{
 	"about",
 	"inv",
 	"x futon",
@@ -266,10 +263,8 @@ var commands = []string{
 	"wait",
 }
 
-*/
-/*
 // for Violet
-var commands = []string{
+var commandsViolet = []string{
 	"I",
 	"WRITE",
 	"SIT",
@@ -384,11 +379,9 @@ var commands = []string{
 	"PEE IN BOTTLE",
 	"WRITE",
 }
-*/
 
-// for hhgg
-/*
-var commands = []string{
+// for Hitchikers Guide ....
+var commandsHHGG = []string{
 	"turn on light",
 	"stand",
 	"get gown",
@@ -431,11 +424,9 @@ var commands = []string{
 	"eat peanuts",
 	"remove gown",
 }
-*/
 
 // for planetfall
-/*
-var commands = []string{
+var commandsPlanetfall = []string{
 	"wait",
 	"wait",
 	"wait",
@@ -468,10 +459,9 @@ var commands = []string{
 	"u",
 	"u",
 }
-*/
 
 // for tangle
-var commands = []string{
+var commandsTangle = []string{
 	"I",
 	"X door",
 	"X plate",
@@ -482,4 +472,30 @@ var commands = []string{
 	"yes",
 	"i",
 	"knock on door",
+}
+
+// for gostak
+// http://www.plover.net/~davidw/gostak.html
+var commandsGostak = []string{}
+
+var commandIndex = 0
+
+func getWalkthrough(filename string) (string, bool) {
+	commands := []string{}
+
+	switch filename {
+	case "gostak.z5":
+		commands = commandsGostak
+	case "905.z5":
+		commands = commands905
+	default:
+		return "", false
+	}
+
+	if commandIndex < len(commands) {
+		fmt.Println(commands[commandIndex])
+		commandIndex++
+		return commands[commandIndex-1], true
+	}
+	return "", false
 }

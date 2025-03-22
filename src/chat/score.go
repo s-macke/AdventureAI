@@ -6,6 +6,9 @@ import (
 )
 
 func GetScore(zm *zmachine.ZMachine, story *storyHistory.StoryHistory) float64 {
+	if zm.Name == "gostak.z5" {
+		return float64(zm.ReadGlobal(29))
+	}
 	if zm.Name == "Balances.z5" {
 		return float64(zm.ReadGlobal(29))
 	}

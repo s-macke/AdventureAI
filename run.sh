@@ -21,6 +21,7 @@ go build
 #./AdventureAI -file games/nameless.z8
 #./AdventureAI -file games/vgame.z8
 #./AdventureAI -file games/LostPig.z8
+./AdventureAI -file games/gostak.z5
 
 #./AdventureAI -file games/Advent.z5
 #./AdventureAI -file Adventureland.z5
@@ -65,7 +66,7 @@ go build
 #./AdventureAI -ai -backend gpt-4o-mini -prompt simple -file Balances.z5
 
 #./AdventureAI -ai -backend o1-mini -prompt simple -file games/905.z5
-./AdventureAI -ai -backend o3-mini -prompt simple -file games/905.z5
+#./AdventureAI -ai -backend o3-mini -prompt simple -file games/905.z5
 
 #./AdventureAI -ai -backend gpt-4o-mini -prompt simple_with_examples -file games/905.z5
 #./AdventureAI -ai -backend llama3.1-8b -prompt simple_with_examples -file games/905.z5
