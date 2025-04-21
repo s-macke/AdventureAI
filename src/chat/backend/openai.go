@@ -47,6 +47,10 @@ func NewOpenAIChat(systemMsg string, backend string) *OpenAIChat {
 		cs.model = openai.GPT4o
 	case "gpt-4o-mini":
 		cs.model = openai.GPT4oMini
+	case "o3":
+		cs.model = "o3"
+	case "o4-mini":
+		cs.model = "o4-mini"
 	default:
 		panic("Unknown backend")
 	}
