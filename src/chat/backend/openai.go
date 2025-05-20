@@ -3,13 +3,15 @@ package backend
 import (
 	"context"
 	"fmt"
-	"github.com/sashabaranov/go-openai"
 	"os"
 	"time"
+
+	"github.com/openai/openai-go"
+	"github.com/openai/openai-go/option"
 )
 
 type OpenAIChat struct {
-	client                *openai.Client
+	client                openai.Client
 	totalCompletionTokens int
 	totalPromptTokens     int
 	CompletionTokens      int
@@ -25,28 +27,28 @@ func NewOpenAIChat(systemMsg string, backend string) *OpenAIChat {
 	}
 
 	cs := &OpenAIChat{
-		client:    openai.NewClient(key),
+		client:    openai.NewClient(option.WithAPIKey(key)),
 		systemMsg: systemMsg,
 	}
 	switch backend {
 	case "gpt-3.5":
-		cs.model = openai.GPT3Dot5Turbo
+		cs.model = string(openai.ChatModelGPT3_5Turbo)
 	case "o1-preview":
-		cs.model = openai.O1Preview
+		cs.model = string(openai.ChatModelO1Preview)
 	case "o1":
-		cs.model = "o1"
+		cs.model = string(openai.ChatModelO1)
 	case "o3-mini":
-		cs.model = "o3-mini"
+		cs.model = string(openai.ChatModelO3Mini)
 	case "o1-mini":
-		cs.model = openai.O1Mini
+		cs.model = string(openai.ChatModelO1Mini)
 	case "gpt-4-turbo":
-		cs.model = openai.GPT4Turbo
+		cs.model = string(openai.ChatModelGPT4Turbo)
 	case "gpt-4":
-		cs.model = openai.GPT4
+		cs.model = string(openai.ChatModelGPT4)
 	case "gpt-4o":
-		cs.model = openai.GPT4o
+		cs.model = string(openai.ChatModelGPT4o)
 	case "gpt-4o-mini":
-		cs.model = openai.GPT4oMini
+		cs.model = string(openai.ChatModelGPT4oMini)
 	case "o3":
 		cs.model = "o3"
 	case "o4-mini":
@@ -59,30 +61,21 @@ func NewOpenAIChat(systemMsg string, backend string) *OpenAIChat {
 }
 
 func (cs *OpenAIChat) GetResponse(ch *ChatHistory) (string, int, int) {
-	var messages []openai.ChatCompletionMessage
-	messages = append(messages, openai.ChatCompletionMessage{
-		Role:    openai.ChatMessageRoleSystem,
-		Content: cs.systemMsg,
-	})
+	var messages []openai.ChatCompletionMessageParamUnion
+	messages = append(messages, openai.SystemMessage(cs.systemMsg))
 
 	for _, m := range ch.Messages {
-		messages = append(messages, openai.ChatCompletionMessage{
-			Role:    MapOpenAIRole(m.Role),
-			Content: m.Content,
-		})
+		messages = append(messages, MapOpenAIRole(m.Role, m.Content))
 	}
 
-	var resp openai.ChatCompletionResponse
+	var resp *openai.ChatCompletion
 	var err error
 	for i := 0; i < 10; i++ {
-		resp, err = cs.client.CreateChatCompletion(
+		resp, err = cs.client.Chat.Completions.New(
 			context.Background(),
-			openai.ChatCompletionRequest{
-				Model:    cs.model,
+			openai.ChatCompletionNewParams{
+				Model:    openai.ChatModel(cs.model),
 				Messages: messages,
-				//MaxTokens:        2048,
-				PresencePenalty:  0,
-				FrequencyPenalty: 0,
 			},
 		)
 		if err == nil {
@@ -112,15 +105,15 @@ func (cs *OpenAIChat) GetResponse(ch *ChatHistory) (string, int, int) {
 			float64(d)/1.e9))
 	*/
 	content := resp.Choices[0].Message.Content
-	return content, resp.Usage.PromptTokens, resp.Usage.CompletionTokens
+	return content, int(resp.Usage.PromptTokens), int(resp.Usage.CompletionTokens)
 }
 
-func MapOpenAIRole(role string) string {
+func MapOpenAIRole(role, content string) openai.ChatCompletionMessageParamUnion {
 	switch role {
 	case ChatHistoryRoleUser:
-		return openai.ChatMessageRoleUser
+		return openai.UserMessage(content)
 	case ChatHistoryRoleAssistant:
-		return openai.ChatMessageRoleAssistant
+		return openai.AssistantMessage(content)
 	default:
 		panic("Unknown role")
 	}
