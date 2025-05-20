@@ -3,13 +3,15 @@ package backend
 import (
 	"context"
 	"fmt"
-	"github.com/sashabaranov/go-openai"
 	"os"
 	"time"
+
+	"github.com/openai/openai-go"
+	"github.com/openai/openai-go/option"
 )
 
 type HyperbolicChat struct {
-	client    *openai.Client
+	client    openai.Client
 	model     string
 	systemMsg string
 }
@@ -20,10 +22,11 @@ func NewHyperbolicChat(systemMsg string, backend string) *HyperbolicChat {
 		panic("HYPERBOLIC_API_KEY env var not set")
 	}
 
-	config := openai.DefaultConfig(key)
-	config.BaseURL = "https://api.hyperbolic.xyz/v1"
 	cs := &HyperbolicChat{
-		client:    openai.NewClientWithConfig(config),
+		client: openai.NewClient(
+			option.WithAPIKey(key),
+			option.WithBaseURL("https://api.hyperbolic.xyz/v1"),
+		),
 		systemMsg: systemMsg,
 	}
 
@@ -42,30 +45,22 @@ func NewHyperbolicChat(systemMsg string, backend string) *HyperbolicChat {
 }
 
 func (cs *HyperbolicChat) GetResponse(ch *ChatHistory) (string, int, int) {
-	var messages []openai.ChatCompletionMessage
-	messages = append(messages, openai.ChatCompletionMessage{
-		Role:    openai.ChatMessageRoleSystem,
-		Content: cs.systemMsg,
-	})
+	var messages []openai.ChatCompletionMessageParamUnion
+	messages = append(messages, openai.SystemMessage(cs.systemMsg))
 
 	for _, m := range ch.Messages {
-		messages = append(messages, openai.ChatCompletionMessage{
-			Role:    MapOpenAIRole(m.Role),
-			Content: m.Content,
-		})
+		messages = append(messages, MapOpenAIRole(m.Role, m.Content))
 	}
 
-	var resp openai.ChatCompletionResponse
+	var resp *openai.ChatCompletion
 	var err error
 	for i := 0; i < 20; i++ {
-		resp, err = cs.client.CreateChatCompletion(
+		resp, err = cs.client.Chat.Completions.New(
 			context.Background(),
-			openai.ChatCompletionRequest{
-				Model:            cs.model,
-				Messages:         messages,
-				MaxTokens:        256,
-				PresencePenalty:  0,
-				FrequencyPenalty: 0,
+			openai.ChatCompletionNewParams{
+				Model:     openai.ChatModel(cs.model),
+				Messages:  messages,
+				MaxTokens: openai.Int(256),
 			},
 		)
 		if err == nil {
@@ -81,5 +76,5 @@ func (cs *HyperbolicChat) GetResponse(ch *ChatHistory) (string, int, int) {
 	}
 
 	content := resp.Choices[0].Message.Content
-	return content, resp.Usage.PromptTokens, resp.Usage.CompletionTokens
+	return content, int(resp.Usage.PromptTokens), int(resp.Usage.CompletionTokens)
 }
