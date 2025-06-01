@@ -21,6 +21,9 @@ func NewOllamaChat(systemMsg string, backend string) *OllamaChat {
 	switch backend {
 	case "gemma3":
 		cs.model = "gemma3:27b-it-qat"
+	case "qwen3-0.6b":
+		cs.model = "qwen3:0.6b-fp16"
+
 	default:
 		panic("Unknown backend")
 	}
@@ -70,6 +73,5 @@ func (cs *OllamaChat) GetResponse(ch *ChatHistory) (string, int, int) {
 		fmt.Printf("ChatCompletion error: %v\n", err)
 		panic("ChatCompletion error")
 	}
-
 	return (*chatCompletion).Choices[0].Message.Content, 0, 0
 }
