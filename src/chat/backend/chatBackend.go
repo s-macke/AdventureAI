@@ -14,7 +14,7 @@ func NewChatBackend(prompt string, backendAsString string) ChatBackend {
 		return NewXaiChat(prompt, backendAsString)
 	case "mistral-large-2":
 		return NewMistralChat(prompt, backendAsString)
-	case "gemini-15-pro", "gemini-15-flash", "gemini-15-pro-exp":
+	case "gemini-2.5-pro", "gemini-2.5-flash", "gemini-2.5-flash-lite":
 		return NewVertexAIChat(prompt, backendAsString)
 	case "opus-3", "sonnet-35":
 		return NewAnthropicChat(prompt, backendAsString)

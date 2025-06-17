@@ -37,14 +37,12 @@ func NewVertexAIChat(systemMsg string, model string) *GeminiAIChat {
 		os.Exit(0)
 	*/
 	switch model {
-	case "gemini-15-pro":
-		cs.model = "gemini-1.5-pro-latest"
-	case "gemini-15-pro-exp":
-		cs.model = "gemini-1.5-pro-exp-0801"
-	case "gemini-15-flash":
-		cs.model = "gemini-1.5-flash-latest"
-	case "gemini-20-flash":
-		cs.model = "gemini-2.0-flash"
+	case "gemini-2.5-pro":
+		cs.model = "gemini-2.5-pro"
+	case "gemini-2.5-flash":
+		cs.model = "gemini-2.5-flash"
+	case "gemini-2.5-flash-lite":
+		cs.model = "gemini-2.5-flash-lite-preview-06-17"
 	default:
 		panic("Unknown model: " + model)
 	}
@@ -97,13 +95,18 @@ func NewVertexAIChat(systemMsg string, model string) *GeminiAIChat {
 			Threshold: genai.HarmBlockThresholdBlockNone,
 		},
 	}
-
+	//budget := int32(-1) // -1 means no budget limit
+	budget := int32(0) // 0 means no thinking
 	cs.config = &genai.GenerateContentConfig{
 		SystemInstruction: &genai.Content{
 			Role:  genai.RoleUser,
 			Parts: []*genai.Part{{Text: systemMsg}},
 		},
 		SafetySettings: safety,
+		ThinkingConfig: &genai.ThinkingConfig{
+			IncludeThoughts: false,
+			ThinkingBudget:  &budget,
+		},
 	}
 
 	return cs
