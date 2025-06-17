@@ -13,7 +13,7 @@ type GeminiAIChat struct {
 	model  string
 }
 
-func NewVertexAIChat(systemMsg string, model string) *GeminiAIChat {
+func NewGeminiAIChat(systemMsg string, model string) *GeminiAIChat {
 	key := os.Getenv("GEMINI_API_KEY")
 	if key == "" {
 		panic("GEMINI_API_KEY env var not set")

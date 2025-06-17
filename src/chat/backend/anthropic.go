@@ -49,6 +49,10 @@ func (cs *AnthropicChat) GetResponse(ch *ChatHistory) (string, int, int) {
 			request.Model = "claude-3-opus-20240229"
 		case "sonnet-35":
 			request.Model = "claude-3-5-sonnet-20240620"
+		case "sonnet-4":
+			request.Model = "claude-sonnet-4-20250514"
+		case "opus-4":
+			request.Model = "claude-opus-4-20250514"
 		default:
 			panic("Unknown model")
 		}
