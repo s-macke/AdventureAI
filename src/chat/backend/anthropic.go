@@ -3,7 +3,7 @@ package backend
 import (
 	"context"
 	"fmt"
-	"github.com/liushuangls/go-anthropic"
+	"github.com/liushuangls/go-anthropic/v2"
 	"os"
 	"time"
 )
@@ -72,7 +72,7 @@ func (cs *AnthropicChat) GetResponse(ch *ChatHistory) (string, int, int) {
 	return response.GetFirstContentText(), response.Usage.InputTokens, response.Usage.OutputTokens
 }
 
-func MapAnthropicRole(role string) string {
+func MapAnthropicRole(role string) anthropic.ChatRole {
 	switch role {
 	case ChatHistoryRoleUser:
 		return anthropic.RoleUser
