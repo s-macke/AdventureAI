@@ -3,18 +3,21 @@ package backend
 import (
 	"context"
 	"fmt"
-	"github.com/sashabaranov/go-openai"
+	"github.com/openai/openai-go"
+	"github.com/openai/openai-go/option"
+	"github.com/openai/openai-go/packages/param"
+	"github.com/openai/openai-go/responses"
 	"os"
 	"time"
 )
 
 type OpenAIChat struct {
-	client                *openai.Client
+	client                openai.Client
+	model                 responses.ResponsesModel
 	totalCompletionTokens int
 	totalPromptTokens     int
 	CompletionTokens      int
 	PromptTokens          int
-	model                 string
 	systemMsg             string
 }
 
@@ -25,32 +28,32 @@ func NewOpenAIChat(systemMsg string, backend string) *OpenAIChat {
 	}
 
 	cs := &OpenAIChat{
-		client:    openai.NewClient(key),
+		client:    openai.NewClient(option.WithAPIKey(key)),
 		systemMsg: systemMsg,
 	}
 	switch backend {
 	case "gpt-3.5":
-		cs.model = openai.GPT3Dot5Turbo
+		cs.model = openai.ChatModelGPT3_5Turbo
 	case "o1-preview":
-		cs.model = openai.O1Preview
+		cs.model = openai.ChatModelO1Preview
 	case "o1":
-		cs.model = "o1"
+		cs.model = openai.ChatModelO1
 	case "o3-mini":
-		cs.model = "o3-mini"
+		cs.model = openai.ChatModelO3Mini
 	case "o1-mini":
-		cs.model = openai.O1Mini
+		cs.model = openai.ChatModelO1Mini
 	case "gpt-4-turbo":
-		cs.model = openai.GPT4Turbo
+		cs.model = openai.ChatModelGPT4Turbo
 	case "gpt-4":
-		cs.model = openai.GPT4
+		cs.model = openai.ChatModelGPT4
 	case "gpt-4o":
-		cs.model = openai.GPT4o
+		cs.model = openai.ChatModelGPT4o
 	case "gpt-4o-mini":
-		cs.model = openai.GPT4oMini
+		cs.model = openai.ChatModelGPT4oMini
 	case "o3":
-		cs.model = "o3"
+		cs.model = openai.ChatModelO3
 	case "o4-mini":
-		cs.model = "o4-mini"
+		cs.model = openai.ChatModelO4Mini
 	default:
 		panic("Unknown backend")
 	}
@@ -59,68 +62,59 @@ func NewOpenAIChat(systemMsg string, backend string) *OpenAIChat {
 }
 
 func (cs *OpenAIChat) GetResponse(ch *ChatHistory) (string, int, int) {
-	var messages []openai.ChatCompletionMessage
-	messages = append(messages, openai.ChatCompletionMessage{
-		Role:    openai.ChatMessageRoleSystem,
-		Content: cs.systemMsg,
-	})
 
+	var messages responses.ResponseInputParam
 	for _, m := range ch.Messages {
-		messages = append(messages, openai.ChatCompletionMessage{
-			Role:    MapOpenAIRole(m.Role),
-			Content: m.Content,
+		messages = append(messages, responses.ResponseInputItemUnionParam{
+			OfMessage: &responses.EasyInputMessageParam{
+				Role: MapOpenAIResponsesRole(m.Role),
+				Content: responses.EasyInputMessageContentUnionParam{
+					OfString: openai.Opt(m.Content),
+				},
+			},
 		})
 	}
 
-	var resp openai.ChatCompletionResponse
+	var responseCompletion *responses.Response
 	var err error
-	for i := 0; i < 10; i++ {
-		resp, err = cs.client.CreateChatCompletion(
+	for i := 0; i < 3; i++ {
+		responseCompletion, err = cs.client.Responses.New(
 			context.Background(),
-			openai.ChatCompletionRequest{
-				Model:    cs.model,
-				Messages: messages,
-				//MaxTokens:        2048,
-				PresencePenalty:  0,
-				FrequencyPenalty: 0,
-			},
-		)
-		if err == nil {
-			break
-		}
-		fmt.Println("ChatCompletion error:", err)
-		fmt.Println("Retrying...")
-		time.Sleep(5 * time.Second)
-	}
-	if err != nil {
-		fmt.Printf("ChatCompletion error: %v\n", err)
-		panic("ChatCompletion error")
-	}
-
-	/*
-		d := time.Since(start)
-		f, err := os.OpenFile("text2.log",
-			os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+			responses.ResponseNewParams{
+				Instructions: param.Opt[string]{
+					Value: cs.systemMsg,
+				},
+				Input: responses.ResponseNewParamsInputUnion{
+					OfInputItemList: messages,
+				},
+				Model: cs.model,
+			})
 		if err != nil {
-			log.Println(err)
+			fmt.Println("Responses error:", err)
+			fmt.Println("Retrying...")
+			time.Sleep(2 * time.Second)
+			continue
 		}
-		defer f.Close()
-
-		_, _ = f.WriteString(fmt.Sprintf("%d %d %.2f\n",
-			resp.Usage.CompletionTokens,
-			resp.Usage.PromptTokens,
-			float64(d)/1.e9))
-	*/
-	content := resp.Choices[0].Message.Content
-	return content, resp.Usage.PromptTokens, resp.Usage.CompletionTokens
+		if responseCompletion == nil || responseCompletion.OutputText() == "" {
+			fmt.Println("Responses error: No output")
+			time.Sleep(2 * time.Second)
+			continue
+		}
+		break
+	}
+	if err != nil || responseCompletion == nil {
+		fmt.Printf("Responses error: %v\n", err)
+		panic("Responses error")
+	}
+	return responseCompletion.OutputText(), 0, 0
 }
 
-func MapOpenAIRole(role string) string {
+func MapOpenAIResponsesRole(role string) responses.EasyInputMessageRole {
 	switch role {
 	case ChatHistoryRoleUser:
-		return openai.ChatMessageRoleUser
+		return responses.EasyInputMessageRoleUser
 	case ChatHistoryRoleAssistant:
-		return openai.ChatMessageRoleAssistant
+		return responses.EasyInputMessageRoleAssistant
 	default:
 		panic("Unknown role")
 	}

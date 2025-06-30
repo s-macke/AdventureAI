@@ -79,3 +79,14 @@ func (cs *OpenRouterChat) GetResponse(ch *ChatHistory) (string, int, int) {
 	content := resp.Choices[0].Message.Content
 	return content, resp.Usage.PromptTokens, resp.Usage.CompletionTokens
 }
+
+func MapOpenAIRole(role string) string {
+	switch role {
+	case ChatHistoryRoleUser:
+		return openai.ChatMessageRoleUser
+	case ChatHistoryRoleAssistant:
+		return openai.ChatMessageRoleAssistant
+	default:
+		panic("Unknown role")
+	}
+}

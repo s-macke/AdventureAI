@@ -9,7 +9,7 @@ import (
 
 type OllamaChat struct {
 	client    openai.Client
-	model     string
+	model     openai.ChatModel
 	systemMsg string
 }
 

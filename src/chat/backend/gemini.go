@@ -11,6 +11,7 @@ type GeminiAIChat struct {
 	client *genai.Client
 	config *genai.GenerateContentConfig
 	model  string
+	budget int32
 }
 
 func NewGeminiAIChat(systemMsg string, model string) *GeminiAIChat {
@@ -21,7 +22,8 @@ func NewGeminiAIChat(systemMsg string, model string) *GeminiAIChat {
 
 	var err error
 	cs := &GeminiAIChat{
-		ctx: context.Background(),
+		ctx:    context.Background(),
+		budget: 512,
 	}
 	cs.client, err = genai.NewClient(cs.ctx, &genai.ClientConfig{
 		APIKey:  key,
@@ -80,23 +82,22 @@ func NewGeminiAIChat(systemMsg string, model string) *GeminiAIChat {
 		*/
 		{
 			Category:  genai.HarmCategoryHarassment,
-			Threshold: genai.HarmBlockThresholdBlockNone,
+			Threshold: genai.HarmBlockThresholdOff,
 		},
 		{
 			Category:  genai.HarmCategoryHateSpeech,
-			Threshold: genai.HarmBlockThresholdBlockNone,
+			Threshold: genai.HarmBlockThresholdOff,
 		},
 		{
 			Category:  genai.HarmCategorySexuallyExplicit,
-			Threshold: genai.HarmBlockThresholdBlockNone,
+			Threshold: genai.HarmBlockThresholdOff,
 		},
 		{
 			Category:  genai.HarmCategoryDangerousContent,
-			Threshold: genai.HarmBlockThresholdBlockNone,
+			Threshold: genai.HarmBlockThresholdOff,
 		},
 	}
 	//budget := int32(-1) // -1 means no budget limit
-	budget := int32(0) // 0 means no thinking
 	cs.config = &genai.GenerateContentConfig{
 		SystemInstruction: &genai.Content{
 			Role:  genai.RoleUser,
@@ -105,7 +106,7 @@ func NewGeminiAIChat(systemMsg string, model string) *GeminiAIChat {
 		SafetySettings: safety,
 		ThinkingConfig: &genai.ThinkingConfig{
 			IncludeThoughts: false,
-			ThinkingBudget:  &budget,
+			ThinkingBudget:  &cs.budget,
 		},
 	}
 

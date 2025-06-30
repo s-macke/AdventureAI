@@ -24,7 +24,7 @@ func parseConfig() config {
 		"Anthropic: 'claude:opus-3', 'claude:sonnet-35', 'claude:sonnet-4', 'claude:opus-4',\n"+
 		"Groq:      'groq:llama3-8b', 'groq:llama3-70b', 'groq:gemma2'\n"+
 		"ollama:    'ollama:gemma3', 'ollama:qwen3-0.6b'\n"+
-		"XAI:       'xai:grok-beta',\n"+
+		"XAI:       'xai:grok-3','xai:grok-3-mini'\n"+
 		"DeepInfra: 'deepinfra:qwen2-72b', 'deepinfra:phi3-medium', 'deepinfra:phi3-mini', \n"+
 		"DeepInfra: 'deepinfra:llama3.1-8b', 'deepinfra:llama3.1-70b', 'deepinfra:llama3.1-405b'\n")
 	oldStoryFilename := flag.String("story", "", "Continue from story file")

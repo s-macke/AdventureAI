@@ -64,8 +64,10 @@ func NewXaiChat(systemMsg string, backend string) *XaiChat {
 		prompt: systemMsg,
 	}
 	switch backend {
-	case "grok-beta":
-		cs.model = "grok-beta"
+	case "grok-3":
+		cs.model = "grok-3"
+	case "grok-3-mini":
+		cs.model = "grok-3-mini"
 	default:
 		panic("Unknown model")
 	}
