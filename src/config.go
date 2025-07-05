@@ -7,6 +7,7 @@ import (
 type config struct {
 	filename         string
 	doChat           bool
+	mcp              bool
 	prompt           string
 	backend          string
 	oldStoryFilename string
@@ -15,6 +16,7 @@ type config struct {
 func parseConfig() config {
 	filename := flag.String("file", "905.z5", "Z-Machine file to run")
 	doChat := flag.Bool("ai", false, "Chat with AI")
+	mcp := flag.Bool("mcp", false, "Start MCP server")
 	prompt := flag.String("prompt", "react", "Chat with AI via prompt 'simple', or 'discuss', 'react' (reason and act) or 'history_react'")
 	backend := flag.String("backend", "gpt-4o", "Select AI backend. One of\n"+
 		"OpenAI:    'openai:gpt-3.5', 'openai:gpt-4', 'openai:gpt-4-turbo', 'openai:gpt-4o', 'openai:o3', 'openai:o4-mini' \n"+
@@ -33,6 +35,7 @@ func parseConfig() config {
 	return config{
 		filename:         *filename,
 		doChat:           *doChat,
+		mcp:              *mcp,
 		prompt:           *prompt,
 		backend:          *backend,
 		oldStoryFilename: *oldStoryFilename,

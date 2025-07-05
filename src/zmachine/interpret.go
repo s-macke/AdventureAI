@@ -134,6 +134,20 @@ func (zm *ZMachine) InterpretExtended() {
 
 var counter = 0
 
+func (zm *ZMachine) IsNextZRead() bool {
+	// "If the next instruction is a read, then
+	opcode := zm.PeekByte()
+	form := (opcode >> 6) & 0x3
+	if form != 0x3 {
+		return false
+	}
+	twoOp := ((opcode >> 5) & 0x1) == 0
+	if twoOp {
+		return false
+	}
+	return opcode&0x1F == 0x04
+}
+
 func (zm *ZMachine) InterpretInstruction() {
 	zm.opcodeip = zm.ip
 	opcode := zm.PeekByte()
