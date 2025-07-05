@@ -119,7 +119,7 @@ func StartServer(filename string) {
 	}
 
 	s := server.NewMCPServer(
-		"AIAdventure",
+		"AdventureAI",
 		"1.0.0",
 		server.WithToolCapabilities(true),
 		server.WithRecovery(),

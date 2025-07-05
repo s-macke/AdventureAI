@@ -1,6 +1,5 @@
 package promptPattern
 
-import "C"
 import (
 	"github.com/s-macke/AdventureAI/src/chat/backend"
 	"github.com/s-macke/AdventureAI/src/chat/storyHistory"
