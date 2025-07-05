@@ -1,0 +1,22 @@
+GET https://api.x.ai/v1/language-models
+Authorization: Bearer
+
+###
+
+POST https://api.x.ai/v1/chat/completions
+Authorization: Bearer
+Content-Type: application/json
+
+{
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a test assistant."
+    },
+    {
+      "role": "user",
+      "content": "Testing. Just say hi and nothing else."
+    }
+  ],
+  "model": "grok-3"
+}

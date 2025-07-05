@@ -20,13 +20,16 @@ type SessionState struct {
 
 func (session *SessionState) RunUntilInput() string {
 	output := ""
-	for !session.zm.Done && !session.zm.IsNextZRead() {
+	for !session.zm.Done {
 		session.zm.InterpretInstruction()
 		if session.zm.Output.Len() > 0 {
 			if session.zm.WindowId == 0 {
 				output += session.zm.Output.String()
 			}
 			session.zm.Output.Reset()
+		}
+		if session.zm.IsNextZRead() {
+			break
 		}
 	}
 	return output
