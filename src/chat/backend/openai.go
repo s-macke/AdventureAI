@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"github.com/openai/openai-go"
 	"github.com/openai/openai-go/option"
-	"github.com/openai/openai-go/packages/param"
 	"github.com/openai/openai-go/responses"
 	"os"
 	"time"
@@ -69,7 +68,7 @@ func (cs *OpenAIChat) GetResponse(ch *ChatHistory) (string, int, int) {
 			OfMessage: &responses.EasyInputMessageParam{
 				Role: MapOpenAIResponsesRole(m.Role),
 				Content: responses.EasyInputMessageContentUnionParam{
-					OfString: openai.Opt(m.Content),
+					OfString: openai.String(m.Content),
 				},
 			},
 		})
@@ -81,9 +80,7 @@ func (cs *OpenAIChat) GetResponse(ch *ChatHistory) (string, int, int) {
 		responseCompletion, err = cs.client.Responses.New(
 			context.Background(),
 			responses.ResponseNewParams{
-				Instructions: param.Opt[string]{
-					Value: cs.systemMsg,
-				},
+				Instructions: openai.String(cs.systemMsg),
 				Input: responses.ResponseNewParamsInputUnion{
 					OfInputItemList: messages,
 				},

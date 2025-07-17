@@ -9,7 +9,6 @@ require (
 	github.com/liushuangls/go-anthropic/v2 v2.15.2
 	github.com/mark3labs/mcp-go v0.32.0
 	github.com/openai/openai-go v1.8.2
-	github.com/sashabaranov/go-openai v1.40.3
 	google.golang.org/genai v1.13.0
 )
 

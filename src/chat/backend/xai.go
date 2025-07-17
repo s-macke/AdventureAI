@@ -66,6 +66,8 @@ func NewXaiChat(systemMsg string, backend string) *XaiChat {
 	switch backend {
 	case "grok-3":
 		cs.model = "grok-3"
+	case "grok-4":
+		cs.model = "grok-4-0709"
 	case "grok-3-mini":
 		cs.model = "grok-3-mini"
 	default:
