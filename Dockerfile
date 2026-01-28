@@ -9,7 +9,7 @@ RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-w -s" -o /app/AdventureAI .
 
 # ---
 
-FROM alpine:latest
+FROM alpine:3.23.3
 WORKDIR /app
 
 COPY --from=builder /app/AdventureAI .
